@@ -1,3 +1,15 @@
+# COMP390 - Honours Year Computer Science Project - 2023/24
+
+## Project Title:
+Bring Powersort to Java
+
+## Currently changed files:
+- [PowerSort.java](./src/java.base/share/classes/java/util/PowerSort.java)
+
+---
+
+Following is the original README.md file from the OpenJDK repository.
+
 # Welcome to the JDK!
 
 For build instructions please see the
