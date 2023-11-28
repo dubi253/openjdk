@@ -3,6 +3,9 @@
 ## Project Title:
 Bring Powersort to Java
 
+## Powersort:
+https://www.wild-inter.net/publications/munro-wild-2018
+
 ## Currently changed files:
 - [PowerSort.java](./src/java.base/share/classes/java/util/PowerSort.java)
 
