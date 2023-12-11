@@ -144,7 +144,7 @@ import java.util.concurrent.CountedCompleter;
                     s = new EmptyCompleter(bc);
                     n = q;
                 }
-                TimSort.sort(a, b, b + n, c, w, wb, n);
+                PowerSort.sort(a, b, b + n, c, w, wb, n);
                 s.tryComplete();
             }
         }
