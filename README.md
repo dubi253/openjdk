@@ -6,11 +6,40 @@ Bring Powersort to Java
 ## Powersort:
 https://www.wild-inter.net/publications/munro-wild-2018
 
+## Code Reference
+
+Java: https://github.com/sebawild/nearly-optimal-mergesort-code
+C++: https://github.com/sebawild/powersort
+
 ## Currently changed files:
 - [PowerSort.java](./src/java.base/share/classes/java/util/PowerSort.java)
-- [ComparableTimSort.java](TimSort/ComparableTimSort.java)
+- [ComparablePowerSort.java](./src/java.base/share/classes/java/util/ComparablePowerSort.java)
 - [Arrays.java](./src/java.base/share/classes/java/util/Arrays.java)
 - [ArraysParallelSortHelpers.java](./src/java.base/share/classes/java/util/ArraysParallelSortHelpers.java)
+
+## Build JDK
+
+https://openjdk.org/groups/build/doc/building.html
+
+
+clean make if necessary
+```bash
+make dist-clean
+```
+
+```bash
+bash configure --with-jtreg=../jtreg/
+```
+
+```bash
+make images
+```
+
+## Test util library
+
+```bash
+make test TEST="jdk_util"
+```
 
 ---
 
