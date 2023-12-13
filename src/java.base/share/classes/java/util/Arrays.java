@@ -796,7 +796,7 @@ public final class Arrays {
         int n = a.length, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            TimSort.sort(a, 0, n, NaturalOrder.INSTANCE, null, 0, 0);
+            PowerSort.sort(a, 0, n, NaturalOrder.INSTANCE, null, 0, 0);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -855,7 +855,7 @@ public final class Arrays {
         int n = toIndex - fromIndex, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            TimSort.sort(a, fromIndex, toIndex, NaturalOrder.INSTANCE, null, 0, 0);
+            PowerSort.sort(a, fromIndex, toIndex, NaturalOrder.INSTANCE, null, 0, 0);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -904,7 +904,7 @@ public final class Arrays {
         int n = a.length, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            TimSort.sort(a, 0, n, cmp, null, 0, 0);
+            PowerSort.sort(a, 0, n, cmp, null, 0, 0);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -965,7 +965,7 @@ public final class Arrays {
         int n = toIndex - fromIndex, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            TimSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0);
+            PowerSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -1038,7 +1038,7 @@ public final class Arrays {
         if (LegacyMergeSort.userRequested)
             legacyMergeSort(a);
         else
-            ComparableTimSort.sort(a, 0, a.length, null, 0, 0);
+            ComparablePowerSort.sort(a, 0, a.length, null, 0, 0);
     }
 
     /** To be removed in a future release. */
@@ -1104,7 +1104,7 @@ public final class Arrays {
         if (LegacyMergeSort.userRequested)
             legacyMergeSort(a, fromIndex, toIndex);
         else
-            ComparableTimSort.sort(a, fromIndex, toIndex, null, 0, 0);
+            ComparablePowerSort.sort(a, fromIndex, toIndex, null, 0, 0);
     }
 
     /** To be removed in a future release. */
@@ -1230,7 +1230,7 @@ public final class Arrays {
             if (LegacyMergeSort.userRequested)
                 legacyMergeSort(a, c);
             else
-                TimSort.sort(a, 0, a.length, c, null, 0, 0);
+                PowerSort.sort(a, 0, a.length, c, null, 0, 0);
         }
     }
 
@@ -1304,7 +1304,7 @@ public final class Arrays {
             if (LegacyMergeSort.userRequested)
                 legacyMergeSort(a, fromIndex, toIndex, c);
             else
-                TimSort.sort(a, fromIndex, toIndex, c, null, 0, 0);
+                PowerSort.sort(a, fromIndex, toIndex, c, null, 0, 0);
         }
     }
 

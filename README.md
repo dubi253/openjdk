@@ -8,6 +8,8 @@ https://www.wild-inter.net/publications/munro-wild-2018
 
 ## Currently changed files:
 - [PowerSort.java](./src/java.base/share/classes/java/util/PowerSort.java)
+- [ComparableTimSort.java](TimSort/ComparableTimSort.java)
+- [Arrays.java](./src/java.base/share/classes/java/util/Arrays.java)
 - [ArraysParallelSortHelpers.java](./src/java.base/share/classes/java/util/ArraysParallelSortHelpers.java)
 
 ---
