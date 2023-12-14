@@ -9,6 +9,7 @@ https://www.wild-inter.net/publications/munro-wild-2018
 ## Code Reference
 
 Java: https://github.com/sebawild/nearly-optimal-mergesort-code
+
 C++: https://github.com/sebawild/powersort
 
 ## Currently changed files:
@@ -22,10 +23,15 @@ C++: https://github.com/sebawild/powersort
 https://openjdk.org/groups/build/doc/building.html
 
 
-clean make if necessary
+Optional - clean make if necessary
 ```bash
 make dist-clean
 ```
+
+
+Normal build
+
+("`../jtreg/`" is my jtreg directory, change to yours if necessary)
 
 ```bash
 bash configure --with-jtreg=../jtreg/
