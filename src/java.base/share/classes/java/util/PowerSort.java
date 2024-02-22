@@ -37,8 +37,9 @@ package java.util;
  * If onlyIncreasingRuns is true, only weakly increasing runs are picked up.
  * <p>
  * reference: https://github.com/sebawild/nearly-optimal-mergesort-code/blob/7fcabfa141080ea8379ba6acdaab3ef44c94567d/src/wildinter/net/mergesort/PowerSort.java#L100
+ * @param <T> the type of the item to be sorted
  */
-class PowerSort<T> {
+public class PowerSort<T> {
     private int minRunLen;
 
     /**
@@ -61,6 +62,18 @@ class PowerSort<T> {
     private int tmpLen;  // length of tmp array slice
     private static final int NULL_INDEX = Integer.MIN_VALUE;
 
+
+    /**
+     * If true, use the most-significant-bit trick to compute node powers;
+     * otherwise use a loop.
+     */
+    public static boolean COUNT_MERGE_COSTS = false;
+
+    /**
+     * Total merge costs of all merge calls
+     */
+    public static long totalMergeCosts = 0;
+
     /**
      * Creates a TimSort instance to maintain the state of an ongoing sort.
      *
@@ -69,8 +82,9 @@ class PowerSort<T> {
      * @param work     a workspace array (slice)
      * @param workBase origin of usable space in work array
      * @param workLen  usable size of work array
+     * @param minRunLen minimum run length
      */
-    private PowerSort(T[] a,
+    public PowerSort(T[] a,
                       Comparator<? super T> c,
                       T[] work,
                       int workBase,
@@ -113,15 +127,19 @@ class PowerSort<T> {
      * any necessary array bounds checks and expanding parameters into
      * the required forms.
      *
-     * @param a        the array to be sorted
-     * @param lo       the index of the first element, inclusive, to be sorted
-     * @param hi       the index of the last element, exclusive, to be sorted
-     * @param c        the comparator to use
-     * @param work     a workspace array (slice)
-     * @param workBase origin of usable space in work array
-     * @param workLen  usable size of work array
+     * @param <T>                the type parameter
+     * @param a                  the array to be sorted
+     * @param lo                 the index of the first element, inclusive, to be sorted
+     * @param hi                 the index of the last element, exclusive, to be sorted
+     * @param c                  the comparator to use
+     * @param work               a workspace array (slice)
+     * @param workBase           origin of usable space in work array
+     * @param workLen            usable size of work array
+     * @param useMsbMergeType    the use msb merge type
+     * @param onlyIncreasingRuns the only increasing runs
+     * @param minRunLen          the min run len
      */
-    static <T> void sort(T[] a,
+    public static <T> void sort(T[] a,
                          int lo,
                          int hi,
                          Comparator<? super T> c,
@@ -194,6 +212,12 @@ class PowerSort<T> {
         }
     }
 
+    /**
+     * Powersort.
+     *
+     * @param left  the left
+     * @param right the right
+     */
     public void powersort(int left, int right) {
         int n = right - left + 1;
         int lgnPlus2 = log2(n) + 2;
@@ -373,6 +397,7 @@ class PowerSort<T> {
         --m; // mismatch in convention with Sedgewick
         int i, j;
         assert tmp.length >= r + 1;
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (r - l + 1);
         for (i = m + 1; i > l; --i) tmp[i - 1] = a[i - 1];
         for (j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
         for (int k = l; k <= r; ++k)

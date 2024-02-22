@@ -17,6 +17,7 @@ C++: https://github.com/sebawild/powersort
 - [ComparablePowerSort.java](./src/java.base/share/classes/java/util/ComparablePowerSort.java)
 - [Arrays.java](./src/java.base/share/classes/java/util/Arrays.java)
 - [ArraysParallelSortHelpers.java](./src/java.base/share/classes/java/util/ArraysParallelSortHelpers.java)
+- [TEST.groups](test/jdk/TEST.groups)
 
 ## Build JDK
 
@@ -31,6 +32,12 @@ make dist-clean
 
 Normal build
 
+If you have jtreg installed and env PATH, you can run the following command to build the JDK:
+
+```bash
+bash configure
+```
+
 ("`../jtreg/`" is my jtreg directory, change to yours if necessary)
 
 ```bash
@@ -44,8 +51,13 @@ make images
 ## Test util library
 
 ```bash
-make test TEST="jdk_util"
+make test TEST="jdk_collections_core"
 ```
+
+```bash
+ jtreg -verbose:all -jdk:build/linux-x86_64-server-release/jdk test/jdk/java/util/PowerSort/PowerSortTest.java
+```
+
 
 ---
 

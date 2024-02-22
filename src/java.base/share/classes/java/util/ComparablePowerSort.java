@@ -34,7 +34,7 @@ package java.util;
  *
  * @author Zhan Jin
  */
-class ComparablePowerSort {
+public class ComparablePowerSort {
     private int minRunLen;
 
     /**
@@ -52,7 +52,31 @@ class ComparablePowerSort {
     private int tmpLen;  // length of tmp array slice
     private static final int NULL_INDEX = Integer.MIN_VALUE;
 
-    private ComparablePowerSort(Object[] a,
+    /**
+     * If true, use the most-significant-bit trick to compute node powers;
+     * otherwise use a loop.
+     */
+    public static boolean COUNT_MERGE_COSTS = false;
+
+    /**
+     * Total merge costs of all merge calls
+     */
+    public static long totalMergeCosts = 0;
+
+
+    /**
+     * Creates a ComparablePowerSort instance to maintain the state of an ongoing
+     * sort. The workspace array slice (workBase, workLen) is a reference to the
+     * workspace array, which is used as long as it is big enough. If not, a
+     * larger array is allocated and used instead.
+     *
+     * @param a the array to be sorted
+     * @param work a workspace array (slice)
+     * @param workBase origin of usable space in work array
+     * @param workLen usable size of work array
+     * @param minRunLen minimum run length
+     */
+    public ComparablePowerSort(Object[] a,
                                 Object[] work,
                                 int workBase,
                                 int workLen,
@@ -86,8 +110,11 @@ class ComparablePowerSort {
      * @param work a workspace array (slice)
      * @param workBase origin of usable space in work array
      * @param workLen usable size of work array
+     * @param useMsbMergeType if true, use the most-significant-bit trick
+     * @param onlyIncreasingRuns if true, only sort increasing runs
+     * @param minRunLen minimum run length
      */
-    static void sort(Object[] a,
+    public static void sort(Object[] a,
                      int lo,
                      int hi,
                      Object[] work,
@@ -159,6 +186,12 @@ class ComparablePowerSort {
         }
     }
 
+    /**
+     * Powersort.
+     *
+     * @param left  the left
+     * @param right the right
+     */
     public void powersort(int left, int right) {
         int n = right - left + 1;
         int lgnPlus2 = log2(n) + 2;
@@ -312,7 +345,7 @@ class ComparablePowerSort {
         }
     }
 
-    public static int log2(int n) {
+    private static int log2(int n) {
         if (n == 0) throw new IllegalArgumentException("lg(0) undefined");
         return 31 - Integer.numberOfLeadingZeros(n);
     }
@@ -338,6 +371,7 @@ class ComparablePowerSort {
         --m; // mismatch in convention with Sedgewick
         int i, j;
         assert tmp.length >= r + 1;
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (r - l + 1);
         for (i = m + 1; i > l; --i) tmp[i - 1] = a[i - 1];
         for (j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
         for (int k = l; k <= r; ++k)
