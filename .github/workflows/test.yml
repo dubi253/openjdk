@@ -226,34 +226,14 @@ jobs:
         if: steps.run-tests.outputs.failure == 'true'
 
       # Deploy the test results to GitHub Pages
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
-        with:
-          hugo-version: '0.110.0'
-
-      - name: Build
-        run: hugo --minify
 
       - name: Publish Jtreg Report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          external_repository: ${{ github.repository }}
-          publish_dir: ./public
+          publish_dir: build/run-test-prebuilt/test-results
           publish_branch: gh-pages
-          cname: jtreg.openjdk.java.net
-          commit_message: ${{ github.event.head_commit.message }}
-          allow_empty_commit: true
-          force_orphan: true
-          keep_files: true
-          clean: true
-          enable_jekyll: true
-          jekyll_build_options: --config _config.yml,_config_gh_pages.yml
-          commit_user_name: ${{ github.event.head_commit.author.name }}
-          commit_user_email: ${{ github.event.head_commit.author.email }}
-          commit_author: ${{ github.event.head_commit.author.name }} <${{ github.event.head_commit.author.email }}>
