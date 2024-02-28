@@ -408,11 +408,11 @@ jobs:
 
       - name: 'Upload bundles to release'
         uses: softprops/action-gh-release@v1
-          with:
-            files: |
-            bundles-*
-            tag: ${{ github.ref }}
-          if: steps.bundles.outputs.bundles-found == 'true'
-          prerelease: true
-          body: |
-            Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.
+        with:
+          files: |
+          bundles-*
+          tag: ${{ github.ref }}
+        if: steps.bundles.outputs.bundles-found == 'true'
+        prerelease: true
+        body: |
+          Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.
