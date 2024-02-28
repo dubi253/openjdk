@@ -37,10 +37,11 @@ package java.util;
  * If onlyIncreasingRuns is true, only weakly increasing runs are picked up.
  * <p>
  * reference: https://github.com/sebawild/nearly-optimal-mergesort-code/blob/7fcabfa141080ea8379ba6acdaab3ef44c94567d/src/wildinter/net/mergesort/PowerSort.java#L100
+ *
  * @param <T> the type of the item to be sorted
  */
 public class PowerSort<T> {
-    private int minRunLen;
+    private final int minRunLen;
 
     /**
      * The array being sorted.
@@ -77,14 +78,14 @@ public class PowerSort<T> {
     /**
      * Creates a TimSort instance to maintain the state of an ongoing sort.
      *
-     * @param a        the array to be sorted
-     * @param c        the comparator to determine the order of the sort
-     * @param work     a workspace array (slice)
-     * @param workBase origin of usable space in work array
-     * @param workLen  usable size of work array
+     * @param a         the array to be sorted
+     * @param c         the comparator to determine the order of the sort
+     * @param work      a workspace array (slice)
+     * @param workBase  origin of usable space in work array
+     * @param workLen   usable size of work array
      * @param minRunLen minimum run length
      */
-    public PowerSort(T[] a,
+    private PowerSort(T[] a,
                       Comparator<? super T> c,
                       T[] work,
                       int workBase,
@@ -140,15 +141,15 @@ public class PowerSort<T> {
      * @param minRunLen          the min run len
      */
     public static <T> void sort(T[] a,
-                         int lo,
-                         int hi,
-                         Comparator<? super T> c,
-                         T[] work,
-                         int workBase,
-                         int workLen,
-                         final boolean useMsbMergeType,
-                         final boolean onlyIncreasingRuns,
-                         final int minRunLen) {
+                                int lo,
+                                int hi,
+                                Comparator<? super T> c,
+                                T[] work,
+                                int workBase,
+                                int workLen,
+                                final boolean useMsbMergeType,
+                                final boolean onlyIncreasingRuns,
+                                final int minRunLen) {
 
         if (!useMsbMergeType && onlyIncreasingRuns)
             throw new UnsupportedOperationException();
@@ -157,7 +158,7 @@ public class PowerSort<T> {
 
         assert c != null && a != null && lo >= 0 && lo <= hi && hi <= a.length;
 
-        int nRemaining  = hi - lo;
+        int nRemaining = hi - lo;
         if (nRemaining < 2)
             return;  // Arrays of size 0 and 1 are always sorted
 
@@ -225,19 +226,19 @@ public class PowerSort<T> {
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(a, startA, right, c);
+        int startA = left, endA = extendAndReverseRunRight(startA, right);
         // extend to minRunLen
         int lenA = endA - startA + 1;
-        if (lenA < minRunLen) {
-            endA = Math.min(right, startA + minRunLen - 1);
+        if (lenA < this.minRunLen) {
+            endA = Math.min(right, startA + this.minRunLen - 1);
             insertionsort(startA, endA, lenA);
         }
         while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(a, startB, right, c);
+            int startB = endA + 1, endB = extendAndReverseRunRight(startB, right);
             // extend to minRunLen
             int lenB = endB - startB + 1;
-            if (lenB < minRunLen) {
-                endB = Math.min(right, startB + minRunLen - 1);
+            if (lenB < this.minRunLen) {
+                endB = Math.min(right, startB + this.minRunLen - 1);
                 insertionsort(startB, endB, lenB);
             }
             int k = nodePower(left, right, startA, startB, endB);
@@ -269,9 +270,9 @@ public class PowerSort<T> {
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(a, startA, right, c);
+        int startA = left, endA = extendAndReverseRunRight(startA, right);
         while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(a, startB, right, c);
+            int startB = endA + 1, endB = extendAndReverseRunRight(startB, right);
             int k = nodePowerBitwise(left, right, startA, startB, endB);
             assert k != top;
             // clear left subtree bottom-up if needed
@@ -296,12 +297,20 @@ public class PowerSort<T> {
     }
 
     private int extendWeaklyIncreasingRunRight(int i, final int right) {
+        // use local variables for performance
+        T[] a = this.a;
+        Comparator<? super T> c = this.c;
+
         while (i < right && c.compare(a[i + 1], a[i]) >= 0) ++i;
         return i;
     }
 
-    private static <T> int extendAndReverseRunRight(T[] a, int i, final int right,
-                                         Comparator<? super T> c) {
+    private int extendAndReverseRunRight(int i, final int right) {
+        // use local variables for performance
+        T[] a = this.a;
+        Comparator<? super T> c = this.c;
+
+
         assert i <= right;
         int j = i;
         if (j == right) return j;
@@ -340,6 +349,10 @@ public class PowerSort<T> {
      * increasing run
      */
     private void insertionsort(int left, int right, int nPresorted) {
+        // use local variables for performance
+        T[] a = this.a;
+        Comparator<? super T> c = this.c;
+
         assert right >= left;
         assert right - left + 1 >= nPresorted;
         for (int i = left + nPresorted; i <= right; ++i) {
@@ -375,7 +388,6 @@ public class PowerSort<T> {
         boolean digitA = l >= n, digitB = r >= n;
         while (digitA == digitB) {
             ++nCommonBits;
-//			if (digitA) { l -= n; r -= n; }
             l -= digitA ? n : 0;
             r -= digitA ? n : 0;
             l <<= 1;
@@ -393,32 +405,22 @@ public class PowerSort<T> {
      * tmp.length must be at least r+1.
      */
     private void mergeRuns(int l, int m, int r) {
-        ensureCapacity(r + 1);
-        --m; // mismatch in convention with Sedgewick
-        int i, j;
-        assert tmp.length >= r + 1;
+        // use local variables for performance
+        T[] a = this.a;
+        Comparator<? super T> c = this.c;
+        T[] tmp = this.tmp;
+
+        --m; // Adjust convention with Sedgewick
+
         if (COUNT_MERGE_COSTS) totalMergeCosts += (r - l + 1);
-        for (i = m + 1; i > l; --i) tmp[i - 1] = a[i - 1];
-        for (j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
+
+        assert tmp.length >= r + 1;
+        // Prepare the temporary array.
+        if (m + 1 - l >= 0) System.arraycopy(a, l, tmp, l, m + 1 - l);
+        for (int j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
+
+        int i = l, j = r;
         for (int k = l; k <= r; ++k)
             a[k] = c.compare(tmp[j], tmp[i]) < 0 ? tmp[j--] : tmp[i++];
-    }
-
-    /**
-     * Ensures that the external array tmp has at least the specified
-     * number of elements, increasing its size if necessary.
-     *
-     * @param minCapacity the minimum required capacity of the tmp array
-     */
-    private void ensureCapacity(int minCapacity) {
-        if (tmpLen < minCapacity) {
-
-            @SuppressWarnings({"unchecked", "UnnecessaryLocalVariable"})
-            T[] newArray = (T[]) java.lang.reflect.Array.newInstance
-                    (a.getClass().getComponentType(), minCapacity);
-            tmp = newArray;
-            tmpLen = minCapacity;
-            tmpBase = 0;
-        }
     }
 }

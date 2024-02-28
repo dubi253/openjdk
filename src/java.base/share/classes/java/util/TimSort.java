@@ -700,6 +700,9 @@ public class TimSort<T> {
     private void mergeLo(int base1, int len1, int base2, int len2) {
         assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
 
+        // Count merge costs
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
+
         // Copy first run into temp array
         T[] a = this.a; // For performance
         T[] tmp = ensureCapacity(len1);
@@ -815,6 +818,9 @@ public class TimSort<T> {
      */
     private void mergeHi(int base1, int len1, int base2, int len2) {
         assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
+
+        // Count merge costs
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
 
         // Copy second run into temp array
         T[] a = this.a; // For performance
