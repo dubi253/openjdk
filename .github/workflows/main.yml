@@ -415,10 +415,11 @@ jobs:
         with:
           node-version: 'latest'
 
-      - name: Download Artifacts
+      - name: Download test results
         uses: actions/download-artifact@v4
         with:
-          name: results-*
+          pattern: results-*
+          merge-multiple: true
           path: artifacts
 
       - name: Unzip Artifacts
@@ -461,9 +462,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Generate release tag
+        id: tag
+        run: |
+          echo "::set-output name=release_tag::AutoBuild_$(date +"%Y.%m.%d_%H-%M")"
+
       - name: 'Upload bundles to release'
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           files: |
             bundles-*
           body: |
