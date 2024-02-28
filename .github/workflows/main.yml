@@ -394,3 +394,25 @@ jobs:
                 -X DELETE "$url" \
             || echo "Failed to remove bundle"
           done
+
+  make-release-from-artifacts:
+    name: 'Make release from artifacts'
+    runs-on: ubuntu-22.04
+    if: always()
+    needs:
+      - remove-bundles
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: 'Upload bundles to release'
+        uses: softprops/action-gh-release@v1
+          with:
+            files: |
+            bundles-*
+            tag: ${{ github.ref }}
+          if: steps.bundles.outputs.bundles-found == 'true'
+          prerelease: true
+          body: |
+            Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.

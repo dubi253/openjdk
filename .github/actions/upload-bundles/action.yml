@@ -75,18 +75,3 @@ runs:
         path: bundles
         retention-days: 1
       if: steps.bundles.outputs.bundles-found == 'true'
-
-    - name: 'Upload bundles to release'
-      uses: softprops/action-gh-release@v1
-        with:
-          files: |
-          bundles/jdk-${{ inputs.platform }}${{ inputs.debug-suffix }}.zip
-          bundles/jdk-${{ inputs.platform }}${{ inputs.debug-suffix }}.tar.gz
-          bundles/symbols-${{ inputs.platform }}${{ inputs.debug-suffix }}.tar.gz
-          bundles/tests-${{ inputs.platform }}${{ inputs.debug-suffix }}.tar.gz
-          tag: ${{ github.ref }}
-        if: steps.bundles.outputs.bundles-found == 'true'
-        prerelease: true
-        token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }} built from ${{ github.ref }}
