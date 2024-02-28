@@ -411,7 +411,6 @@ jobs:
         with:
           files: |
             bundles-*
-        if: steps.bundles.outputs.bundles-found == 'true'
+          body: |
+            Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.
         prerelease: true
-        body: |
-          Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.
