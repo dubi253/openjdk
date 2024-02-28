@@ -368,6 +368,7 @@ jobs:
       - test-linux-x64
       - test-linux-x86
       - test-macos-x64
+      - test-macos-aarch64
       - test-windows-x64
 
     steps:
@@ -394,6 +395,60 @@ jobs:
                 -X DELETE "$url" \
             || echo "Failed to remove bundle"
           done
+
+  deploy-test-results-to-gh-pages:
+    name: 'Deploy test results to GitHub Pages'
+    runs-on: ubuntu-latest
+    if: always()
+    needs:
+      - test-linux-x64
+      - test-linux-x86
+      - test-macos-x64
+      - test-macos-aarch64
+      - test-windows-x64
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'latest'
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: results-*
+          path: artifacts
+
+      - name: Unzip Artifacts
+        run: |
+          mkdir -p unzipped
+          for file in artifacts/results-*.zip; do
+            unzip -d unzipped "$file"
+            dirname=$(basename "$file" .zip)
+            for subzip in unzipped/$dirname/*.zip; do
+              unzip -d unzipped/$dirname "$(basename "$subzip")"
+            done
+          done
+
+      - name: Generate Index Page
+        run: |
+          echo "<html><body><h1>Test Results Index Page</h1><ul>" > index.html
+          for dir in unzipped/results-*; do
+            if [ -d "$dir/test-results" ]; then
+              for sub_dir in "$dir"/test-results/jtreg_*; do
+                echo "<li><a href='/$dir/$(basename "$sub_dir")/index.html'>$(basename "$sub_dir")</a></li>" >> index.html
+              done
+            fi
+          done
+          echo "</ul></body></html>" >> index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./unzipped
 
   make-release-from-artifacts:
     name: 'Make release from artifacts'

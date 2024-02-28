@@ -224,16 +224,3 @@ jobs:
         with:
           script: core.setFailed('${{ steps.run-tests.outputs.error-message }}')
         if: steps.run-tests.outputs.failure == 'true'
-
-      # Deploy the test results to GitHub Pages
-      - uses: actions/checkout@v4
-        with:
-          submodules: true  # Fetch Hugo themes (true OR recursive)
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
-
-
-      - name: Publish Jtreg Report to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          publish_dir: build/run-test-prebuilt/test-results
-          publish_branch: gh-pages
