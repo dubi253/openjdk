@@ -415,41 +415,46 @@ jobs:
         with:
           node-version: 'latest'
 
-      - name: Download test results
+      - name: 'Download all bundles artifact'
+        id: download-all-bundles
         uses: actions/download-artifact@v4
         with:
-          merge-multiple: true
           path: artifacts
 
-      - name: Unzip Artifacts
+      - name: list all folders under artifacts
         run: |
-          mkdir -p results
+          ls -la artifacts
 
-          for zipFile in ./artifacts/results-*.zip; do
-            fileName=$(basename "$zipFile")
-            dirName="./results/${fileName%.zip}"
-            mkdir -p "$dirName"
-            unzip "$zipFile" -d "$dirName"
-        
-            rm -f "$zipFile"
-        
-            find "$dirName" -type f -name '*.zip' -exec bash -c '{
-              zipPath="$0"
-              baseDir=$(dirname "$zipPath")
-              zipName=$(basename "$zipPath")
-              unzipDir="$baseDir/${zipName%.zip}"
-              
-              mkdir -p "$unzipDir"
-              unzip -q "$zipPath" -d "$unzipDir"
-              
-              rm "$zipPath"
-            }' {} \;
+      - name: move all folder begin with results- to folder test-reports
+        run: |
+          mkdir test-reports
+          mv artifacts/results-* test-reports
+
+      - name: Unzip every zip file in test-reports/results-* folder to its own folder
+        run: |
+          # Set the base directory where the 'results-*' folders are located
+          base_directory="./test-reports"
+          
+          # Find and process every zip file within directories named 'results-*'
+          find "$base_directory" -type d -name 'results-*' | while read directory; do
+            echo "Processing directory: $directory"
+            # Find zip files within the current 'results-*' directory
+            find "$directory" -type f -name '*.zip' | while read zipfile; do
+              # Extract the base name of the zip file (without the .zip extension)
+              base_name=$(basename "$zipfile" .zip)
+              # Create a directory with the same name as the zip file
+              mkdir -p "$directory/$base_name"
+              # Unzip the file into the newly created directory
+              unzip -o "$zipfile" -d "$directory/$base_name"
+              # Optionally, delete the zip file if you want to keep the workspace clean
+              # rm "$zipfile"
+            done
           done
 
       - name: Generate Index Page
         run: |
           echo "<html><body><h1>Test Results Index Page</h1><ul>" > index.html
-          for dir in results/results-*; do
+          for dir in ./test-reports/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do
                 echo "<li><a href='/$dir/$(basename "$sub_dir")/index.html'>$(basename "$sub_dir")</a></li>" >> index.html
@@ -462,7 +467,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./unzipped
+          publish_dir: ./test-reports
 
       - name: Generate release tag
         id: tag
@@ -472,6 +477,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: artifacts/bundles-*.zip
-          body: Automated builded from github actions for ${{ github.repository }} commit ${{ github.sha }}.
+          files: artifacts/bundles-*/jdk-*.zip
+          body: |
+            Automated builded from github actions for ${{ github.repository }} commit ${{ github.sha }}.
+            Supported platforms: ${{ secrets.JDK_SUBMIT_PLATFORMS }}.
           prerelease: true
