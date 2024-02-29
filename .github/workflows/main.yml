@@ -410,11 +410,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 'latest'
-
       - name: 'Download all bundles artifact'
         id: download-all-bundles
         uses: actions/download-artifact@v4
@@ -474,21 +469,13 @@ jobs:
 
       - name: Generate release tag
         id: tag
-        run: echo "release_tag=$(date +'%Y-%m-%d_%H-%M-%S')-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
-
-      - name: Find Release Assets
-        id: find-assets
-        run: |
-          FILES=$(find ./artifacts/bundles-* -type f -name 'jdk-*' | tr '\n' ',')
-          FILES="${FILES%,}"
-          echo "Found files: $FILES"
-          echo "files=$files" >> $GITHUB_OUTPUT
+        run: echo "release_tag=$(date +'%Y-%m-%d_%H-%M-%S')" >> $GITHUB_OUTPUT
 
       - name: 'Upload bundles to release'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: ${{ steps.find-assets.outputs.files }}
+          files: /artifacts/bundles-*/jdk-*
           body: |
             Automated builded from github actions for ${{ github.repository }} commit ${{ github.sha }}.
             Supported platforms: ${{ secrets.JDK_SUBMIT_PLATFORMS }}.
