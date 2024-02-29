@@ -459,7 +459,11 @@ jobs:
           echo "</ul></body></html>" >> index.html
           echo "index.html"
           mv index.html test-reports
-          
+
+      - name:  move all folder begin with results- to folder test-reports in test-reports
+        run: |
+          mkdir test-reports/test-reports
+          mv test-reports/results-* test-reports/test-reports 
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
