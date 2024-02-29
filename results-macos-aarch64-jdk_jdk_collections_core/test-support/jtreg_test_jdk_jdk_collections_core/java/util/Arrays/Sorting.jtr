@@ -1,0 +1,1795 @@
+#Test Results (version 2)
+#Thu Feb 29 03:03:16 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=Josh Bloch
+keywords=bug6880672 bug6896573 bug6899694 bug6976036 bug7013585 bug7018258 bug8003981 bug8226297 othervm
+run=USER_SPECIFIED compile/module\=java.base java/util/SortingHelper.java\nUSER_SPECIFIED build Sorting\nUSER_SPECIFIED main/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:DisableIntrinsic\=_arraySort,_arrayPartition Sorting -shortrun\nUSER_SPECIFIED main/othervm -XX\:-TieredCompilation -XX\:CompileCommand\=CompileThresholdScaling,java.util.DualPivotQuicksort\:\:sort,0.0001 Sorting -shortrun\n
+source=Sorting.java
+title=Exercise Arrays.sort, Arrays.parallelSort
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java
+elapsed=7997 0\:00\:07.997
+end=Thu Feb 29 03\:03\:16 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.23
+javatestOS=Mac OS X 14.2.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-02-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build compile build main build main
+start=Thu Feb 29 03\:03\:08 UTC 2024
+test=java/util/Arrays/Sorting.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.2.1,family\:mac,simple_arch\:aarch64,simple_version\:14.2,processors\:3,maxMemory\:7516192768,maxSwap\:0]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.2.1
+totalTime=7997
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/java/util/Arrays
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4ebb60e40d9a41e20dd3cc667045340097037f73)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4ebb60e40d9a41e20dd3cc667045340097037f73, mixed mode, sharing)
+
+#section:compile
+----------messages:(7/340)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base/java/util/SortingHelper.java
+reason: User specified action: run compile/module=java.base java/util/SortingHelper.java 
+started: Thu Feb 29 03:03:08 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Thu Feb 29 03:03:08 UTC 2024
+elapsed time (seconds): 0.046
+----------configuration:(12/948)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/patches/java.base
+
+javac compilation environment
+  add reads:  java.base ALL-UNNAMED
+  class path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base 
+              /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base
+                        /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base
+
+----------rerun:(35/3529)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Arrays/Sorting.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.patch.path= \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/java.base/java/util/SortingHelper.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/215)----------
+command: build Sorting
+reason: User specified action: run build Sorting 
+started: Thu Feb 29 03:03:08 UTC 2024
+Test directory:
+  compile: Sorting
+finished: Thu Feb 29 03:03:08 UTC 2024
+elapsed time (seconds): 0.123
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/274)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java
+reason: .class file out of date or does not exist
+started: Thu Feb 29 03:03:08 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Thu Feb 29 03:03:08 UTC 2024
+elapsed time (seconds): 0.122
+----------configuration:(12/924)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/patches/java.base
+
+javac compilation environment
+  add reads:   java.base ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d 
+  patch:       java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base
+
+----------rerun:(36/3488)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Arrays/Sorting.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -J-Dtest.patch.path= \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/169)----------
+command: build Sorting
+reason: Named class compiled on demand
+started: Thu Feb 29 03:03:08 UTC 2024
+finished: Thu Feb 29 03:03:08 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/442)----------
+command: main -XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=_arraySort,_arrayPartition Sorting -shortrun
+reason: User specified action: run main/othervm -XX:+UnlockDiagnosticVMOptions -XX:DisableIntrinsic=_arraySort,_arrayPartition Sorting -shortrun 
+started: Thu Feb 29 03:03:08 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+finished: Thu Feb 29 03:03:13 UTC 2024
+elapsed time (seconds): 4.417
+----------configuration:(3/194)----------
+Boot Layer
+  patch: java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base
+
+----------System.out:(743/70074)----------
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE LATCH
+
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE LATCH
+
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, INT    STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, LONG   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, BYTE   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, CHAR   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, SHORT  STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, FLOAT  STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, DOUBLE STEPS
+
+[Dual-Pivot Quicksort] 'Test negative zero -0.0' length = 1, random = C0FFEE FLOAT 
+[Dual-Pivot Quicksort] 'Test negative zero -0.0' length = 1, random = C0FFEE DOUBLE
+
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, rand
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE RING
+
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, DOUBLE
+
+[Arrays.parallelSort] 'Test negative zero -0.0' length = 10000, random = C0FFEE FLOAT 
+[Arrays.parallelSort] 'Test negative zero -0.0' length = 10000, random = C0FFEE DOUBLE
+
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6924, g = 769, z = 769, n = 769, p = 769, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6924, g = 769, z = 769, n = 769, p = 769, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6668, g = 833, z = 833, n = 833, p = 833, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6668, g = 833, z = 833, n = 833, p = 833, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6364, g = 909, z = 909, n = 909, p = 909, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6364, g = 909, z = 909, n = 909, p = 909, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6000, g = 1000, z = 1000, n = 1000, p = 1000, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6000, g = 1000, z = 1000, n = 1000, p = 1000, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5556, g = 1111, z = 1111, n = 1111, p = 1111, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5556, g = 1111, z = 1111, n = 1111, p = 1111, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5000, g = 1250, z = 1250, n = 1250, p = 1250, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5000, g = 1250, z = 1250, n = 1250, p = 1250, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 4288, g = 1428, z = 1428, n = 1428, p = 1428, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 4288, g = 1428, z = 1428, n = 1428, p = 1428, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 3336, g = 1666, z = 1666, n = 1666, p = 1666, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 3336, g = 1666, z = 1666, n = 1666, p = 1666, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 2000, g = 2000, z = 2000, n = 2000, p = 2000, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 2000, g = 2000, z = 2000, n = 2000, p = 2000, DOUBLE
+
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, DOUBLE
+
+[Arrays.parallelSort] 'Test stability' length = 10000, random = C0FFEE
+
+PASSED in 4 sec.
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3649)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Arrays/Sorting.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:DisableIntrinsic=_arraySort,_arrayPartition \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/java/util/Arrays/Sorting.d/main.0.jta -shortrun
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/167)----------
+command: build Sorting
+reason: Named class compiled on demand
+started: Thu Feb 29 03:03:13 UTC 2024
+finished: Thu Feb 29 03:03:13 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/500)----------
+command: main -XX:-TieredCompilation -XX:CompileCommand=CompileThresholdScaling,java.util.DualPivotQuicksort::sort,0.0001 Sorting -shortrun
+reason: User specified action: run main/othervm -XX:-TieredCompilation -XX:CompileCommand=CompileThresholdScaling,java.util.DualPivotQuicksort::sort,0.0001 Sorting -shortrun 
+started: Thu Feb 29 03:03:13 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+finished: Thu Feb 29 03:03:16 UTC 2024
+elapsed time (seconds): 3.408
+----------configuration:(3/194)----------
+Boot Layer
+  patch: java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base
+
+----------System.out:(743/70074)----------
+CompileCommand: CompileThresholdScaling java/util/DualPivotQuicksort.sort double CompileThresholdScaling = 0.000100
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 1, random = C0FFEE, m = 1, DOUBLE LATCH
+
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with check sum' length = 1, random = C0FFEE, m = 1, DOUBLE LATCH
+
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, INT    STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, LONG   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, BYTE   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, CHAR   STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, SHORT  STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, FLOAT  STEPS
+[Dual-Pivot Quicksort] 'Test with scrambling' length = 1, random = C0FFEE, m = 1, DOUBLE STEPS
+
+[Dual-Pivot Quicksort] 'Test negative zero -0.0' length = 1, random = C0FFEE FLOAT 
+[Dual-Pivot Quicksort] 'Test negative zero -0.0' length = 1, random = C0FFEE DOUBLE
+
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, INT    LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, LONG   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, BYTE   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, CHAR   LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, SHORT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, FLOAT  LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 1, DOUBLE LATCH
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE RANDOM
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE ASCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE DESCENDING
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE EQUAL
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE SAW
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE REPEATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE DUPLICATED
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE ORGAN_PIPES
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE STAGGER
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, LONG   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, BYTE   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, CHAR   PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, SHORT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, FLOAT  PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, DOUBLE PLATEAU
+[Dual-Pivot Quicksort] 'Test with insertion sort' length = 8, random = C0FFEE, m = 2, INT    SHUFFLE
+[Dual-Pivot Quicksort] 'Test with insertion sort' l
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 48, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 49, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 50, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 51, DOUBLE RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE ASCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE DESCENDING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE POINT
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE LINE
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE PEARL
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, INT    RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, LONG   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, BYTE   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, CHAR   RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, SHORT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, FLOAT  RING
+[Arrays.parallelSort] 'Test merging sort' length = 10000, random = C0FFEE, m = 52, DOUBLE RING
+
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 8, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 16, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 32, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 64, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 128, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 256, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 512, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 1024, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 2048, DOUBLE
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, INT   
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, LONG  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, BYTE  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, CHAR  
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, SHORT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, FLOAT 
+[Arrays.parallelSort] 'Test subarray' length = 10000, random = C0FFEE, m = 4096, DOUBLE
+
+[Arrays.parallelSort] 'Test negative zero -0.0' length = 10000, random = C0FFEE FLOAT 
+[Arrays.parallelSort] 'Test negative zero -0.0' length = 10000, random = C0FFEE DOUBLE
+
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6924, g = 769, z = 769, n = 769, p = 769, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6924, g = 769, z = 769, n = 769, p = 769, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6668, g = 833, z = 833, n = 833, p = 833, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6668, g = 833, z = 833, n = 833, p = 833, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6364, g = 909, z = 909, n = 909, p = 909, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6364, g = 909, z = 909, n = 909, p = 909, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6000, g = 1000, z = 1000, n = 1000, p = 1000, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 6000, g = 1000, z = 1000, n = 1000, p = 1000, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5556, g = 1111, z = 1111, n = 1111, p = 1111, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5556, g = 1111, z = 1111, n = 1111, p = 1111, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5000, g = 1250, z = 1250, n = 1250, p = 1250, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 5000, g = 1250, z = 1250, n = 1250, p = 1250, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 4288, g = 1428, z = 1428, n = 1428, p = 1428, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 4288, g = 1428, z = 1428, n = 1428, p = 1428, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 3336, g = 1666, z = 1666, n = 1666, p = 1666, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 3336, g = 1666, z = 1666, n = 1666, p = 1666, DOUBLE
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 2000, g = 2000, z = 2000, n = 2000, p = 2000, FLOAT 
+[Arrays.parallelSort] 'Test float-pointing sorting' length = 10000, random = C0FFEE, a = 2000, g = 2000, z = 2000, n = 2000, p = 2000, DOUBLE
+
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 16, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 32, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 64, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 128, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 256, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 512, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 1024, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 2048, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 4096, DOUBLE
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, INT   
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, LONG  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, BYTE  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, CHAR  
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, SHORT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, FLOAT 
+[Arrays.parallelSort] 'Test range check' length = 10000, random = C0FFEE, m = 8192, DOUBLE
+
+[Arrays.parallelSort] 'Test stability' length = 10000, random = C0FFEE
+
+PASSED in 3 sec.
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3678)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Arrays/Sorting.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays/Sorting.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Arrays \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/classes/0/java/util/Arrays/Sorting.d/patches/java.base \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:-TieredCompilation \\
+        -XX:CompileCommand=CompileThresholdScaling,java.util.DualPivotQuicksort::sort,0.0001 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_jdk_collections_core/java/util/Arrays/Sorting.d/main.1.jta -shortrun
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful
