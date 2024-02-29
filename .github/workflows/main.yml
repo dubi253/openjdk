@@ -396,8 +396,8 @@ jobs:
             || echo "Failed to remove bundle"
           done
 
-  deploy-test-results-to-gh-pages:
-    name: 'Deploy test results to GitHub Pages'
+  deploy-test-results-and-make-release:
+    name: 'Deploy test results to GitHub Pages and make release from artifacts'
     runs-on: ubuntu-latest
     if: always()
     needs:
@@ -418,25 +418,38 @@ jobs:
       - name: Download test results
         uses: actions/download-artifact@v4
         with:
-          pattern: results-*
           merge-multiple: true
           path: artifacts
 
       - name: Unzip Artifacts
         run: |
-          mkdir -p unzipped
-          for file in artifacts/results-*.zip; do
-            unzip -d unzipped "$file"
-            dirname=$(basename "$file" .zip)
-            for subzip in unzipped/$dirname/*.zip; do
-              unzip -d unzipped/$dirname "$(basename "$subzip")"
-            done
+          mkdir -p results
+
+          for zipFile in ./artifacts/results-*.zip; do
+            fileName=$(basename "$zipFile")
+            dirName="./results/${fileName%.zip}"
+            mkdir -p "$dirName"
+            unzip "$zipFile" -d "$dirName"
+        
+            rm -f "$zipFile"
+        
+            find "$dirName" -type f -name '*.zip' -exec bash -c '{
+              zipPath="$0"
+              baseDir=$(dirname "$zipPath")
+              zipName=$(basename "$zipPath")
+              unzipDir="$baseDir/${zipName%.zip}"
+              
+              mkdir -p "$unzipDir"
+              unzip -q "$zipPath" -d "$unzipDir"
+              
+              rm "$zipPath"
+            }' {} \;
           done
 
       - name: Generate Index Page
         run: |
           echo "<html><body><h1>Test Results Index Page</h1><ul>" > index.html
-          for dir in unzipped/results-*; do
+          for dir in results/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do
                 echo "<li><a href='/$dir/$(basename "$sub_dir")/index.html'>$(basename "$sub_dir")</a></li>" >> index.html
@@ -451,28 +464,14 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./unzipped
 
-  make-release-from-artifacts:
-    name: 'Make release from artifacts'
-    runs-on: ubuntu-22.04
-    if: always()
-    needs:
-      - remove-bundles
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Generate release tag
         id: tag
-        run: |
-          echo "::set-output name=release_tag::AutoBuild_$(date +"%Y.%m.%d_%H-%M")"
+        run: echo "release_tag=$(date +'%Y-%m-%d_%H-%M-%S')-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
       - name: 'Upload bundles to release'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: |
-            bundles-*
-          body: |
-            Bundles for ${{ inputs.platform }}${{ inputs.debug-suffix }}.
+          files: artifacts/bundles-*.zip
+          body: Automated builded from github actions for ${{ github.repository }} commit ${{ github.sha }}.
           prerelease: true
