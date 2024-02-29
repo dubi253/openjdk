@@ -462,6 +462,9 @@ jobs:
             fi
           done
           echo "</ul></body></html>" >> index.html
+          echo "index.html"
+          mv index.html test-reports
+          
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -473,11 +476,19 @@ jobs:
         id: tag
         run: echo "release_tag=$(date +'%Y-%m-%d_%H-%M-%S')-$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
 
+      - name: Find Release Assets
+        id: find-assets
+        run: |
+          FILES=$(find ./artifacts/bundles-* -type f -name 'jdk-*' | tr '\n' ',')
+          FILES="${FILES%,}"
+          echo "Found files: $FILES"
+          echo "files=$files" >> $GITHUB_OUTPUT
+
       - name: 'Upload bundles to release'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
-          files: artifacts/bundles-*/jdk-*.zip
+          files: ${{ steps.find-assets.outputs.files }}
           body: |
             Automated builded from github actions for ${{ github.repository }} commit ${{ github.sha }}.
             Supported platforms: ${{ secrets.JDK_SUBMIT_PLATFORMS }}.
