@@ -18,6 +18,12 @@ C++: https://github.com/sebawild/powersort
 - [Arrays.java](./src/java.base/share/classes/java/util/Arrays.java)
 - [ArraysParallelSortHelpers.java](./src/java.base/share/classes/java/util/ArraysParallelSortHelpers.java)
 - [TEST.groups](test/jdk/TEST.groups)
+- [PowerSortTest folder](test/jdk/java/util/PowerSort/)
+- [GitHub Actions CI/CD workflow files](.github/workflows/)
+
+## Test results
+
+https://dubi253.github.io/openjdk/
 
 ## Build JDK
 

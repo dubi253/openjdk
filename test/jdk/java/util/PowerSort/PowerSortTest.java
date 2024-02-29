@@ -111,9 +111,8 @@ public class PowerSortTest {
                     final long startNanos = System.nanoTime();
                     algo.sort(a, comp);
                     final long endNanos = System.nanoTime();
-                    if (ABORT_IF_RESULT_IS_NOT_SORTED && !testInput.isSorted()) {
-                        System.err.println("RESULT NOT SORTED!");
-                        System.exit(3);
+                    if (ABORT_IF_RESULT_IS_NOT_SORTED) {
+                        testInput.checkSorted();
                     }
                     final double msDiff = (endNanos - startNanos) / 1e6;  // 1e6 is 10^6, so it's converting nanoseconds to milliseconds
                     if (r != 0) {

@@ -26,15 +26,12 @@ public class RuleApplication<T> {
         return generatedArray;
     }
 
-    public boolean isSorted() {
+    public void checkSorted() {
         for (int i = 0; i < generatedArray.length - 1; i++) {
             if (comp.compare(generatedArray[i + 1], generatedArray[i]) < 0) {
-                System.out.println(this);
-                System.out.println("Unsorted: " + generatedArray[i] + " " + generatedArray[i + 1] + " at " + i);
-                return false;
+                throw new RuntimeException(this + " is not sorted at " + i + " " + generatedArray[i] + " " + generatedArray[i + 1]);
             }
         }
-        return true;
     }
 
     public Comparator<? super T> getComparator() {
