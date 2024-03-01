@@ -466,18 +466,18 @@ jobs:
           done
           echo "</ul></body></html>" >> index.html
           echo "index.html"
-          mv index.html test-reports
+          mv index.html gh-pages
 
-      - name: move all folder begin with results- to folder test-reports in test-reports
+      - name: move all folder begin with results- to folder test-reports in gh-pages
         run: |
-          mkdir test-reports/test-reports
-          mv test-reports/results-* test-reports/test-reports 
+          mkdir gh-pages/test-reports
+          mv gh-pages/results-* gh-pages/test-reports
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./test-reports
+          publish_dir: ./gh-pages
 
       - name: Generate release tag
         id: tag
