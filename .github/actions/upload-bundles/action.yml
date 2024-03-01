@@ -63,6 +63,7 @@ runs:
         fi
         if [[ "$docs_bundle" != "" ]]; then
           mv "$docs_bundle" "bundles/docs-${{ inputs.platform }}${{ inputs.debug-suffix }}.tar.gz"
+          echo 'docs-suffix=-docs' >> $GITHUB_OUTPUT
         fi
 
         if [[ "$jdk_bundle_zip$jdk_bundle_tar_gz$symbols_bundle$tests_bundle$docs_bundle" != "" ]]; then
@@ -75,7 +76,7 @@ runs:
     - name: 'Upload bundles artifact'
       uses: actions/upload-artifact@v4
       with:
-        name: bundles-${{ inputs.platform }}${{ inputs.debug-suffix }}
+        name: bundles-${{ inputs.platform }}${{ inputs.debug-suffix }}${{ steps.bundles.outputs.docs-suffix }}
         path: bundles
         retention-days: 1
       if: steps.bundles.outputs.bundles-found == 'true'
