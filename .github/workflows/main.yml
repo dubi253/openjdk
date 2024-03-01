@@ -420,15 +420,15 @@ jobs:
         run: |
           ls -la artifacts
 
-      - name: move all folder begin with results- to folder gh-pages
+      - name: move all folder begin with results- to folder test-reports
         run: |
-          mkdir gh-pages
-          mv artifacts/results-* gh-pages
+          mkdir test-reports
+          mv artifacts/results-* test-reports
 
-      - name: Unzip every zip file in gh-pages/results-* folder to its own folder
+      - name: Unzip every zip file in test-reports/results-* folder to its own folder
         run: |
           # Set the base directory where the 'results-*' folders are located
-          base_directory="./gh-pages"
+          base_directory="./test-reports"
           
           # Find and process every zip file within directories named 'results-*'
           find "$base_directory" -type d -name 'results-*' | while read directory; do
@@ -448,6 +448,7 @@ jobs:
 
       - name: Find, Unzip and Move Docs File
         run: |
+          mkdir gh-pages
           FILE_PATTERN="./artifacts/bundles-*-docs/docs-*.tar.gz"
 
           # Define the destination directory for extraction
@@ -475,7 +476,7 @@ jobs:
           
           echo "<h2>Test Results</h2>" >> index.html
           
-          for dir in ./gh-pages/results-*; do
+          for dir in ./test-reports/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do
                 echo "<li><a href='$dir/test-results/$(basename "$sub_dir")/index.html'>$(basename "$dir")</a></li>" >> index.html
@@ -486,10 +487,9 @@ jobs:
           echo "index.html"
           mv index.html gh-pages
 
-      - name: move all folder begin with results- to folder test-reports in gh-pages
+      - name: move folder test-reports to gh-pages/test-reports
         run: |
-          mkdir gh-pages/test-reports
-          mv gh-pages/results-* gh-pages/test-reports
+          mv test-reports gh-pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
