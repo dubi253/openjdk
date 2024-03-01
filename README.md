@@ -3,6 +3,10 @@
 ## Project Title:
 Bring Powersort to Java
 
+## Java Doc and Test Report
+
+https://dubi253.github.io/openjdk/
+
 ## Powersort:
 https://www.wild-inter.net/publications/munro-wild-2018
 
@@ -21,9 +25,7 @@ C++: https://github.com/sebawild/powersort
 - [PowerSortTest folder](test/jdk/java/util/PowerSort/)
 - [GitHub Actions CI/CD workflow files](.github/workflows/)
 
-## Test results
 
-https://dubi253.github.io/openjdk/
 
 ## Build JDK
 

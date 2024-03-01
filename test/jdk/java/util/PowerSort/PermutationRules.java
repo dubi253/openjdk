@@ -2,7 +2,7 @@ import java.util.*;
 import java.util.Comparator;
 
 public enum PermutationRules {
-    RANDOM_INTEGER("Random_Integer") {
+    RANDOM_INTEGER("Random_Integer") {  // random integers
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -12,7 +12,7 @@ public enum PermutationRules {
         }
     },
 
-    DESCENDING_INTEGER("Descending_Integer") {
+    DESCENDING_INTEGER("Descending_Integer") {  // descending integers
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -23,7 +23,7 @@ public enum PermutationRules {
         }
     },
 
-    ASCENDING_INTEGER("Ascending_Integer") {
+    ASCENDING_INTEGER("Ascending_Integer") {  // ascending integers
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -34,13 +34,14 @@ public enum PermutationRules {
         }
     },
 
-    ASCENDING_3_RND_EXCH_INTEGER("Ascending_3_Rnd_Exch_Integer") {
+    ASCENDING_3_RND_EXCH_INTEGER("Ascending_3_Rnd_Exch_Integer") {  // ascending integers with 3 random exchanges
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             if (len == 0) return new Integer[0];
             Integer[] result = new Integer[len];
-            for (int i = 0; i < len; i++)
-                result[i] = i;
+            result[0] = rnd.nextInt();  // make ascending starting with a random number
+            for (int i = 1; i < len; i++)
+                result[i] = result[i - 1] + 1;
             for (int i = 0; i < 3; i++)
                 swap(result, rnd.nextInt(result.length),
                         rnd.nextInt(result.length));
@@ -48,7 +49,7 @@ public enum PermutationRules {
         }
     },
 
-    ASCENDING_10_RND_AT_END_INTEGER("Ascending_10_Rnd_At_End_Integer") {  // 10 random integers at the end of the array
+    ASCENDING_10_RND_AT_END_INTEGER("Ascending_10_Rnd_At_End_Integer") {  // ascending integers with 10 random numbers at the end
 
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
@@ -63,7 +64,7 @@ public enum PermutationRules {
         }
     },
 
-    ALL_EQUAL_INTEGER("All_Equal_Integer") {
+    ALL_EQUAL_INTEGER("All_Equal_Integer") { // all equal integers
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -72,7 +73,7 @@ public enum PermutationRules {
         }
     },
 
-    DUPS_GALORE_INTEGER("Dups_Galore_Integer") {
+    DUPS_GALORE_INTEGER("Dups_Galore_Integer") {  // many duplicates of a few integers
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -82,7 +83,7 @@ public enum PermutationRules {
         }
     },
 
-    RANDOM_WITH_DUPS_INTEGER("Random_With_Dups_Integer") {
+    RANDOM_WITH_DUPS_INTEGER("Random_With_Dups_Integer") { // less duplicates but still enough to make it interesting
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -92,7 +93,7 @@ public enum PermutationRules {
         }
     },
 
-    RANDOM_RUNS_INTEGER("Random_Runs_Integer") {
+    RANDOM_RUNS_INTEGER("Random_Runs_Integer") {  // random runs of random length
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -107,7 +108,7 @@ public enum PermutationRules {
      * Fills the given array A with a Timsort drag input of the correct length
      * where all lengths are multiplied by minRunLen.
      */
-    TIMSORT_DRAG_RUNS_INTEGER("Timsort_Drag_Runs_Integer") {
+    TIMSORT_DRAG_RUNS_INTEGER("Timsort_Drag_Runs_Integer") {  // Timsort drag input
 
         private static LinkedList<Integer> RTimCache = null;
         private static int RTimCacheN = -1;
@@ -127,7 +128,7 @@ public enum PermutationRules {
 
     },
 
-    RANDOM_FLOAT("Random_Float") {
+    RANDOM_FLOAT("Random_Float") {  // random floats
         @SuppressWarnings("unchecked")
         public Float[] generate(int len, Random rnd, int expRunLen) {
             Float[] result = new Float[len];
@@ -136,6 +137,8 @@ public enum PermutationRules {
             return result;
         }
     };
+
+    //TODO: Add more permutation rules
 
     private final String name;
 
