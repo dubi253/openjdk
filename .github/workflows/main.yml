@@ -451,12 +451,14 @@ jobs:
 
       - name: Generate Index Page
         run: |
-          echo "<html><body><h1>Java Docs and Test Results Index Page</h1><ul>" > index.html
-          <h2>Docs</h2>
-            for dir in ./gh-pages/docs-*; do
-                echo "<li><a href='./$dir/index.html'>$(basename "$dir")</a></li>" >> index.html
-            done
-          <h2>Test Results</h2>
+          echo "<html><body><h1>Java Docs and Test Results Index Page</h1><ul><h2>Java Docs</h2>" > index.html
+          
+          for dir in ./gh-pages/docs-*; do
+              echo "<li><a href='./$dir/index.html'>$(basename "$dir")</a></li>" >> index.html
+          done
+          
+          echo "<h2>Test Results</h2>" >> index.html
+          
           for dir in ./test-reports/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do

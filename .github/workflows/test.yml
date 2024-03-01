@@ -174,7 +174,11 @@ jobs:
         run: |
           PREFIX=""
           if [ "${{ matrix.use-single-cpu }}" = "true" ]; then
-            PREFIX="taskset -c 0"
+            if [[ "${{ runner.os }}" == "ubuntu-20.04" ]]; then  # Linux supports taskset
+              PREFIX="taskset -c 0"
+            elif [[ "${{ runner.os }}" == "windows-2019" ]]; then  # Windows supports start /affinity
+              PREFIX="start /affinity 1"
+            fi  # macOS does not support setting CPU affinity
           fi
           
           $PREFIX make test-prebuilt \
