@@ -447,19 +447,35 @@ jobs:
           done
 
       - name: Find, Unzip and Move Docs File
-        run: find artifacts -name 'bundles-*/docs-*.tar.gz' -exec tar -xzvf {} -C gh-pages \;
+        run: |
+          FILE_PATTERN="artifacts/bundles-*/docs-*.tar.gz"
+
+          # Define the destination directory for extraction
+          DEST_DIR="gh-pages"
+          
+          # Search for files matching the pattern
+          FILES=$(find . -path "${FILE_PATTERN}")
+          
+          # Check if any files were found
+          if [ -z "$FILES" ]; then
+            echo "No docs files found"
+          else
+            # If files are found, iterate over each file and extract it
+            for FILE in $FILES; do
+              echo "Extracting file: $FILE to $DEST_DIR"
+              tar -xzf "$FILE" -C "$DEST_DIR"
+            done
+          fi
 
       - name: Generate Index Page
         run: |
           echo "<html><body><h1>Java Docs and Test Results Index Page</h1><ul><h2>Java Docs</h2>" > index.html
-          
-          for dir in ./gh-pages/docs-*; do
-              echo "<li><a href='./$dir/index.html'>$(basename "$dir")</a></li>" >> index.html
-          done
+
+          echo "<li><a href='./docs/index.html'>Java Doc</a></li>" >> index.html
           
           echo "<h2>Test Results</h2>" >> index.html
           
-          for dir in ./test-reports/results-*; do
+          for dir in ./gh-pages/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do
                 echo "<li><a href='./$dir/test-results/$(basename "$sub_dir")/index.html'>$(basename "$dir")</a></li>" >> index.html
