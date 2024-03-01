@@ -420,15 +420,15 @@ jobs:
         run: |
           ls -la artifacts
 
-      - name: move all folder begin with results- to folder test-reports
+      - name: move all folder begin with results- to folder gh-pages
         run: |
-          mkdir test-reports
-          mv artifacts/results-* test-reports
+          mkdir gh-pages
+          mv artifacts/results-* gh-pages
 
-      - name: Unzip every zip file in test-reports/results-* folder to its own folder
+      - name: Unzip every zip file in gh-pages/results-* folder to its own folder
         run: |
           # Set the base directory where the 'results-*' folders are located
-          base_directory="./test-reports"
+          base_directory="./gh-pages"
           
           # Find and process every zip file within directories named 'results-*'
           find "$base_directory" -type d -name 'results-*' | while read directory; do
@@ -441,14 +441,22 @@ jobs:
               mkdir -p "$directory/$base_name"
               # Unzip the file into the newly created directory
               unzip -o "$zipfile" -d "$directory/$base_name"
-              # Optionally, delete the zip file if you want to keep the workspace clean
-              # rm "$zipfile"
+              # delete the zip file
+              rm "$zipfile"
             done
           done
 
+      - name: Find, Unzip and Move Docs File
+        run: find artifacts -name 'bundles-*/docs-*.tar.gz' -exec tar -xzvf {} -C gh-pages \;
+
       - name: Generate Index Page
         run: |
-          echo "<html><body><h1>Test Results Index Page</h1><ul>" > index.html
+          echo "<html><body><h1>Java Docs and Test Results Index Page</h1><ul>" > index.html
+          <h2>Docs</h2>
+            for dir in ./gh-pages/docs-*; do
+                echo "<li><a href='./$dir/index.html'>$(basename "$dir")</a></li>" >> index.html
+            done
+          <h2>Test Results</h2>
           for dir in ./test-reports/results-*; do
             if [ -d "$dir/test-results" ]; then
               for sub_dir in "$dir"/test-results/jtreg_*; do
@@ -460,7 +468,7 @@ jobs:
           echo "index.html"
           mv index.html test-reports
 
-      - name:  move all folder begin with results- to folder test-reports in test-reports
+      - name: move all folder begin with results- to folder test-reports in test-reports
         run: |
           mkdir test-reports/test-reports
           mv test-reports/results-* test-reports/test-reports 

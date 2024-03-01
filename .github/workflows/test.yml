@@ -56,6 +56,7 @@ jobs:
       matrix:
         test-name:
            - 'jdk/jdk_collections_core'
+           - 'jdk/jdk_powersort'
 #          - 'jdk/tier1 part 1'
 #          - 'jdk/tier1 part 2'
 #          - 'jdk/tier1 part 3'
@@ -73,6 +74,10 @@ jobs:
         include:
           - test-name: 'jdk/jdk_collections_core'
             test-suite: 'test/jdk/:jdk_collections_core'
+
+          - test-name: 'jdk/jdk_powersort'
+            test-suite: 'test/jdk/:jdk_powersort'
+            use-single-cpu: true
 
 #          - test-name: 'jdk/tier1 part 2'
 #            test-suite: 'test/jdk/:tier1_part2'
@@ -167,7 +172,8 @@ jobs:
       - name: 'Run tests'
         id: run-tests
         run: >
-          make test-prebuilt
+          PREFIX=""; if [ "${{ matrix.use-single-cpu }}" = "true" ]; then PREFIX="taskset -c 0"; fi; # Use only one CPU
+          $PREFIX make test-prebuilt
           TEST='${{ matrix.test-suite }}'
           BOOT_JDK=${{ steps.bootjdk.outputs.path }}
           JT_HOME=${{ steps.jtreg.outputs.path }}
