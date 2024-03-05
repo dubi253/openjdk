@@ -38,7 +38,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../search.html">Search</a></li>
 <li><a href="../help-doc.html#module">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-cf0aa2677171ce7fb98232fdf4ca5082a3b5c4dd</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -47,7 +47,7 @@ loadScripts(document, 'script');</script>
 <li><a href="module-summary.html" class="current-selection">jdk.zipfs</a></li>
 </ol>
 <div class="nav-list-search">
-<input type="text" id="search-input" disabled placeholder="Search" aria-label="Search in documentation" autocomplete="off" autocapitalize="off">
+<input type="text" id="search-input" disabled placeholder="Search" aria-label="Search in documentation" autocomplete="off">
 <input type="reset" id="reset-search" disabled value="Reset">
 </div>
 </div>
@@ -62,10 +62,10 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
-<li><a href="#accessing-a-zip-file-system-heading" tabindex="0">Accessing a Zip File System</a></li>
-<li><a href="#uri-scheme-used-to-identify-the-zip-file-system-heading" tabindex="0">URI Scheme Used to Identify the Zip File System</a></li>
+<li><a href="#accessing-a-zip-file-system-heading" tabindex="0">Accessing a ZIP File System</a></li>
+<li><a href="#uri-scheme-used-to-identify-the-zip-file-system-heading" tabindex="0">URI Scheme Used to Identify the ZIP File System</a></li>
 <li><a href="#posix-file-attributes-heading" tabindex="0">POSIX file attributes</a></li>
-<li><a href="#zip-file-system-properties-heading" tabindex="0">Zip File System Properties</a></li>
+<li><a href="#zip-file-system-properties-heading" tabindex="0">ZIP File System Properties</a></li>
 <li><a href="#examples--heading" tabindex="0">Examples:</a></li>
 </ol>
 </li>
@@ -81,28 +81,28 @@ loadScripts(document, 'script');</script>
 <div class="module-signature">module <span class="element-name">jdk.zipfs</span></div>
 <section class="module-description" id="module-description">
 <!-- ============ MODULE DESCRIPTION =========== -->
-<div class="block">Provides the implementation of the Zip file system provider.
- The Zip file system provider treats the contents of a Zip or JAR file as a file system.
+<div class="block">Provides the implementation of the ZIP file system provider.
+ The ZIP file system provider treats the contents of a ZIP or JAR file as a file system.
 
- <h2 id="accessing-a-zip-file-system-heading">Accessing a Zip File System</h2>
+ <h2 id="accessing-a-zip-file-system-heading">Accessing a ZIP File System</h2>
 
  The <a href="../java.base/java/nio/file/FileSystems.html" title="class in java.nio.file">FileSystems</a> <code>newFileSystem</code>
  static factory methods can be used to:
  <ul>
-   <li>Create a Zip file system</li>
-   <li>Open an existing file as a Zip file system</li>
+   <li>Create a ZIP file system</li>
+   <li>Open an existing file as a ZIP file system</li>
  </ul>
 
- The Zip file system provider does not support opening an existing Zip file
+ The ZIP file system provider does not support opening an existing ZIP file
  that contains entries with "." or ".." in its name elements.
 
- <h2 id="uri-scheme-used-to-identify-the-zip-file-system-heading">URI Scheme Used to Identify the Zip File System</h2>
+ <h2 id="uri-scheme-used-to-identify-the-zip-file-system-heading">URI Scheme Used to Identify the ZIP File System</h2>
 
  The URI <a href="../java.base/java/net/URI.html#getScheme()"><code>scheme</code></a> that identifies the ZIP file system is <code>jar</code>.
 
  <h2 id="posix-file-attributes-heading">POSIX file attributes</h2>
 
- A Zip file system supports a file attribute <a href="../java.base/java/nio/file/attribute/FileAttributeView.html" title="interface in java.nio.file.attribute"><code>view</code></a>
+ A ZIP file system supports a file attribute <a href="../java.base/java/nio/file/attribute/FileAttributeView.html" title="interface in java.nio.file.attribute"><code>view</code></a>
  named "<code>zip</code>" that defines the following file attribute:
 
  <blockquote>
@@ -124,8 +124,8 @@ loadScripts(document, 'script');</script>
  </blockquote>
 
  The "permissions" attribute is the set of access permissions that are optionally
- stored for entries in a Zip file. The value of the attribute is <code>null</code>
- for entries that do not have access permissions. Zip file systems do not
+ stored for entries in a ZIP file. The value of the attribute is <code>null</code>
+ for entries that do not have access permissions. ZIP file systems do not
  enforce access permissions.
 
  <p> The "permissions" attribute may be read and set using the
@@ -140,12 +140,12 @@ loadScripts(document, 'script');</script>
      }
  </code> </pre>
 
- <p> In addition to the "<code>zip</code>" view, a Zip file system optionally supports
+ <p> In addition to the "<code>zip</code>" view, a ZIP file system optionally supports
  the <a href="../java.base/java/nio/file/attribute/PosixFileAttributeView.html" title="interface in java.nio.file.attribute"><code>PosixFileAttributeView</code></a> ("<code>posix</code>").
  This view extends the "<code>basic</code>" view with type safe access to the
  <a href="../java.base/java/nio/file/attribute/PosixFileAttributes.html#owner()"><code>owner</code></a>, <a href="../java.base/java/nio/file/attribute/PosixFileAttributes.html#group()"><code>group-owner</code></a>,
  and <a href="../java.base/java/nio/file/attribute/PosixFileAttributes.html#permissions()"><code>permissions</code></a> attributes. The
- "<code>posix</code>" view is only supported when the Zip file system is created with
+ "<code>posix</code>" view is only supported when the ZIP file system is created with
  the provider property "<code>enablePosixFileAttributes</code>" set to "<code>true</code>".
  The following creates a file system with this property and reads the access
  permissions of a file:
@@ -158,16 +158,16 @@ loadScripts(document, 'script');</script>
  </code> </pre>
 
  <p> The file owner and group owner attributes are not persisted, meaning they are
- not stored in the zip file. The "<code>defaultOwner</code>" and "<code>defaultGroup</code>"
+ not stored in the ZIP file. The "<code>defaultOwner</code>" and "<code>defaultGroup</code>"
  provider properties (listed below) can be used to configure the default values
  for these attributes. If these properties are not set then the file owner
- defaults to the owner of the zip file, and the group owner defaults to the
- zip file's group owner (or the file owner on platforms that don't support a
+ defaults to the owner of the ZIP file, and the group owner defaults to the
+ ZIP file's group owner (or the file owner on platforms that don't support a
  group owner).
 
  <p> The "<code>permissions</code>" attribute is not optional in the "<code>posix</code>"
  view so a default set of permissions are used for entries that do not have
- access permissions stored in the Zip file. The default set of permissions
+ access permissions stored in the ZIP file. The default set of permissions
  are
  <ul>
    <li><a href="../java.base/java/nio/file/attribute/PosixFilePermission.html#OWNER_READ"><code>OWNER_READ</code></a></li>
@@ -177,14 +177,14 @@ loadScripts(document, 'script');</script>
  The default permissions can be configured with the "<code>defaultPermissions</code>"
  property described below.
 
- <h2 id="zip-file-system-properties-heading">Zip File System Properties</h2>
+ <h2 id="zip-file-system-properties-heading">ZIP File System Properties</h2>
 
  The following properties may be specified when creating a Zip
  file system:
  <table class="striped">
  <caption style="display:none">
      Configurable properties that may be specified when creating
-     a new Zip file system
+     a new ZIP file system
  </caption>
  <thead>
    <tr>
@@ -201,8 +201,8 @@ loadScripts(document, 'script');</script>
    <td><a href="../java.base/java/lang/String.html" title="class in java.lang"><code>String</code></a> or <a href="../java.base/java/lang/Boolean.html" title="class in java.lang"><code>Boolean</code></a></td>
    <td>false</td>
    <td>
-       If the value is <code>true</code>, the Zip file system provider
-       creates a new Zip or JAR file if it does not exist.
+       If the value is <code>true</code>, the ZIP file system provider
+       creates a new ZIP or JAR file if it does not exist.
    </td>
  </tr>
  <tr>
@@ -211,7 +211,7 @@ loadScripts(document, 'script');</script>
    <td>UTF-8</td>
    <td>
        The value indicates the encoding scheme for the
-       names of the entries in the Zip or JAR file.
+       names of the entries in the ZIP or JAR file.
    </td>
  </tr>
  <tr>
@@ -219,7 +219,7 @@ loadScripts(document, 'script');</script>
    <td><a href="../java.base/java/lang/String.html" title="class in java.lang"><code>String</code></a> or <a href="../java.base/java/lang/Boolean.html" title="class in java.lang"><code>Boolean</code></a></td>
    <td>false</td>
    <td>
-       If the value is <code>true</code>, the Zip file system will support
+       If the value is <code>true</code>, the ZIP file system will support
        the <a href="../java.base/java/nio/file/attribute/PosixFileAttributeView.html" title="interface in java.nio.file.attribute"><code>PosixFileAttributeView</code></a>.
    </td>
  </tr>
@@ -229,7 +229,7 @@ loadScripts(document, 'script');</script>
    <a href="../java.base/java/lang/String.html" title="class in java.lang"><code>String</code></a></td>
    <td>null/unset</td>
    <td>
-       Override the default owner for entries in the Zip file system.<br>
+       Override the default owner for entries in the ZIP file system.<br>
        The value can be a UserPrincipal or a String value that is used as the UserPrincipal's name.
    </td>
  </tr>
@@ -239,7 +239,7 @@ loadScripts(document, 'script');</script>
    <a href="../java.base/java/lang/String.html" title="class in java.lang"><code>String</code></a></td>
    <td>null/unset</td>
    <td>
-       Override the default group for entries in the Zip file system.<br>
+       Override the default group for entries in the ZIP file system.<br>
        The value can be a GroupPrincipal or a String value that is used as the GroupPrincipal's name.
    </td>
  </tr>
@@ -249,7 +249,7 @@ loadScripts(document, 'script');</script>
        or <a href="../java.base/java/lang/String.html" title="class in java.lang"><code>String</code></a></td>
    <td>null/unset</td>
    <td>
-       Override the default Set of permissions for entries in the Zip file system.<br>
+       Override the default Set of permissions for entries in the ZIP file system.<br>
        The value can be a <a href="../java.base/java/util/Set.html" title="interface in java.util"><code>Set</code></a>&lt;<a href="../java.base/java/nio/file/attribute/PosixFilePermission.html" title="enum class in java.nio.file.attribute"><code>PosixFilePermission</code></a>&gt; or<br>
        a String that is parsed by <a href="../java.base/java/nio/file/attribute/PosixFilePermissions.html#fromString(java.lang.String)"><code>PosixFilePermissions::fromString</code></a>
    </td>
@@ -260,16 +260,16 @@ loadScripts(document, 'script');</script>
    <td>"DEFLATED"</td>
    <td>
        The value representing the compression method to use when writing entries
-       to the Zip file system.
+       to the ZIP file system.
        <ul>
            <li>
-               If the value is <code>"STORED"</code>, the Zip file system provider will
-               not compress entries when writing to the Zip file system.
+               If the value is <code>"STORED"</code>, the ZIP file system provider will
+               not compress entries when writing to the ZIP file system.
            </li>
            <li>
                If the value is <code>"DEFLATED"</code> or the property is not set,
-               the Zip file system provider will use data compression when
-               writing entries to the Zip file system.
+               the ZIP file system provider will use data compression when
+               writing entries to the ZIP file system.
            </li>
            <li>
                If the value is not <code>"STORED"</code> or <code>"DEFLATED"</code>, an
@@ -318,7 +318,7 @@ loadScripts(document, 'script');</script>
 
  <h2 id="examples--heading">Examples:</h2>
 
- Construct a new Zip file system that is identified by a URI.  If the Zip file does not exist,
+ Construct a new ZIP file system that is identified by a URI.  If the ZIP file does not exist,
  it will be created:
  <pre>
  <code>
@@ -329,7 +329,7 @@ loadScripts(document, 'script');</script>
  </code>
  </pre>
 
- Construct a new Zip file system that is identified by specifying a path
+ Construct a new ZIP file system that is identified by specifying a path
  and using automatic file type detection. Iterate from the root of the JAR displaying each
  found entry:
  <pre>
@@ -368,7 +368,7 @@ loadScripts(document, 'script');</script>
 </section>
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-cf0aa2677171ce7fb98232fdf4ca5082a3b5c4dd</strong> <!-- Version 23-internal-dubi253-cf0aa2677171ce7fb98232fdf4ca5082a3b5c4dd --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong> <!-- Version 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733 --></small></p>
 </footer>
 </main>
 </div>
