@@ -3,7 +3,7 @@
  * @library .
  * @summary Test PowerSort for correctness, time consumption, and memory usage
  * @build PermutationRules PowerSort PowerSortTest RuleApplication Sorter TestInputs TimSort WelfordVariance
- * @run main/timeout=200/othervm -Xmx2048m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
+ * @run main/timeout=300/othervm -Xmx2048m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
  *
  * @author Zhan Jin
  */
@@ -20,7 +20,7 @@ public class PowerSortTest {
     private final static boolean ABORT_IF_RESULT_IS_NOT_SORTED = true;
     private final static boolean TIME_ALL_RUNS_IN_ONE_MEASUREMENT = false;
     private final static boolean COUNT_MERGE_COSTS = true;
-    private final static boolean VERBOSE_IN_REPETITIONS = true;
+    private final static boolean VERBOSE_IN_SAME_INPUT = false;
 
 
     public static void main(String[] args) throws IOException {
@@ -38,9 +38,13 @@ public class PowerSortTest {
             reps = Integer.parseInt(args[0]);
         }
 
+
+        int repsPerInput = 10;
         if (args.length >= 2) {
-            reps = Integer.parseInt(args[1]);
+            repsPerInput = Integer.parseInt(args[1]);
         }
+
+        ++repsPerInput;  // skip count the first run
 
         List<Integer> testInputLengths = Arrays.asList(100000);
         if (args.length >= 3) {
@@ -77,11 +81,11 @@ public class PowerSortTest {
 
         TestInputs testInputs = new TestInputs(randomSeeds, testInputLengths, expectedRunLengths);
 
-        timeSorts(algos, reps, testInputs);
+        timeSorts(algos, reps, repsPerInput, testInputs);
     }
 
     @SuppressWarnings("unchecked")
-    public static <T> void timeSorts(final List<Sorter> algos, final int repetition, TestInputs testInputs) {
+    public static <T> void timeSorts(final List<Sorter> algos, final int repetition, final int repsPerInput, TestInputs testInputs) {
         warmup(algos, 10000);  // warmup the JVM to avoid timing noise, 12_000 rounds for each algorithm
 
 
@@ -95,40 +99,62 @@ public class PowerSortTest {
                 testInput.resetRandom();  // reset the random seed for each algorithm
 
                 final WelfordVariance samples = new WelfordVariance();
-                if (VERBOSE_IN_REPETITIONS) {
-                    System.out.println("----------" + algo + "----------");
-                    if (COUNT_MERGE_COSTS) {
-                        System.out.println("n\t ms\t \t merge-cost");
-                    } else {
-                        System.out.println("n\t ms");
-                    }
+                final WelfordVariance mergeCostsSamples = new WelfordVariance();
+                System.out.println("----------" + algo + "----------");
+                if (COUNT_MERGE_COSTS) {
+                    System.out.println("n  ms    merge-cost");
+                } else {
+                    System.out.println("n  ms");
                 }
                 for (int r = 0; r < repetition; ++r) {
-                    if (COUNT_MERGE_COSTS) algo.resetMergeCost();
-                    T[] a = (T[]) testInput.generate();
 
+                    testInput.generate();
                     Comparator<? super T> comp = (Comparator<? super T>) testInput.getComparator();
-                    final long startNanos = System.nanoTime();
-                    algo.sort(a, comp);
-                    final long endNanos = System.nanoTime();
-                    if (ABORT_IF_RESULT_IS_NOT_SORTED) {
-                        testInput.checkSorted();
-                    }
-                    final double msDiff = (endNanos - startNanos) / 1e6;  // 1e6 is 10^6, so it's converting nanoseconds to milliseconds
-                    if (r != 0) {
-                        // Skip first iteration, often slower!
-                        samples.addSample(msDiff);
-                        if (VERBOSE_IN_REPETITIONS) {
-                            if (COUNT_MERGE_COSTS)
-                                System.out.println(r + "\t " + msDiff + "\t " + algo.getMergeCost());
-                            else
-                                System.out.println(r + "\t " + msDiff);
+
+                    final WelfordVariance sameInputSamples = new WelfordVariance();
+                    final WelfordVariance sameInputMergeCostsSamples = new WelfordVariance();
+
+                    for (int i = 0; i < repsPerInput; i++) {
+                        if (COUNT_MERGE_COSTS) algo.resetMergeCost();
+                        T[] a = (T[]) testInput.get();
+
+                        final long startNanos = System.nanoTime();
+                        algo.sort(a, comp);
+                        final long endNanos = System.nanoTime();
+
+                        if (ABORT_IF_RESULT_IS_NOT_SORTED) {
+                            testInput.checkSorted();
                         }
+
+                        final double msDiff = (endNanos - startNanos) / 1e6;  // 1e6 is 10^6, so it's converting nanoseconds to milliseconds
+
+                        if (i != 0) {
+                            // Skip first iteration, often slower!
+                            sameInputSamples.addSample(msDiff);
+                            sameInputMergeCostsSamples.addSample(algo.getMergeCost());
+                            samples.addSample(msDiff);
+                            mergeCostsSamples.addSample(algo.getMergeCost());
+
+                            if (VERBOSE_IN_SAME_INPUT) {
+                                if (COUNT_MERGE_COSTS)
+                                    System.out.println(r + "." + i + "  " + msDiff + "  " + algo.getMergeCost());
+                                else
+                                    System.out.println(r + "." + i + "  " + msDiff);
+                            }
+                        }
+
+                        testInput.reset();
                     }
+
+                    if (COUNT_MERGE_COSTS)
+                        System.out.println(r + "  " + sameInputSamples + "  " + sameInputMergeCostsSamples);
+                    else
+                        System.out.println(r + "  " + sameInputSamples);
+
 
                 }
 
-                System.out.println("avg-ms=" + (float) (samples.mean()) + ",\talgo=" + algo + ",\ttestInput=" + testInput + ",\trepetition:" + repetition + "\t" + samples);
+                System.out.println("avg-ms=" + (float) (samples.mean()) + samples + ", avg-merge-cost=" + (float) (mergeCostsSamples.mean()) + mergeCostsSamples + ", algo=" + algo + ", testInput=" + testInput + ", repetition:" + repetition);
 
             }
         }
@@ -152,7 +178,7 @@ public class PowerSortTest {
 //                    }
 //                    final long endNanos = System.nanoTime();
 //                    final float msDiff = (endNanos - startNanos) / 1e6f;
-//                    System.out.println("avg-ms=" + (msDiff / repetition) + ",\t algo=" + algoName + ", n=" + size + "    (" + total + ")");
+//                    System.out.println("avg-ms=" + (msDiff / repetition) + ",  algo=" + algoName + ", n=" + size + "    (" + total + ")");
 //                }
 //            }
 //        }

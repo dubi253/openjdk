@@ -12,6 +12,8 @@ public class RuleApplication<T> {
 
     private T[] generatedArray;
 
+    private T[] testArray;
+
     public RuleApplication(int seed, int inputLength, int expectedRunLength, PermutationRules rule) {
         this.randomSeed = seed;
         this.random = new Random(seed);
@@ -21,15 +23,36 @@ public class RuleApplication<T> {
         this.comp = rule.getComparator();
     }
 
-    public T[] generate() {
+    /**
+     * Generate a new array using current Random and Rule.
+     */
+    public void generate() {
         generatedArray = rule.generate(inputLength, random, expectedRunLength);
-        return generatedArray;
+
+        // copy the generated array to arrayToSort to avoid sorting the same array
+        testArray = generatedArray.clone();
+    }
+
+    /**
+     * Reset test array to the original generated array.
+     */
+    public void reset() {
+        testArray = generatedArray.clone();
+    }
+
+    /**
+     * Get the array to test.
+     *
+     * @return the array to test
+     */
+    public T[] get() {
+        return testArray;
     }
 
     public void checkSorted() {
-        for (int i = 0; i < generatedArray.length - 1; i++) {
-            if (comp.compare(generatedArray[i + 1], generatedArray[i]) < 0) {
-                throw new RuntimeException(this + " is not sorted at " + i + " " + generatedArray[i] + " " + generatedArray[i + 1]);
+        for (int i = 0; i < testArray.length - 1; i++) {
+            if (comp.compare(testArray[i + 1], testArray[i]) < 0) {
+                throw new RuntimeException(this + " is not sorted at " + i + " " + testArray[i] + " " + testArray[i + 1]);
             }
         }
     }

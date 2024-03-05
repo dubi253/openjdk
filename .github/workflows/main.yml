@@ -470,11 +470,11 @@ jobs:
 
       - name: Generate Index Page
         run: |
-          echo "<html><body><h1>Java Docs and Test Results Index Page</h1><ul><h2>Java Docs</h2>" > index.html
+          echo "<html><body><h1>Java Docs and Test Results Index Page</h1><h2>Java Docs</h2>" > index.html
 
-          echo "<li><a href='./docs/index.html'>Java Doc</a></li>" >> index.html
+          echo "<a href='./docs/index.html'>Java Doc</a>" >> index.html
           
-          echo "<h2>Test Results</h2>" >> index.html
+          echo "<h2>Test Results</h2><ul>" >> index.html
           
           for dir in ./test-reports/results-*; do
             if [ -d "$dir/test-results" ]; then
@@ -483,7 +483,12 @@ jobs:
               done
             fi
           done
-          echo "</ul></body></html>" >> index.html
+          
+          echo "</ul>" >> index.html
+          
+          echo "<p>Test Results in <p style="font-family:'Lucida Console', monospace">.jtr</p> format can be opened using any text editor.</p>" >> index.html
+          
+          echo "</body></html>" >> index.html
           echo "index.html"
           mv index.html gh-pages
 
