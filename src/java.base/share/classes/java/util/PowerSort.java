@@ -100,14 +100,14 @@ public class PowerSort<T> {
 
         // Allocate temp storage (which may be increased later if necessary)
         int len = a.length;
-        int tlen = len + 1;
-        if (work == null || workLen < tlen || workBase + tlen > work.length) {
+        ++workLen; // Temp array is 1 larger than the original array
+        if (work == null || workLen < len || workBase + len > work.length) {
             @SuppressWarnings({"unchecked", "UnnecessaryLocalVariable"})
             T[] newArray = (T[]) java.lang.reflect.Array.newInstance
-                    (a.getClass().getComponentType(), tlen);
+                    (a.getClass().getComponentType(), len);
             tmp = newArray;
             tmpBase = 0;
-            tmpLen = tlen;
+            tmpLen = len;
         } else {
             tmp = work;
             tmpBase = workBase;
@@ -402,25 +402,35 @@ public class PowerSort<T> {
      * Merges runs A[l..m-1] and A[m..r] in-place into A[l..r]
      * with Sedgewick's bitonic merge (Program 8.2 in Algorithms in C++)
      * using tmp as temporary storage.
-     * tmp.length must be at least r+1.
+     * tmp.length must be at least r - l + 1.
      */
     private void mergeRuns(int l, int m, int r) {
         // use local variables for performance
         T[] a = this.a;
         Comparator<? super T> c = this.c;
         T[] tmp = this.tmp;
+        // use work base and len for fork/join
+        int tmpBase = this.tmpBase;
+        int tmpLen = this.tmpLen;
+        assert tmpLen >= r - l + 1;
 
-        --m; // Adjust convention with Sedgewick
+        // Adjust convention with Sedgewick to make 'm' point to the last element of the first run,
+        // aligning with the indexing convention used in Sedgewick's bitonic merge algorithm mentioned in Algorithms in C++
+        // This adjustment ensures 'm' accurately represents the endpoint of the first run.
+        // A[l..m] and A[m+1..r] are the two runs to be merged.
+        --m;
 
         if (COUNT_MERGE_COSTS) totalMergeCosts += (r - l + 1);
 
-        assert tmp.length >= r + 1;
+
         // Prepare the temporary array.
-        if (m + 1 - l >= 0) System.arraycopy(a, l, tmp, l, m + 1 - l);
-        for (int j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
+        if (m + 1 - l >= 0) System.arraycopy(a, l, tmp, tmpBase, m + 1 - l);
+
+        // reverse the second half into tmp, using relative indices to tempBase
+        for (int j = m; j < r; ++j) tmp[(r + m - j) - l + tmpBase] = a[j + 1];
 
         int i = l, j = r;
         for (int k = l; k <= r; ++k)
-            a[k] = c.compare(tmp[j], tmp[i]) < 0 ? tmp[j--] : tmp[i++];
+            a[k] = c.compare(tmp[i - l + tmpBase], tmp[j - l + tmpBase]) <= 0 ? tmp[i++ - l + tmpBase] : tmp[j-- - l + tmpBase];
     }
 }
