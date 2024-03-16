@@ -59,7 +59,7 @@ make images
 ## Test util library
 
 ```bash
-make test TEST="jdk_collections_core"
+make test TEST="jdk_powersort"
 ```
 
 ```bash
