@@ -75,7 +75,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -503,8 +503,7 @@ int value = (int) intAtIndexHandle.get(segment, 3L);                       // se
  and/or garbage collection behavior).
  <p>
  In practice, the Java runtime lays out arrays in memory so that each n-byte element
- occurs at an n-byte aligned physical address (except for <code>long[]</code> and
- <code>double[]</code>, where alignment is platform-dependent, as explained below). The
+ occurs at an n-byte aligned physical address. The
  runtime preserves this invariant even if the array is relocated during garbage
  collection. Access operations rely on this invariant to determine if the specified
  offset in a heap segment refers to an aligned address in physical memory.
@@ -523,26 +522,17 @@ int value = (int) intAtIndexHandle.get(segment, 3L);                       // se
      would correspond to physical address 1008 but offset 4 would correspond to
      physical address 1010.</li>
  <li>The starting physical address of a <code>long[]</code> array will be 8-byte aligned
-     (e.g. 1000) on 64-bit platforms, so that successive long elements occur at
-     8-byte aligned addresses (e.g., 1000, 1008, 1016, 1024, etc.) On 64-bit platforms,
-     a heap segment backed by a <code>long[]</code> array can be accessed at offsets
-     0, 8, 16, 24, etc under an 8-byte alignment constraint. In addition, the segment
-     can be accessed at offsets 0, 4, 8, 12, etc under a 4-byte alignment constraint,
-     because the target addresses (1000, 1004, 1008, 1012) are 4-byte aligned. And,
-     the segment can be accessed at offsets 0, 2, 4, 6, etc under a 2-byte alignment
-     constraint, because the target addresses (e.g. 1000, 1002, 1004, 1006) are
-     2-byte aligned.</li>
- <li>The starting physical address of a <code>long[]</code> array will be 4-byte aligned
-     (e.g. 1004) on 32-bit platforms, so that successive long elements occur at 4-byte
-     aligned addresses (e.g., 1004, 1008, 1012, 1016, etc.) On 32-bit platforms, a heap
-     segment backed by a <code>long[]</code> array can be accessed at offsets
-     0, 4, 8, 12, etc under a 4-byte alignment constraint, because the target addresses
-     (1004, 1008, 1012, 1016) are 4-byte aligned. And, the segment can be accessed at
-     offsets 0, 2, 4, 6, etc under a 2-byte alignment constraint, because the target
-     addresses (e.g. 1000, 1002, 1004, 1006) are 2-byte aligned.</li>
+     (e.g. 1000), so that successive long elements occur at 8-byte aligned addresses
+     (e.g., 1000, 1008, 1016, 1024, etc.) A heap segment backed by a <code>long[]</code>
+     array can be accessed at offsets 0, 8, 16, 24, etc under an 8-byte alignment
+     constraint. In addition, the segment can be accessed at offsets 0, 4, 8, 12,
+     etc under a 4-byte alignment constraint, because the target addresses (1000, 1004,
+     1008, 1012) are 4-byte aligned. And, the segment can be accessed at offsets 0, 2,
+     4, 6, etc under a 2-byte alignment constraint, because the target addresses (e.g.
+     1000, 1002, 1004, 1006) are 2-byte aligned.</li>
  </ul>
  <p>
- In other words, heap segments feature a (platform-dependent) <em>maximum</em>
+ In other words, heap segments feature a <em>maximum</em>
  alignment which is derived from the size of the elements of the Java array backing the
  segment, as shown in the following table:
 
@@ -590,10 +580,7 @@ byteSegment.get(ValueLayout.JAVA_INT, 0); // fails: ValueLayout.JAVA_INT.byteAli
  In such circumstances, clients have two options. They can use a heap segment backed
  by a different array type (e.g. <code>long[]</code>), capable of supporting greater maximum
  alignment. More specifically, the maximum alignment associated with <code>long[]</code> is
- set to <code>ValueLayout.JAVA_LONG.byteAlignment()</code> which is a platform-dependent
- value (set to <code>ValueLayout.ADDRESS.byteSize()</code>). That is, <code>long[]</code>) is
- guaranteed to provide at least 8-byte alignment in 64-bit platforms, but only 4-byte
- alignment in 32-bit platforms:
+ set to <code>ValueLayout.JAVA_LONG.byteAlignment()</code>, which is 8 bytes:
 
  
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
@@ -4237,7 +4224,7 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong> <!-- Version 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733 --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong> <!-- Version 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763 --></small></p>
 </footer>
 </main>
 </div>

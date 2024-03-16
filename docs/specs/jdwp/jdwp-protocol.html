@@ -3077,7 +3077,7 @@ Returns monitor information for an object. All threads int the VM must be suspen
 <tr>
 <td>int
 <th scope="row"><i>waiters</i>
-<td>The number of threads that are waiting for the monitor 0 if there is no current owner&nbsp;
+<td>The total number of threads that are waiting to enter or re-enter the monitor, or waiting to be notified by the monitor.&nbsp;
 </tr>
 <tr>
 <th colspan="3" scope="rowgroup">Repeated <i>waiters</i> times:
@@ -3726,7 +3726,7 @@ Returns the objects whose monitors have been entered by this thread. The thread 
 </table>
 </dd></dl>
 <h3 id="JDWP_ThreadReference_CurrentContendedMonitor">CurrentContendedMonitor Command (9)</h3>
-Returns the object, if any, for which this thread is waiting. The thread may be waiting to enter a monitor, or it may be waiting, via the java.lang.Object.wait method, for another thread to invoke the notify method. The thread must be suspended, and the returned information is relevant only while the thread is suspended. Requires canGetCurrentContendedMonitor capability - see <a href="#JDWP_VirtualMachine_CapabilitiesNew">CapabilitiesNew</a>.
+Returns the object, if any, for which this thread is waiting. The thread may be waiting to enter the object's monitor, or in java.lang.Object.wait waiting to re-enter the monitor after being notified, interrupted, or timed-out.The thread must be suspended, and the returned information is relevant only while the thread is suspended. Requires canGetCurrentContendedMonitor capability - see <a href="#JDWP_VirtualMachine_CapabilitiesNew">CapabilitiesNew</a>.
 <dl>
 <dt>Out Data
 <dd>
@@ -5634,4 +5634,4 @@ The invoke options are a combination of zero or more of the following bit flags:
 <tr><th scope="row"><span id="InvokeOptions_INVOKE_NONVIRTUAL"></span>INVOKE_NONVIRTUAL<td class="centered">0x02<td>otherwise, normal virtual invoke (instance methods only)&nbsp;</tr>
 </table>
 </main>
-<footer class="legal-footer"><hr/><a href="../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong> <!-- Version 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733 --></footer></body></html>
+<footer class="legal-footer"><hr/><a href="../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong> <!-- Version 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763 --></footer></body></html>

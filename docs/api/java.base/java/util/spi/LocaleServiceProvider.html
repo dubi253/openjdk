@@ -41,7 +41,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -71,6 +71,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
 <li><a href="#packaging-of-locale-sensitive-service-provider-implementations-heading" tabindex="0">Packaging of Locale Sensitive Service Provider Implementations</a></li>
+<li><a href="#invocation-of-locale-sensitive-services-heading" tabindex="0">Invocation of Locale Sensitive Services</a></li>
 </ol>
 </li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
@@ -109,9 +110,10 @@ loadScripts(document, 'script');</script>
  This is the super class of all the locale sensitive service provider
  interfaces (SPIs).
  <p>
- Locale sensitive  service provider interfaces are interfaces that
+ Locale sensitive service provider interfaces are interfaces that
  correspond to locale sensitive classes in the <code>java.text</code>
- and <code>java.util</code> packages. The interfaces enable the
+ and <code>java.util</code> packages in order to provide the locale
+ data used for each service. The interfaces enable the
  construction of locale sensitive objects and the retrieval of
  localized names for these packages. Locale sensitive factory methods
  and methods for name retrieval in the <code>java.text</code> and
@@ -152,7 +154,7 @@ loadScripts(document, 'script');</script>
  </pre>
  which is the fully qualified class name of the class implementing
  <code>DateFormatProvider</code>.
- <h3 id="invocation-of-locale-sensitive-services-heading">Invocation of Locale Sensitive Services</h3>
+ <h2 id="invocation-of-locale-sensitive-services-heading">Invocation of Locale Sensitive Services</h2>
  <p>
  Locale sensitive factory methods and methods for name retrieval in the
  <code>java.text</code> and <code>java.util</code> packages invoke
@@ -196,36 +198,77 @@ loadScripts(document, 'script');</script>
  property on the java launcher command line. Setting it at runtime with
  <a href="../../lang/System.html#setProperty(java.lang.String,java.lang.String)"><code>System.setProperty(String, String)</code></a> is discouraged and it may not affect
  the order.
- JDK Reference Implementation provides the following four
- locale providers:
+ JDK Reference Implementation provides the following three
+ locale data providers:
  <ul>
- <li> "CLDR": A provider based on Unicode Consortium's
- <a href="http://cldr.unicode.org/">CLDR Project</a>.
- <li> "COMPAT": represents the locale sensitive services that is compatible
- with the prior JDK releases up to JDK 8 (same as JDK 8's "JRE"). This
- provider is deprecated and will be removed in the future release of JDK.
+ <li> "CLDR": A locale data provider based on the Unicode Consortium's
+ <a href="http://cldr.unicode.org/">Common Locale Data Repository (CLDR)</a>.
  <li> "SPI": represents the locale sensitive services implementing the subclasses of
  this <code>LocaleServiceProvider</code> class.
- <li> "HOST": A provider that reflects the user's custom settings in the
+ <li> "HOST": A locale data provider that reflects the user's custom settings in the
  underlying operating system. This provider may not be available, depending
  on the JDK Reference Implementation.
- <li> "JRE": represents a synonym to "COMPAT". This name
- is deprecated and will be removed in the future release of JDK.
  </ul>
  <p>
  For example, if the following is specified in the property:
  <pre>
- java.locale.providers=SPI,CLDR,COMPAT
+ java.locale.providers=SPI,CLDR
  </pre>
  the locale sensitive services in the SPI providers are looked up first. If the
- desired locale sensitive service is not available, then the runtime looks for CLDR,
- COMPAT in that order.
+ desired locale sensitive service is not available, then the runtime looks for CLDR.
  <p>
- The default order for looking up the preferred locale providers is "CLDR,COMPAT",
- so specifying "CLDR,COMPAT" is identical to the default behavior. Applications which
+ The default value for looking up the preferred locale data providers is "CLDR",
+ so specifying only "CLDR" is identical to the default behavior. Applications which
  require implementations of the locale sensitive services must explicitly specify
  "SPI" in order for the Java runtime to load them from the classpath.</div>
 <dl class="notes">
+<dt>Implementation Note:</dt>
+<dd>The JDK uses locale data from the Unicode Consortium's
+ <a href="http://cldr.unicode.org/">Common Locale Data Repository (CLDR)</a>
+ to implement locale-sensitive APIs in the <code>java.util</code> and
+ <code>java.text</code> packages. This locale data derives the set of locales
+ supported by the Java runtime environment. The following table lists the
+ version of CLDR used in each JDK release. Unless otherwise specified, all
+ update releases in a given JDK release family use the same CLDR version.
+ <table class="striped">
+ <caption style="display:none">JDK releases and supported CLDR versions</caption>
+ <thead>
+ <tr><th scope="col">JDK release</th>
+     <th scope="col">CLDR version</th></tr>
+ </thead>
+ <tbody>
+ <tr><th scope="row" style="text-align:left">JDK 22</th>
+     <td>CLDR 44</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 21</th>
+     <td>CLDR 43</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 20</th>
+     <td>CLDR 42</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 19</th>
+     <td>CLDR 41</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 18</th>
+     <td>CLDR 39</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 17</th>
+     <td>CLDR 39</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 16</th>
+     <td>CLDR 38</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 15</th>
+     <td>CLDR 37</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 14</th>
+     <td>CLDR 36</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 13</th>
+     <td>CLDR 35.1</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 12</th>
+     <td>CLDR 33</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 11</th>
+     <td>CLDR 33</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 10</th>
+     <td>CLDR 29</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 9</th>
+     <td>CLDR 29</td></tr>
+ <tr><th scope="row" style="text-align:left">JDK 8</th>
+     <td>CLDR 21.0.1</td></tr>
+ </tbody>
+ </table></dd>
 <dt>Since:</dt>
 <dd>1.6</dd>
 </dl>
@@ -384,7 +427,7 @@ loadScripts(document, 'script');</script>
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong> <!-- Version 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733 --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong> <!-- Version 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763 --></small></p>
 </footer>
 </main>
 </div>

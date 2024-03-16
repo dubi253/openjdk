@@ -52,7 +52,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -82,6 +82,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
 <li><a href="#patterns" tabindex="0">Patterns</a></li>
+</ol>
+<ol class="toc-list">
 <li><a href="#usage-information-heading" tabindex="0">Usage Information</a></li>
 <li><a href="#synchronization" tabindex="0">Synchronization</a></li>
 </ol>
@@ -224,7 +226,19 @@ loadScripts(document, 'script');</script>
  it must be single quoted. For example, <code>new ChoiceFormat("1#'|'foo'|'").format(1)</code>
  returns <code>"|foo|"</code>.
  Use two single quotes in a row to produce a literal single quote. For example,
- <code>new ChoiceFormat("1# ''one'' ").format(1)</code> returns <code>" 'one' "</code>.
+ <code>new ChoiceFormat("1# ''one'' ").format(1)</code> returns <code>" 'one' "</code>.</div>
+<dl class="notes">
+<dt>API Note:</dt>
+<dd>A subclass could perform more consistent pattern validation by
+ throwing an <code>IllegalArgumentException</code> for all incorrect cases.</dd>
+<dt>Implementation Note:</dt>
+<dd>Given an incorrect pattern, this implementation may either
+ throw an exception or succeed and discard the incorrect portion. A <code>
+ NumberFormatException</code> is thrown if a <code>limit</code> can not be
+ parsed as a numeric value and an <code>IllegalArgumentException</code> is thrown
+ if a <code>SubPattern</code> is missing, or the intervals are not ascending.
+ Discarding the incorrect portion may result in a ChoiceFormat with
+ empty <code>limits</code> and <code>formats</code>.
 
  <h2 id="usage-information-heading">Usage Information</h2>
 
@@ -313,8 +327,7 @@ System.out.println(msgFmt.format(args));
  Choice formats are not synchronized.
  It is recommended to create separate format instances for each thread.
  If multiple threads access a format concurrently, it must be synchronized
- externally.</div>
-<dl class="notes">
+ externally.</dd>
 <dt>Since:</dt>
 <dd>1.1</dd>
 <dt>See Also:</dt>
@@ -494,8 +507,11 @@ System.out.println(msgFmt.format(args));
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ChoiceFormat</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newPattern)</span></div>
 <div class="block">Constructs a ChoiceFormat with limits and corresponding formats
- based on the pattern.
- The syntax for the ChoiceFormat pattern can be seen in the <a href="#patterns">Patterns</a> section.</div>
+ based on the pattern. The syntax and error related caveats for the
+ ChoiceFormat pattern can be found in the <a href="#patterns">Patterns</a>
+ section. Unlike <a href="#%3Cinit%3E(double%5B%5D,java.lang.String%5B%5D)"><code>ChoiceFormat(double[], String[])</code></a>, this constructor will
+ throw an <code>IllegalArgumentException</code> if the <code>limits</code> are not
+ in ascending order.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>newPattern</code> - the new pattern string</dd>
@@ -553,10 +569,10 @@ System.out.println(msgFmt.format(args));
 <h3>applyPattern</h3>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyPattern</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newPattern)</span></div>
-<div class="block">Apply the given pattern to this ChoiceFormat object. The syntax
- for the ChoiceFormat pattern can be seen in the <a href="#patterns">Patterns</a> section. Unlike <a href="#setChoices(double%5B%5D,java.lang.String%5B%5D)"><code>setChoices(double[], String[])</code></a> this
- method will throw an <code>IllegalArgumentException</code> if the <code>
- limits</code> are not in ascending order.</div>
+<div class="block">Apply the given pattern to this ChoiceFormat object. The syntax and error
+ related caveats for the ChoiceFormat pattern can be found in the
+ <a href="#patterns">Patterns</a> section. Unlike <a href="#setChoices(double%5B%5D,java.lang.String%5B%5D)"><code>setChoices(double[], String[])</code></a>, this method will throw an <code>IllegalArgumentException</code> if
+ the <code>limits</code> are not in ascending order.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>newPattern</code> - a pattern string</dd>
@@ -928,7 +944,7 @@ System.out.println(msgFmt.format(args));
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733</strong> <!-- Version 23-internal-dubi253-69fdbdd1519928e6c4569a11d14800b4d0f71733 --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763</strong> <!-- Version 23-internal-dubi253-ced5e427db9ce5a0c5a328b30c33edee96767763 --></small></p>
 </footer>
 </main>
 </div>
