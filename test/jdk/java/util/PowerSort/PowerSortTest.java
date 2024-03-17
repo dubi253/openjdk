@@ -1,9 +1,9 @@
 /*
  * @test
  * @library .
- * @summary Test PowerSort for correctness, time consumption, and memory usage
+ * @summary Test PowerSort for correctness, time consumption, and merge cost.
  * @build PermutationRules PowerSort PowerSortTest RuleApplication Sorter TestInputs TimSort WelfordVariance
- * @run main/timeout=300/othervm -Xmx2048m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
+ * @run main/timeout=86400/othervm -Xmx4096m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
  *
  * @author Zhan Jin
  */
@@ -23,7 +23,7 @@ public class PowerSortTest {
     private final static boolean VERBOSE_IN_SAME_INPUT = false;
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         final int[] expectedRunLengths = new int[]{32};
 
@@ -31,7 +31,8 @@ public class PowerSortTest {
 
         algos.add(new TimSort());
         algos.add(new PowerSort(true, false, 32));
-        algos.add(new ArrayParallelSort(true, false, 32));
+        algos.add(new ParallelTimSort());
+        algos.add(new ParallelPowerSort());
 
 
         int reps = 100;
@@ -103,9 +104,9 @@ public class PowerSortTest {
                 final WelfordVariance mergeCostsSamples = new WelfordVariance();
                 System.out.println("----------" + algo + "----------");
                 if (COUNT_MERGE_COSTS) {
-                    System.out.println("n  ms    merge-cost");
+                    System.out.println("n   ms                                     merge-cost");
                 } else {
-                    System.out.println("n  ms");
+                    System.out.println("n   ms");
                 }
                 for (int r = 0; r < repetition; ++r) {
 

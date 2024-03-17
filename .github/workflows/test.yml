@@ -77,7 +77,7 @@ jobs:
 
           - test-name: 'jdk/jdk_powersort'
             test-suite: 'test/jdk/:jdk_powersort'
-            use-single-cpu: true
+#            use-single-cpu: true
 
 #          - test-name: 'jdk/tier1 part 2'
 #            test-suite: 'test/jdk/:tier1_part2'
@@ -173,15 +173,16 @@ jobs:
         id: run-tests
         run: |
           PREFIX=""
-          if [ "${{ matrix.use-single-cpu }}" = "true" ]; then
-            if [[ "${{ runner.os }}" == "ubuntu-20.04" ]]; then  # Linux supports taskset
-              PREFIX="taskset -c 0"
-            elif [[ "${{ runner.os }}" == "windows-2019" ]]; then  # Windows supports start /affinity
-              PREFIX="start /affinity 1"
-            fi  # macOS does not support setting CPU affinity
-          fi
+#          if [ "${{ matrix.use-single-cpu }}" = "true" ]; then
+#            if [[ "${{ runner.os }}" == "ubuntu-20.04" ]]; then  # Linux supports taskset
+#              PREFIX="taskset -c 0"
+#            elif [[ "${{ runner.os }}" == "windows-2019" ]]; then  # Windows supports start /affinity
+#              PREFIX="start /affinity 1"
+#            fi  # macOS does not support setting CPU affinity
+#          fi
           
-          $PREFIX make test-prebuilt \
+#          $PREFIX make test-prebuilt \
+          make test-prebuilt \
           TEST='${{ matrix.test-suite }}' \
           BOOT_JDK=${{ steps.bootjdk.outputs.path }} \
           JT_HOME=${{ steps.jtreg.outputs.path }} \

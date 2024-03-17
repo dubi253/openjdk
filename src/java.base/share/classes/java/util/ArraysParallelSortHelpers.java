@@ -117,6 +117,9 @@ import java.util.concurrent.CountedCompleter;
             final int base, size, wbase, gran;
             @SuppressWarnings("serial") // Not statically typed as Serializable
             Comparator<? super T> comparator;
+            final boolean useTimSort;
+
+            // for general parallel sort
             Sorter(CountedCompleter<?> par, T[] a, T[] w, int base, int size,
                    int wbase, int gran,
                    Comparator<? super T> comparator) {
@@ -124,27 +127,43 @@ import java.util.concurrent.CountedCompleter;
                 this.a = a; this.w = w; this.base = base; this.size = size;
                 this.wbase = wbase; this.gran = gran;
                 this.comparator = comparator;
+                this.useTimSort = false; // true if using TimSort, false if using PowerSort
+            }
+
+            // for PowerSort Test
+            Sorter(CountedCompleter<?> par, T[] a, T[] w, int base, int size,
+                   int wbase, int gran,
+                   Comparator<? super T> comparator, boolean useTimSort) {
+                super(par);
+                this.a = a; this.w = w; this.base = base; this.size = size;
+                this.wbase = wbase; this.gran = gran;
+                this.comparator = comparator;
+                this.useTimSort = useTimSort; // true if using TimSort, false if using PowerSort
             }
             public final void compute() {
                 CountedCompleter<?> s = this;
                 Comparator<? super T> c = this.comparator;
                 T[] a = this.a, w = this.w; // localize all params
                 int b = this.base, n = this.size, wb = this.wbase, g = this.gran;
+                boolean useTimSort = this.useTimSort;
                 while (n > g) {
                     int h = n >>> 1, q = h >>> 1, u = h + q; // quartiles
                     Relay fc = new Relay(new Merger<>(s, w, a, wb, h,
                                                       wb+h, n-h, b, g, c));
                     Relay rc = new Relay(new Merger<>(fc, a, w, b+h, q,
                                                       b+u, n-u, wb+h, g, c));
-                    new Sorter<>(rc, a, w, b+u, n-u, wb+u, g, c).fork();
-                    new Sorter<>(rc, a, w, b+h, q, wb+h, g, c).fork();
+                    new Sorter<>(rc, a, w, b+u, n-u, wb+u, g, c, useTimSort).fork();
+                    new Sorter<>(rc, a, w, b+h, q, wb+h, g, c, useTimSort).fork();
                     Relay bc = new Relay(new Merger<>(fc, a, w, b, q,
                                                       b+q, h-q, wb, g, c));
-                    new Sorter<>(bc, a, w, b+q, h-q, wb+q, g, c).fork();
+                    new Sorter<>(bc, a, w, b+q, h-q, wb+q, g, c, useTimSort).fork();
                     s = new EmptyCompleter(bc);
                     n = q;
                 }
-                PowerSort.sort(a, b, b + n, c, w, wb, n, true, false, 24);
+                if (useTimSort)
+                    TimSort.sort(a, b, b + n, c, w, wb, n);
+                else
+                    PowerSort.sort(a, b, b + n, c, w, wb, n, true, false, 32);
                 s.tryComplete();
             }
         }

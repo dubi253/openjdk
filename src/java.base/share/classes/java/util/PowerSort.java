@@ -326,12 +326,13 @@ public class PowerSort<T> {
 
     private static int log2(int n) {
         if (n == 0) throw new IllegalArgumentException("lg(0) undefined");
-        return 31 - Integer.numberOfLeadingZeros(n);
+        return 31 - numberOfLeadingZeros(n);
     }
 
     /**
      * Reverse the specified range of the specified array.
      *
+     * @param a  the array in which a range is to be reversed
      * @param lo the index of the first element in the range to be reversed
      * @param hi the index after the last element in the range to be reversed
      */
@@ -373,7 +374,7 @@ public class PowerSort<T> {
         long r = (long) startB + (long) endB + 1 - ((long) left << 1); // 2*middleB
         int a = (int) ((l << 30) / n); // middleA / 2n
         int b = (int) ((r << 30) / n); // middleB / 2n
-        return Integer.numberOfLeadingZeros(a ^ b);
+        return numberOfLeadingZeros(a ^ b);
     }
 
     private static int nodePowerBitwise(int left, int right, int startA, int startB, int endB) {
@@ -432,5 +433,28 @@ public class PowerSort<T> {
         int i = l, j = r;
         for (int k = l; k <= r; ++k)
             a[k] = c.compare(tmp[i - l + tmpBase], tmp[j - l + tmpBase]) <= 0 ? tmp[i++ - l + tmpBase] : tmp[j-- - l + tmpBase];
+    }
+
+    private static int numberOfLeadingZeros(int i) {
+        if (i == 0) return 32;
+        int n = 1;
+        if (i >>> 16 == 0) {
+            n += 16;
+            i <<= 16;
+        }
+        if (i >>> 24 == 0) {
+            n += 8;
+            i <<= 8;
+        }
+        if (i >>> 28 == 0) {
+            n += 4;
+            i <<= 4;
+        }
+        if (i >>> 30 == 0) {
+            n += 2;
+            i <<= 2;
+        }
+        n -= i >>> 31;
+        return n;
     }
 }

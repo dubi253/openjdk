@@ -796,7 +796,7 @@ public final class Arrays {
         int n = a.length, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            PowerSort.sort(a, 0, n, NaturalOrder.INSTANCE, null, 0, 0, true, false, 24);
+            PowerSort.sort(a, 0, n, NaturalOrder.INSTANCE, null, 0, 0, true, false, 32);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -855,7 +855,7 @@ public final class Arrays {
         int n = toIndex - fromIndex, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            PowerSort.sort(a, fromIndex, toIndex, NaturalOrder.INSTANCE, null, 0, 0, true, false, 24);
+            PowerSort.sort(a, fromIndex, toIndex, NaturalOrder.INSTANCE, null, 0, 0, true, false, 32);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -904,7 +904,7 @@ public final class Arrays {
         int n = a.length, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            PowerSort.sort(a, 0, n, cmp, null, 0, 0, true, false, 24);
+            PowerSort.sort(a, 0, n, cmp, null, 0, 0, true, false, 32);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
@@ -965,13 +965,79 @@ public final class Arrays {
         int n = toIndex - fromIndex, p, g;
         if (n <= MIN_ARRAY_SORT_GRAN ||
             (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
-            PowerSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0, true, false, 24);
+            PowerSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0, true, false, 32);
         else
             new ArraysParallelSortHelpers.FJObject.Sorter<>
                 (null, a,
                  (T[])Array.newInstance(a.getClass().getComponentType(), n),
                  fromIndex, n, 0, ((g = n / (p << 2)) <= MIN_ARRAY_SORT_GRAN) ?
                  MIN_ARRAY_SORT_GRAN : g, cmp).invoke();
+    }
+
+    /**
+     * Sorts the specified range of the specified array of objects according
+     * to the order induced by the specified comparator.  The range to be
+     * sorted extends from index {@code fromIndex}, inclusive, to index
+     * {@code toIndex}, exclusive.  (If {@code fromIndex==toIndex}, the
+     * range to be sorted is empty.)  All elements in the range must be
+     * <i>mutually comparable</i> by the specified comparator (that is,
+     * {@code c.compare(e1, e2)} must not throw a {@code ClassCastException}
+     * for any elements {@code e1} and {@code e2} in the range).
+     *
+     * <p>This sort is guaranteed to be <i>stable</i>:  equal elements will
+     * not be reordered as a result of the sort.
+     *
+     * @implNote The sorting algorithm is a parallel sort-merge that breaks the
+     * array into sub-arrays that are themselves sorted and then merged. When
+     * the sub-array length reaches a minimum granularity, the sub-array is
+     * sorted using the appropriate {@link Arrays#sort(Object[]) Arrays.sort}
+     * method. If the length of the specified array is less than the minimum
+     * granularity, then it is sorted using the appropriate {@link
+     * Arrays#sort(Object[]) Arrays.sort} method. The algorithm requires a working
+     * space no greater than the size of the specified range of the original
+     * array. The {@link ForkJoinPool#commonPool() ForkJoin common pool} is
+     * used to execute any parallel tasks.
+     *
+     * @param <T> the class of the objects to be sorted
+     * @param a the array to be sorted
+     * @param fromIndex the index of the first element (inclusive) to be
+     *        sorted
+     * @param toIndex the index of the last element (exclusive) to be sorted
+     * @param cmp the comparator to determine the order of the array.  A
+     *        {@code null} value indicates that the elements'
+     *        {@linkplain Comparable natural ordering} should be used.
+     * @param useTimSort {@code true} if TimSort should be used in preference, or
+     *        {@code false} to use PowerSort instead
+     * @throws IllegalArgumentException if {@code fromIndex > toIndex} or
+     *         (optional) if the natural ordering of the array elements is
+     *         found to violate the {@link Comparable} contract
+     * @throws ArrayIndexOutOfBoundsException if {@code fromIndex < 0} or
+     *         {@code toIndex > a.length}
+     * @throws ClassCastException if the array contains elements that are
+     *         not <i>mutually comparable</i> (for example, strings and
+     *         integers).
+     *
+     * @since 1.8
+     */
+    @SuppressWarnings("unchecked")
+    public static <T> void parallelSort(T[] a, int fromIndex, int toIndex,
+                                        Comparator<? super T> cmp, boolean useTimSort) {
+        rangeCheck(a.length, fromIndex, toIndex);
+        if (cmp == null)
+            cmp = NaturalOrder.INSTANCE;
+        int n = toIndex - fromIndex, p, g;
+        if (n <= MIN_ARRAY_SORT_GRAN ||
+                (p = ForkJoinPool.getCommonPoolParallelism()) == 1)
+            if (useTimSort)
+                TimSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0);
+            else
+                PowerSort.sort(a, fromIndex, toIndex, cmp, null, 0, 0, true, false, 32);
+        else
+            new ArraysParallelSortHelpers.FJObject.Sorter<>
+                    (null, a,
+                            (T[])Array.newInstance(a.getClass().getComponentType(), n),
+                            fromIndex, n, 0, ((g = n / (p << 2)) <= MIN_ARRAY_SORT_GRAN) ?
+                            MIN_ARRAY_SORT_GRAN : g, cmp, useTimSort).invoke();
     }
 
     /*
@@ -1038,7 +1104,7 @@ public final class Arrays {
         if (LegacyMergeSort.userRequested)
             legacyMergeSort(a);
         else
-            ComparablePowerSort.sort(a, 0, a.length, null, 0, 0, true, false, 24);
+            ComparablePowerSort.sort(a, 0, a.length, null, 0, 0, true, false, 32);
     }
 
     /** To be removed in a future release. */
@@ -1104,7 +1170,7 @@ public final class Arrays {
         if (LegacyMergeSort.userRequested)
             legacyMergeSort(a, fromIndex, toIndex);
         else
-            ComparablePowerSort.sort(a, fromIndex, toIndex, null, 0, 0, true, false, 24);
+            ComparablePowerSort.sort(a, fromIndex, toIndex, null, 0, 0, true, false, 32);
     }
 
     /** To be removed in a future release. */
@@ -1230,7 +1296,7 @@ public final class Arrays {
             if (LegacyMergeSort.userRequested)
                 legacyMergeSort(a, c);
             else
-                PowerSort.sort(a, 0, a.length, c, null, 0, 0, true, false, 24);
+                PowerSort.sort(a, 0, a.length, c, null, 0, 0, true, false, 32);
         }
     }
 
@@ -1304,7 +1370,7 @@ public final class Arrays {
             if (LegacyMergeSort.userRequested)
                 legacyMergeSort(a, fromIndex, toIndex, c);
             else
-                PowerSort.sort(a, fromIndex, toIndex, c, null, 0, 0, true, false, 24);
+                PowerSort.sort(a, fromIndex, toIndex, c, null, 0, 0, true, false, 32);
         }
     }
 
