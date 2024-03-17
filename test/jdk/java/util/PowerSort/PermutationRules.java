@@ -3,6 +3,7 @@ import java.util.Comparator;
 
 public enum PermutationRules {
     RANDOM_INTEGER("Random_Integer") {  // random integers
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -13,6 +14,7 @@ public enum PermutationRules {
     },
 
     DESCENDING_INTEGER("Descending_Integer") {  // descending integers
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -24,6 +26,7 @@ public enum PermutationRules {
     },
 
     ASCENDING_INTEGER("Ascending_Integer") {  // ascending integers
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -35,6 +38,7 @@ public enum PermutationRules {
     },
 
     ASCENDING_3_RND_EXCH_INTEGER("Ascending_3_Rnd_Exch_Integer") {  // ascending integers with 3 random exchanges
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             if (len == 0) return new Integer[0];
@@ -65,6 +69,7 @@ public enum PermutationRules {
     },
 
     ALL_EQUAL_INTEGER("All_Equal_Integer") { // all equal integers
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -74,6 +79,7 @@ public enum PermutationRules {
     },
 
     DUPS_GALORE_INTEGER("Dups_Galore_Integer") {  // many duplicates of a few integers
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -84,6 +90,7 @@ public enum PermutationRules {
     },
 
     RANDOM_WITH_DUPS_INTEGER("Random_With_Dups_Integer") { // less duplicates but still enough to make it interesting
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -94,6 +101,7 @@ public enum PermutationRules {
     },
 
     RANDOM_RUNS_INTEGER("Random_Runs_Integer") {  // random runs of random length
+
         @SuppressWarnings("unchecked")
         public Integer[] generate(int len, Random rnd, int expRunLen) {
             Integer[] result = new Integer[len];
@@ -129,6 +137,7 @@ public enum PermutationRules {
     },
 
     RANDOM_FLOAT("Random_Float") {  // random floats
+
         @SuppressWarnings("unchecked")
         public Float[] generate(int len, Random rnd, int expRunLen) {
             Float[] result = new Float[len];
@@ -169,7 +178,7 @@ public enum PermutationRules {
      * comparator is null. To simplify code-sharing within underlying
      * implementations, the compare method only declares type Object
      * for its second argument.
-     *
+     * <p>
      * Arrays class implementor's note: It is an empirical matter
      * whether ComparableTimSort offers any performance benefit over
      * TimSort used with this comparator.  If not, you are better off
@@ -181,8 +190,9 @@ public enum PermutationRules {
     static final class NaturalOrder implements Comparator<Object> {
         @SuppressWarnings("unchecked")
         public int compare(Object first, Object second) {
-            return ((Comparable<Object>)first).compareTo(second);
+            return ((Comparable<Object>) first).compareTo(second);
         }
+
         static final NaturalOrder INSTANCE = new NaturalOrder();
     }
 

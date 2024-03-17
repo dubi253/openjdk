@@ -1,6 +1,7 @@
 # COMP390 - Honours Year Computer Science Project - 2023/24
 
 ## Project Title:
+
 Bring Powersort to Java
 
 ## Java Doc and Test Report
@@ -8,6 +9,7 @@ Bring Powersort to Java
 https://dubi253.github.io/openjdk/
 
 ## Powersort:
+
 https://www.wild-inter.net/publications/munro-wild-2018
 
 ## Code Reference
@@ -17,6 +19,7 @@ Java: https://github.com/sebawild/nearly-optimal-mergesort-code
 C++: https://github.com/sebawild/powersort
 
 ## Currently changed files:
+
 - [PowerSort.java](./src/java.base/share/classes/java/util/PowerSort.java)
 - [ComparablePowerSort.java](./src/java.base/share/classes/java/util/ComparablePowerSort.java)
 - [Arrays.java](./src/java.base/share/classes/java/util/Arrays.java)
@@ -64,17 +67,15 @@ All done, you can now use jtreg to test your openjdk build.
 jtreg -h
 ```
 
-
 ## Build OpenJDK
 
 https://openjdk.org/groups/build/doc/building.html
 
-
 Optional - clean make if necessary
+
 ```bash
 make dist-clean
 ```
-
 
 Normal build
 
@@ -109,6 +110,12 @@ make test TEST="jdk_powersort"
 ## Flame Graphs Visualisation
 
 Install AsyncProfiler at https://github.com/async-profiler/async-profiler
+
+Enable perf_event_paranoid and disable kptr_restrict for async-profiler to work
+
+```bash
+sudo sysctl kernel.perf_event_paranoid=1 && sudo sysctl kernel.kptr_restrict=0
+```
 
 List all Java processes
 

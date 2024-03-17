@@ -53,6 +53,19 @@ public class ComparablePowerSort {
     private static final int NULL_INDEX = Integer.MIN_VALUE;
 
     /**
+     * When we get into galloping mode, we stay there until both runs win less
+     * often than MIN_GALLOP consecutive times.
+     */
+    private static final int MIN_GALLOP = 7;
+
+    /**
+     * This controls when we get *into* galloping mode.  It is initialized
+     * to MIN_GALLOP.  The mergeLo and mergeHi methods nudge it higher for
+     * random data, and lower for highly structured data.
+     */
+    private int minGallop = MIN_GALLOP;
+
+    /**
      * If true, use the most-significant-bit trick to compute node powers;
      * otherwise use a loop.
      */
@@ -70,17 +83,17 @@ public class ComparablePowerSort {
      * workspace array, which is used as long as it is big enough. If not, a
      * larger array is allocated and used instead.
      *
-     * @param a the array to be sorted
-     * @param work a workspace array (slice)
-     * @param workBase origin of usable space in work array
-     * @param workLen usable size of work array
+     * @param a         the array to be sorted
+     * @param work      a workspace array (slice)
+     * @param workBase  origin of usable space in work array
+     * @param workLen   usable size of work array
      * @param minRunLen minimum run length
      */
     public ComparablePowerSort(Object[] a,
-                                Object[] work,
-                                int workBase,
-                                int workLen,
-                                final int minRunLen) {
+                               Object[] work,
+                               int workBase,
+                               int workLen,
+                               final int minRunLen) {
         this.minRunLen = minRunLen;
 
         this.a = a;
@@ -104,25 +117,25 @@ public class ComparablePowerSort {
      * any necessary array bounds checks and expanding parameters into
      * the required forms.
      *
-     * @param a the array to be sorted
-     * @param lo the index of the first element, inclusive, to be sorted
-     * @param hi the index of the last element, exclusive, to be sorted
-     * @param work a workspace array (slice)
-     * @param workBase origin of usable space in work array
-     * @param workLen usable size of work array
-     * @param useMsbMergeType if true, use the most-significant-bit trick
+     * @param a                  the array to be sorted
+     * @param lo                 the index of the first element, inclusive, to be sorted
+     * @param hi                 the index of the last element, exclusive, to be sorted
+     * @param work               a workspace array (slice)
+     * @param workBase           origin of usable space in work array
+     * @param workLen            usable size of work array
+     * @param useMsbMergeType    if true, use the most-significant-bit trick
      * @param onlyIncreasingRuns if true, only sort increasing runs
-     * @param minRunLen minimum run length
+     * @param minRunLen          minimum run length
      */
     public static void sort(Object[] a,
-                     int lo,
-                     int hi,
-                     Object[] work,
-                     int workBase,
-                     int workLen,
-                     final boolean useMsbMergeType,
-                     final boolean onlyIncreasingRuns,
-                     final int minRunLen) {
+                            int lo,
+                            int hi,
+                            Object[] work,
+                            int workBase,
+                            int workLen,
+                            final boolean useMsbMergeType,
+                            final boolean onlyIncreasingRuns,
+                            final int minRunLen) {
 
         if (!useMsbMergeType && onlyIncreasingRuns)
             throw new UnsupportedOperationException();
@@ -131,7 +144,7 @@ public class ComparablePowerSort {
 
         assert a != null && lo >= 0 && lo <= hi && hi <= a.length;
 
-        int nRemaining  = hi - lo;
+        int nRemaining = hi - lo;
         if (nRemaining < 2)
             return;  // Arrays of size 0 and 1 are always sorted
 
@@ -366,31 +379,467 @@ public class ComparablePowerSort {
      * tmp.length must be at least r+1.
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
+    /**
+     * Merges runs A[l..m-1] and A[m..r] in-place into A[l..r]
+     * with Sedgewick's bitonic merge (Program 8.2 in Algorithms in C++)
+     * using tmp as temporary storage.
+     * tmp.length must be at least r - l + 1.
+     */
     private void mergeRuns(int l, int m, int r) {
-        ensureCapacity(r + 1);
-        --m; // mismatch in convention with Sedgewick
-        int i, j;
-        assert tmp.length >= r + 1;
-        if (COUNT_MERGE_COSTS) totalMergeCosts += (r - l + 1);
-        for (i = m + 1; i > l; --i) tmp[i - 1] = a[i - 1];
-        for (j = m; j < r; ++j) tmp[r + m - j] = a[j + 1];
-        for (int k = l; k <= r; ++k)
-            a[k] = ((Comparable) tmp[j]).compareTo(tmp[i]) < 0 ? tmp[j--] : tmp[i++];
+
+        int base1 = l;
+        int len1 = m - l;
+        int base2 = m;
+        int len2 = r - m + 1;
+        assert len1 > 0 && len2 > 0;
+        assert base1 + len1 == base2;
+
+        // Count merge costs
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
+
+
+        /*
+         * Find where the first element of run2 goes in run1. Prior elements
+         * in run1 can be ignored (because they're already in place).
+         */
+        int k = gallopRight((Comparable<Object>) a[base2], a, base1, len1, 0);
+        assert k >= 0;
+        base1 += k;
+        len1 -= k;
+        if (len1 == 0)
+            return;
+
+        /*
+         * Find where the last element of run1 goes in run2. Subsequent elements
+         * in run2 can be ignored (because they're already in place).
+         */
+        len2 = gallopLeft((Comparable<Object>) a[base1 + len1 - 1], a,
+                base2, len2, len2 - 1);
+        assert len2 >= 0;
+        if (len2 == 0)
+            return;
+
+        // Merge remaining runs, using tmp array with min(len1, len2) elements
+        if (len1 <= len2)
+            mergeLo(base1, len1, base2, len2);
+        else
+            mergeHi(base1, len1, base2, len2);
+    }
+
+    /**
+     * Locates the position at which to insert the specified key into the
+     * specified sorted range; if the range contains an element equal to key,
+     * returns the index of the leftmost equal element.
+     *
+     * @param key  the key whose insertion point to search for
+     * @param a    the array in which to search
+     * @param base the index of the first element in the range
+     * @param len  the length of the range; must be > 0
+     * @param hint the index at which to begin the search, 0 <= hint < n.
+     *             The closer hint is to the result, the faster this method will run.
+     * @return the int k,  0 <= k <= n such that a[b + k - 1] < key <= a[b + k],
+     * pretending that a[b - 1] is minus infinity and a[b + n] is infinity.
+     * In other words, key belongs at index b + k; or in other words,
+     * the first k elements of a should precede key, and the last n - k
+     * should follow it.
+     */
+    private static int gallopLeft(Comparable<Object> key, Object[] a,
+                                  int base, int len, int hint) {
+        assert len > 0 && hint >= 0 && hint < len;
+
+        int lastOfs = 0;
+        int ofs = 1;
+        if (key.compareTo(a[base + hint]) > 0) {
+            // Gallop right until a[base+hint+lastOfs] < key <= a[base+hint+ofs]
+            int maxOfs = len - hint;
+            while (ofs < maxOfs && key.compareTo(a[base + hint + ofs]) > 0) {
+                lastOfs = ofs;
+                ofs = (ofs << 1) + 1;
+                if (ofs <= 0)   // int overflow
+                    ofs = maxOfs;
+            }
+            if (ofs > maxOfs)
+                ofs = maxOfs;
+
+            // Make offsets relative to base
+            lastOfs += hint;
+            ofs += hint;
+        } else { // key <= a[base + hint]
+            // Gallop left until a[base+hint-ofs] < key <= a[base+hint-lastOfs]
+            final int maxOfs = hint + 1;
+            while (ofs < maxOfs && key.compareTo(a[base + hint - ofs]) <= 0) {
+                lastOfs = ofs;
+                ofs = (ofs << 1) + 1;
+                if (ofs <= 0)   // int overflow
+                    ofs = maxOfs;
+            }
+            if (ofs > maxOfs)
+                ofs = maxOfs;
+
+            // Make offsets relative to base
+            int tmp = lastOfs;
+            lastOfs = hint - ofs;
+            ofs = hint - tmp;
+        }
+        assert -1 <= lastOfs && lastOfs < ofs && ofs <= len;
+
+        /*
+         * Now a[base+lastOfs] < key <= a[base+ofs], so key belongs somewhere
+         * to the right of lastOfs but no farther right than ofs.  Do a binary
+         * search, with invariant a[base + lastOfs - 1] < key <= a[base + ofs].
+         */
+        lastOfs++;
+        while (lastOfs < ofs) {
+            int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            if (key.compareTo(a[base + m]) > 0)
+                lastOfs = m + 1;  // a[base + m] < key
+            else
+                ofs = m;          // key <= a[base + m]
+        }
+        assert lastOfs == ofs;    // so a[base + ofs - 1] < key <= a[base + ofs]
+        return ofs;
+    }
+
+    /**
+     * Like gallopLeft, except that if the range contains an element equal to
+     * key, gallopRight returns the index after the rightmost equal element.
+     *
+     * @param key  the key whose insertion point to search for
+     * @param a    the array in which to search
+     * @param base the index of the first element in the range
+     * @param len  the length of the range; must be > 0
+     * @param hint the index at which to begin the search, 0 <= hint < n.
+     *             The closer hint is to the result, the faster this method will run.
+     * @return the int k,  0 <= k <= n such that a[b + k - 1] <= key < a[b + k]
+     */
+    private static int gallopRight(Comparable<Object> key, Object[] a,
+                                   int base, int len, int hint) {
+        assert len > 0 && hint >= 0 && hint < len;
+
+        int ofs = 1;
+        int lastOfs = 0;
+        if (key.compareTo(a[base + hint]) < 0) {
+            // Gallop left until a[b+hint - ofs] <= key < a[b+hint - lastOfs]
+            int maxOfs = hint + 1;
+            while (ofs < maxOfs && key.compareTo(a[base + hint - ofs]) < 0) {
+                lastOfs = ofs;
+                ofs = (ofs << 1) + 1;
+                if (ofs <= 0)   // int overflow
+                    ofs = maxOfs;
+            }
+            if (ofs > maxOfs)
+                ofs = maxOfs;
+
+            // Make offsets relative to b
+            int tmp = lastOfs;
+            lastOfs = hint - ofs;
+            ofs = hint - tmp;
+        } else { // a[b + hint] <= key
+            // Gallop right until a[b+hint + lastOfs] <= key < a[b+hint + ofs]
+            int maxOfs = len - hint;
+            while (ofs < maxOfs && key.compareTo(a[base + hint + ofs]) >= 0) {
+                lastOfs = ofs;
+                ofs = (ofs << 1) + 1;
+                if (ofs <= 0)   // int overflow
+                    ofs = maxOfs;
+            }
+            if (ofs > maxOfs)
+                ofs = maxOfs;
+
+            // Make offsets relative to b
+            lastOfs += hint;
+            ofs += hint;
+        }
+        assert -1 <= lastOfs && lastOfs < ofs && ofs <= len;
+
+        /*
+         * Now a[b + lastOfs] <= key < a[b + ofs], so key belongs somewhere to
+         * the right of lastOfs but no farther right than ofs.  Do a binary
+         * search, with invariant a[b + lastOfs - 1] <= key < a[b + ofs].
+         */
+        lastOfs++;
+        while (lastOfs < ofs) {
+            int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            if (key.compareTo(a[base + m]) < 0)
+                ofs = m;          // key < a[b + m]
+            else
+                lastOfs = m + 1;  // a[b + m] <= key
+        }
+        assert lastOfs == ofs;    // so a[b + ofs - 1] <= key < a[b + ofs]
+        return ofs;
+    }
+
+    /**
+     * Merges two adjacent runs in place, in a stable fashion.  The first
+     * element of the first run must be greater than the first element of the
+     * second run (a[base1] > a[base2]), and the last element of the first run
+     * (a[base1 + len1-1]) must be greater than all elements of the second run.
+     * <p>
+     * For performance, this method should be called only when len1 <= len2;
+     * its twin, mergeHi should be called if len1 >= len2.  (Either method
+     * may be called if len1 == len2.)
+     *
+     * @param base1 index of first element in first run to be merged
+     * @param len1  length of first run to be merged (must be > 0)
+     * @param base2 index of first element in second run to be merged
+     *              (must be aBase + aLen)
+     * @param len2  length of second run to be merged (must be > 0)
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private void mergeLo(int base1, int len1, int base2, int len2) {
+        assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
+
+        // Copy first run into temp array
+        Object[] a = this.a; // For performance
+        Object[] tmp = ensureCapacity(len1);
+
+        int cursor1 = tmpBase; // Indexes into tmp array
+        int cursor2 = base2;   // Indexes int a
+        int dest = base1;      // Indexes int a
+        System.arraycopy(a, base1, tmp, cursor1, len1);
+
+        // Move first element of second run and deal with degenerate cases
+        a[dest++] = a[cursor2++];
+        if (--len2 == 0) {
+            System.arraycopy(tmp, cursor1, a, dest, len1);
+            return;
+        }
+        if (len1 == 1) {
+            System.arraycopy(a, cursor2, a, dest, len2);
+            a[dest + len2] = tmp[cursor1]; // Last elt of run 1 to end of merge
+            return;
+        }
+
+        int minGallop = this.minGallop;  // Use local variable for performance
+        outer:
+        while (true) {
+            int count1 = 0; // Number of times in a row that first run won
+            int count2 = 0; // Number of times in a row that second run won
+
+            /*
+             * Do the straightforward thing until (if ever) one run starts
+             * winning consistently.
+             */
+            do {
+                assert len1 > 1 && len2 > 0;
+                if (((Comparable) a[cursor2]).compareTo(tmp[cursor1]) < 0) {
+                    a[dest++] = a[cursor2++];
+                    count2++;
+                    count1 = 0;
+                    if (--len2 == 0)
+                        break outer;
+                } else {
+                    a[dest++] = tmp[cursor1++];
+                    count1++;
+                    count2 = 0;
+                    if (--len1 == 1)
+                        break outer;
+                }
+            } while ((count1 | count2) < minGallop);
+
+            /*
+             * One run is winning so consistently that galloping may be a
+             * huge win. So try that, and continue galloping until (if ever)
+             * neither run appears to be winning consistently anymore.
+             */
+            do {
+                assert len1 > 1 && len2 > 0;
+                count1 = gallopRight((Comparable) a[cursor2], tmp, cursor1, len1, 0);
+                if (count1 != 0) {
+                    System.arraycopy(tmp, cursor1, a, dest, count1);
+                    dest += count1;
+                    cursor1 += count1;
+                    len1 -= count1;
+                    if (len1 <= 1)  // len1 == 1 || len1 == 0
+                        break outer;
+                }
+                a[dest++] = a[cursor2++];
+                if (--len2 == 0)
+                    break outer;
+
+                count2 = gallopLeft((Comparable) tmp[cursor1], a, cursor2, len2, 0);
+                if (count2 != 0) {
+                    System.arraycopy(a, cursor2, a, dest, count2);
+                    dest += count2;
+                    cursor2 += count2;
+                    len2 -= count2;
+                    if (len2 == 0)
+                        break outer;
+                }
+                a[dest++] = tmp[cursor1++];
+                if (--len1 == 1)
+                    break outer;
+                minGallop--;
+            } while (count1 >= MIN_GALLOP | count2 >= MIN_GALLOP);
+            if (minGallop < 0)
+                minGallop = 0;
+            minGallop += 2;  // Penalize for leaving gallop mode
+        }  // End of "outer" loop
+        this.minGallop = minGallop < 1 ? 1 : minGallop;  // Write back to field
+
+        if (len1 == 1) {
+            assert len2 > 0;
+            System.arraycopy(a, cursor2, a, dest, len2);
+            a[dest + len2] = tmp[cursor1]; //  Last elt of run 1 to end of merge
+        } else if (len1 == 0) {
+            throw new IllegalArgumentException(
+                    "Comparison method violates its general contract!");
+        } else {
+            assert len2 == 0;
+            assert len1 > 1;
+            System.arraycopy(tmp, cursor1, a, dest, len1);
+        }
+    }
+
+    /**
+     * Like mergeLo, except that this method should be called only if
+     * len1 >= len2; mergeLo should be called if len1 <= len2.  (Either method
+     * may be called if len1 == len2.)
+     *
+     * @param base1 index of first element in first run to be merged
+     * @param len1  length of first run to be merged (must be > 0)
+     * @param base2 index of first element in second run to be merged
+     *              (must be aBase + aLen)
+     * @param len2  length of second run to be merged (must be > 0)
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private void mergeHi(int base1, int len1, int base2, int len2) {
+        assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
+
+        // Copy second run into temp array
+        Object[] a = this.a; // For performance
+        Object[] tmp = ensureCapacity(len2);
+        int tmpBase = this.tmpBase;
+        System.arraycopy(a, base2, tmp, tmpBase, len2);
+
+        int cursor1 = base1 + len1 - 1;  // Indexes into a
+        int cursor2 = tmpBase + len2 - 1; // Indexes into tmp array
+        int dest = base2 + len2 - 1;     // Indexes into a
+
+        // Move last element of first run and deal with degenerate cases
+        a[dest--] = a[cursor1--];
+        if (--len1 == 0) {
+            System.arraycopy(tmp, tmpBase, a, dest - (len2 - 1), len2);
+            return;
+        }
+        if (len2 == 1) {
+            dest -= len1;
+            cursor1 -= len1;
+            System.arraycopy(a, cursor1 + 1, a, dest + 1, len1);
+            a[dest] = tmp[cursor2];
+            return;
+        }
+
+        int minGallop = this.minGallop;  // Use local variable for performance
+        outer:
+        while (true) {
+            int count1 = 0; // Number of times in a row that first run won
+            int count2 = 0; // Number of times in a row that second run won
+
+            /*
+             * Do the straightforward thing until (if ever) one run
+             * appears to win consistently.
+             */
+            do {
+                assert len1 > 0 && len2 > 1;
+                if (((Comparable) tmp[cursor2]).compareTo(a[cursor1]) < 0) {
+                    a[dest--] = a[cursor1--];
+                    count1++;
+                    count2 = 0;
+                    if (--len1 == 0)
+                        break outer;
+                } else {
+                    a[dest--] = tmp[cursor2--];
+                    count2++;
+                    count1 = 0;
+                    if (--len2 == 1)
+                        break outer;
+                }
+            } while ((count1 | count2) < minGallop);
+
+            /*
+             * One run is winning so consistently that galloping may be a
+             * huge win. So try that, and continue galloping until (if ever)
+             * neither run appears to be winning consistently anymore.
+             */
+            do {
+                assert len1 > 0 && len2 > 1;
+                count1 = len1 - gallopRight((Comparable) tmp[cursor2], a, base1, len1, len1 - 1);
+                if (count1 != 0) {
+                    dest -= count1;
+                    cursor1 -= count1;
+                    len1 -= count1;
+                    System.arraycopy(a, cursor1 + 1, a, dest + 1, count1);
+                    if (len1 == 0)
+                        break outer;
+                }
+                a[dest--] = tmp[cursor2--];
+                if (--len2 == 1)
+                    break outer;
+
+                count2 = len2 - gallopLeft((Comparable) a[cursor1], tmp, tmpBase, len2, len2 - 1);
+                if (count2 != 0) {
+                    dest -= count2;
+                    cursor2 -= count2;
+                    len2 -= count2;
+                    System.arraycopy(tmp, cursor2 + 1, a, dest + 1, count2);
+                    if (len2 <= 1)
+                        break outer; // len2 == 1 || len2 == 0
+                }
+                a[dest--] = a[cursor1--];
+                if (--len1 == 0)
+                    break outer;
+                minGallop--;
+            } while (count1 >= MIN_GALLOP | count2 >= MIN_GALLOP);
+            if (minGallop < 0)
+                minGallop = 0;
+            minGallop += 2;  // Penalize for leaving gallop mode
+        }  // End of "outer" loop
+        this.minGallop = minGallop < 1 ? 1 : minGallop;  // Write back to field
+
+        if (len2 == 1) {
+            assert len1 > 0;
+            dest -= len1;
+            cursor1 -= len1;
+            System.arraycopy(a, cursor1 + 1, a, dest + 1, len1);
+            a[dest] = tmp[cursor2];  // Move first elt of run2 to front of merge
+        } else if (len2 == 0) {
+            throw new IllegalArgumentException(
+                    "Comparison method violates its general contract!");
+        } else {
+            assert len1 == 0;
+            assert len2 > 0;
+            System.arraycopy(tmp, tmpBase, a, dest - (len2 - 1), len2);
+        }
     }
 
     /**
      * Ensures that the external array tmp has at least the specified
-     * number of elements, increasing its size if necessary.
+     * number of elements, increasing its size if necessary.  The size
+     * increases exponentially to ensure amortized linear time complexity.
      *
      * @param minCapacity the minimum required capacity of the tmp array
+     * @return tmp, whether or not it grew
      */
-    private void ensureCapacity(int minCapacity) {
+    private Object[] ensureCapacity(int minCapacity) {
         if (tmpLen < minCapacity) {
+            // Compute smallest power of 2 > minCapacity
+            int newSize = -1 >>> Integer.numberOfLeadingZeros(minCapacity);
+            newSize++;
+
+            if (newSize < 0) // Not bloody likely!
+                newSize = minCapacity;
+            else
+                newSize = Math.min(newSize, a.length >>> 1);
+
             @SuppressWarnings({"unchecked", "UnnecessaryLocalVariable"})
-            Object[] newArray = new Object[minCapacity];
+            Object[] newArray = new Object[newSize];
             tmp = newArray;
-            tmpLen = minCapacity;
+            tmpLen = newSize;
             tmpBase = 0;
         }
+        return tmp;
     }
 }

@@ -10,13 +10,13 @@ public class ParallelTimSort implements Sorter {
 
     @Override
     public void resetMergeCost() {
-        java.util.PowerSort.COUNT_MERGE_COSTS = true;
-        java.util.PowerSort.totalMergeCosts = 0;
+        java.util.TimSort.COUNT_MERGE_COSTS = true;
+        java.util.TimSort.totalMergeCosts = 0;
     }
 
     @Override
     public long getMergeCost() {
-        return java.util.PowerSort.totalMergeCosts;
+        return java.util.TimSort.totalMergeCosts;
     }
 
     @Override

@@ -4,14 +4,12 @@ import java.util.Comparator;
 public class PowerSort implements Sorter {
     private final boolean useMsbMergeType;
     private final boolean onlyIncreasingRuns;
-    private final int myMinRunLen;
-
-    private static int minRunLen = 24;
+    private final int minRunLen;
 
     public PowerSort(final boolean useMsbMergeType, final boolean onlyIncreasingRuns, final int minRunLen) {
         this.useMsbMergeType = useMsbMergeType;
         this.onlyIncreasingRuns = onlyIncreasingRuns;
-        this.myMinRunLen = minRunLen;
+        this.minRunLen = minRunLen;
     }
 
     @Override
@@ -32,7 +30,7 @@ public class PowerSort implements Sorter {
 
     @Override
     public String toString() {
-        return "PowerSort" + (useMsbMergeType ? "-msb" : "") + (onlyIncreasingRuns ? "-inc" : "") + "-minRunLen-" + myMinRunLen;
+        return "PowerSort" + (useMsbMergeType ? "-msb" : "") + (onlyIncreasingRuns ? "-inc" : "") + "-minRunLen-" + minRunLen;
     }
 
 }

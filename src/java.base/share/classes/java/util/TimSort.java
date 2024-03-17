@@ -496,6 +496,9 @@ public class TimSort<T> {
         assert len1 > 0 && len2 > 0;
         assert base1 + len1 == base2;
 
+        // Count merge costs
+        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
+
         /*
          * Record the length of the combined runs; if i is the 3rd-last
          * run now, also slide over the last run (which isn't involved
@@ -700,9 +703,6 @@ public class TimSort<T> {
     private void mergeLo(int base1, int len1, int base2, int len2) {
         assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
 
-        // Count merge costs
-        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
-
         // Copy first run into temp array
         T[] a = this.a; // For performance
         T[] tmp = ensureCapacity(len1);
@@ -818,9 +818,6 @@ public class TimSort<T> {
      */
     private void mergeHi(int base1, int len1, int base2, int len2) {
         assert len1 > 0 && len2 > 0 && base1 + len1 == base2;
-
-        // Count merge costs
-        if (COUNT_MERGE_COSTS) totalMergeCosts += (len1 + len2);
 
         // Copy second run into temp array
         T[] a = this.a; // For performance

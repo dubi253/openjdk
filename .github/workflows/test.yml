@@ -169,10 +169,7 @@ jobs:
             echo "value=$PATH" >> $GITHUB_OUTPUT
           fi
 
-      - name: 'Run tests'
-        id: run-tests
-        run: |
-          PREFIX=""
+#          PREFIX=""
 #          if [ "${{ matrix.use-single-cpu }}" = "true" ]; then
 #            if [[ "${{ runner.os }}" == "ubuntu-20.04" ]]; then  # Linux supports taskset
 #              PREFIX="taskset -c 0"
@@ -180,8 +177,12 @@ jobs:
 #              PREFIX="start /affinity 1"
 #            fi  # macOS does not support setting CPU affinity
 #          fi
-          
+
 #          $PREFIX make test-prebuilt \
+
+      - name: 'Run tests'
+        id: run-tests
+        run: |
           make test-prebuilt \
           TEST='${{ matrix.test-suite }}' \
           BOOT_JDK=${{ steps.bootjdk.outputs.path }} \
