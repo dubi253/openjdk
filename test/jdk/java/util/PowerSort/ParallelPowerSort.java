@@ -20,13 +20,13 @@ public class ParallelPowerSort implements Sorter {
 
     @Override
     public void resetNumberOfComparisons() {
-        java.util.PowerSort.COUNT_MERGE_COSTS = true;
-        java.util.PowerSort.totalMergeCosts = 0;
+        java.util.PowerSort.COUNT_COMPARISONS = true;
+        java.util.PowerSort.totalComparisons = 0;
     }
 
     @Override
     public long getNumberOfComparisons() {
-        return java.util.PowerSort.totalMergeCosts;
+        return java.util.PowerSort.totalComparisons;
     }
 
     @Override

@@ -49,7 +49,7 @@ public class PowerSortTest {
 
         ++repsPerInput;  // skip count the first run
 
-        List<Integer> testInputLengths = Arrays.asList(10000);
+        List<Integer> testInputLengths = Arrays.asList(1000000);
         if (args.length >= 3) {
             testInputLengths = new LinkedList<>();
             for (final String size : args[2].split(",")) {
@@ -123,8 +123,6 @@ public class PowerSortTest {
                         if (COUNT_MERGE_COSTS) algo.resetMergeCost();
                         if (COUNT_COMPARISONS) algo.resetNumberOfComparisons();
                         T[] a = (T[]) testInput.get();
-
-                        System.out.println("a: " + Arrays.toString(a));
 
                         final long startNanos = System.nanoTime();
                         algo.sort(a, comp);
