@@ -3,7 +3,7 @@
  * @library .
  * @summary Test PowerSort for correctness, time consumption, and merge cost.
  * @build PermutationRules PowerSort PowerSortTest RuleApplication Sorter TestInputs TimSort WelfordVariance
- * @run main/timeout=86400/othervm -Xmx4096m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
+ * @run main/timeout=86400/othervm -Xmx3072m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
  *
  * @author Zhan Jin
  */
@@ -20,6 +20,7 @@ public class PowerSortTest {
     private final static boolean ABORT_IF_RESULT_IS_NOT_SORTED = true;
     private final static boolean TIME_ALL_RUNS_IN_ONE_MEASUREMENT = false;
     private final static boolean COUNT_MERGE_COSTS = true;
+    private final static boolean COUNT_COMPARISONS = true;
     private final static boolean VERBOSE_IN_SAME_INPUT = false;
 
 
@@ -48,7 +49,7 @@ public class PowerSortTest {
 
         ++repsPerInput;  // skip count the first run
 
-        List<Integer> testInputLengths = Arrays.asList(100000);
+        List<Integer> testInputLengths = Arrays.asList(10000);
         if (args.length >= 3) {
             testInputLengths = new LinkedList<>();
             for (final String size : args[2].split(",")) {
@@ -56,7 +57,7 @@ public class PowerSortTest {
             }
         }
 
-        List<Integer> randomSeeds = Arrays.asList(0xA380);
+        List<Integer> randomSeeds = Arrays.asList(0xC390);
         if (args.length >= 4) {
             randomSeeds = new LinkedList<>();
             for (final String seed : args[3].split(",")) {
@@ -102,9 +103,10 @@ public class PowerSortTest {
 
                 final WelfordVariance samples = new WelfordVariance();
                 final WelfordVariance mergeCostsSamples = new WelfordVariance();
+                final WelfordVariance comparisonsSamples = new WelfordVariance();
                 System.out.println("----------" + algo + "----------");
-                if (COUNT_MERGE_COSTS) {
-                    System.out.println("n   ms                                     merge-cost");
+                if (COUNT_MERGE_COSTS && COUNT_COMPARISONS) {
+                    System.out.println("n   ms                                     merge-cost                          comparisons");
                 } else {
                     System.out.println("n   ms");
                 }
@@ -115,10 +117,14 @@ public class PowerSortTest {
 
                     final WelfordVariance sameInputSamples = new WelfordVariance();
                     final WelfordVariance sameInputMergeCostsSamples = new WelfordVariance();
+                    final WelfordVariance sameInputComparisonsSamples = new WelfordVariance();
 
                     for (int i = 0; i < repsPerInput; i++) {
                         if (COUNT_MERGE_COSTS) algo.resetMergeCost();
+                        if (COUNT_COMPARISONS) algo.resetNumberOfComparisons();
                         T[] a = (T[]) testInput.get();
+
+                        System.out.println("a: " + Arrays.toString(a));
 
                         final long startNanos = System.nanoTime();
                         algo.sort(a, comp);
@@ -134,12 +140,14 @@ public class PowerSortTest {
                             // Skip first iteration, often slower!
                             sameInputSamples.addSample(msDiff);
                             sameInputMergeCostsSamples.addSample(algo.getMergeCost());
+                            sameInputComparisonsSamples.addSample(algo.getNumberOfComparisons());
                             samples.addSample(msDiff);
                             mergeCostsSamples.addSample(algo.getMergeCost());
+                            comparisonsSamples.addSample(algo.getNumberOfComparisons());
 
                             if (VERBOSE_IN_SAME_INPUT) {
-                                if (COUNT_MERGE_COSTS)
-                                    System.out.println(r + "." + i + "  " + msDiff + "  " + algo.getMergeCost());
+                                if (COUNT_MERGE_COSTS && COUNT_COMPARISONS)
+                                    System.out.println(r + "." + i + "  " + msDiff + "  " + algo.getMergeCost() + "  " + algo.getNumberOfComparisons());
                                 else
                                     System.out.println(r + "." + i + "  " + msDiff);
                             }
@@ -148,15 +156,15 @@ public class PowerSortTest {
                         testInput.reset();
                     }
 
-                    if (COUNT_MERGE_COSTS)
-                        System.out.println(r + "  " + sameInputSamples + "  " + sameInputMergeCostsSamples);
+                    if (COUNT_MERGE_COSTS && COUNT_COMPARISONS)
+                        System.out.println(r + "  " + sameInputSamples + "  " + sameInputMergeCostsSamples + "  " + sameInputComparisonsSamples);
                     else
                         System.out.println(r + "  " + sameInputSamples);
 
 
                 }
 
-                System.out.println("avg-ms=" + (float) (samples.mean()) + samples + ", avg-merge-cost=" + (float) (mergeCostsSamples.mean()) + mergeCostsSamples + ", algo=" + algo + ", testInput=" + testInput + ", repetition:" + repetition);
+                System.out.println("avg-ms=" + (float) (samples.mean()) + samples + ", avg-merge-cost=" + (float) (mergeCostsSamples.mean()) + mergeCostsSamples + ", avg-comparisons=" + (float) (comparisonsSamples.mean()) + comparisonsSamples + ", algo=" + algo + ", testInput=" + testInput + ", repetition:" + repetition);
 
             }
         }

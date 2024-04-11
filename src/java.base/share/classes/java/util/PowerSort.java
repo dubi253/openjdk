@@ -78,8 +78,7 @@ public class PowerSort<T> {
 
 
     /**
-     * If true, use the most-significant-bit trick to compute node powers;
-     * otherwise use a loop.
+     * If true, count the merge costs
      */
     public static boolean COUNT_MERGE_COSTS = false;
 
@@ -87,6 +86,16 @@ public class PowerSort<T> {
      * Total merge costs of all merge calls
      */
     public static long totalMergeCosts = 0;
+
+    /**
+     * If true, count the number of comparisons
+     */
+    public static boolean COUNT_COMPARISONS = false;
+
+    /**
+     * Total number of comparisons
+     */
+    public static long totalComparisons = 0;
 
     /**
      * Creates a TimSort instance to maintain the state of an ongoing sort.
@@ -113,7 +122,6 @@ public class PowerSort<T> {
 
         // Allocate temp storage (which may be increased later if necessary)
         int len = a.length;
-        ++workLen; // Temp array is 1 larger than the original array
         if (work == null || workLen < len || workBase + len > work.length) {
             @SuppressWarnings({"unchecked", "UnnecessaryLocalVariable"})
             T[] newArray = (T[]) java.lang.reflect.Array.newInstance
@@ -175,7 +183,12 @@ public class PowerSort<T> {
         if (nRemaining < 2)
             return;  // Arrays of size 0 and 1 are always sorted
 
-        hi--; // change from exclusive to inclusive
+        // If array is small, do a "mini-PowerSort" with no merges
+        if (nRemaining < minRunLen) {
+            int initRunLen = countRunAndMakeAscending(a, lo, hi, c);
+            binarySort(a, lo, hi, lo + initRunLen, c);
+            return;
+        }
 
         /**
          * March over the array once, left to right, finding natural runs,
@@ -183,6 +196,7 @@ public class PowerSort<T> {
          * to maintain stack invariant.
          */
         PowerSort<T> ps = new PowerSort<>(a, c, work, workBase, workLen, minRunLen);
+
         if (useMsbMergeType) {
             if (onlyIncreasingRuns)
                 ps.powersortIncreasingOnlyMSB(lo, hi);
@@ -193,17 +207,17 @@ public class PowerSort<T> {
         }
     }
 
-    private void powersortIncreasingOnlyMSB(int left, int right) {
-        int n = right - left + 1;
+    private void powersortIncreasingOnlyMSB(int lo, int hi) {
+        int n = hi - lo;
         int lgnPlus2 = log2(n) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendWeaklyIncreasingRunRight(startA, right);
-        while (endA < right) {
-            int startB = endA + 1, endB = extendWeaklyIncreasingRunRight(startB, right);
-            int k = nodePower(left, right, startA, startB, endB);
+        int startA = lo, endA = extendWeaklyIncreasingRunRight(startA, hi);
+        while (endA < hi - 1) {
+            int startB = endA + 1, endB = extendWeaklyIncreasingRunRight(startB, hi);
+            int k = nodePower(lo, hi, startA, startB, endB);
             assert k != top;
             // clear left subtree bottom-up if needed
             for (int l = top; l > k; --l) {
@@ -219,42 +233,46 @@ public class PowerSort<T> {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
     /**
-     * Powersort.
+     * Normal Powersort. Sorts the given range.
      *
-     * @param left  the left
-     * @param right the right
+     * @param lo the index of the first element, inclusive, to be sorted
+     * @param hi the index of the last element, exclusive, to be sorted
      */
-    public void powersort(int left, int right) {
-        int n = right - left + 1;
-        int lgnPlus2 = log2(n) + 2;
+    private void powersort(int lo, int hi) {
+        int nRemaining = hi - lo;
+        int lgnPlus2 = log2(nRemaining) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(startA, right);
-        // extend to minRunLen
-        int lenA = endA - startA + 1;
-        if (lenA < this.minRunLen) {
-            endA = Math.min(right, startA + this.minRunLen - 1);
-            insertionsort(startA, endA, lenA);
+        int startA = lo, lenA = countRunAndMakeAscending(a, startA, hi, c);
+        int endA = startA + lenA - 1;
+
+        int minRun = minRunLength(nRemaining);
+
+        if (lenA < minRun) {
+            endA = hi < startA + minRun - 1 ? hi - 1 : startA + minRun - 1;
+            binarySort(a, startA, endA + 1, startA + lenA, c);
         }
-        while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(startB, right);
-            // extend to minRunLen
-            int lenB = endB - startB + 1;
-            if (lenB < this.minRunLen) {
-                endB = Math.min(right, startB + this.minRunLen - 1);
-                insertionsort(startB, endB, lenB);
+
+        while (endA < hi - 1) {
+            // Identify next run
+            int startB = endA + 1;
+            int lenB = countRunAndMakeAscending(a, startB, hi, c);
+            int endB = startB + lenB - 1;
+            if (lenB < minRun) {
+                endB = hi < startB + minRun ? hi - 1 : startB + minRun - 1;
+                binarySort(a, startB, endB + 1, startB + lenB, c);
             }
-            int k = nodePower(left, right, startA, startB, endB);
+            int k = nodePower(lo, hi, startA, startB, endB);
             assert k != top;
             for (int l = top; l > k; --l) {
                 if (leftRunStart[l] == NULL_INDEX) continue;
@@ -269,24 +287,25 @@ public class PowerSort<T> {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
-    private void powersortBitWise(int left, int right) {
-        int n = right - left + 1;
+    private void powersortBitWise(int lo, int hi) {
+        int n = hi - lo;
         int lgnPlus2 = log2(n) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(startA, right);
-        while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(startB, right);
-            int k = nodePowerBitwise(left, right, startA, startB, endB);
+        int startA = lo, lenA = countRunAndMakeAscending(a, startA, hi, c);
+        int endA = startA + lenA - 1;
+        while (endA < hi - 1) {
+            int startB = endA + 1, endB = startB + countRunAndMakeAscending(a, startB, hi, c) - 1;
+            int k = nodePowerBitwise(lo, hi, startA, startB, endB);
             assert k != top;
             // clear left subtree bottom-up if needed
             for (int l = top; l > k; --l) {
@@ -302,10 +321,10 @@ public class PowerSort<T> {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
@@ -314,27 +333,100 @@ public class PowerSort<T> {
         T[] a = this.a;
         Comparator<? super T> c = this.c;
 
-        while (i < right && c.compare(a[i + 1], a[i]) >= 0) ++i;
+        while (i < right - 1 && c.compare(a[i + 1], a[i]) >= 0) {
+
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
+
+            ++i;
+        }
         return i;
     }
 
-    private int extendAndReverseRunRight(int i, final int right) {
-        // use local variables for performance
-        T[] a = this.a;
-        Comparator<? super T> c = this.c;
+    /**
+     * Returns the length of the run beginning at the specified position in
+     * the specified array and reverses the run if it is descending (ensuring
+     * that the run will always be ascending when the method returns).
+     * <p>
+     * A run is the longest ascending sequence with:
+     * <p>
+     * a[lo] <= a[lo + 1] <= a[lo + 2] <= ...
+     * <p>
+     * or the longest descending sequence with:
+     * <p>
+     * a[lo] >  a[lo + 1] >  a[lo + 2] >  ...
+     * <p>
+     * For its intended use in a stable mergesort, the strictness of the
+     * definition of "descending" is needed so that the call can safely
+     * reverse a descending sequence without violating stability.
+     *
+     * @param a  the array in which a run is to be counted and possibly reversed
+     * @param lo index of the first element in the run
+     * @param hi index after the last element that may be contained in the run.
+     *           It is required that {@code lo < hi}.
+     * @param c  the comparator to used for the sort
+     * @return the length of the run beginning at the specified position in
+     * the specified array
+     */
+    private static <T> int countRunAndMakeAscending(T[] a, int lo, int hi,
+                                                    Comparator<? super T> c) {
+        assert lo < hi;
+        int runHi = lo + 1;
+        if (runHi == hi)
+            return 1;
 
-
-        assert i <= right;
-        int j = i;
-        if (j == right) return j;
         // Find end of run, and reverse range if descending
-        if (c.compare(a[j], a[++j]) > 0) { // Strictly Descending
-            while (j < right && c.compare(a[j + 1], a[j]) < 0) ++j;
-            reverseRange(a, i, j);
-        } else { // Weakly Ascending
-            while (j < right && c.compare(a[j + 1], a[j]) >= 0) ++j;
+
+        // count comparisons
+        if (COUNT_COMPARISONS) totalComparisons++;
+
+        if (c.compare(a[runHi++], a[lo]) < 0) { // Descending
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) < 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
+                runHi++;
+            }
+            reverseRange(a, lo, runHi);
+        } else {                              // Ascending
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) >= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
+                runHi++;
+            }
         }
-        return j;
+
+        return runHi - lo;
+    }
+
+    /**
+     * Returns the minimum acceptable run length for an array of the specified
+     * length. Natural runs shorter than this will be extended with
+     * {@link #binarySort}.
+     * <p>
+     * Roughly speaking, the computation is:
+     * <p>
+     * If n < MIN_MERGE, return n (it's too small to bother with fancy stuff).
+     * Else if n is an exact power of 2, return MIN_MERGE/2.
+     * Else return an int k, MIN_MERGE/2 <= k <= MIN_MERGE, such that n/k
+     * is close to, but strictly less than, an exact power of 2.
+     * <p>
+     * For the rationale, see listsort.txt.
+     *
+     * @param n the length of the array to be sorted
+     * @return the length of the minimum run to be merged
+     */
+    private int minRunLength(int n) {
+        assert n >= 0;
+        int r = 0;      // Becomes 1 if any 1 bits are shifted off
+        while (n >= this.minRunLen) {
+            r |= (n & 1);
+            n >>= 1;
+        }
+        return n + r;
     }
 
     private static int log2(int n) {
@@ -350,6 +442,7 @@ public class PowerSort<T> {
      * @param hi the index after the last element in the range to be reversed
      */
     private static void reverseRange(Object[] a, int lo, int hi) {
+        hi--;
         while (lo < hi) {
             Object t = a[lo];
             a[lo++] = a[hi];
@@ -358,31 +451,91 @@ public class PowerSort<T> {
     }
 
     /**
-     * Sort A[left..right] by straight-insertion sort (both endpoints
-     * inclusive), assuming the leftmost nPresorted elements form a weakly
-     * increasing run
+     * Sorts the specified portion of the specified array using a binary
+     * insertion sort.  This is the best method for sorting small numbers
+     * of elements.  It requires O(n log n) compares, but O(n^2) data
+     * movement (worst case).
+     * <p>
+     * If the initial part of the specified range is already sorted,
+     * this method can take advantage of it: the method assumes that the
+     * elements from index {@code lo}, inclusive, to {@code start},
+     * exclusive are already sorted.
+     *
+     * @param a     the array in which a range is to be sorted
+     * @param lo    the index of the first element in the range to be sorted
+     * @param hi    the index after the last element in the range to be sorted
+     * @param start the index of the first element in the range that is
+     *              not already known to be sorted ({@code lo <= start <= hi})
+     * @param c     comparator to used for the sort
      */
-    private void insertionsort(int left, int right, int nPresorted) {
-        // use local variables for performance
-        T[] a = this.a;
-        Comparator<? super T> c = this.c;
+    @SuppressWarnings("fallthrough")
+    private static <T> void binarySort(T[] a, int lo, int hi, int start,
+                                       Comparator<? super T> c) {
+        assert lo <= start && start <= hi;
+        if (start == lo)
+            start++;
+        for (; start < hi; start++) {
+            T pivot = a[start];
 
-        assert right >= left;
-        assert right - left + 1 >= nPresorted;
-        for (int i = left + nPresorted; i <= right; ++i) {
-            int j = i - 1;
-            final T v = a[i];
-            while (c.compare(v, a[j]) < 0) {
-                a[j + 1] = a[j];
-                --j;
-                if (j < left) break;
+            // Set left (and right) to the index where a[start] (pivot) belongs
+            int left = lo;
+            int right = start;
+            assert left <= right;
+            /*
+             * Invariants:
+             *   pivot >= all in [lo, left).
+             *   pivot <  all in [right, start).
+             */
+            while (left < right) {
+                int mid = (left + right) >>> 1;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
+                if (c.compare(pivot, a[mid]) < 0)
+                    right = mid;
+                else
+                    left = mid + 1;
             }
-            a[j + 1] = v;
+            assert left == right;
+
+            /*
+             * The invariants still hold: pivot >= all in [lo, left) and
+             * pivot < all in [left, start), so pivot belongs at left.  Note
+             * that if there are elements equal to pivot, left points to the
+             * first slot after them -- that's why this sort is stable.
+             * Slide elements over to make room for pivot.
+             */
+            int n = start - left;  // The number of elements to move
+            // Switch is just an optimization for arraycopy in default case
+            switch (n) {
+                case 2:
+                    a[left + 2] = a[left + 1];
+                case 1:
+                    a[left + 1] = a[left];
+                    break;
+                default:
+                    System.arraycopy(a, left, a, left + 1, n);
+            }
+            a[left] = pivot;
         }
     }
 
+    /**
+     * Count the node power of the two runs.
+     * Powersort builds on a modified bisection heuristic for computing nearly-optimal binary search trees that
+     * might be independent interest. It has the same quality guarantees as Mehlhorn's original formulation,
+     * but allows the tree to be built "bottom-up" as a Cartesian tree over a certain sequence, the "node powers".
+     *
+     * @param left   the index of the first element, inclusive
+     * @param right  the index after the last element in the range, exclusive
+     * @param startA the index of the first element in the first run
+     * @param startB the index of the first element in the second run
+     * @param endB   the index of the last element in the second run
+     * @return
+     */
     private int nodePower(int left, int right, int startA, int startB, int endB) {
-        int n = (right - left + 1);
+        int n = right - left;
         long l = (long) startA + (long) startB - ((long) left << 1); // 2*middleA
         long r = (long) startB + (long) endB + 1 - ((long) left << 1); // 2*middleB
         int a = (int) ((l << 30) / n); // middleA / 2n
@@ -444,8 +597,10 @@ public class PowerSort<T> {
 //        for (int j = m; j < r; ++j) tmp[(r + m - j) - l + tmpBase] = a[j + 1];
 //
 //        int i = l, j = r;
-//        for (int k = l; k <= r; ++k)
+//        for (int k = l; k <= r; ++k) {
+//            if (COUNT_COMPARISONS) totalComparisons++;
 //            a[k] = c.compare(tmp[i - l + tmpBase], tmp[j - l + tmpBase]) <= 0 ? tmp[i++ - l + tmpBase] : tmp[j-- - l + tmpBase];
+//        }
 //    }
 
     /**
@@ -515,10 +670,17 @@ public class PowerSort<T> {
         assert len > 0 && hint >= 0 && hint < len;
         int lastOfs = 0;
         int ofs = 1;
+
+        // count comparisons
+        if (COUNT_COMPARISONS) totalComparisons++;
+
         if (c.compare(key, a[base + hint]) > 0) {
             // Gallop right until a[base+hint+lastOfs] < key <= a[base+hint+ofs]
             int maxOfs = len - hint;
             while (ofs < maxOfs && c.compare(key, a[base + hint + ofs]) > 0) {
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -534,6 +696,10 @@ public class PowerSort<T> {
             // Gallop left until a[base+hint-ofs] < key <= a[base+hint-lastOfs]
             final int maxOfs = hint + 1;
             while (ofs < maxOfs && c.compare(key, a[base + hint - ofs]) <= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -557,6 +723,9 @@ public class PowerSort<T> {
         lastOfs++;
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
 
             if (c.compare(key, a[base + m]) > 0)
                 lastOfs = m + 1;  // a[base + m] < key
@@ -587,9 +756,16 @@ public class PowerSort<T> {
         int ofs = 1;
         int lastOfs = 0;
         if (c.compare(key, a[base + hint]) < 0) {
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
+
             // Gallop left until a[b+hint - ofs] <= key < a[b+hint - lastOfs]
             int maxOfs = hint + 1;
             while (ofs < maxOfs && c.compare(key, a[base + hint - ofs]) < 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -606,6 +782,10 @@ public class PowerSort<T> {
             // Gallop right until a[b+hint + lastOfs] <= key < a[b+hint + ofs]
             int maxOfs = len - hint;
             while (ofs < maxOfs && c.compare(key, a[base + hint + ofs]) >= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -628,6 +808,9 @@ public class PowerSort<T> {
         lastOfs++;
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
 
             if (c.compare(key, a[base + m]) < 0)
                 ofs = m;          // key < a[b + m]
@@ -690,6 +873,10 @@ public class PowerSort<T> {
              */
             do {
                 assert len1 > 1 && len2 > 0;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 if (c.compare(a[cursor2], tmp[cursor1]) < 0) {
                     a[dest++] = a[cursor2++];
                     count2++;
@@ -810,6 +997,10 @@ public class PowerSort<T> {
              */
             do {
                 assert len1 > 0 && len2 > 1;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 if (c.compare(tmp[cursor2], a[cursor1]) < 0) {
                     a[dest--] = a[cursor1--];
                     count1++;

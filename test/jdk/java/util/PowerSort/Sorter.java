@@ -27,6 +27,18 @@ public interface Sorter {
      */
     long getMergeCost();
 
+    /**
+     * Zero number of comparisons.
+     */
+    void resetNumberOfComparisons();
+
+    /**
+     * Gets number of comparisons.
+     *
+     * @return the number of comparisons
+     */
+    long getNumberOfComparisons();
+
     @Override
     String toString();
 

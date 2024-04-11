@@ -146,6 +146,17 @@ public class TimSort<T> {
     */
     public static long totalMergeCosts = 0;
 
+
+    /**
+     * If true, count the number of comparisons
+     */
+    public static boolean COUNT_COMPARISONS = false;
+
+    /**
+     * Total number of comparisons
+     */
+    public static long totalComparisons = 0;
+
     /**
      * Creates a TimSort instance to maintain the state of an ongoing sort.
      *
@@ -305,6 +316,10 @@ public class TimSort<T> {
              */
             while (left < right) {
                 int mid = (left + right) >>> 1;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 if (c.compare(pivot, a[mid]) < 0)
                     right = mid;
                 else
@@ -367,13 +382,27 @@ public class TimSort<T> {
             return 1;
 
         // Find end of run, and reverse range if descending
+
+        // count comparisons
+        if (COUNT_COMPARISONS) totalComparisons++;
+
         if (c.compare(a[runHi++], a[lo]) < 0) { // Descending
-            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) < 0)
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) < 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 runHi++;
+            }
             reverseRange(a, lo, runHi);
         } else {                              // Ascending
-            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) >= 0)
+            while (runHi < hi && c.compare(a[runHi], a[runHi - 1]) >= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 runHi++;
+            }
         }
 
         return runHi - lo;
@@ -561,10 +590,18 @@ public class TimSort<T> {
         assert len > 0 && hint >= 0 && hint < len;
         int lastOfs = 0;
         int ofs = 1;
+
+        // count comparisons
+        if (COUNT_COMPARISONS) totalComparisons++;
+
         if (c.compare(key, a[base + hint]) > 0) {
             // Gallop right until a[base+hint+lastOfs] < key <= a[base+hint+ofs]
             int maxOfs = len - hint;
             while (ofs < maxOfs && c.compare(key, a[base + hint + ofs]) > 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -580,6 +617,10 @@ public class TimSort<T> {
             // Gallop left until a[base+hint-ofs] < key <= a[base+hint-lastOfs]
             final int maxOfs = hint + 1;
             while (ofs < maxOfs && c.compare(key, a[base + hint - ofs]) <= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -603,6 +644,9 @@ public class TimSort<T> {
         lastOfs++;
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
 
             if (c.compare(key, a[base + m]) > 0)
                 lastOfs = m + 1;  // a[base + m] < key
@@ -632,10 +676,18 @@ public class TimSort<T> {
 
         int ofs = 1;
         int lastOfs = 0;
+
+        // count comparisons
+        if (COUNT_COMPARISONS) totalComparisons++;
+
         if (c.compare(key, a[base + hint]) < 0) {
             // Gallop left until a[b+hint - ofs] <= key < a[b+hint - lastOfs]
             int maxOfs = hint + 1;
             while (ofs < maxOfs && c.compare(key, a[base + hint - ofs]) < 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -652,6 +704,10 @@ public class TimSort<T> {
             // Gallop right until a[b+hint + lastOfs] <= key < a[b+hint + ofs]
             int maxOfs = len - hint;
             while (ofs < maxOfs && c.compare(key, a[base + hint + ofs]) >= 0) {
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 lastOfs = ofs;
                 ofs = (ofs << 1) + 1;
                 if (ofs <= 0)   // int overflow
@@ -674,6 +730,9 @@ public class TimSort<T> {
         lastOfs++;
         while (lastOfs < ofs) {
             int m = lastOfs + ((ofs - lastOfs) >>> 1);
+
+            // count comparisons
+            if (COUNT_COMPARISONS) totalComparisons++;
 
             if (c.compare(key, a[base + m]) < 0)
                 ofs = m;          // key < a[b + m]
@@ -736,6 +795,10 @@ public class TimSort<T> {
              */
             do {
                 assert len1 > 1 && len2 > 0;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 if (c.compare(a[cursor2], tmp[cursor1]) < 0) {
                     a[dest++] = a[cursor2++];
                     count2++;
@@ -856,6 +919,10 @@ public class TimSort<T> {
              */
             do {
                 assert len1 > 0 && len2 > 1;
+
+                // count comparisons
+                if (COUNT_COMPARISONS) totalComparisons++;
+
                 if (c.compare(tmp[cursor2], a[cursor1]) < 0) {
                     a[dest--] = a[cursor1--];
                     count1++;

@@ -40,7 +40,7 @@ public class ComparablePowerSort {
     /**
      * The array being sorted.
      */
-    private Object[] a;
+    private final Object[] a;
 
     /**
      * Temp storage for merges. A workspace array may optionally be
@@ -76,6 +76,16 @@ public class ComparablePowerSort {
      */
     public static long totalMergeCosts = 0;
 
+    /**
+     * If true, count the number of comparisons
+     */
+    public static boolean COUNT_COMPARISONS = false;
+
+    /**
+     * Total number of comparisons
+     */
+    public static long totalComparisons = 0;
+
 
     /**
      * Creates a ComparablePowerSort instance to maintain the state of an ongoing
@@ -98,11 +108,10 @@ public class ComparablePowerSort {
 
         this.a = a;
         int len = a.length;
-        int tlen = len + 1;
-        if (work == null || workLen < tlen || workBase + tlen > work.length) {
-            tmp = new Object[tlen];
+        if (work == null || workLen < len || workBase + len > work.length) {
+            tmp = new Object[len];
             tmpBase = 0;
-            tmpLen = tlen;
+            tmpLen = len;
         } else {
             tmp = work;
             tmpBase = workBase;
@@ -148,8 +157,12 @@ public class ComparablePowerSort {
         if (nRemaining < 2)
             return;  // Arrays of size 0 and 1 are always sorted
 
-        hi--; // change from exclusive to inclusive
-
+        // If array is small, do a "mini-PowerSort" with no merges
+        if (nRemaining < minRunLen) {
+            int initRunLen = countRunAndMakeAscending(a, lo, hi);
+            binarySort(a, lo, hi, lo + initRunLen);
+            return;
+        }
         /**
          * March over the array once, left to right, finding natural runs,
          * extending short natural runs to minRun elements, and merging runs
@@ -166,17 +179,17 @@ public class ComparablePowerSort {
         }
     }
 
-    private void powersortIncreasingOnlyMSB(int left, int right) {
-        int n = right - left + 1;
+    private void powersortIncreasingOnlyMSB(int lo, int hi) {
+        int n = hi - lo;
         int lgnPlus2 = log2(n) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendWeaklyIncreasingRunRight(startA, right);
-        while (endA < right) {
-            int startB = endA + 1, endB = extendWeaklyIncreasingRunRight(startB, right);
-            int k = nodePower(left, right, startA, startB, endB);
+        int startA = lo, endA = extendWeaklyIncreasingRunRight(startA, hi);
+        while (endA < hi - 1) {
+            int startB = endA + 1, endB = extendWeaklyIncreasingRunRight(startB, hi);
+            int k = nodePower(lo, hi, startA, startB, endB);
             assert k != top;
             // clear left subtree bottom-up if needed
             for (int l = top; l > k; --l) {
@@ -192,42 +205,45 @@ public class ComparablePowerSort {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
     /**
-     * Powersort.
+     * The normal powersort algorithm, can be used in most cases.
      *
-     * @param left  the left
-     * @param right the right
+     * @param lo the index of the first element, inclusive, to be sorted
+     * @param hi the index of the last element, exclusive, to be sorted
      */
-    public void powersort(int left, int right) {
-        int n = right - left + 1;
-        int lgnPlus2 = log2(n) + 2;
+    public void powersort(int lo, int hi) {
+        int nRemaining = hi - lo;
+        int lgnPlus2 = log2(nRemaining) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(a, startA, right);
-        // extend to minRunLen
-        int lenA = endA - startA + 1;
-        if (lenA < minRunLen) {
-            endA = Math.min(right, startA + minRunLen - 1);
-            insertionsort(startA, endA, lenA);
+        int startA = lo, lenA = countRunAndMakeAscending(a, startA, hi);
+        int endA = startA + lenA - 1;
+
+        int minRun = minRunLength(nRemaining);
+
+        if (lenA < minRun) {
+            endA = hi < startA + minRun - 1 ? hi - 1 : startA + minRun - 1;
+            binarySort(a, startA, endA + 1, startA + lenA);
         }
-        while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(a, startB, right);
+        while (endA < hi - 1) {
+            int startB = endA + 1;
+            int lenB = countRunAndMakeAscending(a, startB, hi);
             // extend to minRunLen
-            int lenB = endB - startB + 1;
-            if (lenB < minRunLen) {
-                endB = Math.min(right, startB + minRunLen - 1);
-                insertionsort(startB, endB, lenB);
+            int endB = startB + lenB - 1;
+            if (lenB < minRun) {
+                endB = hi < startB + minRun ? hi - 1 : startB + minRun - 1;
+                binarySort(a, startB, endB + 1, startB + lenB);
             }
-            int k = nodePower(left, right, startA, startB, endB);
+            int k = nodePower(lo, hi, startA, startB, endB);
             assert k != top;
             for (int l = top; l > k; --l) {
                 if (leftRunStart[l] == NULL_INDEX) continue;
@@ -242,24 +258,25 @@ public class ComparablePowerSort {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
-    private void powersortBitWise(int left, int right) {
-        int n = right - left + 1;
+    private void powersortBitWise(int lo, int hi) {
+        int n = hi - lo;
         int lgnPlus2 = log2(n) + 2;
         int[] leftRunStart = new int[lgnPlus2], leftRunEnd = new int[lgnPlus2];
         Arrays.fill(leftRunStart, NULL_INDEX);
         int top = 0;
 
-        int startA = left, endA = extendAndReverseRunRight(a, startA, right);
-        while (endA < right) {
-            int startB = endA + 1, endB = extendAndReverseRunRight(a, startB, right);
-            int k = nodePowerBitwise(left, right, startA, startB, endB);
+        int startA = lo, lenA = countRunAndMakeAscending(a, startA, hi);
+        int endA = startA + lenA - 1;
+        while (endA < hi - 1) {
+            int startB = endA + 1, endB = startB + countRunAndMakeAscending(a, startB, hi) - 1;
+            int k = nodePowerBitwise(lo, hi, startA, startB, endB);
             assert k != top;
             // clear left subtree bottom-up if needed
             for (int l = top; l > k; --l) {
@@ -275,50 +292,156 @@ public class ComparablePowerSort {
             startA = startB;
             endA = endB;
         }
-        assert endA == right;
+        assert endA == hi - 1;
         for (int l = top; l > 0; --l) {
             if (leftRunStart[l] == NULL_INDEX) continue;
-            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, right);
+            mergeRuns(leftRunStart[l], leftRunEnd[l] + 1, hi - 1);
         }
     }
 
 
     @SuppressWarnings({"unchecked", "rawtypes"})
     private int extendWeaklyIncreasingRunRight(int i, final int right) {
-        while (i < right && ((Comparable) a[i + 1]).compareTo(a[i]) >= 0) ++i;
+        while (i < right - 1 && ((Comparable) a[i + 1]).compareTo(a[i]) >= 0) ++i;
         return i;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    private static int extendAndReverseRunRight(Object[] a, int i, final int right) {
-        assert i <= right;
-        int j = i;
-        if (j == right) return j;
-        // Find end of run, and reverse range if descending
-        if (((Comparable) a[j]).compareTo(a[++j]) > 0) { // Strictly Descending
-            while (j < right && ((Comparable) a[j + 1]).compareTo(a[j]) < 0) ++j;
-            reverseRange(a, i, j);
-        } else { // Weakly Ascending
-            while (j < right && ((Comparable) a[j + 1]).compareTo(a[j]) >= 0) ++j;
+    /**
+     * Sorts the specified portion of the specified array using a binary
+     * insertion sort.  This is the best method for sorting small numbers
+     * of elements.  It requires O(n log n) compares, but O(n^2) data
+     * movement (worst case).
+     * <p>
+     * If the initial part of the specified range is already sorted,
+     * this method can take advantage of it: the method assumes that the
+     * elements from index {@code lo}, inclusive, to {@code start},
+     * exclusive are already sorted.
+     *
+     * @param a     the array in which a range is to be sorted
+     * @param lo    the index of the first element in the range to be sorted
+     * @param hi    the index after the last element in the range to be sorted
+     * @param start the index of the first element in the range that is
+     *              not already known to be sorted ({@code lo <= start <= hi})
+     */
+    @SuppressWarnings({"fallthrough", "rawtypes", "unchecked"})
+    private static void binarySort(Object[] a, int lo, int hi, int start) {
+        assert lo <= start && start <= hi;
+        if (start == lo)
+            start++;
+        for (; start < hi; start++) {
+            Comparable pivot = (Comparable) a[start];
+
+            // Set left (and right) to the index where a[start] (pivot) belongs
+            int left = lo;
+            int right = start;
+            assert left <= right;
+            /*
+             * Invariants:
+             *   pivot >= all in [lo, left).
+             *   pivot <  all in [right, start).
+             */
+            while (left < right) {
+                int mid = (left + right) >>> 1;
+                if (pivot.compareTo(a[mid]) < 0)
+                    right = mid;
+                else
+                    left = mid + 1;
+            }
+            assert left == right;
+
+            /*
+             * The invariants still hold: pivot >= all in [lo, left) and
+             * pivot < all in [left, start), so pivot belongs at left.  Note
+             * that if there are elements equal to pivot, left points to the
+             * first slot after them -- that's why this sort is stable.
+             * Slide elements over to make room for pivot.
+             */
+            int n = start - left;  // The number of elements to move
+            // Switch is just an optimization for arraycopy in default case
+            switch (n) {
+                case 2:
+                    a[left + 2] = a[left + 1];
+                case 1:
+                    a[left + 1] = a[left];
+                    break;
+                default:
+                    System.arraycopy(a, left, a, left + 1, n);
+            }
+            a[left] = pivot;
         }
-        return j;
     }
 
-    @SuppressWarnings({"unchecked", "rawtypes"})
-    private void insertionsort(int left, int right, int nPresorted) {
-        assert right >= left;
-        assert right - left + 1 >= nPresorted;
-        for (int i = left + nPresorted; i <= right; ++i) {
-            int j = i - 1;
-            final Object v = a[i];
-            while (((Comparable) v).compareTo(a[j]) < 0) {
-                a[j + 1] = a[j];
-                --j;
-                if (j < left) break;
-            }
-            a[j + 1] = v;
+    /**
+     * Returns the minimum acceptable run length for an array of the specified
+     * length. Natural runs shorter than this will be extended with
+     * {@link #binarySort}.
+     * <p>
+     * Roughly speaking, the computation is:
+     * <p>
+     * If n < MIN_MERGE, return n (it's too small to bother with fancy stuff).
+     * Else if n is an exact power of 2, return MIN_MERGE/2.
+     * Else return an int k, MIN_MERGE/2 <= k <= MIN_MERGE, such that n/k
+     * is close to, but strictly less than, an exact power of 2.
+     * <p>
+     * For the rationale, see listsort.txt.
+     *
+     * @param n the length of the array to be sorted
+     * @return the length of the minimum run to be merged
+     */
+    private int minRunLength(int n) {
+        assert n >= 0;
+        int r = 0;      // Becomes 1 if any 1 bits are shifted off
+        while (n >= this.minRunLen) {
+            r |= (n & 1);
+            n >>= 1;
         }
+        return n + r;
     }
+
+    /**
+     * Returns the length of the run beginning at the specified position in
+     * the specified array and reverses the run if it is descending (ensuring
+     * that the run will always be ascending when the method returns).
+     * <p>
+     * A run is the longest ascending sequence with:
+     * <p>
+     * a[lo] <= a[lo + 1] <= a[lo + 2] <= ...
+     * <p>
+     * or the longest descending sequence with:
+     * <p>
+     * a[lo] >  a[lo + 1] >  a[lo + 2] >  ...
+     * <p>
+     * For its intended use in a stable mergesort, the strictness of the
+     * definition of "descending" is needed so that the call can safely
+     * reverse a descending sequence without violating stability.
+     *
+     * @param a  the array in which a run is to be counted and possibly reversed
+     * @param lo index of the first element in the run
+     * @param hi index after the last element that may be contained in the run.
+     *           It is required that {@code lo < hi}.
+     * @return the length of the run beginning at the specified position in
+     * the specified array
+     */
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static int countRunAndMakeAscending(Object[] a, int lo, int hi) {
+        assert lo < hi;
+        int runHi = lo + 1;
+        if (runHi == hi)
+            return 1;
+
+        // Find end of run, and reverse range if descending
+        if (((Comparable) a[runHi++]).compareTo(a[lo]) < 0) { // Descending
+            while (runHi < hi && ((Comparable) a[runHi]).compareTo(a[runHi - 1]) < 0)
+                runHi++;
+            reverseRange(a, lo, runHi);
+        } else {                              // Ascending
+            while (runHi < hi && ((Comparable) a[runHi]).compareTo(a[runHi - 1]) >= 0)
+                runHi++;
+        }
+
+        return runHi - lo;
+    }
+
 
     private static int nodePowerBitwise(int left, int right, int startA, int startB, int endB) {
         assert right < (1 << 30); // otherwise nt2, l and r will overflow
@@ -351,6 +474,7 @@ public class ComparablePowerSort {
      * @param hi the index after the last element in the range to be reversed
      */
     private static void reverseRange(Object[] a, int lo, int hi) {
+        hi--;
         while (lo < hi) {
             Object t = a[lo];
             a[lo++] = a[hi];
@@ -364,7 +488,7 @@ public class ComparablePowerSort {
     }
 
     private int nodePower(int left, int right, int startA, int startB, int endB) {
-        int n = (right - left + 1);
+        int n = right - left;
         long l = (long) startA + (long) startB - ((long) left << 1); // 2*middleA
         long r = (long) startB + (long) endB + 1 - ((long) left << 1); // 2*middleB
         int a = (int) ((l << 30) / n); // middleA / 2n

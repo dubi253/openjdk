@@ -19,6 +19,17 @@ public class TimSort implements Sorter {
     }
 
     @Override
+    public void resetNumberOfComparisons() {
+        java.util.TimSort.COUNT_COMPARISONS = true;
+        java.util.TimSort.totalComparisons = 0;
+    }
+
+    @Override
+    public long getNumberOfComparisons() {
+        return java.util.TimSort.totalComparisons;
+    }
+
+    @Override
     public String toString() {
         return "TimSort";
     }

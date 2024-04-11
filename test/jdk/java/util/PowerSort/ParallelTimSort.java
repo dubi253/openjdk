@@ -15,6 +15,17 @@ public class ParallelTimSort implements Sorter {
     }
 
     @Override
+    public void resetNumberOfComparisons() {
+        java.util.TimSort.COUNT_MERGE_COSTS = true;
+        java.util.TimSort.totalMergeCosts = 0;
+    }
+
+    @Override
+    public long getNumberOfComparisons() {
+        return java.util.TimSort.totalMergeCosts;
+    }
+
+    @Override
     public long getMergeCost() {
         return java.util.TimSort.totalMergeCosts;
     }

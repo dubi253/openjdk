@@ -29,6 +29,17 @@ public class PowerSort implements Sorter {
     }
 
     @Override
+    public void resetNumberOfComparisons() {
+        java.util.PowerSort.COUNT_COMPARISONS = true;
+        java.util.PowerSort.totalComparisons = 0;
+    }
+
+    @Override
+    public long getNumberOfComparisons() {
+        return java.util.PowerSort.totalComparisons;
+    }
+
+    @Override
     public String toString() {
         return "PowerSort" + (useMsbMergeType ? "-msb" : "") + (onlyIncreasingRuns ? "-inc" : "") + "-minRunLen-" + minRunLen;
     }
