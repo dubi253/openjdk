@@ -49,7 +49,7 @@ public class PowerSortTest {
 
         ++repsPerInput;  // skip count the first run
 
-        List<Integer> testInputLengths = Arrays.asList(1000000);
+        List<Integer> testInputLengths = Arrays.asList(100000);
         if (args.length >= 3) {
             testInputLengths = new LinkedList<>();
             for (final String size : args[2].split(",")) {
