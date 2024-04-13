@@ -3,7 +3,7 @@
  * @library .
  * @summary Test PowerSort for correctness, time consumption, and merge cost.
  * @build PermutationRules PowerSort PowerSortTest RuleApplication Sorter TestInputs TimSort WelfordVariance
- * @run main/timeout=86400/othervm -Xmx3072m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
+ * @run main/timeout=86400/othervm -Xmx2048m -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation PowerSortTest
  *
  * @author Zhan Jin
  */
