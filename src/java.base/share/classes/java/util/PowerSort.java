@@ -565,12 +565,12 @@ public class PowerSort<T> {
         return nCommonBits + 1;
     }
 
-    /**
-     * Merges runs A[l..m-1] and A[m..r] in-place into A[l..r]
-     * with Sedgewick's bitonic merge (Program 8.2 in Algorithms in C++)
-     * using tmp as temporary storage.
-     * tmp.length must be at least r - l + 1.
-     */
+//    /**
+//     * Merges runs A[l..m-1] and A[m..r] in-place into A[l..r]
+//     * with Sedgewick's bitonic merge (Program 8.2 in Algorithms in C++)
+//     * using tmp as temporary storage.
+//     * tmp.length must be at least r - l + 1.
+//     */
 //    private void mergeRuns(int l, int m, int r) {
 //        // use local variables for performance
 //        T[] a = this.a;
