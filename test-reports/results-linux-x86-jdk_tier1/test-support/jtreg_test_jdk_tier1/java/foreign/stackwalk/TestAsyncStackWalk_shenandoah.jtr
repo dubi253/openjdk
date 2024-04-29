@@ -1,0 +1,1313 @@
+#Test Results (version 2)
+#Mon Apr 29 00:39:04 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+id=shenandoah
+keywords=othervm driver
+library=../ /test/lib
+requires=vm.gc.Shenandoah
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI --enable-native-access\=ALL-UNNAMED -Xbatch -XX\:+UseShenandoahGC TestAsyncStackWalk\n
+source=TestAsyncStackWalk.java
+title=\ 
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java\#shenandoah
+elapsed=2047 0\:00\:02.047
+end=Mon Apr 29 00\:39\:04 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Mon Apr 29 00\:39\:02 UTC 2024
+test=java/foreign/stackwalk/TestAsyncStackWalk.java\#shenandoah
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=2047
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk
+
+#section:script_messages
+----------messages:(10/784)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library ../; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:39:02 UTC 2024
+finished: Mon Apr 29 00:39:02 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:02 UTC 2024
+finished: Mon Apr 29 00:39:02 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/327)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:39:02 UTC 2024
+Mode: agentvm
+Agent id: 10
+finished: Mon Apr 29 00:39:02 UTC 2024
+elapsed time (seconds): 0.006
+----------configuration:(16/1153)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+              /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /home/runner/work/openjdk/openjdk/test/lib
+
+----------rerun:(28/3442)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestAsyncStackWalk.java#shenandoah \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/226)----------
+command: build TestAsyncStackWalk
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:02 UTC 2024
+Test directory:
+  compile: TestAsyncStackWalk
+finished: Mon Apr 29 00:39:03 UTC 2024
+elapsed time (seconds): 0.078
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/290)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:02 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:03 UTC 2024
+elapsed time (seconds): 0.078
+----------configuration:(14/1085)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(35/4227)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/foreign/stackwalk/TestAsyncStackWalk.java#shenandoah \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java
+----------direct:(2/163)----------
+Note: /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/Asserts.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/506)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch -XX:+UseShenandoahGC TestAsyncStackWalk
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch -XX:+UseShenandoahGC TestAsyncStackWalk 
+started: Mon Apr 29 00:39:03 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:39:04 UTC 2024
+elapsed time (seconds): 1.96
+----------configuration:(0/0)----------
+----------System.out:(1046/94274)----------
+NativeTestHelper::DEFAULT_RANDOM.seed = 304636353
+Re-run with '-DNativeTestHelper.DEFAULT_RANDOM.seed=304636353' to reproduce
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedb0 unextended sp=0xa69fedb0, fp=0xa69fedf0, real_fp=0xa69fedf0, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fedf8 unextended sp=0xa69fee00, fp=0xa69fee30, real_fp=0xa69fee30, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Interpreted frame (sp=0xa69fee38 unextended sp=0xa69fee38, fp=0xa69fee5c, real_fp=0xa69fee5c, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Interpreted frame (sp=0xa69fee64 unextended sp=0xa69fee68, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2740170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedb0 unextended sp=0xa69fedb0, fp=0xa69fedf0, real_fp=0xa69fedf0, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fedf8 unextended sp=0xa69fee00, fp=0xa69fee30, real_fp=0xa69fee30, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Interpreted frame (sp=0xa69fee38 unextended sp=0xa69fee38, fp=0xa69fee5c, real_fp=0xa69fee5c, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Interpreted frame (sp=0xa69fee64 unextended sp=0xa69fee68, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2740170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2780170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2780170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb27c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb27c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2800170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2800170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2840170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2840170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2880170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2880170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb28c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb28c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2900170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2900170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2940170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2940170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2980170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2980170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb29c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb29c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2a00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2a00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2a40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb2a40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xa69fedc0 unextended sp=0xa69fedc0, fp=0xa69fedf8, real_fp=0xa69fedf8, pc=0xe2d66970)
+~native method entry point (kind = native)  [0xe2d664c0, 0xe2d66f50]  2704 bytes
+Interpreted frame (sp=0xa69fee00 unextended sp=0xa69fee08, fp=0xa69fee38, real_fp=0xa69fee38, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee40 unextended sp=0xa69fee40, fp=0xa69fee90, real_fp=0xa69fee60, pc=0xdb92cbc8)
+Interpreted frame (sp=0xa69fee60 unextended sp=0xa69fee60, fp=0xa69fee90, real_fp=0xa69fee90, pc=0xe2d626ca)
+~return entry points  [0xe2d62320, 0xe2d62c5c]  2364 bytes
+Compiled frame (sp=0xa69fee98 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextende
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+eal_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafb40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafb40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafb80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafb80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafbc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafbc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafc80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafcc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafcc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafd80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafdc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafdc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafe80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafec0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xafec0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff00170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff40170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaff80170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaffc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xaffc0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0000170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0000170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0040170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0040170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0080170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0080170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb00c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb00c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0100170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0100170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0140170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0140170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0180170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0180170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb01c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb01c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0200170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0200170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0240170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0240170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0280170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0280170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb02c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb02c0170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0300170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0300170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804230)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0340170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Native frame (sp=0xa69fee20 unextended sp=0xa69fee20, fp=0x00000000, real_fp=0xa69fee50, pc=0xe33002c5)
+Compiled frame (sp=0xa69fee50 unextended sp=0xa69fee50, fp=0xdaec78f0, real_fp=0xa69fee70, pc=0xdb804258)
+Compiled frame (sp=0xa69fee70 unextended sp=0xa69fee70, fp=0xdaec78f0, real_fp=0xa69feea0, pc=0xdb80b95c)
+Compiled frame (sp=0xa69feea0 unextended sp=0xa69feea0, fp=0xdaec78f0, real_fp=0xa69feed0, pc=0xe32fe6d0)
+Compiled frame (sp=0xa69feed0 unextended sp=0xa69feed0, fp=0xb0340170, real_fp=0xa69fef20, pc=0xe32fb188)
+Compiled frame (sp=0xa69fef20 unextended sp=0xa69fef20, fp=0xdaec0c98, real_fp=0xa69fef40, pc=0xe32ffcac)
+Compiled frame (sp=0xa69fef40 unextended sp=0xa69fef40, fp=0xdaec0c98, real_fp=0xa69fef60, pc=0xe32fa8c0)
+C frame (sp=0xa69fef60 unextended sp=0xa69fef60, fp=0xa69fefa8, real_fp=0xa69fefa8, pc=0xe2d5bc5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(42/4498)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestAsyncStackWalk.java#shenandoah \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestAsyncStackWalk.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        --enable-native-access=ALL-UNNAMED \\
+        -Xbatch \\
+        -XX:+UseShenandoahGC \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk/TestAsyncStackWalk_shenandoah.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

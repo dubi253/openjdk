@@ -1,0 +1,275 @@
+#Test Results (version 2)
+#Mon Apr 29 00:24:52 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=jjh
+keywords=bug6700889 driver
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter\nUSER_SPECIFIED compile -g ResumeOneThreadTest.java\nUSER_SPECIFIED driver ResumeOneThreadTest\n
+source=ResumeOneThreadTest.java
+title=Thread resume invalidates all stack frames, even from other threads
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java
+elapsed=189 0\:00\:00.189
+end=Mon Apr 29 00\:24\:52 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile build driver
+start=Mon Apr 29 00\:24\:52 UTC 2024
+test=com/sun/jdi/ResumeOneThreadTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:0]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=190
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/com/sun/jdi
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/359)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter 
+started: Mon Apr 29 00:24:52 UTC 2024
+Test directory:
+  compile: TestScaffold, VMConnection, TargetListener, TargetAdapter
+finished: Mon Apr 29 00:24:52 UTC 2024
+elapsed time (seconds): 0.078
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/555)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:24:52 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:24:52 UTC 2024
+elapsed time (seconds): 0.078
+----------configuration:(11/686)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d
+
+----------rerun:(35/3395)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/ResumeOneThreadTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+----------direct:(6/364)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/DebuggeeWrapper.java:115: warning: [removal] ThreadDeath in java.lang has been deprecated and marked for removal
+            if (e instanceof ThreadDeath) {
+                             ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/362)----------
+command: compile -g /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java
+reason: User specified action: run compile -g ResumeOneThreadTest.java 
+started: Mon Apr 29 00:24:52 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:24:52 UTC 2024
+elapsed time (seconds): 0.022
+----------configuration:(11/686)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d
+
+----------rerun:(36/3191)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/ResumeOneThreadTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -g /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/179)----------
+command: build ResumeOneThreadTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:24:52 UTC 2024
+finished: Mon Apr 29 00:24:52 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/232)----------
+command: driver ResumeOneThreadTest
+reason: User specified action: run driver ResumeOneThreadTest 
+started: Mon Apr 29 00:24:52 UTC 2024
+Mode: agentvm
+Agent id: 5
+finished: Mon Apr 29 00:24:52 UTC 2024
+elapsed time (seconds): 0.089
+----------configuration:(13/920)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(27/2663)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/ResumeOneThreadTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ResumeOneThreadTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/ResumeOneThreadTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        ResumeOneThreadTest
+----------System.err:(12/367)----------
+[0ms] run args: [ResumeOneThreadTarg]
+[72ms] -- Got bkpt at: ResumeOneThreadTarg:71
+[72ms] -- Got bkpt at: ResumeOneThreadTarg:81
+[72ms] -- All threads suspended
+[73ms] -- t1sf0 args: ["Hello Alviso!"]
+[74ms] -- Did Resume on thread 2
+[74ms] -- t1sf0 args: ["Hello Alviso!"]
+[74ms] --------------
+[84ms] ResumeOneThreadTest: passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(11/624)----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK 64-Bit Server VM, mixed mode, sharing)
+    Debuggee: Howdy!
+    Debuggee: bkpt 2
+    Debuggee: bkpt 1
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

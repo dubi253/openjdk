@@ -1,0 +1,756 @@
+#Test Results (version 2)
+#Mon Apr 29 01:42:18 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+id=id0
+keywords=othervm testng
+modules=java.base/jdk.internal.vm
+requires=vm.continuations
+run=USER_SPECIFIED build java.base/java.lang.StackWalkerHelper\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xint Basic\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xcomp -XX\:TieredStopAtLevel\=3 -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,Basic\:\:* Basic\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xcomp -XX\:-TieredCompilation -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,Basic\:\:* Basic\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xcomp -XX\:-TieredCompilation -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,Basic\:\:* -XX\:CompileCommand\=exclude,Basic.manyArgsDriver Basic\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xcomp -XX\:-TieredCompilation -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,Basic\:\:* -XX\:CompileCommand\=exclude,jdk/internal/vm/Continuation.enter Basic\nUSER_SPECIFIED testng/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+ShowHiddenFrames -Xcomp -XX\:-TieredCompilation -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,Basic\:\:* -XX\:CompileCommand\=inline,jdk/internal/vm/Continuation.run Basic\n
+source=Basic.java
+title=Basic tests for jdk.internal.vm.Continuation
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java\#id0
+elapsed=7632 0\:00\:07.632
+end=Mon Apr 29 01\:42\:18 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.vm
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile testng build testng build testng build testng build testng build testng
+start=Mon Apr 29 01\:42\:10 UTC 2024
+test=jdk/internal/vm/Continuation/Basic.java\#id0
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=7645
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/305)----------
+command: build java.base/java.lang.StackWalkerHelper
+reason: User specified action: run build java.base/java.lang.StackWalkerHelper 
+started: Mon Apr 29 01:42:10 UTC 2024
+Test directory:
+  compile: java.base/java.lang.StackWalkerHelper
+finished: Mon Apr 29 01:42:10 UTC 2024
+elapsed time (seconds): 0.084
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/427)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base/java/lang/StackWalkerHelper.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:42:10 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 62
+finished: Mon Apr 29 01:42:10 UTC 2024
+elapsed time (seconds): 0.082
+----------configuration:(17/1369)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base
+                                         /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------rerun:(38/3933)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.modules=java.base/jdk.internal.vm \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base/java/lang/StackWalkerHelper.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/200)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:10 UTC 2024
+Test directory:
+  compile: Basic
+finished: Mon Apr 29 01:42:10 UTC 2024
+elapsed time (seconds): 0.116
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/395)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:42:10 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 62
+finished: Mon Apr 29 01:42:10 UTC 2024
+elapsed time (seconds): 0.116
+----------configuration:(17/1324)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------rerun:(39/3886)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.modules=java.base/jdk.internal.vm \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java
+result: Passed. Compilation successful
+
+#section:testng
+----------messages:(7/492)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xint Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xint Basic 
+started: Mon Apr 29 01:42:10 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:12 UTC 2024
+elapsed time (seconds): 1.539
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(13/465)----------
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(44/4136)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xint \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.0.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/165)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:12 UTC 2024
+finished: Mon Apr 29 01:42:12 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(7/656)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:TieredStopAtLevel=3 -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:TieredStopAtLevel=3 -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* Basic 
+started: Mon Apr 29 01:42:12 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:13 UTC 2024
+elapsed time (seconds): 1.275
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(15/608)----------
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly Basic.* bool compileonly = true
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(46/4240)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xcomp \\
+        -XX:TieredStopAtLevel=3 \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.1.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/165)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:13 UTC 2024
+finished: Mon Apr 29 01:42:13 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(7/654)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* Basic 
+started: Mon Apr 29 01:42:13 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:14 UTC 2024
+elapsed time (seconds): 1.252
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(15/608)----------
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly Basic.* bool compileonly = true
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(46/4239)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xcomp \\
+        -XX:-TieredCompilation \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.2.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/165)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:14 UTC 2024
+finished: Mon Apr 29 01:42:14 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(7/750)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=exclude,Basic.manyArgsDriver Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=exclude,Basic.manyArgsDriver Basic 
+started: Mon Apr 29 01:42:14 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:15 UTC 2024
+elapsed time (seconds): 1.133
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(16/673)----------
+CompileCommand: exclude Basic.manyArgsDriver bool exclude = true
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly Basic.* bool compileonly = true
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(47/4298)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xcomp \\
+        -XX:-TieredCompilation \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* \\
+        -XX:CompileCommand=exclude,Basic.manyArgsDriver \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.3.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/165)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:15 UTC 2024
+finished: Mon Apr 29 01:42:15 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(7/778)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=exclude,jdk/internal/vm/Continuation.enter Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=exclude,jdk/internal/vm/Continuation.enter Basic 
+started: Mon Apr 29 01:42:15 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:16 UTC 2024
+elapsed time (seconds): 1.146
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(16/687)----------
+CompileCommand: exclude jdk/internal/vm/Continuation.enter bool exclude = true
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly Basic.* bool compileonly = true
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(47/4312)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xcomp \\
+        -XX:-TieredCompilation \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* \\
+        -XX:CompileCommand=exclude,jdk/internal/vm/Continuation.enter \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.4.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/165)----------
+command: build Basic
+reason: Named class compiled on demand
+started: Mon Apr 29 01:42:16 UTC 2024
+finished: Mon Apr 29 01:42:16 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(7/772)----------
+command: testng -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=inline,jdk/internal/vm/Continuation.run Basic
+reason: User specified action: run testng/othervm -XX:+UnlockDiagnosticVMOptions -XX:+ShowHiddenFrames -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* -XX:CompileCommand=inline,jdk/internal/vm/Continuation.run Basic 
+started: Mon Apr 29 01:42:16 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:42:18 UTC 2024
+elapsed time (seconds): 1.085
+----------configuration:(6/363)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  patch:       java.base                 /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base
+
+----------System.out:(16/683)----------
+CompileCommand: inline jdk/internal/vm/Continuation.run bool inline = true
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly Basic.* bool compileonly = true
+test Basic.test1(): success
+test Basic.testException1(): success
+test Basic.testManyArgs(): success
+test Basic.testNotPinnedMonitor(): success
+test Basic.testPinnedCriticalSection(): success
+test Basic.testPinnedMonitor(): success
+test Basic.testPinnedNative(): success
+
+===============================================
+jdk/internal/vm/Continuation/Basic.java#id0
+Total tests run: 7, Passes: 7, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(47/4309)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Basic.java#id0 \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Basic.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/Basic_id0.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+ShowHiddenFrames \\
+        -Xcomp \\
+        -XX:-TieredCompilation \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,Basic::* \\
+        -XX:CompileCommand=inline,jdk/internal/vm/Continuation.run \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Basic_id0.d/testng.5.jta jdk/internal/vm/Continuation/Basic.java#id0 false Basic
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

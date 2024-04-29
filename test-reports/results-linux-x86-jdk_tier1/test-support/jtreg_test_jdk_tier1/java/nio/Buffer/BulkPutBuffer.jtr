@@ -1,0 +1,422 @@
+#Test Results (version 2)
+#Mon Apr 29 00:52:15 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8219014 bug8245121 othervm testng
+run=USER_SPECIFIED compile BulkPutBuffer.java\nUSER_SPECIFIED testng/othervm BulkPutBuffer\n
+source=BulkPutBuffer.java
+title=Ensure that a bulk put of a buffer into another is correct.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java
+elapsed=3401 0\:00\:03.401
+end=Mon Apr 29 00\:52\:15 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build testng
+start=Mon Apr 29 00\:52\:12 UTC 2024
+test=java/nio/Buffer/BulkPutBuffer.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=3401
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer
+
+#section:script_messages
+----------messages:(4/315)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:compile
+----------messages:(7/290)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java
+reason: User specified action: run compile BulkPutBuffer.java 
+started: Mon Apr 29 00:52:12 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:52:12 UTC 2024
+elapsed time (seconds): 0.05
+----------configuration:(13/923)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+
+----------rerun:(35/3369)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/nio/Buffer/BulkPutBuffer.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d:/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java
+----------direct:(2/172)----------
+Note: /home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/173)----------
+command: build BulkPutBuffer
+reason: Named class compiled on demand
+started: Mon Apr 29 00:52:12 UTC 2024
+finished: Mon Apr 29 00:52:12 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:testng
+----------messages:(6/236)----------
+command: testng BulkPutBuffer
+reason: User specified action: run testng/othervm BulkPutBuffer 
+started: Mon Apr 29 00:52:12 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:52:15 UTC 2024
+elapsed time (seconds): 3.35
+----------configuration:(0/0)----------
+----------System.out:(252/24266)----------
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1bf2fd5): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@8854d): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@cc0cfc): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@db8eee): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@ef07fc): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1bea3a9): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1067b63): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@610a9): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1c84dd1): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@3ae73c): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1c90807): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@181e4d1): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@82b609): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@f78efc): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@f3415c): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1aebd79): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@157771d): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@10225a7): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@14ad0b9): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1326541): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@16c777b): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@68338b): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@d0b756): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@4bd154): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@151b5d5): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@b81a19): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@ac0dc3): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1fe2572): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1fb030f): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1266418): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@1201168): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@841a18): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@18b8d78): success
+test BulkPutBuffer.testExceptions(BulkPutBuffer$BufferProxy@504e77): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c6abfa, BulkPutBuffer$BufferProxy@c6abfa): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c6abfa, BulkPutBuffer$BufferProxy@1e6e383): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c6abfa, BulkPutBuffer$BufferProxy@13d82d8): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c6abfa, BulkPutBuffer$BufferProxy@944ee5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c6abfa, BulkPutBuffer$BufferProxy@74a038): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1e6e383, BulkPutBuffer$BufferProxy@c6abfa): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1e6e383, BulkPutBuffer$BufferProxy@1e6e383): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1e6e383, BulkPutBuffer$BufferProxy@13d82d8): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1e6e383, BulkPutBuffer$BufferProxy@944ee5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1e6e383, BulkPutBuffer$BufferProxy@74a038): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@13d82d8, BulkPutBuffer$BufferProxy@c6abfa): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@13d82d8, BulkPutBuffer$BufferProxy@1e6e383): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@13d82d8, BulkPutBuffer$BufferProxy@13d82d8): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@13d82d8, BulkPutBuffer$BufferProxy@944ee5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@13d82d8, BulkPutBuffer$BufferProxy@74a038): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@944ee5, BulkPutBuffer$BufferProxy@c6abfa): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@944ee5, BulkPutBuffer$BufferProxy@1e6e383): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@944ee5, BulkPutBuffer$BufferProxy@13d82d8): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@944ee5, BulkPutBuffer$BufferProxy@944ee5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@944ee5, BulkPutBuffer$BufferProxy@74a038): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@74a038, BulkPutBuffer$BufferProxy@c6abfa): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@74a038, BulkPutBuffer$BufferProxy@1e6e383): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@74a038, BulkPutBuffer$BufferProxy@13d82d8): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@74a038, BulkPutBuffer$BufferProxy@944ee5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@74a038, BulkPutBuffer$BufferProxy@74a038): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1f9a977, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@9434a9, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1dfba7a, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@397c25, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@76a8c3, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15425a4, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@1f9a977): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@9434a9): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@1dfba7a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@397c25): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@76a8c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@15425a4): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@95fbd5, BulkPutBuffer$BufferProxy@95fbd5): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1c7f490, BulkPutBuffer$BufferProxy@1c7f490): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1c7f490, BulkPutBuffer$BufferProxy@78f295): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1c7f490, BulkPutBuffer$BufferProxy@c0bf40): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1c7f490, BulkPutBuffer$BufferProxy@7f2aa2): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1c7f490, BulkPutBuffer$BufferProxy@85afee): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@78f295, BulkPutBuffer$BufferProxy@1c7f490): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@78f295, BulkPutBuffer$BufferProxy@78f295): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@78f295, BulkPutBuffer$BufferProxy@c0bf40): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@78f295, BulkPutBuffer$BufferProxy@7f2aa2): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@78f295, BulkPutBuffer$BufferProxy@85afee): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c0bf40, BulkPutBuffer$BufferProxy@1c7f490): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c0bf40, BulkPutBuffer$BufferProxy@78f295): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c0bf40, BulkPutBuffer$BufferProxy@c0bf40): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c0bf40, BulkPutBuffer$BufferProxy@7f2aa2): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@c0bf40, BulkPutBuffer$BufferProxy@85afee): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@7f2aa2, BulkPutBuffer$BufferProxy@1c7f490): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@7f2aa2, BulkPutBuffer$BufferProxy@78f295): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@7f2aa2, BulkPutBuffer$BufferProxy@c0bf40): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@7f2aa2, BulkPutBuffer$BufferProxy@7f2aa2): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@7f2aa2, BulkPutBuffer$BufferProxy@85afee): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@85afee, BulkPutBuffer$BufferProxy@1c7f490): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@85afee, BulkPutBuffer$BufferProxy@78f295): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@85afee, BulkPutBuffer$BufferProxy@c0bf40): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@85afee, BulkPutBuffer$BufferProxy@7f2aa2): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@85afee, BulkPutBuffer$BufferProxy@85afee): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15218ab, BulkPutBuffer$BufferProxy@15218ab): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15218ab, BulkPutBuffer$BufferProxy@17b7419): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15218ab, BulkPutBuffer$BufferProxy@f07954): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15218ab, BulkPutBuffer$BufferProxy@17cb80e): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@15218ab, BulkPutBuffer$BufferProxy@bf34de): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17b7419, BulkPutBuffer$BufferProxy@15218ab): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17b7419, BulkPutBuffer$BufferProxy@17b7419): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17b7419, BulkPutBuffer$BufferProxy@f07954): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17b7419, BulkPutBuffer$BufferProxy@17cb80e): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17b7419, BulkPutBuffer$BufferProxy@bf34de): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f07954, BulkPutBuffer$BufferProxy@15218ab): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f07954, BulkPutBuffer$BufferProxy@17b7419): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f07954, BulkPutBuffer$BufferProxy@f07954): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f07954, BulkPutBuffer$BufferProxy@17cb80e): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f07954, BulkPutBuffer$BufferProxy@bf34de): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17cb80e, BulkPutBuffer$BufferProxy@15218ab): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17cb80e, BulkPutBuffer$BufferProxy@17b7419): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17cb80e, BulkPutBuffer$BufferProxy@f07954): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17cb80e, BulkPutBuffer$BufferProxy@17cb80e): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@17cb80e, BulkPutBuffer$BufferProxy@bf34de): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@bf34de, BulkPutBuffer$BufferProxy@15218ab): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@bf34de, BulkPutBuffer$BufferProxy@17b7419): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@bf34de, BulkPutBuffer$BufferProxy@f07954): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@bf34de, BulkPutBuffer$BufferProxy@17cb80e): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@bf34de, BulkPutBuffer$BufferProxy@bf34de): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f486ec, BulkPutBuffer$BufferProxy@f486ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f486ec, BulkPutBuffer$BufferProxy@8030c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f486ec, BulkPutBuffer$BufferProxy@60165c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f486ec, BulkPutBuffer$BufferProxy@111a5b6): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@f486ec, BulkPutBuffer$BufferProxy@1cc56ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@8030c3, BulkPutBuffer$BufferProxy@f486ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@8030c3, BulkPutBuffer$BufferProxy@8030c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@8030c3, BulkPutBuffer$BufferProxy@60165c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@8030c3, BulkPutBuffer$BufferProxy@111a5b6): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@8030c3, BulkPutBuffer$BufferProxy@1cc56ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@60165c, BulkPutBuffer$BufferProxy@f486ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@60165c, BulkPutBuffer$BufferProxy@8030c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@60165c, BulkPutBuffer$BufferProxy@60165c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@60165c, BulkPutBuffer$BufferProxy@111a5b6): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@60165c, BulkPutBuffer$BufferProxy@1cc56ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@111a5b6, BulkPutBuffer$BufferProxy@f486ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@111a5b6, BulkPutBuffer$BufferProxy@8030c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@111a5b6, BulkPutBuffer$BufferProxy@60165c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@111a5b6, BulkPutBuffer$BufferProxy@111a5b6): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@111a5b6, BulkPutBuffer$BufferProxy@1cc56ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1cc56ec, BulkPutBuffer$BufferProxy@f486ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1cc56ec, BulkPutBuffer$BufferProxy@8030c3): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1cc56ec, BulkPutBuffer$BufferProxy@60165c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1cc56ec, BulkPutBuffer$BufferProxy@111a5b6): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1cc56ec, BulkPutBuffer$BufferProxy@1cc56ec): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@18d6601, BulkPutBuffer$BufferProxy@18d6601): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@18d6601, BulkPutBuffer$BufferProxy@1ead7bb): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1ead7bb, BulkPutBuffer$BufferProxy@18d6601): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@1ead7bb, BulkPutBuffer$BufferProxy@1ead7bb): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@11f2cf1, BulkPutBuffer$BufferProxy@11f2cf1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@11f2cf1, BulkPutBuffer$BufferProxy@ce5db1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@11f2cf1, BulkPutBuffer$BufferProxy@519f2a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@11f2cf1, BulkPutBuffer$BufferProxy@14f2c8f): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@11f2cf1, BulkPutBuffer$BufferProxy@50f08c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@ce5db1, BulkPutBuffer$BufferProxy@11f2cf1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@ce5db1, BulkPutBuffer$BufferProxy@ce5db1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@ce5db1, BulkPutBuffer$BufferProxy@519f2a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@ce5db1, BulkPutBuffer$BufferProxy@14f2c8f): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@ce5db1, BulkPutBuffer$BufferProxy@50f08c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@519f2a, BulkPutBuffer$BufferProxy@11f2cf1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@519f2a, BulkPutBuffer$BufferProxy@ce5db1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@519f2a, BulkPutBuffer$BufferProxy@519f2a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@519f2a, BulkPutBuffer$BufferProxy@14f2c8f): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@519f2a, BulkPutBuffer$BufferProxy@50f08c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@14f2c8f, BulkPutBuffer$BufferProxy@11f2cf1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@14f2c8f, BulkPutBuffer$BufferProxy@ce5db1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@14f2c8f, BulkPutBuffer$BufferProxy@519f2a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@14f2c8f, BulkPutBuffer$BufferProxy@14f2c8f): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@14f2c8f, BulkPutBuffer$BufferProxy@50f08c): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@50f08c, BulkPutBuffer$BufferProxy@11f2cf1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@50f08c, BulkPutBuffer$BufferProxy@ce5db1): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@50f08c, BulkPutBuffer$BufferProxy@519f2a): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@50f08c, BulkPutBuffer$BufferProxy@14f2c8f): success
+test BulkPutBuffer.testPairs(BulkPutBuffer$BufferProxy@50f08c, BulkPutBuffer$BufferProxy@50f08c): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@54c0e0): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@1d81efd): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@ec75fd): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@445482): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@ad8fd0): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@aeee06): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@bfe578): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@e019e2): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@1d922c1): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@362953): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@2a7b5a): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@d9a01d): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@fa2a22): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@1c6762c): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@182a653): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@de9906): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@fcb888): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@58a472): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@174ee7d): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@131e440): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@16fe0a): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@1a45de): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@bed071): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@57445a): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@1434b94): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@17c2f65): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@d54742): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@760e3d): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@229996): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@14cfc0d): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@49733c): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@45ac7f): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@173baf0): success
+test BulkPutBuffer.testSelf(BulkPutBuffer$BufferProxy@36f72c): success
+
+===============================================
+java/nio/Buffer/BulkPutBuffer.java
+Total tests run: 246, Passes: 246, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(36/3518)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d:/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/BulkPutBuffer.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/BulkPutBuffer.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/BulkPutBuffer.d:/home/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/BulkPutBuffer.d/testng.0.jta java/nio/Buffer/BulkPutBuffer.java false BulkPutBuffer
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -1,0 +1,243 @@
+#Test Results (version 2)
+#Mon Apr 29 01:24:48 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=Xueming Shen
+keywords=bug6199320
+maxTimeout=20
+run=USER_SPECIFIED main/timeout\=20 StoreDeadlock\n
+source=StoreDeadlock.java
+title=Properties.store() causes deadlock when concurrently calling TimeZone apis
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java
+elapsed=41 0\:00\:00.041
+end=Mon Apr 29 01\:24\:48 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 01\:24\:48 UTC 2024
+test=java/util/Properties/StoreDeadlock.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=42
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Properties
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/216)----------
+command: build StoreDeadlock
+reason: Named class compiled on demand
+started: Mon Apr 29 01:24:48 UTC 2024
+Test directory:
+  compile: StoreDeadlock
+finished: Mon Apr 29 01:24:48 UTC 2024
+elapsed time (seconds): 0.031
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/284)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:24:48 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:24:48 UTC 2024
+elapsed time (seconds): 0.031
+----------configuration:(10/684)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d
+
+----------rerun:(33/3177)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Properties/StoreDeadlock.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/227)----------
+command: main StoreDeadlock
+reason: User specified action: run main/timeout=20 StoreDeadlock 
+started: Mon Apr 29 01:24:48 UTC 2024
+Mode: agentvm
+Agent id: 58
+finished: Mon Apr 29 01:24:48 UTC 2024
+elapsed time (seconds): 0.01
+----------configuration:(13/932)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties
+
+----------rerun:(26/2677)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Properties/StoreDeadlock.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        StoreDeadlock
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+----------System.out:(71/5041)*----------
+#Mon Apr 29 01:24:48 UTC 2024
+apple.awt.application.name=AgentServer
+compile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+file.encoding=UTF-8
+file.separator=/
+ftp.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+http.nonProxyHosts=local|*.local|169.254/16|*.169.254/16
+java.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d\\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar\\:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+java.class.version=67.0
+java.home=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+java.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp
+java.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native
+java.runtime.name=OpenJDK Runtime Environment
+java.runtime.version=23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c
+java.security.policy=file\\:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jtreg.policy
+java.specification.name=Java Platform API Specification
+java.specification.vendor=Oracle Corporation
+java.specification.version=23
+java.vendor=N/A
+java.vendor.url=https\\://openjdk.org/
+java.vendor.url.bug=https\\://bugreport.java.com/bugreport/
+java.version=23-internal
+java.version.date=2024-09-17
+java.vm.compressedOopsMode=Zero based
+java.vm.info=mixed mode
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=23
+java.vm.vendor=Oracle Corporation
+java.vm.version=23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c
+jdk.debug=release
+line.separator=\\n
+native.encoding=US-ASCII
+os.arch=x86_64
+os.name=Mac OS X
+os.version=13.6.6
+path.separator=\\:
+socksNonProxyHosts=local|*.local|169.254/16|*.169.254/16
+stderr.encoding=US-ASCII
+stdout.encoding=US-ASCII
+sun.arch.data.model=64
+sun.boot.library.path=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/lib
+sun.cpu.endian=little
+sun.io.unicode.encoding=UnicodeBig
+sun.java.command=com.sun.javatest.regtest.agent.AgentServer -id 58 -logfile /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jtData/agentServer.58.trace -allowSetSecurityManager -port 49535 -timeoutFactor 4.0
+sun.java.launcher=SUN_STANDARD
+sun.jnu.encoding=UTF-8
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+test.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk
+test.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d
+test.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Properties/StoreDeadlock.d
+test.compiler.opts=
+test.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties/StoreDeadlock.java
+test.java.opts=-XX\\:-CreateCoredumpOnCrash
+test.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+test.name=java/util/Properties/StoreDeadlock.java
+test.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native
+test.root=/Users/runner/work/openjdk/openjdk/test/jdk
+test.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties
+test.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Properties
+test.timeout.factor=4.0
+test.tool.vm.opts=-J-Xmx768m -J-XX\\:MaxRAMPercentage\\=12.5 -J-Dtest.boot.jdk\\=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir\\=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa
+test.vm.opts=-Xmx768m -XX\\:MaxRAMPercentage\\=12.5 -Dtest.boot.jdk\\=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir\\=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa
+user.country=US
+user.dir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0
+user.home=/Users/runner
+user.language=en
+user.name=runner
+user.timezone=UTC
+tz=sun.util.calendar.ZoneInfo[id="PST",offset=-28800000,dstSavings=3600000,useDaylight=true,transitions=311,lastRule=java.util.SimpleTimeZone[id=PST,offset=-28800000,dstSavings=3600000,useDaylight=true,startYear=0,startMode=3,startMonth=2,startDay=8,startDayOfWeek=1,startTime=7200000,startTimeMode=0,endMode=3,endMonth=10,endDay=1,endDayOfWeek=1,endTime=7200000,endTimeMode=0]]
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

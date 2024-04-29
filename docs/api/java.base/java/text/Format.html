@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -43,7 +43,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -182,6 +182,9 @@ implements <a href="../io/Serializable.html" title="interface in java.io">Serial
  </pre>
  </blockquote>
 
+ <p> Subclasses may also consider implementing leniency when parsing.
+ The definition of leniency should be delegated to the subclass.
+
  <p>
  And finally subclasses may define a set of constants to identify the various
  fields in the formatted output. These constants are used to create a FieldPosition
@@ -298,7 +301,7 @@ implements <a href="../io/Serializable.html" title="interface in java.io">Serial
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#parseObject(java.lang.String,java.text.ParsePosition)" class="member-name-link">parseObject</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;source,
  <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Parses text from a string to produce an object.</div>
+<div class="block">Parses text from the given string to produce an object.</div>
 </div>
 </div>
 </div>
@@ -427,28 +430,28 @@ implements <a href="../io/Serializable.html" title="interface in java.io">Serial
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="../lang/Object.html" title="class in java.lang">Object</a></span>&nbsp;<span class="element-name">parseObject</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;source,
  <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</span></div>
-<div class="block">Parses text from a string to produce an object.
+<div class="block">Parses text from the given string to produce an object.
  <p>
- The method attempts to parse text starting at the index given by
- <code>pos</code>.
- If parsing succeeds, then the index of <code>pos</code> is updated
+ This method attempts to parse text starting at the index given by
+ <code>pos</code>. If parsing succeeds, then the index of <code>pos</code> is updated
  to the index after the last character used (parsing does not necessarily
  use all characters up to the end of the string), and the parsed
  object is returned. The updated <code>pos</code> can be used to
  indicate the starting point for the next call to this method.
  If an error occurs, then the index of <code>pos</code> is not
  changed, the error index of <code>pos</code> is set to the index of
- the character where the error occurred, and null is returned.</div>
+ the character where the error occurred, and <code>null</code> is returned.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>source</code> - A <code>String</code>, part of which should be parsed.</dd>
+<dd><code>source</code> - the <code>String</code> to parse</dd>
 <dd><code>pos</code> - A <code>ParsePosition</code> object with index and error
             index information as described above.</dd>
 <dt>Returns:</dt>
 <dd>An <code>Object</code> parsed from the string. In case of
-         error, returns null.</dd>
+         error, returns <code>null</code>.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>source</code> or <code>pos</code> is null.</dd>
+<dd><code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>source</code> or <code>pos</code> is
+         <code>null</code>.</dd>
 </dl>
 </div>
 </section>
@@ -460,16 +463,15 @@ implements <a href="../io/Serializable.html" title="interface in java.io">Serial
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../lang/Object.html" title="class in java.lang">Object</a></span>&nbsp;<span class="element-name">parseObject</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;source)</span>
                    throws <span class="exceptions"><a href="ParseException.html" title="class in java.text">ParseException</a></span></div>
 <div class="block">Parses text from the beginning of the given string to produce an object.
- The method may not use the entire text of the given string.</div>
+ This method may not use the entire text of the given string.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>source</code> - A <code>String</code> whose beginning should be parsed.</dd>
+<dd><code>source</code> - A <code>String</code>, to be parsed from the beginning.</dd>
 <dt>Returns:</dt>
 <dd>An <code>Object</code> parsed from the string.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="ParseException.html" title="class in java.text">ParseException</a></code> - if the beginning of the specified string
-            cannot be parsed.</dd>
-<dd><code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>source</code> is null.</dd>
+<dd><code><a href="ParseException.html" title="class in java.text">ParseException</a></code> - if parsing fails</dd>
+<dd><code><a href="../lang/NullPointerException.html" title="class in java.lang">NullPointerException</a></code> - if <code>source</code> is <code>null</code>.</dd>
 </dl>
 </div>
 </section>
@@ -503,7 +505,7 @@ implements <a href="../io/Serializable.html" title="interface in java.io">Serial
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

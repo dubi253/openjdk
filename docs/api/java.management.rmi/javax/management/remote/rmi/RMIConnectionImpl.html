@@ -36,7 +36,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -64,7 +64,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../../search.html">Search</a></li>
 <li><a href="../../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -547,9 +547,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dt>Parameters:</dt>
 <dd><code>className</code> - The class name of the MBean to be instantiated.</dd>
 <dd><code>name</code> - The object name of the MBean. May be null.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -557,6 +555,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  is <code>n</code>, the contained Java class name is
  <code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)"><code>getMBeanInfo(n)</code></a>.getClassName()</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - Wraps a
  <code>java.lang.ClassNotFoundException</code> or a
  <code>java.lang.Exception</code> that occurred
@@ -600,9 +599,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>className</code> - The class name of the MBean to be instantiated.</dd>
 <dd><code>name</code> - The object name of the MBean. May be null.</dd>
 <dd><code>loaderName</code> - The object name of the class loader to be used.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -610,6 +607,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  is <code>n</code>, the contained Java class name is
  <code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)"><code>getMBeanInfo(n)</code></a>.getClassName()</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - Wraps a
  <code>java.lang.ClassNotFoundException</code> or a
  <code>java.lang.Exception</code> that occurred when trying to
@@ -662,9 +660,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>signature</code> - An array containing the signature of the
  constructor to be invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -672,6 +668,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  is <code>n</code>, the contained Java class name is
  <code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)"><code>getMBeanInfo(n)</code></a>.getClassName()</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - Wraps a
  <code>java.lang.ClassNotFoundException</code> or a
  <code>java.lang.Exception</code> that occurred when trying to
@@ -726,9 +723,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>signature</code> - An array containing the signature of the
  constructor to be invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -736,6 +731,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  is <code>n</code>, the contained Java class name is
  <code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)"><code>getMBeanInfo(n)</code></a>.getClassName()</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - Wraps a
  <code>java.lang.ClassNotFoundException</code> or a
  <code>java.lang.Exception</code> that occurred when trying to
@@ -774,10 +770,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code><a href="RMIConnection.html#unregisterMBean(javax.management.ObjectName,javax.security.auth.Subject)">unregisterMBean</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean to be unregistered.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/MBeanRegistrationException.html" title="class in javax.management">MBeanRegistrationException</a></code> - The preDeregister
@@ -804,15 +799,14 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code><a href="RMIConnection.html#getObjectInstance(javax.management.ObjectName,javax.security.auth.Subject)">getObjectInstance</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The <code>ObjectInstance</code> associated with the MBean
  specified by <var>name</var>.  The contained <code>ObjectName</code>
  is <code>name</code> and the contained class name is
  <code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)"><code>getMBeanInfo(name)</code></a>.getClassName()</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
@@ -842,14 +836,13 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  MBeans, encapsulated into a <code>MarshalledObject</code>. If
  the <code>MarshalledObject</code> encapsulates a null value no
  query expression will be applied for selecting MBeans.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>A set containing the <code>ObjectInstance</code>
  objects for the selected MBeans.  If no MBean satisfies the
  query an empty list is returned.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -877,14 +870,13 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  MBeans, encapsulated into a <code>MarshalledObject</code>. If
  the <code>MarshalledObject</code> encapsulates a null value no
  query expression will be applied for selecting MBeans.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>A set containing the ObjectNames for the MBeans
  selected.  If no MBean satisfies the query, an empty list is
  returned.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -905,13 +897,12 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code><a href="RMIConnection.html#isRegistered(javax.management.ObjectName,javax.security.auth.Subject)">isRegistered</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean to be checked.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>True if the MBean is already registered in the MBean
  server, false otherwise.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -930,12 +921,11 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dt>Specified by:</dt>
 <dd><code><a href="RMIConnection.html#getMBeanCount(javax.security.auth.Subject)">getMBeanCount</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the number of MBeans registered.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -963,12 +953,11 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  attribute is to be retrieved.</dd>
 <dd><code>attribute</code> - A String specifying the name of the attribute
  to be retrieved.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The value of the retrieved attribute.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/MBeanException.html" title="class in javax.management">MBeanException</a></code> - Wraps an exception thrown by the
  MBean's getter.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/AttributeNotFoundException.html" title="class in javax.management">AttributeNotFoundException</a></code> - The attribute specified
@@ -1008,12 +997,11 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>name</code> - The object name of the MBean from which the
  attributes are retrieved.</dd>
 <dd><code>attributes</code> - A list of the attributes to be retrieved.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The list of the retrieved attributes.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - An exception occurred when
@@ -1054,10 +1042,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>attribute</code> - The identification of the attribute to be set
  and the value it is to be set to, encapsulated into a
  <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/AttributeNotFoundException.html" title="class in javax.management">AttributeNotFoundException</a></code> - The attribute specified
@@ -1102,13 +1089,12 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>attributes</code> - A list of attributes: The identification of
  the attributes to be set and the values they are to be set to,
  encapsulated into a <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The list of attributes that were set, with their new
  values.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - An exception occurred when
@@ -1156,13 +1142,12 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  class loader as the one used for loading the MBean on which the
  operation was invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The object returned by the operation, which represents
  the result of invoking the operation on the MBean specified.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/MBeanException.html" title="class in javax.management">MBeanException</a></code> - Wraps an exception thrown by the
@@ -1188,12 +1173,11 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dt>Specified by:</dt>
 <dd><code><a href="RMIConnection.html#getDefaultDomain(javax.security.auth.Subject)">getDefaultDomain</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the default domain.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -1212,12 +1196,11 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dt>Specified by:</dt>
 <dd><code><a href="RMIConnection.html#getDomains(javax.security.auth.Subject)">getDomains</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the list of domains.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 </dl>
 </div>
@@ -1241,13 +1224,12 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code><a href="RMIConnection.html#getMBeanInfo(javax.management.ObjectName,javax.security.auth.Subject)">getMBeanInfo</a></code>&nbsp;in interface&nbsp;<code><a href="RMIConnection.html" title="interface in javax.management.remote.rmi">RMIConnection</a></code></dd>
 <dt>Parameters:</dt>
 <dd><code>name</code> - The name of the MBean to analyze</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An instance of <code>MBeanInfo</code> allowing the
  retrieval of all attributes and operations of this MBean.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified was
  not found.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/IntrospectionException.html" title="class in javax.management">IntrospectionException</a></code> - An exception occurred during
@@ -1276,13 +1258,12 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dt>Parameters:</dt>
 <dd><code>name</code> - The <code>ObjectName</code> of the MBean.</dd>
 <dd><code>className</code> - The name of the class.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>true if the MBean specified is an instance of the
  specified class according to the rules above, false otherwise.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
@@ -1326,17 +1307,13 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>filters</code> - an array of marshalled representations of the
  <code>NotificationFilters</code>.  Elements of this array can
  be null.</dd>
-<dd><code>delegationSubjects</code> - the <code>Subjects</code> on behalf
- of which the listeners are being added.  Elements of this array
- can be null.  Also, the <code>delegationSubjects</code>
- parameter itself can be null, which is equivalent to an array
- of null values with the same size as the <code>names</code> and
- <code>filters</code> arrays.</dd>
+<dd><code>delegationSubjects</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>an array of <code>listenerIDs</code> identifying the
  local listeners.  This array has the same number of elements as
  the parameters.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - if one of the
  <code>names</code> does not correspond to any registered MBean.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
@@ -1376,10 +1353,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>handback</code> - The context to be sent to the listener when a
  notification is emitted, encapsulated into a
  <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name of the
  notification listener or of the notification broadcaster does
  not match any of the registered MBeans.</dd>
@@ -1424,10 +1400,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  emitting the Notifications.</dd>
 <dd><code>listenerIDs</code> - the list of the IDs corresponding to the
  listeners to remove.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - if the given
  <code>name</code> does not correspond to any registered MBean.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ListenerNotFoundException.html" title="class in javax.management">ListenerNotFoundException</a></code> - if one of the listeners was
@@ -1458,10 +1433,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <dd><code>name</code> - The name of the MBean on which the listener should
  be removed.</dd>
 <dd><code>listener</code> - The object name of the listener to be removed.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name provided
  does not match any of the registered MBeans.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ListenerNotFoundException.html" title="class in javax.management">ListenerNotFoundException</a></code> - The listener is not
@@ -1506,10 +1480,9 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
  was added, encapsulated into a <code>MarshalledObject</code>.</dd>
 <dd><code>handback</code> - The handback that was specified when the
  listener was added, encapsulated into a <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name provided
  does not match any of the registered MBeans.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ListenerNotFoundException.html" title="class in javax.management">ListenerNotFoundException</a></code> - The listener is not
@@ -1602,7 +1575,7 @@ implements <a href="RMIConnection.html" title="interface in javax.management.rem
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

@@ -1,0 +1,339 @@
+#Test Results (version 2)
+#Mon Apr 29 01:06:41 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+author=danielfuchs
+keywords=bug8065552 othervm
+modules=java.base/java.lang\:open
+run=USER_SPECIFIED main/othervm ClassDeclaredFieldsTest UNSECURE\r\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow ClassDeclaredFieldsTest SECURE\r\n
+source=ClassDeclaredFieldsTest.java
+title=test that all fields returned by getDeclaredFields() can be set accessible if the right permission is granted; this test also verifies that Class.classLoader final private field is hidden from reflection access.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.java
+elapsed=407 0\:00\:00.407
+end=Mon Apr 29 01\:06\:41 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/java.lang\:open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main build main
+start=Mon Apr 29 01\:06\:41 UTC 2024
+test=java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=407
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\Class\\getDeclaredField
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/243)----------
+command: build ClassDeclaredFieldsTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:06:41 UTC 2024
+Test directory:
+  compile: ClassDeclaredFieldsTest
+finished: Mon Apr 29 01:06:41 UTC 2024
+elapsed time (seconds): 0.031
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/368)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:06:41 UTC 2024
+Additional options from @modules: --add-modules java.base
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:06:41 UTC 2024
+elapsed time (seconds): 0.031
+----------configuration:(11/734)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: java.base
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d
+
+----------rerun:(38/3759)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -J-Dtest.modules=java.base/java.lang:open \\
+        --add-modules java.base \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java'
+----------direct:(31/3008)*----------
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:95: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static Policy policy = null;
+               ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:105: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                    if (policy == null && System.getSecurityManager() != null) {
+                                                ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:109: warning: [removal] Policy in java.security has been deprecated and marked for removal
+                        Policy.setPolicy(policy);
+                        ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:110: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+                        System.setSecurityManager(new SecurityManager());
+                                                      ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:110: warning: [removal] setSecurityManager(SecurityManager) in System has been deprecated and marked for removal
+                        System.setSecurityManager(new SecurityManager());
+                              ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:112: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                    if (System.getSecurityManager() == null) {
+                              ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:120: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                    if (System.getSecurityManager() != null) {
+                              ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:167: warning: [removal] Policy in java.security has been deprecated and marked for removal
+    public static class SimplePolicy extends Policy {
+                                             ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:169: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                     ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java:169: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                                             ^
+10 warnings
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/380)----------
+command: main ClassDeclaredFieldsTest UNSECURE
+reason: User specified action: run main/othervm ClassDeclaredFieldsTest UNSECURE 
+started: Mon Apr 29 01:06:41 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-opens java.base/java.lang=ALL-UNNAMED
+finished: Mon Apr 29 01:06:41 UTC 2024
+elapsed time (seconds): 0.157
+----------configuration:(4/99)----------
+Boot Layer
+  add modules: java.base           
+  add opens:   java.base/java.lang ALL-UNNAMED
+
+----------System.out:(25/973)----------
+23-internal
+Running test case: UNSECURE
+Field ANNOTATION is now accessible.
+Field ENUM is now accessible.
+Field SYNTHETIC is now accessible.
+Field cachedConstructor is now accessible.
+Field name is now accessible.
+Field module is now accessible.
+Field packageName is now accessible.
+Field componentType is now accessible.
+Field allPermDomain is now accessible.
+Field reflectionData is now accessible.
+Field classRedefinedCount is now accessible.
+Field genericInfo is now accessible.
+Field EMPTY_CLASS_ARRAY is now accessible.
+Field serialVersionUID is now accessible.
+Field serialPersistentFields is now accessible.
+Field reflectionFactory is now accessible.
+Field enumConstants is now accessible.
+Field enumConstantDirectory is now accessible.
+Field annotationData is now accessible.
+Field annotationType is now accessible.
+Field classValueMap is now accessible.
+Got expected exception: java.lang.NoSuchFieldException: classLoader
+Passed UNSECURE
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(40/3859)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.modules=java.base/java.lang:open \\
+        --add-modules java.base \\
+        --add-opens java.base/java.lang=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d\\main.0.jta' UNSECURE
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/188)----------
+command: build ClassDeclaredFieldsTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:06:41 UTC 2024
+finished: Mon Apr 29 01:06:41 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/436)----------
+command: main -Djava.security.manager=allow ClassDeclaredFieldsTest SECURE
+reason: User specified action: run main/othervm -Djava.security.manager=allow ClassDeclaredFieldsTest SECURE 
+started: Mon Apr 29 01:06:41 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-opens java.base/java.lang=ALL-UNNAMED
+finished: Mon Apr 29 01:06:41 UTC 2024
+elapsed time (seconds): 0.219
+----------configuration:(4/99)----------
+Boot Layer
+  add modules: java.base           
+  add opens:   java.base/java.lang ALL-UNNAMED
+
+----------System.out:(25/969)----------
+23-internal
+Running test case: SECURE
+Field ANNOTATION is now accessible.
+Field ENUM is now accessible.
+Field SYNTHETIC is now accessible.
+Field cachedConstructor is now accessible.
+Field name is now accessible.
+Field module is now accessible.
+Field packageName is now accessible.
+Field componentType is now accessible.
+Field allPermDomain is now accessible.
+Field reflectionData is now accessible.
+Field classRedefinedCount is now accessible.
+Field genericInfo is now accessible.
+Field EMPTY_CLASS_ARRAY is now accessible.
+Field serialVersionUID is now accessible.
+Field serialPersistentFields is now accessible.
+Field reflectionFactory is now accessible.
+Field enumConstants is now accessible.
+Field enumConstantDirectory is now accessible.
+Field annotationData is now accessible.
+Field annotationType is now accessible.
+Field classValueMap is now accessible.
+Got expected exception: java.lang.NoSuchFieldException: classLoader
+Passed SECURE
+----------System.err:(5/508)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by ClassDeclaredFieldsTest$Configure (file:/D:/a/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.d/)
+WARNING: Please consider reporting this to the maintainers of ClassDeclaredFieldsTest$Configure
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(41/3899)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/Class/getDeclaredField/ClassDeclaredFieldsTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\Class\\getDeclaredField' \\
+        -Dtest.modules=java.base/java.lang:open \\
+        --add-modules java.base \\
+        --add-opens java.base/java.lang=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Djava.security.manager=allow \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\Class\\getDeclaredField\\ClassDeclaredFieldsTest.d\\main.1.jta' SECURE
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

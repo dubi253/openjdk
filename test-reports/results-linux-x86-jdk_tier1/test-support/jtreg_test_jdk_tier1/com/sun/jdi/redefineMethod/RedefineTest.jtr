@@ -1,0 +1,474 @@
+#Test Results (version 2)
+#Mon Apr 29 00:36:07 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=Robert Field
+keywords=bug4628726 driver
+library=/test/lib ..
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter\nUSER_SPECIFIED compile -g RedefineTest.java\nUSER_SPECIFIED driver RedefineTest -repeat 3\nUSER_SPECIFIED driver RedefineTest\n
+source=RedefineTest.java
+title=Test class redefinition - method data line numbers and local vars,
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java
+elapsed=2648 0\:00\:02.648
+end=Mon Apr 29 00\:36\:07 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile build driver build driver
+start=Mon Apr 29 00\:36\:04 UTC 2024
+test=com/sun/jdi/redefineMethod/RedefineTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=2648
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/com/sun/jdi/redefineMethod
+
+#section:script_messages
+----------messages:(10/781)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+Library ..; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi
+
+#section:build
+----------messages:(7/355)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter 
+started: Mon Apr 29 00:36:04 UTC 2024
+Library ..:
+  compile: TestScaffold, VMConnection, TargetListener, TargetAdapter
+finished: Mon Apr 29 00:36:04 UTC 2024
+elapsed time (seconds): 0.122
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/551)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:36:04 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:36:04 UTC 2024
+elapsed time (seconds): 0.122
+----------configuration:(13/931)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/lib
+               /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi
+
+----------rerun:(37/4266)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+----------direct:(6/363)----------
+/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/DebuggeeWrapper.java:115: warning: [removal] ThreadDeath in java.lang has been deprecated and marked for removal
+            if (e instanceof ThreadDeath) {
+                             ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/362)----------
+command: compile -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java
+reason: User specified action: run compile -g RedefineTest.java 
+started: Mon Apr 29 00:36:04 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:36:05 UTC 2024
+elapsed time (seconds): 0.614
+----------configuration:(15/1101)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod
+               /home/runner/work/openjdk/openjdk/test/lib
+               /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi
+
+----------rerun:(38/4243)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java
+----------direct:(2/110)----------
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/172)----------
+command: build RedefineTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:36:05 UTC 2024
+finished: Mon Apr 29 00:36:05 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/238)----------
+command: driver RedefineTest -repeat 3
+reason: User specified action: run driver RedefineTest -repeat 3 
+started: Mon Apr 29 00:36:05 UTC 2024
+Mode: agentvm
+Agent id: 4
+finished: Mon Apr 29 00:36:06 UTC 2024
+elapsed time (seconds): 1.344
+----------configuration:(17/1313)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /home/runner/work/openjdk/openjdk/test/lib
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(29/3690)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        RedefineTest -repeat 3
+----------System.err:(55/2327)----------
+[828ms] run args: [RedefineTarg]
+[907ms] ------ Before Redefine ------
+[916ms] Frame 0: RedefineSubTarg.top()
+[917ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[919ms] Frame 2: RedefineSubTarg.nemcp1()
+[920ms] Frame 3: RedefineSubTarg.emcp2()
+[921ms] Frame 4: RedefineSubTarg.emcp1(int)
+[922ms] Frame 5: RedefineSubTarg.bottom()
+[923ms] Frame 6: RedefineSubTarg.stnemcp()
+[924ms] Frame 7: RedefineSubTarg.stemcp()
+[924ms] ------ After Redefine ------
+[929ms] Frame 0: RedefineSubTarg.top()
+[931ms] Frame 1: RedefineSubTarg.<obsolete>()
+[931ms] Frame 2: RedefineSubTarg.<obsolete>()
+[932ms] Frame 3: RedefineSubTarg.emcp2()
+[933ms] Frame 4: RedefineSubTarg.emcp1(int)
+[935ms] Frame 5: RedefineSubTarg.bottom()
+[936ms] Frame 6: RedefineSubTarg.<obsolete>()
+[937ms] Frame 7: RedefineSubTarg.stemcp()
+[937ms] ------ Static 2 ------
+[940ms] Frame 0: RedefineSubTarg.top()
+[940ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[941ms] Frame 2: RedefineSubTarg.nemcp1()
+[942ms] Frame 3: RedefineSubTarg.emcp2()
+[943ms] Frame 4: RedefineSubTarg.emcp1(int)
+[944ms] Frame 5: RedefineSubTarg.bottom()
+[944ms] ------ Instance ------
+[945ms] Frame 0: RedefineSubTarg.top()
+[946ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[947ms] Frame 2: RedefineSubTarg.nemcp1()
+[948ms] Frame 3: RedefineSubTarg.emcp2()
+[948ms] Frame 4: RedefineSubTarg.emcp1(int)
+[950ms] Frame 5: RedefineSubTarg.bottom()
+[950ms] ------ Re-entered ------
+[951ms] Frame 0: RedefineSubTarg.top()
+[952ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[953ms] Frame 2: RedefineSubTarg.nemcp1()
+[953ms] Frame 3: RedefineSubTarg.emcp2()
+[954ms] Frame 4: RedefineSubTarg.emcp1(int)
+[955ms] Frame 5: RedefineSubTarg.bottom()
+[956ms] Frame 6: RedefineSubTarg.stnemcp()
+[957ms] Frame 7: RedefineSubTarg.stemcp()
+[957ms] ------ Breakpoints ------
+[965ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:16 in thread main
+[966ms] Frame 0: RedefineSubTarg.emcp2()
+[966ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:21 in thread main
+[967ms] Frame 0: RedefineSubTarg.emcp1(int)
+[968ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:25 in thread main
+[969ms] Frame 0: RedefineSubTarg.bottom()
+[969ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:34 in thread main
+[970ms] Frame 0: RedefineSubTarg.stemcp()
+[1280ms] RedefineTest(method): passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(8/552)----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK Server VM, mixed mode, sharing)
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/172)----------
+command: build RedefineTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:36:06 UTC 2024
+finished: Mon Apr 29 00:36:06 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/218)----------
+command: driver RedefineTest
+reason: User specified action: run driver RedefineTest 
+started: Mon Apr 29 00:36:06 UTC 2024
+Mode: agentvm
+Agent id: 4
+finished: Mon Apr 29 00:36:07 UTC 2024
+elapsed time (seconds): 0.563
+----------configuration:(17/1313)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /home/runner/work/openjdk/openjdk/test/lib
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(29/3680)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod/RedefineTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/redefineMethod/RedefineTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/redefineMethod:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        RedefineTest
+----------System.err:(55/2326)----------
+[130ms] run args: [RedefineTarg]
+[204ms] ------ Before Redefine ------
+[205ms] Frame 0: RedefineSubTarg.top()
+[206ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[207ms] Frame 2: RedefineSubTarg.nemcp1()
+[207ms] Frame 3: RedefineSubTarg.emcp2()
+[208ms] Frame 4: RedefineSubTarg.emcp1(int)
+[209ms] Frame 5: RedefineSubTarg.bottom()
+[210ms] Frame 6: RedefineSubTarg.stnemcp()
+[211ms] Frame 7: RedefineSubTarg.stemcp()
+[211ms] ------ After Redefine ------
+[213ms] Frame 0: RedefineSubTarg.top()
+[213ms] Frame 1: RedefineSubTarg.<obsolete>()
+[214ms] Frame 2: RedefineSubTarg.<obsolete>()
+[214ms] Frame 3: RedefineSubTarg.emcp2()
+[215ms] Frame 4: RedefineSubTarg.emcp1(int)
+[216ms] Frame 5: RedefineSubTarg.bottom()
+[217ms] Frame 6: RedefineSubTarg.<obsolete>()
+[218ms] Frame 7: RedefineSubTarg.stemcp()
+[218ms] ------ Static 2 ------
+[219ms] Frame 0: RedefineSubTarg.top()
+[220ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[221ms] Frame 2: RedefineSubTarg.nemcp1()
+[221ms] Frame 3: RedefineSubTarg.emcp2()
+[222ms] Frame 4: RedefineSubTarg.emcp1(int)
+[223ms] Frame 5: RedefineSubTarg.bottom()
+[223ms] ------ Instance ------
+[224ms] Frame 0: RedefineSubTarg.top()
+[225ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[225ms] Frame 2: RedefineSubTarg.nemcp1()
+[226ms] Frame 3: RedefineSubTarg.emcp2()
+[227ms] Frame 4: RedefineSubTarg.emcp1(int)
+[228ms] Frame 5: RedefineSubTarg.bottom()
+[228ms] ------ Re-entered ------
+[229ms] Frame 0: RedefineSubTarg.top()
+[230ms] Frame 1: RedefineSubTarg.nemcp2(int)
+[230ms] Frame 2: RedefineSubTarg.nemcp1()
+[231ms] Frame 3: RedefineSubTarg.emcp2()
+[231ms] Frame 4: RedefineSubTarg.emcp1(int)
+[232ms] Frame 5: RedefineSubTarg.bottom()
+[233ms] Frame 6: RedefineSubTarg.stnemcp()
+[234ms] Frame 7: RedefineSubTarg.stemcp()
+[234ms] ------ Breakpoints ------
+[240ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:16 in thread main
+[241ms] Frame 0: RedefineSubTarg.emcp2()
+[241ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:21 in thread main
+[242ms] Frame 0: RedefineSubTarg.emcp1(int)
+[243ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:25 in thread main
+[243ms] Frame 0: RedefineSubTarg.bottom()
+[244ms] Got BreakpointEvent - BreakpointEvent@RedefineSubTarg:34 in thread main
+[244ms] Frame 0: RedefineSubTarg.stemcp()
+[553ms] RedefineTest(method): passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(8/552)----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK Server VM, mixed mode, sharing)
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

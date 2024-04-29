@@ -1,0 +1,851 @@
+#Test Results (version 2)
+#Mon Apr 29 01:04:40 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=
+run=ASSUMED_ACTION main SameBufferOverwrite\r\n
+source=SameBufferOverwrite.java
+title=Verify when decrypting over an existing buffer than padding does not overwrite past what the plaintext length is.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/com/sun/crypto/provider/Cipher/TextLength/SameBufferOverwrite.java
+elapsed=94 0\:00\:00.094
+end=Mon Apr 29 01\:04\:40 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 01\:04\:40 UTC 2024
+test=com/sun/crypto/provider/Cipher/TextLength/SameBufferOverwrite.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=94
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\com\\sun\\crypto\\provider\\Cipher\\TextLength
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/235)----------
+command: build SameBufferOverwrite
+reason: Named class compiled on demand
+started: Mon Apr 29 01:04:40 UTC 2024
+Test directory:
+  compile: SameBufferOverwrite
+finished: Mon Apr 29 01:04:40 UTC 2024
+elapsed time (seconds): 0.016
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/316)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:04:40 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:04:40 UTC 2024
+elapsed time (seconds): 0.016
+----------configuration:(10/737)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d
+
+----------rerun:(36/3778)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=com/sun/crypto/provider/Cipher/TextLength/SameBufferOverwrite.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.java'
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/247)----------
+command: main SameBufferOverwrite
+reason: Assumed action based on file name: run main SameBufferOverwrite 
+started: Mon Apr 29 01:04:40 UTC 2024
+Mode: agentvm
+Agent id: 8
+finished: Mon Apr 29 01:04:40 UTC 2024
+elapsed time (seconds): 0.078
+----------configuration:(13/942)*----------
+Boot Layer
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\junit-platform-console-standalone-1.9.2.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+Test Layer
+  class path: D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d
+              D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength
+
+----------rerun:(28/3160)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=com/sun/crypto/provider/Cipher/TextLength/SameBufferOverwrite.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\TextLength\\SameBufferOverwrite.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\TextLength;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+        SameBufferOverwrite
+----------System.out:(676/28133)----------
+Testing transformation: AES/GCM/NoPadding,  byte length from 1 to 25
+  enc = 4d800d92cf9253723b92bb3a2d849e57aa
+  => enc 1 bytes, ret 17 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 17 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 177ff9846b0d2740196661457903f3a46049
+  => enc 2 bytes, ret 18 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 18 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = 91e579a3456a7eb46c1622e7190a81ddaff2a0
+  => enc 3 bytes, ret 19 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 19 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = a9dd3a0e22f31a0c288c1be7c8ed111855b0dc60
+  => enc 4 bytes, ret 20 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 20 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 09be8beb9aa0a387da3571cfd8414a8af61c11b11d
+  => enc 5 bytes, ret 21 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 21 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = 1d080ae9fb50f2c2e2b8e9d2b47c9099051994ec84ee
+  => enc 6 bytes, ret 22 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 22 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = 0cdec6152219efa6877dfeba0accda45684946f4da4caf
+  => enc 7 bytes, ret 23 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 23 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = df1bef3c047aeed0d50c082a0fc33057f2e3892686860d90
+  => enc 8 bytes, ret 24 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = 1178602a7df3f50c9b3489c14a91c25fd20307ff75da080cbd
+  => enc 9 bytes, ret 25 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 25 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = 5c1527c8729b97f720f706fbd6b4fd166c2c73deb6b7ad1d380c
+  => enc 10 bytes, ret 26 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 26 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = 723b98e0bd05c22e8477a5f1b0a12c613b07460e13ab85195fee17
+  => enc 11 bytes, ret 27 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 27 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = 2b86a57d59acf5a35eb49b26e6e5391cefdbae10450c89d86b9af2dd
+  => enc 12 bytes, ret 28 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 28 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = 5bfc49f5edef27de869f060c932738ad8e4f03a7102235551306e0b1c9
+  => enc 13 bytes, ret 29 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 29 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = 0ff14ffc126bd91ebd3d148dec8282fb98ddedeb1b7b4e6f1e784b2f5024
+  => enc 14 bytes, ret 30 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 30 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = 5e534482c9fc156a99e8dbab824435065a3af9feb2b15d1827c02b0311d413
+  => enc 15 bytes, ret 31 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 31 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = c3ead2324fa7b0e7d54d36a067be01622df49de62e3802a8411b907c698fdb69
+  => enc 16 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = 63d9254ad9b88b3c6b8e66f8e1419805de863158be862a9c2ce82d6d133b8d5cdd
+  => enc 17 bytes, ret 33 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 33 bytes, ret 17 byte
+ Test Passed:  len = 17
+  enc = e47a21ee7907c0e8f8116677c82c893717c17f12977843eb5018001758017bf54482
+  => enc 18 bytes, ret 34 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 34 bytes, ret 18 byte
+ Test Passed:  len = 18
+  enc = 3abc3a085f6730c040a4e5d273f38d255db996fe4d305dc5b7544708c9ae523b9a3d99
+  => enc 19 bytes, ret 35 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 35 bytes, ret 19 byte
+ Test Passed:  len = 19
+  enc = 42549c06a1691e4ed4ecd93e75fc1a0c1470808918ce5b84921e3c07fa66e3521e767fc8
+  => enc 20 bytes, ret 36 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 36 bytes, ret 20 byte
+ Test Passed:  len = 20
+  enc = 236923dcc19c2bd7f135951b9eb187892af0a89a870723c08eec7d93e0c1707c2cceac23bd
+  => enc 21 bytes, ret 37 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 37 bytes, ret 21 byte
+ Test Passed:  len = 21
+  enc = 27d267d505dc650cfe4939fe021ee503f4e55a6041187bdc901f78c42076370793009c51e44b
+  => enc 22 bytes, ret 38 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 38 bytes, ret 22 byte
+ Test Passed:  len = 22
+  enc = 7de89b1a102c585e85739bfdcdad48f43be62c5ff53055db2e520d66b1b2098b9aed7f5d9c1b1c
+  => enc 23 bytes, ret 39 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 39 bytes, ret 23 byte
+ Test Passed:  len = 23
+  enc = 5136186faff08d52ac701003b2f8ef6cbf3d56cd456fa6950a319b879d8e201552c629659fd0a31d
+  => enc 24 bytes, ret 40 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 40 bytes, ret 24 byte
+ Test Passed:  len = 24
+  enc = c750ae0bfe913420aaf924a6bf561e021217ef867fb5b70ac862b860061a9a06d5f772e47ffad2e9c7
+  => enc 25 bytes, ret 41 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 41 bytes, ret 25 byte
+ Test Passed:  len = 25
+Testing transformation: AES/CTR/NoPadding,  byte length from 1 to 25
+  enc = 65
+  => enc 1 bytes, ret 1 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 1 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 65ce
+  => enc 2 bytes, ret 2 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 2 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = 65ce3b
+  => enc 3 bytes, ret 3 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 3 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = 65ce3ba2
+  => enc 4 bytes, ret 4 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 4 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 65ce3ba24f
+  => enc 5 bytes, ret 5 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 5 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = 65ce3ba24f1d
+  => enc 6 bytes, ret 6 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 6 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = 65ce3ba24f1db3
+  => enc 7 bytes, ret 7 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 7 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = 65ce3ba24f1db323
+  => enc 8 bytes, ret 8 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = 65ce3ba24f1db32384
+  => enc 9 bytes, ret 9 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 9 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = 65ce3ba24f1db3238442
+  => enc 10 bytes, ret 10 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 10 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = 65ce3ba24f1db323844212
+  => enc 11 bytes, ret 11 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 11 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = 65ce3ba24f1db32384421201
+  => enc 12 bytes, ret 12 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 12 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = 65ce3ba24f1db323844212016c
+  => enc 13 bytes, ret 13 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 13 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = 65ce3ba24f1db323844212016c34
+  => enc 14 bytes, ret 14 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 14 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = 65ce3ba24f1db323844212016c34da
+  => enc 15 bytes, ret 15 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 15 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = 65ce3ba24f1db323844212016c34dace
+  => enc 16 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = 65ce3ba24f1db323844212016c34dace7a
+  => enc 17 bytes, ret 17 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 17 bytes, ret 17 byte
+ Test Passed:  len = 17
+  enc = 65ce3ba24f1db323844212016c34dace7a65
+  => enc 18 bytes, ret 18 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 18 bytes, ret 18 byte
+ Test Passed:  len = 18
+  enc = 65ce3ba24f1db323844212016c34dace7a6508
+  => enc 19 bytes, ret 19 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 19 bytes, ret 19 byte
+ Test Passed:  len = 19
+  enc = 65ce3ba24f1db323844212016c34dace7a650859
+  => enc 20 bytes, ret 20 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 20 bytes, ret 20 byte
+ Test Passed:  len = 20
+  enc = 65ce3ba24f1db323844212016c34dace7a6508592e
+  => enc 21 bytes, ret 21 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 21 bytes, ret 21 byte
+ Test Passed:  len = 21
+  enc = 65ce3ba24f1db323844212016c34dace7a6508592ef2
+  => enc 22 bytes, ret 22 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 22 bytes, ret 22 byte
+ Test Passed:  len = 22
+  enc = 65ce3ba24f1db323844212016c34dace7a6508592ef26c
+  => enc 23 bytes, ret 23 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 23 bytes, ret 23 byte
+ Test Passed:  len = 23
+  enc = 65ce3ba24f1db323844212016c34dace7a6508592ef26ccd
+  => enc 24 bytes, ret 24 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 24 byte
+ Test Passed:  len = 24
+  enc = 65ce3ba24f1db323844212016c34dace7a6508592ef26ccd01
+  => enc 25 bytes, ret 25 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 25 bytes, ret 25 byte
+ Test Passed:  len = 25
+Testing transformation: AES/CBC/PKCS5Padding,  byte length from 1 to 25
+  enc = 383a7bd38122ae81afe99b9c23599b23
+  => enc 1 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 3fe0dac1e9b3eab696f3c4445ed6e506
+  => enc 2 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = 10113bf8a30cfb7a3460c04bb9cff3da
+  => enc 3 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = 6916cda6fd33eb64df397de0541e107b
+  => enc 4 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 0a7746180ea746f5d8b93783dd360d5f
+  => enc 5 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = 021d7ebe5a72f81a2164277b1687f4ea
+  => enc 6 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = c90a936d6ec7ede9040a0a6fd2357543
+  => enc 7 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e
+  => enc 8 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = c22a145832366b839b5062c7f08820c5
+  => enc 9 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = 44ed66f09f79b48540a4daa19f2bba28
+  => enc 10 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = 2b7299f92988a9834078415000e22bf6
+  => enc 11 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = a04cba5833b9269098219dd9d588b70e
+  => enc 12 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = 7313a6139f05b3e45d351ba95ed90788
+  => enc 13 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = d001fcbb87950c10ab5344fb8e4544f4
+  => enc 14 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = 55bb2a591cf1ff2359baf59b93a6722c
+  => enc 15 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e403e8248548bd659aa50d8bdcec914d2
+  => enc 16 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e78216d0cae46de2071c4e7d18407b0de
+  => enc 17 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 17 byte
+ Test Passed:  len = 17
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e0a856392f346b852401fceab33943eea
+  => enc 18 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 18 byte
+ Test Passed:  len = 18
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49ec968db708340b20ef804aa628bc964d8
+  => enc 19 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 19 byte
+ Test Passed:  len = 19
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49efa18028da9d4f33afd31cb8dce87dd23
+  => enc 20 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 20 byte
+ Test Passed:  len = 20
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e98211ac3a6c5c80ae9d18a65f1f9e023
+  => enc 21 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 21 byte
+ Test Passed:  len = 21
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e700dfc3aab7fe6115b5b623b48b80269
+  => enc 22 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 22 byte
+ Test Passed:  len = 22
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e082b458cc94f18ae5344d9d7cdeb1263
+  => enc 23 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 23 byte
+ Test Passed:  len = 23
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e2c6e59b9a3fae28c6f147a2e72226328
+  => enc 24 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 24 byte
+ Test Passed:  len = 24
+  enc = 9aad572c7712fd1fdc667aaa7a1ca49e4894692702fadd52092e053b26239a96
+  => enc 25 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 25 byte
+ Test Passed:  len = 25
+Testing transformation: AES/ECB/PKCS5Padding,  byte length from 1 to 25
+  enc = e2eb71c6be147a41819e738bd2d275ba
+  => enc 1 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 1ac3cfe7db32bf6fd30a30df92cbe215
+  => enc 2 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = 023bce649c1655bfadcde7e7471d5969
+  => enc 3 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = 613a7b3680b15f6ea3cc226ef35f72e5
+  => enc 4 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 682321542fc3e23037e7da44186afe6d
+  => enc 5 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = dfb17b2c0fc6206ae13c60791baebe9d
+  => enc 6 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = 63c64afe19dd2a42286d91064cb46aea
+  => enc 7 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = be70d7185e5fe4024b2035ce71003fb2
+  => enc 8 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = 0e90c0fa566b792e1891867983060d14
+  => enc 9 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = 1a2f25013d58e1c56bc8c3b05fd04a76
+  => enc 10 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = a010c358a34cc2dff89f5dfb964e68dc
+  => enc 11 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = 429c597dd1c420d215a27c9ffba22d6d
+  => enc 12 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = 3c74fa4b9fa8e88bc9650eafe7e32d46
+  => enc 13 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = 69fd39d1a14085276516d2467e77d5a6
+  => enc 14 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = c5962d61d0465780b2824ebc87fba0b9
+  => enc 15 bytes, ret 16 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = be70d7185e5fe4024b2035ce71003fb208a35c398e770af8f76c622800811c6e
+  => enc 16 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = be70d7185e5fe4024b2035ce71003fb2e2eb71c6be147a41819e738bd2d275ba
+  => enc 17 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 17 byte
+ Test Passed:  len = 17
+  enc = be70d7185e5fe4024b2035ce71003fb21ac3cfe7db32bf6fd30a30df92cbe215
+  => enc 18 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 18 byte
+ Test Passed:  len = 18
+  enc = be70d7185e5fe4024b2035ce71003fb2023bce649c1655bfadcde7e7471d5969
+  => enc 19 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 19 byte
+ Test Passed:  len = 19
+  enc = be70d7185e5fe4024b2035ce71003fb2613a7b3680b15f6ea3cc226ef35f72e5
+  => enc 20 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 20 byte
+ Test Passed:  len = 20
+  enc = be70d7185e5fe4024b2035ce71003fb2682321542fc3e23037e7da44186afe6d
+  => enc 21 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 21 byte
+ Test Passed:  len = 21
+  enc = be70d7185e5fe4024b2035ce71003fb2dfb17b2c0fc6206ae13c60791baebe9d
+  => enc 22 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 22 byte
+ Test Passed:  len = 22
+  enc = be70d7185e5fe4024b2035ce71003fb263c64afe19dd2a42286d91064cb46aea
+  => enc 23 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 23 byte
+ Test Passed:  len = 23
+  enc = be70d7185e5fe4024b2035ce71003fb2be70d7185e5fe4024b2035ce71003fb2
+  => enc 24 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 24 byte
+ Test Passed:  len = 24
+  enc = be70d7185e5fe4024b2035ce71003fb20e90c0fa566b792e1891867983060d14
+  => enc 25 bytes, ret 32 byte
+  dec = 0808080808080808080808080808080808080808080808080808080808080808
+  => dec 32 bytes, ret 25 byte
+ Test Passed:  len = 25
+Testing transformation: DES/CBC/PKCS5Padding,  byte length from 1 to 17
+  enc = 79b1ce90b9ba567a
+  => enc 1 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 6427f191e00c4065
+  => enc 2 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = e8a069f8f5766dbf
+  => enc 3 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = 79040c8e23b98973
+  => enc 4 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 5b46400fac4857e2
+  => enc 5 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = 85e101f342e57a61
+  => enc 6 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = d3e33e35c97efc13
+  => enc 7 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = 8dcde194e381ecc186fecc0f7580c22f
+  => enc 8 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = 8dcde194e381ecc13c9485802748a3da
+  => enc 9 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = 8dcde194e381ecc15cd71ac0daeff92f
+  => enc 10 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = 8dcde194e381ecc1e16659637bc8354d
+  => enc 11 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = 8dcde194e381ecc1503dbc8841748dcd
+  => enc 12 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = 8dcde194e381ecc18b0cc25786d5349c
+  => enc 13 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = 8dcde194e381ecc137f55043e37db129
+  => enc 14 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = 8dcde194e381ecc140e49a024358ac71
+  => enc 15 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = 8dcde194e381ecc186fecc0f7580c22fd01362ed12dd2394
+  => enc 16 bytes, ret 24 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = 8dcde194e381ecc186fecc0f7580c22fa6b3afddbe70a601
+  => enc 17 bytes, ret 24 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 17 byte
+ Test Passed:  len = 17
+Testing transformation: DESede/CBC/PKCS5Padding,  byte length from 1 to 17
+  enc = 6cf2174924075ece
+  => enc 1 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 1 byte
+ Test Passed:  len = 1
+  enc = 945136f503c40a2b
+  => enc 2 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 2 byte
+ Test Passed:  len = 2
+  enc = 43ee27d7c845dbc7
+  => enc 3 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 3 byte
+ Test Passed:  len = 3
+  enc = 917dd2bae6a3765b
+  => enc 4 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 4 byte
+ Test Passed:  len = 4
+  enc = 2ebf37609038f336
+  => enc 5 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 5 byte
+ Test Passed:  len = 5
+  enc = a9181886bb5c47c7
+  => enc 6 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 6 byte
+ Test Passed:  len = 6
+  enc = 64ebdd76a310a01a
+  => enc 7 bytes, ret 8 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 8 bytes, ret 7 byte
+ Test Passed:  len = 7
+  enc = e3204cc052f6a07685717a3ecbd87b0f
+  => enc 8 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 8 byte
+ Test Passed:  len = 8
+  enc = e3204cc052f6a0760fdb53c4a60d2dd5
+  => enc 9 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 9 byte
+ Test Passed:  len = 9
+  enc = e3204cc052f6a076fddbc7bde9f62d86
+  => enc 10 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 10 byte
+ Test Passed:  len = 10
+  enc = e3204cc052f6a0764b7eae1680e24bbd
+  => enc 11 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 11 byte
+ Test Passed:  len = 11
+  enc = e3204cc052f6a0768375621f869529d0
+  => enc 12 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 12 byte
+ Test Passed:  len = 12
+  enc = e3204cc052f6a07630137e630bf2ce73
+  => enc 13 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 13 byte
+ Test Passed:  len = 13
+  enc = e3204cc052f6a0762f57705e1167f2cb
+  => enc 14 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 14 byte
+ Test Passed:  len = 14
+  enc = e3204cc052f6a0765a119132ddd1a5fd
+  => enc 15 bytes, ret 16 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 16 bytes, ret 15 byte
+ Test Passed:  len = 15
+  enc = e3204cc052f6a07685717a3ecbd87b0f5a1ef04e2da70249
+  => enc 16 bytes, ret 24 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 16 byte
+ Test Passed:  len = 16
+  enc = e3204cc052f6a07685717a3ecbd87b0f9622e72f75f82166
+  => enc 17 bytes, ret 24 byte
+  dec = 080808080808080808080808080808080808080808080808
+  => dec 24 bytes, ret 17 byte
+ Test Passed:  len = 17
+----------System.err:(3/38)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

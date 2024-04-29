@@ -1,0 +1,280 @@
+#Test Results (version 2)
+#Mon Apr 29 00:49:30 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=Serguei Spitsyn
+keywords=bug6487638 bug7041595
+maxTimeout=80
+modules=java.logging
+run=USER_SPECIFIED build LoggingDeadlock3\nUSER_SPECIFIED main/timeout\=80 LoggingDeadlock3\n
+source=LoggingDeadlock3.java
+title=Calling LogManager.addLogger() and Logger.getLogger() cause deadlock
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java
+elapsed=1235 0\:00\:01.235
+end=Mon Apr 29 00\:49\:30 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main
+start=Mon Apr 29 00\:49\:29 UTC 2024
+test=java/util/logging/LoggingDeadlock3.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=1235
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/242)----------
+command: build LoggingDeadlock3
+reason: User specified action: run build LoggingDeadlock3 
+started: Mon Apr 29 00:49:29 UTC 2024
+Test directory:
+  compile: LoggingDeadlock3
+finished: Mon Apr 29 00:49:29 UTC 2024
+elapsed time (seconds): 0.011
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/345)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:49:29 UTC 2024
+Additional options from @modules: --add-modules java.logging
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:49:29 UTC 2024
+elapsed time (seconds): 0.011
+----------configuration:(11/706)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.logging
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d
+
+----------rerun:(35/3241)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/LoggingDeadlock3.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/176)----------
+command: build LoggingDeadlock3
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:29 UTC 2024
+finished: Mon Apr 29 00:49:29 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/234)----------
+command: main LoggingDeadlock3
+reason: User specified action: run main/timeout=80 LoggingDeadlock3 
+started: Mon Apr 29 00:49:29 UTC 2024
+Mode: agentvm
+Agent id: 37
+finished: Mon Apr 29 00:49:30 UTC 2024
+elapsed time (seconds): 1.223
+----------configuration:(13/929)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging
+
+----------rerun:(27/2707)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LoggingDeadlock3.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock3.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules=java.logging \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock3.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        LoggingDeadlock3
+----------System.out:(92/1016)----------
+2
+1
+222212212222
+222122221222
+212222222212
+222122122222
+2122222221
+22
+22221222222
+222222122212
+222221222122
+21221221222122
+1
+2221221222122
+12212221222122
+212212221
+22122
+21212212212222
+12221221222122
+1
+2221221222122
+21222122122122
+212212221
+22122
+21221221222122
+12212222122122
+1
+22212212212122
+122122122122122
+1
+22122212212212
+21221222122122
+1221
+2221222122
+1221221211122222
+2221222221
+22
+2221222212212
+121222212221111
+22
+2222222222
+2222222222
+2222222222
+22222212222
+22221211122121212
+22222222211
+12
+12111212121121
+112112122112
+111
+11122121121111
+121111121211221
+112
+1211112111
+211221112111121
+211121112
+11211
+11222222222
+2222222222
+2222222222
+2222222222
+2222222222
+2222222222
+2222222222
+2222222222
+2222222222
+2222221112222
+22222122222
+21222222222
+212222222211
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+1111111111
+111111111
+LoggingDeadlock3: passed
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

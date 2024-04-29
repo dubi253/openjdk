@@ -1,0 +1,179 @@
+#Test Results (version 2)
+#Mon Apr 29 01:02:09 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug4026895
+run=ASSUMED_ACTION main FinThreads\n
+source=FinThreads.java
+title=Ensure that System.runFinalization does not run finalizers in the thread that invokes it
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java
+elapsed=103 0\:00\:00.103
+end=Mon Apr 29 01\:02\:09 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 01\:02\:09 UTC 2024
+test=java/lang/System/finalization/FinThreads.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=104
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/finalization
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/210)----------
+command: build FinThreads
+reason: Named class compiled on demand
+started: Mon Apr 29 01:02:09 UTC 2024
+Test directory:
+  compile: FinThreads
+finished: Mon Apr 29 01:02:09 UTC 2024
+elapsed time (seconds): 0.021
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/290)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:02:09 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:02:09 UTC 2024
+elapsed time (seconds): 0.021
+----------configuration:(10/708)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d
+
+----------rerun:(33/3270)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/finalization/FinThreads.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java
+----------direct:(7/514)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java:62: warning: [removal] finalize() in Object has been deprecated and marked for removal
+        public void finalize() throws InterruptedException {
+                    ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java:120: warning: [removal] runFinalization() in System has been deprecated and marked for removal
+            System.runFinalization();
+                  ^
+2 warnings
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/223)----------
+command: main FinThreads
+reason: Assumed action based on file name: run main FinThreads 
+started: Mon Apr 29 01:02:09 UTC 2024
+Mode: agentvm
+Agent id: 38
+finished: Mon Apr 29 01:02:09 UTC 2024
+elapsed time (seconds): 0.082
+----------configuration:(13/947)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization
+
+----------rerun:(26/2746)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/finalization/FinThreads.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization/FinThreads.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/finalization/FinThreads.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/finalization:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        FinThreads
+----------System.err:(5/138)----------
+Caught finalizer thread; sleeping...
+Test object finalized by Thread[#85,Secondary finalizer,5,system]
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -1,0 +1,587 @@
+#Test Results (version 2)
+#Mon Apr 29 00:38:14 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs
+keywords=bug8140364 othervm
+modules=java.base/sun.util.logging java.base/jdk.internal.logger
+run=USER_SPECIFIED build CustomSystemClassLoader BaseLoggerFinder BaseLoggerBridgeTest\nUSER_SPECIFIED main/othervm -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerBridgeTest NOSECURITY\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerBridgeTest NOPERMISSIONS\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerBridgeTest WITHPERMISSIONS\n
+source=BaseLoggerBridgeTest.java
+title=JDK implementation specific unit test for JDK internal artifacts.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java
+elapsed=635 0\:00\:00.635
+end=Mon Apr 29 00\:38\:14 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/sun.util.logging java.base/jdk.internal.logger
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main build main build main
+start=Mon Apr 29 00\:38\:13 UTC 2024
+test=java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=635
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/379)----------
+command: build CustomSystemClassLoader BaseLoggerFinder BaseLoggerBridgeTest
+reason: User specified action: run build CustomSystemClassLoader BaseLoggerFinder BaseLoggerBridgeTest 
+started: Mon Apr 29 00:38:13 UTC 2024
+Test directory:
+  compile: CustomSystemClassLoader, BaseLoggerFinder, BaseLoggerBridgeTest
+finished: Mon Apr 29 00:38:13 UTC 2024
+elapsed time (seconds): 0.065
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/756)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/CustomSystemClassLoader.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerFinder.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:38:13 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/sun.util.logging=ALL-UNNAMED --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:38:13 UTC 2024
+elapsed time (seconds): 0.064
+----------configuration:(13/971)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+               java.base/sun.util.logging    ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d 
+
+----------rerun:(37/4252)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -J-Dtest.modules='java.base/sun.util.logging java.base/jdk.internal.logger' \\
+        --add-modules java.base \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/CustomSystemClassLoader.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerFinder.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java
+----------direct:(46/4729)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerFinder.java:35: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+        SecurityManager sm = System.getSecurityManager();
+        ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerFinder.java:35: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+        SecurityManager sm = System.getSecurityManager();
+                                   ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerFinder.java:40: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+        ClassLoader callerLoader = AccessController.doPrivileged(pa);
+                                   ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:368: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+        if (System.getSecurityManager() == null) {
+                  ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:374: warning: [removal] Policy in java.security has been deprecated and marked for removal
+            Policy.setPolicy(new SimplePolicy(allowControl, allowAccess, allowAll));
+            ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:375: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                                          ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:375: warning: [removal] setSecurityManager(SecurityManager) in System has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                  ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:403: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+                    } catch (AccessControlException x) {
+                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:449: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:473: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:516: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:557: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:979: warning: [removal] Policy in java.security has been deprecated and marked for removal
+    public static class SimplePolicy extends Policy {
+                                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:984: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                     ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java:984: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                                             ^
+15 warnings
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/180)----------
+command: build BaseLoggerBridgeTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:13 UTC 2024
+finished: Mon Apr 29 00:38:13 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/538)----------
+command: main -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest NOSECURITY
+reason: User specified action: run main/othervm -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest NOSECURITY 
+started: Mon Apr 29 00:38:13 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/sun.util.logging=ALL-UNNAMED --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 00:38:14 UTC 2024
+elapsed time (seconds): 0.183
+----------configuration:(5/172)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+               java.base/sun.util.logging    ALL-UNNAMED
+
+----------System.out:(76/4246)----------
+[0.003s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+
+*** Without Security Manager
+
+Testing PlatformLogger.Bridge.convert(System.getLogger("foo")) [jdk.internal.logger.LoggerWrapper@8f6c863]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing jdk.internal.logger.LazyLoggers.getLogger("foo", Thread.class.getModule()) [jdk.internal.logger.LazyLoggers$JdkLazyLogger@28cce68b]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@77b98b6a]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing provider.getLocalizedLogger("foo", loggerBundle, Thread.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@6626bdb2]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Tetscase count: 3094
+
+PASSED: Tested 3094 cases.
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(39/4062)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.modules='java.base/sun.util.logging java.base/jdk.internal.logger' \\
+        --add-modules java.base \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d/main.0.jta NOSECURITY
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build BaseLoggerBridgeTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:14 UTC 2024
+finished: Mon Apr 29 00:38:14 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/604)----------
+command: main -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest NOPERMISSIONS
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest NOPERMISSIONS 
+started: Mon Apr 29 00:38:14 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/sun.util.logging=ALL-UNNAMED --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 00:38:14 UTC 2024
+elapsed time (seconds): 0.146
+----------configuration:(5/172)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+               java.base/sun.util.logging    ALL-UNNAMED
+
+----------System.out:(47/2871)----------
+[0.003s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+
+*** With Security Manager, without permissions
+
+debug: Setting security manager
+Got expected exception for logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Got expected exception for system logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Testing PlatformLogger.Bridge.convert(System.getLogger("foo")) [jdk.internal.logger.LoggerWrapper@36fb9ef9]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Got expected exception for system logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@30e80e3e]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Got expected exception for localized system logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Tetscase count: 1547
+
+PASSED: Tested 1547 cases.
+----------System.err:(5/516)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by BaseLoggerBridgeTest (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d/)
+WARNING: Please consider reporting this to the maintainers of BaseLoggerBridgeTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(40/4106)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.modules='java.base/sun.util.logging java.base/jdk.internal.logger' \\
+        --add-modules java.base \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d/main.1.jta NOPERMISSIONS
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/182)----------
+command: build BaseLoggerBridgeTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:14 UTC 2024
+finished: Mon Apr 29 00:38:14 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/607)----------
+command: main -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest WITHPERMISSIONS
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerBridgeTest WITHPERMISSIONS 
+started: Mon Apr 29 00:38:14 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/sun.util.logging=ALL-UNNAMED --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 00:38:14 UTC 2024
+elapsed time (seconds): 0.24
+----------configuration:(5/172)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+               java.base/sun.util.logging    ALL-UNNAMED
+
+----------System.out:(76/4280)----------
+[0.004s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+
+*** With Security Manager, with control permission
+
+debug: Setting security manager
+Testing PlatformLogger.Bridge.convert(System.getLogger("foo")) [jdk.internal.logger.LoggerWrapper@33b9936a]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing jdk.internal.logger.LazyLoggers.getLogger("foo", Thread.class.getModule()) [jdk.internal.logger.LazyLoggers$JdkLazyLogger@391f3b63]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@3381114b]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+Testing provider.getLocalizedLogger("foo", loggerBundle, Thread.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@396ff74b]
+	logger.log(messageLevel, fooMsg)
+	logger.<level>(fooMsg)
+	logger.log(messageLevel, supplier)
+	logger.<level>(supplier)
+	logger.log(messageLevel, format, arg1, arg2)
+	logger.log(messageLevel, fooMsg, thrown)
+	logger.log(messageLevel, thrown, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg)
+	logger.logp(messageLevel, sourceClass, sourceMethod, supplier)
+	logger.logp(messageLevel, sourceClass, sourceMethod, format, arg1, arg2)
+	logger.logp(messageLevel, sourceClass, sourceMethod, fooMsg, thrown)
+	logger.logp(messageLevel, sourceClass, sourceMethod, thrown, supplier)
+	logger.logrb(messageLevel, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, bundle, msg, thrown)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, format, arg1, arg2)
+	logger.logrb(messageLevel, sourceClass, sourceMethod, bundle, msg, thrown)
+
+PASSED: Tested 3094 cases.
+----------System.err:(5/516)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by BaseLoggerBridgeTest (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d/)
+WARNING: Please consider reporting this to the maintainers of BaseLoggerBridgeTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(40/4108)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest \\
+        -Dtest.modules='java.base/sun.util.logging java.base/jdk.internal.logger' \\
+        --add-modules java.base \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/internal/BaseLoggerBridgeTest/BaseLoggerBridgeTest.d/main.2.jta WITHPERMISSIONS
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

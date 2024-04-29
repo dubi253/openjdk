@@ -1,0 +1,259 @@
+#Test Results (version 2)
+#Mon Apr 29 00:43:52 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8048209 testng
+modules=java.base/java.util\:open
+run=USER_SPECIFIED testng SyncSubMutexes\n
+source=SyncSubMutexes.java
+title=Check that Collections.synchronizedNavigableSet().tailSet() is using the same lock object as it's source.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java
+elapsed=137 0\:00\:00.137
+end=Mon Apr 29 00\:43\:52 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/java.util\:open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile testng
+start=Mon Apr 29 00\:43\:52 UTC 2024
+test=java/util/Collections/SyncSubMutexes.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=137
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Collections
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/218)----------
+command: build SyncSubMutexes
+reason: Named class compiled on demand
+started: Mon Apr 29 00:43:52 UTC 2024
+Test directory:
+  compile: SyncSubMutexes
+finished: Mon Apr 29 00:43:52 UTC 2024
+elapsed time (seconds): 0.036
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/344)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:43:52 UTC 2024
+Additional options from @modules: --add-modules java.base
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:43:52 UTC 2024
+elapsed time (seconds): 0.036
+----------configuration:(14/976)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+
+----------rerun:(35/3504)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Collections/SyncSubMutexes.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -J-Dtest.modules=java.base/java.util:open \\
+        --add-modules java.base \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java
+result: Passed. Compilation successful
+
+#section:testng
+----------messages:(8/292)----------
+command: testng SyncSubMutexes
+reason: User specified action: run testng SyncSubMutexes 
+started: Mon Apr 29 00:43:52 UTC 2024
+Mode: agentvm
+Agent id: 31
+Additional opens to unnamed modules from @modules: java.base/java.util
+finished: Mon Apr 29 00:43:52 UTC 2024
+elapsed time (seconds): 0.1
+----------configuration:(14/983)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  add opens:  java.base/java.util ALL-UNNAMED
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d 
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections 
+
+----------rerun:(27/3055)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Collections/SyncSubMutexes.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections/SyncSubMutexes.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections \\
+        -Dtest.modules=java.base/java.util:open \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/Collections/SyncSubMutexes.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Collections:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        com.sun.javatest.regtest.agent.TestNGRunner java/util/Collections/SyncSubMutexes.java false SyncSubMutexes
+----------System.out:(77/6967)----------
+test SyncSubMutexes.testCollections(java.util.Collections$SynchronizedCollection@5d227503): success
+test SyncSubMutexes.testCollections(java.util.Collections$SynchronizedRandomAccessList@21edcacc): success
+test SyncSubMutexes.testCollections([Bravo]): success
+test SyncSubMutexes.testLists(java.util.Collections$SynchronizedRandomAccessList@33d02eba): success
+test SyncSubMutexes.testLists([Bravo]): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedMap@5fac2bd5): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedSortedMap@4fb11351): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedSortedMap@363537b0): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedSortedMap@46f53d50): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedSortedMap@33e8e950): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@5a0b3b66): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@235afc8e): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@7a31c2f3): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@3d69084a): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@4c21c5cb): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@d1ccff0): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@3cdb212b): success
+test SyncSubMutexes.testMaps(java.util.Collections$SynchronizedNavigableMap@6d3330bf): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@17c87048): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@7927aeef): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@63828846): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@6010a97a): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@5ece91f4): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@2c184f5f): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@1cc3cc5e): success
+test SyncSubMutexes.testNavigableMaps(java.util.Collections$SynchronizedNavigableMap@32537dc2): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@1d352d04): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@6c2dba93): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@4b496882): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@71291c27): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@1a3f0193): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@14754439): success
+test SyncSubMutexes.testNavigableSets([Bravo, Charlie, Delta, Echo]): success
+test SyncSubMutexes.testNavigableSets(java.util.Collections$SynchronizedNavigableSet@6b138196): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedSet@27a557dc): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedSortedSet@696b1aac): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedSortedSet@50c56d40): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedSortedSet@3a40e155): success
+test SyncSubMutexes.testSets([Bravo, Charlie, Delta, Echo]): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@6adcaef3): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@689ae316): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@77735a60): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@5cab494d): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@2a60cae1): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@6b5dc0da): success
+test SyncSubMutexes.testSets([Bravo, Charlie, Delta, Echo]): success
+test SyncSubMutexes.testSets(java.util.Collections$SynchronizedNavigableSet@e2c759a): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedSortedMap@1e9b5407): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedSortedMap@2008f218): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedSortedMap@41d6478e): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedSortedMap@6d33a89b): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@64ac09a8): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@1e8d4d7b): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@152e8ea0): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@3b31ff24): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@2ff6e93f): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@1a660069): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@5b5b0a52): success
+test SyncSubMutexes.testSortedMaps(java.util.Collections$SynchronizedNavigableMap@6acaf501): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedSortedSet@55105d7c): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedSortedSet@c7ab116): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedSortedSet@615cbea9): success
+test SyncSubMutexes.testSortedSets([Bravo, Charlie, Delta, Echo]): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@60e820a2): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@35d757c4): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@fc0fba8): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@59d511f7): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@309b21e1): success
+test SyncSubMutexes.testSortedSets([Bravo, Charlie, Delta, Echo]): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@692cc86f): success
+test SyncSubMutexes.testSortedSets(java.util.Collections$SynchronizedNavigableSet@29e0a3bc): success
+
+===============================================
+java/util/Collections/SyncSubMutexes.java
+Total tests run: 71, Passes: 71, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

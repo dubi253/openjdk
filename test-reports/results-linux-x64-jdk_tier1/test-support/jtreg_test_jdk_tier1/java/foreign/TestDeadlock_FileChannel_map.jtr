@@ -1,0 +1,737 @@
+#Test Results (version 2)
+#Mon Apr 29 00:36:53 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+id=FileChannel_map
+keywords=othervm
+maxTimeout=5
+run=USER_SPECIFIED main/othervm/timeout\=5 --enable-native-access\=ALL-UNNAMED -Xlog\:class+init TestDeadlock FileChannel\n
+source=TestDeadlock.java
+title=\ 
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java\#FileChannel_map
+elapsed=228 0\:00\:00.228
+end=Mon Apr 29 00\:36\:53 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 00\:36\:53 UTC 2024
+test=java/foreign/TestDeadlock.java\#FileChannel_map
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=228
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/214)----------
+command: build TestDeadlock
+reason: Named class compiled on demand
+started: Mon Apr 29 00:36:53 UTC 2024
+Test directory:
+  compile: TestDeadlock
+finished: Mon Apr 29 00:36:53 UTC 2024
+elapsed time (seconds): 0.059
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/274)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:36:53 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:36:53 UTC 2024
+elapsed time (seconds): 0.058
+----------configuration:(10/669)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d
+
+----------rerun:(35/3203)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/foreign/TestDeadlock.java#FileChannel_map \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/369)----------
+command: main --enable-native-access=ALL-UNNAMED -Xlog:class+init TestDeadlock FileChannel
+reason: User specified action: run main/othervm/timeout=5 --enable-native-access=ALL-UNNAMED -Xlog:class+init TestDeadlock FileChannel 
+started: Mon Apr 29 00:36:53 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:36:53 UTC 2024
+elapsed time (seconds): 0.168
+----------configuration:(0/0)----------
+----------System.out:(567/69110)----------
+[0.023s][info][class,init] 0 Initializing 'java/lang/Object'(no method) (0x00007f23be149080) by thread "Unknown thread"
+[0.023s][info][class,init] 1 Initializing 'java/lang/CharSequence'(no method) (0x00007f23be150fd0) by thread "Unknown thread"
+[0.023s][info][class,init] 2 Initializing 'java/lang/String' (0x00007f23be155700) by thread "Unknown thread"
+[0.024s][info][class,init] 3 Initializing 'java/util/Comparator'(no method) (0x00007f23be1ddf20) by thread "Unknown thread"
+[0.024s][info][class,init] 4 Initializing 'java/lang/String$CaseInsensitiveComparator'(no method) (0x00007f23be1f4f68) by thread "Unknown thread"
+[0.024s][info][class,init] 5 Initializing 'java/lang/System' (0x00007f23be14af00) by thread "Unknown thread"
+[0.024s][info][class,init] 6 Initializing 'java/lang/reflect/AnnotatedElement'(no method) (0x00007f23be14df00) by thread "Unknown thread"
+[0.024s][info][class,init] 7 Initializing 'java/lang/reflect/Type'(no method) (0x00007f23be14e848) by thread "Unknown thread"
+[0.024s][info][class,init] 8 Initializing 'java/lang/Class' (0x00007f23be14d998) by thread "Unknown thread"
+[0.024s][info][class,init] 9 Initializing 'java/lang/ThreadGroup' (0x00007f23be16c510) by thread "Unknown thread"
+[0.024s][info][class,init] 10 Initializing 'jdk/internal/misc/VM' (0x00007f23be157398) by thread "Unknown thread"
+[0.024s][info][class,init] 11 Initializing 'java/lang/Thread' (0x00007f23be15e550) by thread "Unknown thread"
+[0.024s][info][class,init] 12 Initializing 'java/lang/Thread$FieldHolder'(no method) (0x00007f23be16bf88) by thread "<un-named>"
+[0.024s][info][class,init] 13 Initializing 'java/security/AccessController' (0x00007f23be14c320) by thread "main"
+[0.024s][info][class,init] 14 Initializing 'java/security/AccessControlContext' (0x00007f23be16cf10) by thread "main"
+[0.024s][info][class,init] 15 Initializing 'java/lang/Module' (0x00007f23be164480) by thread "main"
+[0.024s][info][class,init] 16 Initializing 'java/lang/Module$ArchivedData' (0x00007f23be2394c0) by thread "main"
+[0.024s][info][class,init] 17 Initializing 'jdk/internal/misc/CDS' (0x00007f23be170500) by thread "main"
+[0.024s][info][class,init] 18 Initializing 'java/util/Set'(no method) (0x00007f23be157d00) by thread "main"
+[0.024s][info][class,init] 19 Initializing 'java/lang/Iterable'(no method) (0x00007f23be18dd88) by thread "main"
+[0.024s][info][class,init] 20 Initializing 'java/util/Collection'(no method) (0x00007f23be18db78) by thread "main"
+[0.024s][info][class,init] 21 Initializing 'java/util/AbstractCollection'(no method) (0x00007f23be18f308) by thread "main"
+[0.024s][info][class,init] 22 Initializing 'java/util/ImmutableCollections$AbstractImmutableCollection'(no method) (0x00007f23be2308a8) by thread "main"
+[0.024s][info][class,init] 23 Initializing 'java/util/ImmutableCollections$AbstractImmutableSet'(no method) (0x00007f23be2329e0) by thread "main"
+[0.024s][info][class,init] 24 Initializing 'java/util/ImmutableCollections$Set12'(no method) (0x00007f23be270410) by thread "main"
+[0.024s][info][class,init] 25 Initializing 'java/util/Objects'(no method) (0x00007f23be18c4d8) by thread "main"
+[0.024s][info][class,init] 26 Initializing 'java/util/ImmutableCollections' (0x00007f23be22ff48) by thread "main"
+[0.024s][info][class,init] 27 Initializing 'java/util/SequencedCollection'(no method) (0x00007f23be18d968) by thread "main"
+[0.024s][info][class,init] 28 Initializing 'java/util/List'(no method) (0x00007f23be18d758) by thread "main"
+[0.024s][info][class,init] 29 Initializing 'java/util/ImmutableCollections$AbstractImmutableList'(no method) (0x00007f23be230c30) by thread "main"
+[0.024s][info][class,init] 30 Initializing 'java/util/ImmutableCollections$ListN'(no method) (0x00007f23be231d40) by thread "main"
+[0.024s][info][class,init] 31 Initializing 'java/util/ImmutableCollections$SetN'(no method) (0x00007f23be2325c0) by thread "main"
+[0.024s][info][class,init] 32 Initializing 'java/util/Map'(no method) (0x00007f23be14d6d8) by thread "main"
+[0.024s][info][class,init] 33 Initializing 'java/util/AbstractMap'(no method) (0x00007f23be197290) by thread "main"
+[0.024s][info][class,init] 34 Initializing 'java/util/ImmutableCollections$AbstractImmutableMap'(no method) (0x00007f23be233470) by thread "main"
+[0.024s][info][class,init] 35 Initializing 'java/util/ImmutableCollections$MapN'(no method) (0x00007f23be2330b8) by thread "main"
+[0.025s][info][class,init] 36 Initializing 'jdk/internal/misc/UnsafeConstants' (0x00007f23be1a8800) by thread "main"
+[0.025s][info][class,init] 37 Initializing 'java/lang/reflect/AccessibleObject' (0x00007f23be15c708) by thread "main"
+[0.025s][info][class,init] 38 Initializing 'java/lang/reflect/ReflectAccess'(no method) (0x00007f23be2398a8) by thread "main"
+[0.025s][info][class,init] 39 Initializing 'jdk/internal/access/SharedSecrets'(no method) (0x00007f23be14b3a0) by thread "main"
+[0.025s][info][class,init] 40 Initializing 'jdk/internal/reflect/ReflectionFactory$GetReflectionFactoryAction'(no method) (0x00007f23be202d50) by thread "main"
+[0.025s][info][class,init] 41 Initializing 'jdk/internal/reflect/Reflection' (0x00007f23be1bdea0) by thread "main"
+[0.025s][info][class,init] 42 Initializing 'java/lang/StringLatin1' (0x00007f23be1668b8) by thread "main"
+[0.025s][info][class,init] 43 Initializing 'java/lang/Math' (0x00007f23be1676e0) by thread "main"
+[0.025s][info][class,init] 44 Initializing 'java/lang/Number'(no method) (0x00007f23be166e78) by thread "main"
+[0.025s][info][class,init] 45 Initializing 'java/lang/Float' (0x00007f23be172458) by thread "main"
+[0.025s][info][class,init] 46 Initializing 'java/lang/Double' (0x00007f23be1734f8) by thread "main"
+[0.025s][info][class,init] 47 Initializing 'jdk/internal/reflect/ReflectionFactory' (0x00007f23be1fc890) by thread "main"
+[0.025s][info][class,init] 48 Initializing 'java/lang/Record'(no method) (0x00007f23be191eb8) by thread "main"
+[0.025s][info][class,init] 49 Initializing 'jdk/internal/reflect/ReflectionFactory$Config'(no method) (0x00007f23be278e88) by thread "main"
+[0.025s][info][class,init] 50 Initializing 'java/lang/ref/Reference' (0x00007f23be17b608) by thread "main"
+[0.025s][info][class,init] 51 Initializing 'java/lang/ref/Reference$1'(no method) (0x00007f23be21bfe0) by thread "main"
+[0.025s][info][class,init] 52 Initializing 'java/lang/reflect/Member'(no method) (0x00007f23be15e340) by thread "main"
+[0.025s][info][class,init] 53 Initializing 'java/lang/reflect/Executable'(no method) (0x00007f23be15c9d8) by thread "main"
+[0.025s][info][class,init] 54 Initializing 'java/lang/reflect/Method'(no method) (0x00007f23be17ef08) by thread "main"
+[0.025s][info][class,init] 55 Initializing 'java/lang/ref/FinalReference'(no method) (0x00007f23be17ce30) by thread "main"
+[0.025s][info][class,init] 56 Initializing 'java/lang/ref/Finalizer' (0x00007f23be17d678) by thread "main"
+[0.025s][info][class,init] 57 Initializing 'java/lang/ref/ReferenceQueue' (0x00007f23be17e650) by thread "main"
+[0.025s][info][class,init] 58 Initializing 'java/lang/ref/ReferenceQueue$Null'(no method) (0x00007f23be279b08) by thread "main"
+[0.025s][info][class,init] 59 Initializing 'java/lang/ref/NativeReferenceQueue'(no method) (0x00007f23be17e3e8) by thread "main"
+[0.025s][info][class,init] 60 Initializing 'java/lang/ref/NativeReferenceQueue$Lock'(no method) (0x00007f23be279380) by thread "main"
+[0.025s][info][class,init] 61 Initializing 'java/lang/System$2'(no method) (0x00007f23be15f5f8) by thread "main"
+[0.025s][info][class,init] 62 Initializing 'jdk/internal/util/SystemProps' (0x00007f23be153758) by thread "main"
+[0.025s][info][class,init] 63 Initializing 'jdk/internal/util/SystemProps$Raw'(no method) (0x00007f23be27a158) by thread "main"
+[0.026s][info][class,init] 64 Initializing 'java/nio/charset/Charset' (0x00007f23be1568c0) by thread "main"
+[0.026s][info][class,init] 65 Initializing 'java/nio/charset/spi/CharsetProvider'(no method) (0x00007f23be27a5d0) by thread "main"
+[0.026s][info][class,init] 66 Initializing 'sun/nio/cs/StandardCharsets' (0x00007f23be27b800) by thread "main"
+[0.026s][info][class,init] 67 Initializing 'jdk/internal/util/Preconditions' (0x00007f23be18c7a0) by thread "main"
+[0.026s][info][class,init] 68 Initializing 'java/util/function/Function'(no method) (0x00007f23be1ed3e0) by thread "main"
+[0.026s][info][class,init] 69 Initializing 'jdk/internal/util/Preconditions$1'(no method) (0x00007f23be285378) by thread "main"
+[0.026s][info][class,init] 70 Initializing 'java/util/function/BiFunction'(no method) (0x00007f23be22fbb0) by thread "main"
+[0.026s][info][class,init] 71 Initializing 'jdk/internal/util/Preconditions$4'(no method) (0x00007f23be284f90) by thread "main"
+[0.026s][info][class,init] 72 Initializing 'jdk/internal/util/Preconditions$2'(no method) (0x00007f23be285758) by thread "main"
+[0.026s][info][class,init] 73 Initializing 'jdk/internal/util/Preconditions$3'(no method) (0x00007f23be285b38) by thread "main"
+[0.026s][info][class,init] 74 Initializing 'java/lang/AbstractStringBuilder' (0x00007f23be14f338) by thread "main"
+[0.026s][info][class,init] 75 Initializing 'java/lang/StringBuilder'(no method) (0x00007f23be14ee98) by thread "main"
+[0.026s][info][class,init] 76 Initializing 'java/util/Arrays' (0x00007f23be168328) by thread "main"
+[0.026s][info][class,init] 77 Initializing 'jdk/internal/util/ArraysSupport' (0x00007f23be1678f8) by thread "main"
+[0.026s][info][class,init] 78 Initializing 'jdk/internal/misc/Unsafe' (0x00007f23be15af60) by thread "main"
+[0.026s][info][class,init] 79 Initializing 'java/lang/Integer' (0x00007f23be166be8) by thread "main"
+[0.027s][info][class,init] 80 Initializing 'sun/util/PreHashedMap'(no method) (0x00007f23bf040400) by thread "main"
+[0.027s][info][class,init] 81 Initializing 'sun/nio/cs/StandardCharsets$Aliases'(no method) (0x00007f23bf0407c0) by thread "main"
+[0.027s][info][class,init] 82 Initializing 'sun/nio/cs/StandardCharsets$Cache'(no method) (0x00007f23bf040b80) by thread "main"
+[0.027s][info][class,init] 83 Initializing 'sun/nio/cs/Unicode'(no method) (0x00007f23be156b30) by thread "main"
+[0.027s][info][class,init] 84 Initializing 'sun/nio/cs/UTF_8' (0x00007f23be156630) by thread "main"
+[0.027s][info][class,init] 85 Initializing 'sun/nio/cs/ISO_8859_1' (0x00007f23be1d7060) by thread "main"
+[0.027s][info][class,init] 86 Initializing 'sun/nio/cs/US_ASCII' (0x00007f23be1d7580) by thread "main"
+[0.027s][info][class,init] 87 Initializing 'java/nio/charset/StandardCharsets' (0x00007f23be27d3a0) by thread "main"
+[0.027s][info][class,init] 88 Initializing 'sun/nio/cs/UTF_16BE'(no method) (0x00007f23be27e208) by thread "main"
+[0.027s][info][class,init] 89 Initializing 'sun/nio/cs/UTF_16LE'(no method) (0x00007f23be27e6c0) by thread "main"
+[0.027s][info][class,init] 90 Initializing 'sun/nio/cs/UTF_16'(no method) (0x00007f23be27dd50) by thread "main"
+[0.027s][info][class,init] 91 Initializing 'sun/nio/cs/UTF_32BE'(no method) (0x00007f23be27f038) by thread "main"
+[0.027s][info][class,init] 92 Initializing 'sun/nio/cs/UTF_32LE'(no method) (0x00007f23be27f4f8) by thread "main"
+[0.027s][info][class,init] 93 Initializing 'sun/nio/cs/UTF_32'(no method) (0x00007f23be27eb78) by thread "main"
+[0.027s][info][class,init] 94 Initializing 'java/lang/StringCoding'(no method) (0x00007f23be1a25c0) by thread "main"
+[0.028s][info][class,init] 95 Initializing 'java/util/HashMap'(no method) (0x00007f23be1b2388) by thread "main"
+[0.028s][info][class,init] 96 Initializing 'java/util/HashMap$Node'(no method) (0x00007f23be27fbb8) by thread "main"
+[0.028s][info][class,init] 97 Initializing 'java/lang/StringConcatHelper' (0x00007f23be168110) by thread "main"
+[0.028s][info][class,init] 98 Initializing 'java/lang/Byte' (0x00007f23be174490) by thread "main"
+[0.028s][info][class,init] 99 Initializing 'java/lang/VersionProps' (0x00007f23be153970) by thread "main"
+[0.028s][info][class,init] 100 Initializing 'java/lang/Runtime' (0x00007f23be210c08) by thread "main"
+[0.028s][info][class,init] 101 Initializing 'java/lang/Character' (0x00007f23be167b10) by thread "main"
+[0.028s][info][class,init] 102 Initializing 'java/lang/CharacterData'(no method) (0x00007f23be170ba8) by thread "main"
+[0.028s][info][class,init] 103 Initializing 'java/lang/CharacterDataLatin1' (0x00007f23be1707c8) by thread "main"
+[0.028s][info][class,init] 104 Initializing 'java/util/Dictionary'(no method) (0x00007f23be153ff8) by thread "main"
+[0.028s][info][class,init] 105 Initializing 'java/util/Hashtable'(no method) (0x00007f23be154248) by thread "main"
+[0.028s][info][class,init] 106 Initializing 'java/util/Properties' (0x00007f23be153b88) by thread "main"
+[0.029s][info][class,init] 107 Initializing 'java/util/concurrent/ConcurrentMap'(no method) (0x00007f23be198cf0) by thread "main"
+[0.029s][info][class,init] 108 Initializing 'java/util/concurrent/ConcurrentHashMap' (0x00007f23be196cd8) by thread "main"
+[0.029s][info][class,init] 109 Initializing 'java/io/ObjectStreamField'(no method) (0x00007f23be1f4470) by thread "main"
+[0.029s][info][class,init] 110 Initializing 'java/util/AbstractSet'(no method) (0x00007f23be1e9b80) by thread "main"
+[0.029s][info][class,init] 111 Initializing 'java/util/HashMap$EntrySet'(no method) (0x00007f23be281b20) by thread "main"
+[0.029s][info][class,init] 112 Initializing 'java/util/HashMap$HashIterator'(no method) (0x00007f23be283220) by thread "main"
+[0.029s][info][class,init] 113 Initializing 'java/util/Iterator'(no method) (0x00007f23be157fc0) by thread "main"
+[0.029s][info][class,init] 114 Initializing 'java/util/HashMap$EntryIterator'(no method) (0x00007f23be282fc8) by thread "main"
+[0.029s][info][class,init] 115 Initializing 'java/util/concurrent/ConcurrentHashMap$Node'(no method) (0x00007f23be25d6e8) by thread "main"
+[0.029s][info][class,init] 116 Initializing 'jdk/internal/util/StaticProperty' (0x00007f23be158690) by thread "main"
+[0.029s][info][class,init] 117 Initializing 'java/io/InputStream'(no method) (0x00007f23be158b70) by thread "main"
+[0.029s][info][class,init] 118 Initializing 'java/io/FileInputStream' (0x00007f23be158e28) by thread "main"
+[0.029s][info][class,init] 119 Initializing 'java/lang/System$In'(no method) (0x00007f23be1588a8) by thread "main"
+[0.030s][info][class,init] 120 Initializing 'java/io/FileDescriptor' (0x00007f23be159618) by thread "main"
+[0.030s][info][class,init] 121 Initializing 'java/io/FileDescriptor$1'(no method) (0x00007f23be28cc08) by thread "main"
+[0.030s][info][class,init] 122 Initializing 'java/io/OutputStream'(no method) (0x00007f23be151600) by thread "main"
+[0.030s][info][class,init] 123 Initializing 'java/io/FileOutputStream' (0x00007f23be159ad0) by thread "main"
+[0.030s][info][class,init] 124 Initializing 'java/lang/System$Out'(no method) (0x00007f23be159838) by thread "main"
+[0.030s][info][class,init] 125 Initializing 'java/io/FilterInputStream'(no method) (0x00007f23be15a240) by thread "main"
+[0.030s][info][class,init] 126 Initializing 'java/io/BufferedInputStream' (0x00007f23be159f78) by thread "main"
+[0.030s][info][class,init] 127 Initializing 'jdk/internal/misc/InternalLock' (0x00007f23be211a50) by thread "main"
+[0.030s][info][class,init] 128 Initializing 'java/util/concurrent/locks/ReentrantLock'(no method) (0x00007f23be25fea0) by thread "main"
+[0.030s][info][class,init] 129 Initializing 'java/util/concurrent/locks/AbstractOwnableSynchronizer'(no method) (0x00007f23be19fbd0) by thread "main"
+[0.030s][info][class,init] 130 Initializing 'java/util/concurrent/locks/AbstractQueuedSynchronizer' (0x00007f23be28a008) by thread "main"
+[0.030s][info][class,init] 131 Initializing 'java/util/concurrent/locks/ReentrantLock$Sync'(no method) (0x00007f23be28b120) by thread "main"
+[0.030s][info][class,init] 132 Initializing 'java/util/concurrent/locks/ReentrantLock$NonfairSync'(no method) (0x00007f23be289db0) by thread "main"
+[0.030s][info][class,init] 133 Initializing 'java/io/FilterOutputStream'(no method) (0x00007f23be151888) by thread "main"
+[0.030s][info][class,init] 134 Initializing 'java/io/PrintStream' (0x00007f23be151238) by thread "main"
+[0.030s][info][class,init] 135 Initializing 'java/io/PrintStream$1'(no method) (0x00007f23be28e610) by thread "main"
+[0.030s][info][class,init] 136 Initializing 'java/io/BufferedOutputStream'(no method) (0x00007f23be1561e0) by thread "main"
+[0.030s][info][class,init] 137 Initializing 'java/io/Writer'(no method) (0x00007f23be228d50) by thread "main"
+[0.030s][info][class,init] 138 Initializing 'java/io/OutputStreamWriter'(no method) (0x00007f23be229e70) by thread "main"
+[0.030s][info][class,init] 139 Initializing 'sun/nio/cs/StreamEncoder' (0x00007f23be28e960) by thread "main"
+[0.030s][info][class,init] 140 Initializing 'java/nio/charset/CharsetEncoder' (0x00007f23be1d7e20) by thread "main"
+[0.030s][info][class,init] 141 Initializing 'sun/nio/cs/US_ASCII$Encoder' (0x00007f23be3c73f0) by thread "main"
+[0.031s][info][class,init] 142 Initializing 'java/nio/charset/CodingErrorAction' (0x00007f23be1d7aa0) by thread "main"
+[0.031s][info][class,init] 143 Initializing 'sun/nio/cs/Surrogate$Parser' (0x00007f23be28f868) by thread "main"
+[0.031s][info][class,init] 144 Initializing 'java/nio/charset/CoderResult' (0x00007f23be1dd720) by thread "main"
+[0.031s][info][class,init] 145 Initializing 'java/nio/Buffer' (0x00007f23be18b408) by thread "main"
+[0.031s][info][class,init] 146 Initializing 'jdk/internal/misc/ScopedMemoryAccess' (0x00007f23be1a8b20) by thread "main"
+[0.031s][info][class,init] 147 Initializing 'java/nio/Buffer$1'(no method) (0x00007f23be26a4f8) by thread "main"
+[0.031s][info][class,init] 148 Initializing 'java/nio/Buffer$2'(no method) (0x00007f23be26a8d8) by thread "main"
+[0.031s][info][class,init] 149 Initializing 'java/nio/ByteBuffer' (0x00007f23be1d8ae8) by thread "main"
+[0.031s][info][class,init] 150 Initializing 'java/nio/HeapByteBuffer' (0x00007f23be293b48) by thread "main"
+[0.031s][info][class,init] 151 Initializing 'java/nio/ByteOrder' (0x00007f23be290388) by thread "main"
+[0.031s][info][class,init] 152 Initializing 'java/io/BufferedWriter'(no method) (0x00007f23be228a40) by thread "main"
+[0.032s][info][class,init] 153 Initializing 'java/lang/Terminator' (0x00007f23be15a920) by thread "main"
+[0.032s][info][class,init] 154 Initializing 'java/lang/Terminator$1'(no method) (0x00007f23be295cc8) by thread "main"
+[0.032s][info][class,init] 155 Initializing 'jdk/internal/misc/Signal' (0x00007f23be190420) by thread "main"
+[0.032s][info][class,init] 156 Initializing 'java/lang/Integer$IntegerCache' (0x00007f23be177040) by thread "main"
+[0.032s][info][class,init] 157 Initializing 'java/util/Hashtable$Entry'(no method) (0x00007f23be22eaa8) by thread "main"
+[0.032s][info][class,init] 158 Initializing 'jdk/internal/misc/Signal$Handler' (0x00007f23be295f00) by thread "main"
+[0.032s][info][class,init] 159 Initializing 'jdk/internal/misc/Signal$NativeHandler'(no method) (0x00007f23be296350) by thread "main"
+[0.032s][info][class,init] 160 Initializing 'jdk/internal/misc/OSEnvironment'(no method) (0x00007f23be26fb58) by thread "main"
+[0.032s][info][class,init] 161 Initializing 'java/lang/Enum'(no method) (0x00007f23be17d9a0) by thread "main"
+[0.032s][info][class,init] 162 Initializing 'java/lang/Thread$State' (0x00007f23be220090) by thread "main"
+[0.032s][info][class,init] 163 Initializing 'java/lang/ref/Reference$ReferenceHandler'(no method) (0x00007f23be21bb90) by thread "main"
+[0.032s][info][class,init] 164 Initializing 'java/lang/Thread$ThreadIdentifiers' (0x00007f23be21de28) by thread "main"
+[0.033s][info][class,init] 165 Initializing 'java/lang/ref/Finalizer$FinalizerThread'(no method) (0x00007f23be17e060) by thread "main"
+[0.033s][info][class,init] 166 Initializing 'java/lang/ref/PhantomReference'(no method) (0x00007f23be17d250) by thread "Reference Handler"
+[0.035s][info][class,init] 167 Initializing 'jdk/internal/ref/Cleaner' (0x00007f23be21b6d0) by thread "Reference Handler"
+[0.035s][info][class,init] 168 Initializing 'java/util/concurrent/locks/AbstractQueuedSynchronizer$ConditionObject'(no method) (0x00007f23be28b968) by thread "Reference Handler"
+[0.036s][info][class,init] 169 Initializing 'java/lang/Throwable' (0x00007f23be153120) by thread "main"
+[0.036s][info][class,init] 170 Initializing 'java/util/Collections' (0x00007f23be1bab40) by thread "main"
+[0.036s][info][class,init] 171 Initializing 'java/util/Collections$EmptySet'(no method) (0x00007f23be2a29d8) by thread "main"
+[0.036s][info][class,init] 172 Initializing 'java/util/AbstractList'(no method) (0x00007f23be18d148) by thread "main"
+[0.036s][info][class,init] 173 Initializing 'java/util/Collections$EmptyList'(no method) (0x00007f23be2a3348) by thread "main"
+[0.036s][info][class,init] 174 Initializing 'java/util/Collections$EmptyMap'(no method) (0x00007f23be2a4088) by thread "main"
+[0.036s][info][class,init] 175 Initializing 'java/lang/Error'(no method) (0x00007f23be157820) by thread "main"
+[0.036s][info][class,init] 176 Initializing 'java/lang/VirtualMachineError'(no method) (0x00007f23be157a90) by thread "main"
+[0.036s][info][class,init] 177 Initializing 'java/lang/OutOfMemoryError'(no method) (0x00007f23be168540) by thread "main"
+[0.036s][info][class,init] 178 Initializing 'java/lang/Exception'(no method) (0x00007f23be152eb0) by thread "main"
+[0.036s][info][class,init] 179 Initializing 'java/lang/RuntimeException'(no method) (0x00007f23be1914b8) by thread "main"
+[0.036s][info][class,init] 180 Initializing 'java/lang/NullPointerException'(no method) (0x00007f23be19dc58) by thread "main"
+[0.036s][info][class,init] 181 Initializing 'java/lang/ClassCastException'(no method) (0x00007f23be19bd78) by thread "main"
+[0.036s][info][class,init] 182 Initializing 'java/lang/ArrayStoreException'(no method) (0x00007f23be19ba18) by thread "main"
+[0.036s][info][class,init] 183 Initializing 'java/lang/ArithmeticException'(no method) (0x00007f23be19b6b8) by thread "main"
+[0.036s][info][class,init] 184 Initializing 'java/lang/StackOverflowError'(no method) (0x00007f23be19eb28) by thread "main"
+[0.036s][info][class,init] 185 Initializing 'java/lang/IllegalMonitorStateException'(no method) (0x00007f23be19ca58) by thread "main"
+[0.036s][info][class,init] 186 Initializing 'java/lang/IllegalArgumentException'(no method) (0x00007f23be19c648) by thread "main"
+[0.049s][info][class,init] 187 Initializing 'java/lang/invoke/MethodHandle' (0x00007f23be1933b8) by thread "main"
+[0.049s][info][class,init] 188 Initializing 'java/lang/invoke/MethodHandleStatics' (0x00007f23be1b1f58) by thread "main"
+[0.049s][info][class,init] 189 Initializing 'java/lang/reflect/ClassFileFormatVersion' (0x00007f23be2a5828) by thread "main"
+[0.049s][info][class,init] 190 Initializing 'sun/security/action/GetPropertyAction'(no method) (0x00007f23be218968) by thread "main"
+[0.049s][info][class,init] 191 Initializing 'java/lang/Boolean' (0x00007f23be14ceb8) by thread "main"
+[0.049s][info][class,init] 192 Initializing 'jdk/internal/util/ClassFileDumper' (0x00007f23be2a5168) by thread "main"
+[0.049s][info][class,init] 193 Initializing 'java/util/HexFormat' (0x00007f23be191190) by thread "main"
+[0.049s][info][class,init] 194 Initializing 'java/util/HexFormat$Case' (0x00007f23be2a6078) by thread "main"
+[0.049s][info][class,init] 195 Initializing 'java/lang/Character$CharacterCache' (0x00007f23be170278) by thread "main"
+[0.049s][info][class,init] 196 Initializing 'java/util/concurrent/atomic/AtomicInteger' (0x00007f23be24c2d0) by thread "main"
+[0.049s][info][class,init] 197 Initializing 'java/lang/invoke/ResolvedMethodName'(no method) (0x00007f23be1c3630) by thread "main"
+[0.049s][info][class,init] 198 Initializing 'java/lang/invoke/MemberName' (0x00007f23be1b88e8) by thread "main"
+[0.049s][info][class,init] 199 Initializing 'java/lang/invoke/MethodHandleNatives' (0x00007f23be1c3940) by thread "main"
+[0.049s][info][class,init] 200 Initializing 'jdk/internal/module/ModuleBootstrap' (0x00007f23be15ad48) by thread "main"
+[0.050s][info][class,init] 201 Initializing 'java/lang/invoke/MethodHandles' (0x00007f23be1b86d0) by thread "main"
+[0.050s][info][class,init] 202 Initializing 'java/lang/invoke/MemberName$Factory' (0x00007f23be23d480) by thread "main"
+[0.050s][info][class,init] 203 Initializing 'java/lang/invoke/MethodHandles$Lookup' (0x00007f23be1bad58) by thread "main"
+[0.050s][info][class,init] 204 Initializing 'java/lang/StrictMath' (0x00007f23be19ff58) by thread "main"
+[0.050s][info][class,init] 205 Initializing 'java/util/ImmutableCollections$MapN$1'(no method) (0x00007f23be2715c8) by thread "main"
+[0.050s][info][class,init] 206 Initializing 'java/util/ImmutableCollections$MapN$MapNIterator'(no method) (0x00007f23be271108) by thread "main"
+[0.050s][info][class,init] 207 Initializing 'java/util/KeyValueHolder'(no method) (0x00007f23be234a40) by thread "main"
+[0.050s][info][class,init] 208 Initializing 'sun/invoke/util/VerifyAccess' (0x00007f23be23eb88) by thread "main"
+[0.050s][info][class,init] 209 Initializing 'java/lang/reflect/Modifier'(no method) (0x00007f23be1faf78) by thread "main"
+[0.050s][info][class,init] 210 Initializing 'java/lang/module/ModuleDescriptor' (0x00007f23be1ff3f8) by thread "main"
+[0.050s][info][class,init] 211 Initializing 'java/lang/module/ModuleDescriptor$1'(no method) (0x00007f23be2ad600) by thread "main"
+[0.050s][info][class,init] 212 Initializing 'java/io/File' (0x00007f23be188f38) by thread "main"
+[0.050s][info][class,init] 213 Initializing 'java/io/DefaultFileSystem'(no method) (0x00007f23be2b4700) by thread "main"
+[0.050s][info][class,init] 214 Initializing 'java/io/FileSystem'(no method) (0x00007f23be2b2558) by thread "main"
+[0.050s][info][class,init] 215 Initializing 'java/io/UnixFileSystem' (0x00007f23be2b4978) by thread "main"
+[0.050s][info][class,init] 216 Initializing 'jdk/internal/module/ModulePatcher' (0x00007f23be25bbb0) by thread "main"
+[0.050s][info][class,init] 217 Initializing 'java/util/HashSet' (0x00007f23be1e9760) by thread "main"
+[0.050s][info][class,init] 218 Initializing 'java/util/ArrayList' (0x00007f23be1d4a10) by thread "main"
+[0.051s][info][class,init] 219 Initializing 'jdk/internal/module/ModuleLoaderMap'(no method) (0x00007f23be215360) by thread "main"
+[0.051s][info][class,init] 220 Initializing 'jdk/internal/module/ModuleLoaderMap$Modules' (0x00007f23be2155e0) by thread "main"
+[0.051s][info][class,init] 221 Initializing 'jdk/internal/module/ModuleBootstrap$Counters' (0x00007f23be2a66f0) by thread "main"
+[0.051s][info][class,init] 222 Initializing 'jdk/internal/module/ArchivedBootLayer' (0x00007f23be2a6b78) by thread "main"
+[0.051s][info][class,init] 223 Initializing 'jdk/internal/module/ArchivedModuleGraph' (0x00007f23be2a6fb8) by thread "main"
+[0.051s][info][class,init] 224 Initializing 'jdk/internal/module/SystemModuleFinders$SystemModuleFinder'(no method) (0x00007f23be2a7db8) by thread "main"
+[0.051s][info][class,init] 225 Initializing 'java/lang/module/ModuleReference'(no method) (0x00007f23be237108) by thread "main"
+[0.051s][info][class,init] 226 Initializing 'jdk/internal/module/ModuleReferenceImpl'(no method) (0x00007f23be2a88d8) by thread "main"
+[0.051s][info][class,init] 227 Initializing 'java/lang/module/ModuleDescriptor$Version'(no method) (0x00007f23be234f80) by thread "main"
+[0.051s][info][class,init] 228 Initializing 'java/lang/module/ModuleDescriptor$Requires' (0x00007f23be2ae608) by thread "main"
+[0.051s][info][class,init] 229 Initializing 'java/lang/module/ModuleDescriptor$Exports'(no method) (0x00007f23be217380) by thread "main"
+[0.051s][info][class,init] 230 Initializing 'java/net/URI' (0x00007f23be237708) by thread "main"
+[0.051s][info][class,init] 231 Initializing 'java/net/URI$1'(no method) (0x00007f23be2bcae0) by thread "main"
+[0.051s][info][class,init] 232 Initializing 'jdk/internal/module/SystemModuleFinders$2'(no method) (0x00007f23be2a85e0) by thread "main"
+[0.051s][info][class,init] 233 Initializing 'jdk/internal/module/SystemModuleFinders$3'(no method) (0x00007f23be2a8ea8) by thread "main"
+[0.051s][info][class,init] 234 Initializing 'java/lang/module/ModuleDescriptor$Provides'(no method) (0x00007f23be2ade28) by thread "main"
+[0.051s][info][class,init] 235 Initializing 'java/util/ImmutableCollections$List12'(no method) (0x00007f23be230290) by thread "main"
+[0.051s][info][class,init] 236 Initializing 'java/lang/module/ModuleDescriptor$Opens'(no method) (0x00007f23be216a78) by thread "main"
+[0.051s][info][class,init] 237 Initializing 'jdk/internal/module/ModuleTarget'(no method) (0x00007f23be2b95a0) by thread "main"
+[0.051s][info][class,init] 238 Initializing 'jdk/internal/module/ModuleHashes'(no method) (0x00007f23be2a80b8) by thread "main"
+[0.051s][info][class,init] 239 Initializing 'java/util/Collections$UnmodifiableMap'(no method) (0x00007f23be29a668) by thread "main"
+[0.051s][info][class,init] 240 Initializing 'java/lang/module/Configuration' (0x00007f23be235f50) by thread "main"
+[0.051s][info][class,init] 241 Initializing 'java/lang/module/ResolvedModule'(no method) (0x00007f23be236948) by thread "main"
+[0.051s][info][class,init] 242 Initializing 'jdk/internal/module/ModuleLoaderMap$Mapper' (0x00007f23be2157f8) by thread "main"
+[0.051s][info][class,init] 243 Initializing 'jdk/internal/loader/ClassLoaders' (0x00007f23be198f00) by thread "main"
+[0.051s][info][class,init] 244 Initializing 'jdk/internal/loader/ArchivedClassLoaders' (0x00007f23be25b5d0) by thread "main"
+[0.051s][info][class,init] 245 Initializing 'java/lang/ClassLoader' (0x00007f23be15b390) by thread "main"
+[0.051s][info][class,init] 246 Initializing 'java/security/SecureClassLoader' (0x00007f23be187100) by thread "main"
+[0.051s][info][class,init] 247 Initializing 'java/lang/ClassLoader$ParallelLoaders' (0x00007f23be20bd38) by thread "main"
+[0.051s][info][class,init] 248 Initializing 'java/util/WeakHashMap' (0x00007f23be209550) by thread "main"
+[0.051s][info][class,init] 249 Initializing 'java/util/Collections$SetFromMap'(no method) (0x00007f23be2a0540) by thread "main"
+[0.051s][info][class,init] 250 Initializing 'java/util/WeakHashMap$KeySet'(no method) (0x00007f23be2c8158) by thread "main"
+[0.051s][info][class,init] 251 Initializing 'java/lang/ref/WeakReference'(no method) (0x00007f23be17c8d0) by thread "main"
+[0.051s][info][class,init] 252 Initializing 'java/util/WeakHashMap$Entry'(no method) (0x00007f23be2c79b8) by thread "main"
+[0.051s][info][class,init] 253 Initializing 'jdk/internal/loader/BuiltinClassLoader' (0x00007f23be199888) by thread "main"
+[0.051s][info][class,init] 254 Initializing 'jdk/internal/loader/ClassLoaders$BootClassLoader'(no method) (0x00007f23be25ce78) by thread "main"
+[0.051s][info][class,init] 255 Initializing 'java/security/ProtectionDomain' (0x00007f23be14c538) by thread "main"
+[0.051s][info][class,init] 256 Initializing 'java/security/ProtectionDomain$JavaSecurityAccessImpl'(no method) (0x00007f23be218f78) by thread "main"
+[0.051s][info][class,init] 257 Initializing 'java/security/CodeSource'(no method) (0x00007f23be14ca70) by thread "main"
+[0.051s][info][class,init] 258 Initializing 'java/security/ProtectionDomain$Key'(no method) (0x00007f23be217c88) by thread "main"
+[0.051s][info][class,init] 259 Initializing 'jdk/internal/loader/NativeLibraries' (0x00007f23be196940) by thread "main"
+[0.051s][info][class,init] 260 Initializing 'jdk/internal/loader/ClassLoaderHelper'(no method) (0x00007f23be199118) by thread "main"
+[0.051s][info][class,init] 261 Initializing 'java/util/concurrent/ConcurrentHashMap$CollectionView'(no method) (0x00007f23be22dc88) by thread "main"
+[0.051s][info][class,init] 262 Initializing 'java/util/concurrent/ConcurrentHashMap$KeySetView'(no method) (0x00007f23be22d898) by thread "main"
+[0.052s][info][class,init] 263 Initializing 'jdk/internal/loader/ClassLoaders$PlatformClassLoader' (0x00007f23be19b240) by thread "main"
+[0.052s][info][class,init] 264 Initializing 'jdk/internal/loader/URLClassPath' (0x00007f23be253c28) by thread "main"
+[0.052s][info][class,init] 265 Initializing 'java/net/URL' (0x00007f23be161f90) by thread "main"
+[0.052s][info][class,init] 266 Initializing 'java/net/URL$DefaultFactory'(no method) (0x00007f23be253298) by thread "main"
+[0.052s][info][class,init] 267 Initializing 'java/net/URL$3'(no method) (0x00007f23be253630) by thread "main"
+[0.052s][info][class,init] 268 Initializing 'java/io/File$PathStatus' (0x00007f23be2b3308) by thread "main"
+[0.052s][info][class,init] 269 Initializing 'sun/net/www/ParseUtil' (0x00007f23be190e50) by thread "main"
+[0.052s][info][class,init] 270 Initializing 'java/net/URLStreamHandler'(no method) (0x00007f23be252450) by thread "main"
+[0.052s][info][class,init] 271 Initializing 'sun/net/www/protocol/file/Handler'(no method) (0x00007f23be2cc980) by thread "main"
+[0.052s][info][class,init] 272 Initializing 'sun/net/util/IPAddressUtil' (0x00007f23be250f90) by thread "main"
+[0.052s][info][class,init] 273 Initializing 'sun/net/util/IPAddressUtil$MASKS' (0x00007f23be251300) by thread "main"
+[0.053s][info][class,init] 274 Initializing 'java/util/Deque'(no method) (0x00007f23be2a11f0) by thread "main"
+[0.053s][info][class,init] 275 Initializing 'java/util/ArrayDeque'(no method) (0x00007f23be2c8850) by thread "main"
+[0.053s][info][class,init] 276 Initializing 'sun/net/www/protocol/jar/Handler'(no method) (0x00007f23be2521d0) by thread "main"
+[0.053s][info][class,init] 277 Initializing 'jdk/internal/loader/Cl
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+rFile$ThreadTrackHolder' (0x00007f23bf0448c8) by thread "main"
+[0.092s][info][class,init] 543 Initializing 'jdk/internal/misc/ThreadTracker' (0x00007f23bf044ad8) by thread "main"
+[0.092s][info][class,init] 544 Initializing 'jdk/internal/misc/ThreadTracker$ThreadRef'(no method) (0x00007f23bf044d10) by thread "main"
+[0.092s][info][class,init] 545 Initializing 'sun/security/util/ManifestEntryVerifier' (0x00007f23bf044f28) by thread "main"
+[0.092s][info][class,init] 546 Initializing 'java/lang/NamedPackage'(no method) (0x00007f23be1636d0) by thread "main"
+[0.092s][info][class,init] 547 Initializing 'java/lang/Package'(no method) (0x00007f23be1633c8) by thread "main"
+[0.093s][info][class,init] 548 Initializing 'java/lang/Package$VersionInfo' (0x00007f23be2d7918) by thread "main"
+[0.093s][info][class,init] 549 Initializing 'java/util/zip/Checksum' (0x00007f23be1a69e8) by thread "main"
+[0.093s][info][class,init] 550 Initializing 'java/util/zip/Checksum$1' (0x00007f23be3aca68) by thread "main"
+[0.093s][info][class,init] 551 Initializing 'java/util/zip/CRC32' (0x00007f23be1a6760) by thread "main"
+[0.093s][info][class,init] 552 Initializing 'java/security/SecureClassLoader$CodeSourceKey'(no method) (0x00007f23be21ab38) by thread "main"
+[0.093s][info][class,init] 553 Initializing 'java/security/SecureClassLoader$1'(no method) (0x00007f23be21af98) by thread "main"
+[0.093s][info][class,init] 554 Initializing 'java/security/PermissionCollection'(no method) (0x00007f23be2009a8) by thread "main"
+[0.093s][info][class,init] 555 Initializing 'sun/security/util/LazyCodeSourcePermissionCollection'(no method) (0x00007f23be25aca8) by thread "main"
+[0.093s][info][class,init] 556 Initializing 'java/security/Permissions' (0x00007f23be200758) by thread "main"
+[0.093s][info][class,init] 557 Initializing 'java/security/Permission'(no method) (0x00007f23be20daa8) by thread "main"
+[0.093s][info][class,init] 558 Initializing 'java/security/BasicPermission'(no method) (0x00007f23be20e018) by thread "main"
+[0.093s][info][class,init] 559 Initializing 'java/lang/RuntimePermission'(no method) (0x00007f23be20d5a0) by thread "main"
+[0.093s][info][class,init] 560 Initializing 'java/security/BasicPermissionCollection' (0x00007f23be2d7c80) by thread "main"
+[0.094s][info][class,init] 561 Initializing 'java/security/SecureClassLoader$DebugHolder' (0x00007f23be21b3a0) by thread "main"
+[0.094s][info][class,init] 562 Initializing 'jdk/internal/misc/MethodFinder' (0x00007f23be3b6f10) by thread "main"
+[0.094s][info][class,init] 563 Initializing 'jdk/internal/misc/PreviewFeatures' (0x00007f23be3b72d0) by thread "main"
+[0.094s][info][class,init] 564 Initializing 'java/lang/Class$ReflectionData' (0x00007f23be1fd910) by thread "main"
+[0.094s][info][class,init] 565 Initializing 'java/lang/Class$Atomic' (0x00007f23be201378) by thread "main"
+[0.094s][info][class,init] Start class verification for: com.sun.javatest.regtest.agent.MainWrapper
+[0.095s][info][class,init] End class verification for: com.sun.javatest.regtest.agent.MainWrapper
+[0.095s][info][class,init] 566 Initializing 'java/lang/PublicMethods$MethodList'(no method) (0x00007f23be1fe728) by thread "main"
+[0.095s][info][class,init] 567 Initializing 'java/lang/PublicMethods$Key' (0x00007f23be1fe9e0) by thread "main"
+[0.095s][info][class,init] 568 Initializing 'com/sun/javatest/regtest/agent/MainWrapper' (0x00007f23bf000800) by thread "main"
+[0.096s][info][class,init] 569 Initializing 'java/io/Reader'(no method) (0x00007f23bf0458a0) by thread "main"
+[0.096s][info][class,init] 570 Initializing 'java/io/InputStreamReader'(no method) (0x00007f23bf045b58) by thread "main"
+[0.096s][info][class,init] 571 Initializing 'java/io/FileReader'(no method) (0x00007f23bf045e18) by thread "main"
+[0.096s][info][class,init] 572 Initializing 'sun/nio/cs/StreamDecoder' (0x00007f23bf0460d8) by thread "main"
+[0.096s][info][class,init] 573 Initializing 'java/nio/charset/CharsetDecoder' (0x00007f23bf0463c8) by thread "main"
+[0.096s][info][class,init] 574 Initializing 'sun/nio/cs/UTF_8$Decoder' (0x00007f23bf046638) by thread "main"
+[0.096s][info][class,init] 575 Initializing 'java/util/concurrent/ConcurrentHashMap$ForwardingNode'(no method) (0x00007f23be2658f0) by thread "main"
+[0.096s][info][class,init] 576 Initializing 'java/nio/CharBuffer' (0x00007f23be1db108) by thread "main"
+[0.097s][info][class,init] 577 Initializing 'java/nio/HeapCharBuffer' (0x00007f23be300218) by thread "main"
+[0.097s][info][class,init] 578 Initializing 'java/io/FileInputStream$1'(no method) (0x00007f23be28c8c0) by thread "main"
+[0.098s][info][class,init] Start class verification for: com.sun.javatest.regtest.agent.StringArray
+[0.098s][info][class,init] End class verification for: com.sun.javatest.regtest.agent.StringArray
+[0.098s][info][class,init] 579 Initializing 'com/sun/javatest/regtest/agent/StringArray'(no method) (0x00007f23bf000c88) by thread "main"
+[0.098s][info][class,init] Start class verification for: com.sun.javatest.regtest.agent.MainWrapper$MainThreadGroup
+[0.098s][info][class,init] End class verification for: com.sun.javatest.regtest.agent.MainWrapper$MainThreadGroup
+[0.098s][info][class,init] 580 Initializing 'com/sun/javatest/regtest/agent/MainWrapper$MainThreadGroup'(no method) (0x00007f23bf000a10) by thread "main"
+[0.099s][info][class,init] Start class verification for: com.sun.javatest.regtest.agent.MainWrapper$MainTask
+[0.099s][info][class,init] End class verification for: com.sun.javatest.regtest.agent.MainWrapper$MainTask
+[0.099s][info][class,init] 581 Initializing 'com/sun/javatest/regtest/agent/MainWrapper$MainTask'(no method) (0x00007f23bf001000) by thread "main"
+[0.099s][info][class,init] 582 Initializing 'java/lang/Thread$ThreadNumbering' (0x00007f23bf046d80) by thread "main"
+[0.099s][info][class,init] 583 Initializing 'java/lang/reflect/Field'(no method) (0x00007f23be181210) by thread "main"
+[0.101s][info][class,init] 584 Initializing 'jdk/internal/loader/URLClassPath$FileLoader$1'(no method) (0x00007f23bf047190) by thread "MainThread"
+[0.101s][info][class,init] Start class verification for: TestDeadlock
+[0.101s][info][class,init] End class verification for: TestDeadlock
+[0.101s][info][class,init] 585 Initializing 'jdk/internal/reflect/MethodHandleAccessorFactory' (0x00007f23be277fe8) by thread "MainThread"
+[0.101s][info][class,init] 586 Initializing 'TestDeadlock'(no method) (0x00007f23bf001238) by thread "MainThread"
+[0.101s][info][class,init] 587 Initializing 'jdk/internal/reflect/MethodHandleAccessorFactory$LazyStaticHolder' (0x00007f23be278698) by thread "MainThread"
+[0.102s][info][class,init] 588 Initializing 'java/lang/LinkageError'(no method) (0x00007f23be19d028) by thread "MainThread"
+[0.102s][info][class,init] 589 Initializing 'java/lang/IncompatibleClassChangeError'(no method) (0x00007f23be19e0d8) by thread "MainThread"
+[0.102s][info][class,init] 590 Initializing 'java/lang/NoSuchMethodError'(no method) (0x00007f23be19e7b0) by thread "MainThread"
+[0.103s][info][class,init] 591 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf001800' (0x00007f23bf001800) by thread "MainThread"
+[0.105s][info][class,init] 592 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf001c00' (0x00007f23bf001c00) by thread "MainThread"
+[0.106s][info][class,init] 593 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf002000' (0x00007f23bf002000) by thread "MainThread"
+[0.106s][info][class,init] 594 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LL'(no method) (0x00007f23be2e4348) by thread "MainThread"
+[0.107s][info][class,init] 595 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf002400' (0x00007f23bf002400) by thread "MainThread"
+[0.108s][info][class,init] 596 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf002800' (0x00007f23bf002800) by thread "MainThread"
+[0.108s][info][class,init] 597 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf002c00' (0x00007f23bf002c00) by thread "MainThread"
+[0.108s][info][class,init] 598 Initializing 'jdk/internal/reflect/MagicAccessorImpl'(no method) (0x00007f23be1bd6c0) by thread "MainThread"
+[0.108s][info][class,init] 599 Initializing 'jdk/internal/reflect/MethodAccessorImpl'(no method) (0x00007f23be1bd178) by thread "MainThread"
+[0.108s][info][class,init] 600 Initializing 'jdk/internal/reflect/DirectMethodHandleAccessor' (0x00007f23be278398) by thread "MainThread"
+[0.109s][info][class,init] 601 Initializing 'java/util/concurrent/CountDownLatch'(no method) (0x00007f23be226758) by thread "MainThread"
+[0.109s][info][class,init] 602 Initializing 'java/util/concurrent/CountDownLatch$Sync'(no method) (0x00007f23bf047400) by thread "MainThread"
+[0.109s][info][class,init] 603 Initializing 'java/lang/invoke/TypeConvertingMethodAdapter' (0x00007f23be2eae60) by thread "MainThread"
+[0.109s][info][class,init] 604 Initializing 'java/lang/invoke/InnerClassLambdaMetafactory$ForwardingMethodGenerator'(no method) (0x00007f23be2eaaf8) by thread "MainThread"
+[0.109s][info][class,init] Start class verification for: TestDeadlock$$Lambda/0x00007f23bf001448
+[0.109s][info][class,init] End class verification for: TestDeadlock$$Lambda/0x00007f23bf001448
+[0.109s][info][class,init] 605 Initializing 'TestDeadlock$$Lambda+0x00007f23bf001448'(no method) (0x00007f23bf001448) by thread "MainThread"
+[0.110s][info][class,init] 606 Initializing 'java/lang/ThreadBuilders$BaseThreadBuilder'(no method) (0x00007f23bf047a58) by thread "MainThread"
+[0.110s][info][class,init] 607 Initializing 'java/lang/Thread$Builder$OfPlatform'(no method) (0x00007f23bf047850) by thread "MainThread"
+[0.110s][info][class,init] 608 Initializing 'java/lang/ThreadBuilders$PlatformThreadBuilder'(no method) (0x00007f23bf047cb8) by thread "MainThread"
+[0.110s][info][class,init] Start class verification for: TestDeadlock$$Lambda/0x00007f23bf003000
+[0.110s][info][class,init] End class verification for: TestDeadlock$$Lambda/0x00007f23bf003000
+[0.110s][info][class,init] 609 Initializing 'java/lang/foreign/Arena'(no method) (0x00007f23bf048418) by thread "Thread-1"
+[0.110s][info][class,init] 610 Initializing 'TestDeadlock$$Lambda+0x00007f23bf003000'(no method) (0x00007f23bf003000) by thread "MainThread"
+[0.110s][info][class,init] 611 Initializing 'java/lang/foreign/Arena$1Holder' (0x00007f23bf048620) by thread "Thread-1"
+[0.111s][info][class,init] 612 Initializing 'jdk/internal/foreign/MemorySessionImpl' (0x00007f23bf048a38) by thread "Thread-1"
+[0.111s][info][class,init] 613 Initializing 'jdk/internal/misc/ScopedMemoryAccess$ScopedAccessError'(no method) (0x00007f23bf048ce0) by thread "Thread-1"
+[0.111s][info][class,init] 614 Initializing 'java/util/concurrent/locks/AbstractQueuedSynchronizer$SharedNode'(no method) (0x00007f23bf048f48) by thread "Thread-2"
+[0.111s][info][class,init] 615 Initializing 'jdk/internal/foreign/MemorySessionImpl$$Lambda+0x00007f23bf049160'(no method) (0x00007f23bf049160) by thread "Thread-1"
+[0.112s][info][class,init] 616 Initializing 'jdk/internal/foreign/MemorySessionImpl$$Lambda+0x00007f23bf0495f0'(no method) (0x00007f23bf0495f0) by thread "Thread-1"
+[0.112s][info][class,init] 617 Initializing 'jdk/internal/foreign/GlobalSession'(no method) (0x00007f23bf049818) by thread "Thread-1"
+[0.112s][info][class,init] 618 Initializing 'java/lang/invoke/VarHandles' (0x00007f23be2af668) by thread "Thread-1"
+[0.112s][info][class,init] 619 Initializing 'java/lang/ClassValue' (0x00007f23be20aca0) by thread "Thread-1"
+[0.112s][info][class,init] 620 Initializing 'java/lang/invoke/VarHandles$1'(no method) (0x00007f23be2f7e80) by thread "Thread-1"
+[0.112s][info][class,init] 621 Initializing 'java/lang/ClassValue$Identity'(no method) (0x00007f23be2d69d0) by thread "Thread-1"
+[0.112s][info][class,init] 622 Initializing 'java/lang/ClassValue$Version'(no method) (0x00007f23be2d6ca0) by thread "Thread-1"
+[0.112s][info][class,init] 623 Initializing 'java/lang/ClassValue$Entry' (0x00007f23be2d70a0) by thread "Thread-1"
+[0.112s][info][class,init] 624 Initializing 'java/lang/invoke/VarHandle' (0x00007f23be1b8e60) by thread "Thread-1"
+[0.112s][info][class,init] 625 Initializing 'java/lang/invoke/VarHandleGuards'(no method) (0x00007f23be244070) by thread "Thread-1"
+[0.112s][info][class,init] 626 Initializing 'java/lang/invoke/VarHandleInts$FieldInstanceReadOnly' (0x00007f23bf049ac8) by thread "Thread-1"
+[0.112s][info][class,init] 627 Initializing 'java/lang/invoke/VarForm'(no method) (0x00007f23be243af8) by thread "Thread-1"
+[0.112s][info][class,init] 628 Initializing 'java/lang/invoke/VarHandleInts$FieldInstanceReadWrite' (0x00007f23bf049d70) by thread "Thread-1"
+[0.113s][info][class,init] 629 Initializing 'java/lang/foreign/SegmentAllocator'(no method) (0x00007f23bf048210) by thread "Thread-1"
+[0.113s][info][class,init] 630 Initializing 'jdk/internal/foreign/ArenaImpl'(no method) (0x00007f23bf04a218) by thread "Thread-1"
+[0.113s][info][class,init] 631 Initializing 'java/nio/file/FileSystems'(no method) (0x00007f23be2b3980) by thread "Thread-1"
+[0.113s][info][class,init] 632 Initializing 'java/nio/file/FileSystems$DefaultFileSystemHolder' (0x00007f23be305688) by thread "Thread-1"
+[0.113s][info][class,init] 633 Initializing 'java/nio/file/FileSystems$DefaultFileSystemHolder$1'(no method) (0x00007f23be306bc8) by thread "Thread-1"
+[0.113s][info][class,init] 634 Initializing 'java/net/URI$Parser'(no method) (0x00007f23be2bbf88) by thread "Thread-1"
+[0.113s][info][class,init] 635 Initializing 'sun/nio/fs/UnixFileModeAttribute'(no method) (0x00007f23bf04af40) by thread "Thread-1"
+[0.113s][info][class,init] 636 Initializing 'sun/nio/fs/UnixChannelFactory' (0x00007f23bf04b150) by thread "Thread-1"
+[0.113s][info][class,init] 637 Initializing 'sun/nio/fs/UnixChannelFactory$Flags'(no method) (0x00007f23bf04b360) by thread "Thread-1"
+[0.113s][info][class,init] 638 Initializing 'sun/nio/fs/UnixChannelFactory$1' (0x00007f23bf04b570) by thread "Thread-1"
+[0.114s][info][class,init] 639 Initializing 'java/nio/channels/spi/AbstractInterruptibleChannel' (0x00007f23bf04c7c0) by thread "Thread-1"
+[0.114s][info][class,init] 640 Initializing 'java/nio/channels/FileChannel' (0x00007f23bf04ca48) by thread "Thread-1"
+[0.114s][info][class,init] 641 Initializing 'sun/nio/ch/FileChannelImpl' (0x00007f23bf04ce28) by thread "Thread-1"
+[0.115s][info][class,init] 642 Initializing 'sun/nio/ch/NativeDispatcher'(no method) (0x00007f23bf04d220) by thread "Thread-1"
+[0.115s][info][class,init] 643 Initializing 'sun/nio/ch/FileDispatcher'(no method) (0x00007f23bf04d480) by thread "Thread-1"
+[0.115s][info][class,init] 644 Initializing 'sun/nio/ch/UnixFileDispatcherImpl' (0x00007f23bf04d768) by thread "Thread-1"
+[0.115s][info][class,init] 645 Initializing 'sun/nio/ch/IOUtil' (0x00007f23bf04ded0) by thread "Thread-1"
+[0.115s][info][class,init] 646 Initializing 'sun/nio/ch/FileDispatcherImpl' (0x00007f23bf04db10) by thread "Thread-1"
+[0.115s][info][class,init] 647 Initializing 'java/nio/channels/spi/AbstractInterruptibleChannel$1'(no method) (0x00007f23bf04e2e8) by thread "Thread-1"
+[0.115s][info][class,init] 648 Initializing 'sun/nio/ch/NativeThreadSet' (0x00007f23bf04e530) by thread "Thread-1"
+[0.116s][info][class,init] 649 Initializing 'sun/nio/ch/FileChannelImpl$Closer'(no method) (0x00007f23bf04e760) by thread "Thread-1"
+[0.116s][info][class,init] 650 Initializing 'java/nio/channels/FileChannel$MapMode' (0x00007f23bf04e998) by thread "Thread-1"
+[0.116s][info][class,init] 651 Initializing 'jdk/internal/misc/ExtendedMapMode' (0x00007f23bf04ebb0) by thread "Thread-1"
+[0.116s][info][class,init] 652 Initializing 'jdk/internal/misc/ExtendedMapMode$$Lambda+0x00007f23bf04edc0'(no method) (0x00007f23bf04edc0) by thread "Thread-1"
+[0.117s][info][class,init] 653 Initializing 'sun/nio/ch/NativeThread' (0x00007f23bf04efe8) by thread "Thread-1"
+[0.117s][info][class,init] 654 Initializing 'sun/nio/ch/IOStatus'(no method) (0x00007f23bf04f1f8) by thread "Thread-1"
+[0.117s][info][class,init] 655 Initializing 'sun/nio/ch/FileChannelImpl$Unmapper' (0x00007f23bf04f610) by thread "Thread-1"
+[0.117s][info][class,init] 656 Initializing 'sun/nio/ch/FileChannelImpl$DefaultUnmapper'(no method) (0x00007f23bf04f8b0) by thread "Thread-1"
+[0.117s][info][class,init] 657 Initializing 'sun/nio/ch/Util' (0x00007f23bf04fb50) by thread "Thread-1"
+[0.117s][info][class,init] 658 Initializing 'sun/nio/ch/Util$1'(no method) (0x00007f23bf04fd60) by thread "Thread-1"
+[0.118s][info][class,init] 659 Initializing 'sun/nio/ch/Util$3'(no method) (0x00007f23bf04ffe8) by thread "Thread-1"
+[0.118s][info][class,init] 660 Initializing 'java/lang/reflect/Constructor'(no method) (0x00007f23be15c290) by thread "Thread-1"
+[0.119s][info][class,init] 661 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf004000' (0x00007f23bf004000) by thread "Thread-1"
+[0.119s][info][class,init] 662 Initializing 'sun/invoke/util/ValueConversions' (0x00007f23be192288) by thread "Thread-1"
+[0.119s][info][class,init] 663 Initializing 'sun/invoke/util/ValueConversions$WrapperCache'(no method) (0x00007f23be3c4c70) by thread "Thread-1"
+[0.119s][info][class,init] 664 Initializing 'sun/invoke/util/ValueConversions$1' (0x00007f23bf050628) by thread "Thread-1"
+[0.119s][info][class,init] 665 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf004400' (0x00007f23bf004400) by thread "Thread-1"
+[0.119s][info][class,init] 666 Initializing 'java/lang/invoke/MethodHandles$1' (0x00007f23be2b07c0) by thread "Thread-1"
+[0.120s][info][class,init] 667 Initializing 'java/lang/invoke/ClassSpecializer$Factory$1Var' (0x00007f23be2de968) by thread "Thread-1"
+[0.121s][info][class,init] 668 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LI'(no method) (0x00007f23bf050838) by thread "Thread-1"
+[0.122s][info][class,init] 669 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf004800' (0x00007f23bf004800) by thread "Thread-1"
+[0.123s][info][class,init] 670 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf004c00' (0x00007f23bf004c00) by thread "Thread-1"
+[0.123s][info][class,init] 671 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf005000' (0x00007f23bf005000) by thread "Thread-1"
+[0.124s][info][class,init] 672 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf005400' (0x00007f23bf005400) by thread "Thread-1"
+[0.125s][info][class,init] 673 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf005800' (0x00007f23bf005800) by thread "Thread-1"
+[0.125s][info][class,init] 674 Initializing 'java/lang/invoke/LambdaForm$BMH+0x00007f23bf005c00' (0x00007f23bf005c00) by thread "Thread-1"
+[0.126s][info][class,init] 675 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf006000' (0x00007f23bf006000) by thread "Thread-1"
+[0.126s][info][class,init] 676 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf006400' (0x00007f23bf006400) by thread "Thread-1"
+[0.127s][info][class,init] 677 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LLL'(no method) (0x00007f23be2e5210) by thread "Thread-1"
+[0.128s][info][class,init] 678 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf006800' (0x00007f23bf006800) by thread "Thread-1"
+[0.128s][info][class,init] 679 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LLLL'(no method) (0x00007f23be2e60d8) by thread "Thread-1"
+[0.129s][info][class,init] 680 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf006c00' (0x00007f23bf006c00) by thread "Thread-1"
+[0.129s][info][class,init] 681 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LLLLL'(no method) (0x00007f23be2e6850) by thread "Thread-1"
+[0.130s][info][class,init] 682 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf007000' (0x00007f23bf007000) by thread "Thread-1"
+[0.130s][info][class,init] 683 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LLLLLL'(no method) (0x00007f23be2e6f98) by thread "Thread-1"
+[0.132s][info][class,init] 684 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf007400' (0x00007f23bf007400) by thread "Thread-1"
+[0.132s][info][class,init] 685 Initializing 'java/lang/invoke/BoundMethodHandle$Species_LLLLLLL'(no method) (0x00007f23be2e76e0) by thread "Thread-1"
+[0.133s][info][class,init] 686 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf007800' (0x00007f23bf007800) by thread "Thread-1"
+[0.134s][info][class,init] 687 Initializing 'java/lang/invoke/MethodHandleImpl$ArrayAccess' (0x00007f23be1b1b00) by thread "Thread-1"
+[0.134s][info][class,init] 688 Initializing 'java/lang/invoke/MethodHandleImpl$ArrayAccessor' (0x00007f23be1b2170) by thread "Thread-1"
+[0.134s][info][class,init] 689 Initializing 'java/lang/invoke/MethodHandleImpl$ArrayAccessor$1'(no method) (0x00007f23be2f1df0) by thread "Thread-1"
+[0.134s][info][class,init] 690 Initializing 'java/lang/ClassValue$ClassValueMap' (0x00007f23be209150) by thread "Thread-1"
+[0.134s][info][class,init] 691 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf007c00' (0x00007f23bf007c00) by thread "Thread-1"
+[0.135s][info][class,init] 692 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf008000' (0x00007f23bf008000) by thread "Thread-1"
+[0.136s][info][class,init] 693 Initializing 'java/lang/invoke/LambdaForm$DMH+0x00007f23bf008400' (0x00007f23bf008400) by thread "Thread-1"
+[0.136s][info][class,init] 694 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf008800' (0x00007f23bf008800) by thread "Thread-1"
+[0.137s][info][class,init] 695 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf008c00' (0x00007f23bf008c00) by thread "Thread-1"
+[0.137s][info][class,init] 696 Initializing 'jdk/internal/reflect/ConstructorAccessorImpl'(no method) (0x00007f23be1bf100) by thread "Thread-1"
+[0.137s][info][class,init] 697 Initializing 'jdk/internal/reflect/DirectConstructorHandleAccessor'(no method) (0x00007f23be23cf58) by thread "Thread-1"
+[0.138s][info][class,init] 698 Initializing 'java/lang/foreign/MemorySegment' (0x00007f23bf050220) by thread "Thread-2"
+[0.138s][info][class,init] 699 Initializing 'jdk/internal/foreign/SegmentFactories' (0x00007f23bf050c28) by thread "Thread-2"
+[0.139s][info][class,init] 700 Initializing 'jdk/internal/foreign/AbstractMemorySegmentImpl' (0x00007f23bf050e38) by thread "Thread-2"
+[0.139s][info][class,init] 701 Initializing 'jdk/internal/foreign/NativeMemorySegmentImpl'(no method) (0x00007f23bf0516b8) by thread "Thread-2"
+[0.139s][info][class,init] 702 Initializing 'jdk/internal/foreign/MappedMemorySegmentImpl' (0x00007f23bf051f50) by thread "Thread-1"
+[0.139s][info][class,init] 703 Initializing 'jdk/internal/foreign/MemorySessionImpl$ResourceList$ResourceCleanup' (0x00007f23bf0527e8) by thread "Thread-1"
+[0.139s][info][class,init] 704 Initializing 'jdk/internal/foreign/MemorySessionImpl$ResourceList$ResourceCleanup$1'(no method) (0x00007f23bf052c28) by thread "Thread-1"
+[0.139s][info][class,init] 705 Initializing 'jdk/internal/foreign/SegmentFactories$2'(no method) (0x00007f23bf052a08) by thread "Thread-1"
+[0.139s][info][class,init] 706 Initializing 'java/util/IdentityHashMap$IdentityHashMapIterator'(no method) (0x00007f23be35a6d0) by thread "Thread-1"
+[0.139s][info][class,init] 707 Initializing 'java/util/IdentityHashMap$KeyIterator'(no method) (0x00007f23be35a458) by thread "Thread-1"
+[0.140s][info][class,init] Start class verification for: com.sun.javatest.regtest.agent.AStatus
+[0.140s][info][class,init] End class verification for: com.sun.javatest.regtest.agent.AStatus
+[0.140s][info][class,init] 708 Initializing 'com/sun/javatest/regtest/agent/AStatus' (0x00007f23bf003230) by thread "main"
+[0.140s][info][class,init] 709 Initializing 'jdk/internal/misc/Blocker' (0x00007f23be1d6bb0) by thread "main"
+[0.141s][info][class,init] 710 Initializing 'java/lang/Shutdown' (0x00007f23be17afa8) by thread "main"
+[0.141s][info][class,init] 711 Initializing 'java/lang/Shutdown$Lock'(no method) (0x00007f23be2d8230) by thread "main"
+[0.141s][info][class,init] 712 Initializing 'jdk/internal/logger/LazyLoggers' (0x00007f23bf053048) by thread "main"
+[0.141s][info][class,init] 713 Initializing 'jdk/internal/logger/LazyLoggers$1'(no method) (0x00007f23bf053258) by thread "main"
+[0.141s][info][class,init] 714 Initializing 'jdk/internal/logger/LazyLoggers$LazyLoggerFactories'(no method) (0x00007f23bf0534a0) by thread "main"
+[0.141s][info][class,init] 715 Initializing 'java/lang/System$LoggerFinder' (0x00007f23be210048) by thread "main"
+[0.141s][info][class,init] 716 Initializing 'jdk/internal/logger/DefaultLoggerFinder' (0x00007f23be3886c8) by thread "main"
+[0.141s][info][class,init] 717 Initializing 'jdk/internal/logger/DefaultLoggerFinder$1'(no method) (0x00007f23be3b54d8) by thread "main"
+[0.141s][info][class,init] 718 Initializing 'java/lang/System$Logger'(no method) (0x00007f23be210648) by thread "main"
+[0.141s][info][class,init] 719 Initializing 'sun/util/logging/PlatformLogger$ConfigurableBridge'(no method) (0x00007f23be3811c0) by thread "main"
+[0.141s][info][class,init] 720 Initializing 'jdk/internal/logger/BootstrapLogger' (0x00007f23be380610) by thread "main"
+[0.141s][info][class,init] 721 Initializing 'jdk/internal/logger/BootstrapLogger$DetectBackend' (0x00007f23be3b43d8) by thread "main"
+[0.141s][info][class,init] 722 Initializing 'jdk/internal/logger/BootstrapLogger$DetectBackend$1'(no method) (0x00007f23be3b50e0) by thread "main"
+[0.141s][info][class,init] 723 Initializing 'java/util/ServiceLoader' (0x00007f23be2fabe0) by thread "main"
+[0.141s][info][class,init] 724 Initializing 'java/util/ServiceLoader$ModuleServicesLookupIterator' (0x00007f23be365948) by thread "main"
+[0.142s][info][class,init] 725 Initializing 'java/util/Spliterators' (0x00007f23be1f5608) by thread "main"
+[0.142s][info][class,init] 726 Initializing 'java/util/Spliterators$EmptySpliterator'(no method) (0x00007f23be1f6100) by thread "main"
+[0.142s][info][class,init] 727 Initializing 'java/util/Spliterator'(no method) (0x00007f23be1edc60) by thread "main"
+[0.142s][info][class,init] 728 Initializing 'java/util/Spliterators$EmptySpliterator$OfRef'(no method) (0x00007f23be1f5e58) by thread "main"
+[0.142s][info][class,init] 729 Initializing 'java/util/Spliterator$OfPrimitive'(no method) (0x00007f23be1ee3c0) by thread "main"
+[0.142s][info][class,init] 730 Initializing 'java/util/Spliterator$OfInt'(no method) (0x00007f23be1ee1b0) by thread "main"
+[0.142s][info][class,init] 731 Initializing 'java/util/Spliterators$EmptySpliterator$OfInt'(no method) (0x00007f23be1f65a8) by thread "main"
+[0.142s][info][class,init] 732 Initializing 'java/util/Spliterator$OfLong'(no method) (0x00007f23be1f6ee0) by thread "main"
+[0.142s][info][class,init] 733 Initializing 'java/util/Spliterators$EmptySpliterator$OfLong'(no method) (0x00007f23be1f6a70) by thread "main"
+[0.142s][info][class,init] 734 Initializing 'java/util/Spliterator$OfDouble'(no method) (0x00007f23be1f7668) by thread "main"
+[0.142s][info][class,init] 735 Initializing 'java/util/Spliterators$EmptySpliterator$OfDouble'(no method) (0x00007f23be1f71f8) by thread "main"
+[0.142s][info][class,init] 736 Initializing 'java/util/Spliterators$ArraySpliterator'(no method) (0x00007f23be1f59c8) by thread "main"
+[0.142s][info][class,init] 737 Initializing 'java/util/stream/StreamSupport'(no method) (0x00007f23be1ef5e0) by thread "main"
+[0.142s][info][class,init] 738 Initializing 'java/util/stream/PipelineHelper'(no method) (0x00007f23be1efde8) by thread "main"
+[0.142s][info][class,init] 739 Initializing 'java/util/stream/AbstractPipeline' (0x00007f23be1f0050) by thread "main"
+[0.142s][info][class,init] 740 Initializing 'java/util/stream/Stream'(no method) (0x00007f23be1e5930) by thread "main"
+[0.142s][info][class,init] 741 Initializing 'java/util/stream/ReferencePipeline'(no method) (0x00007f23be1f03b8) by thread "main"
+[0.142s][info][class,init] 742 Initializing 'java/util/stream/ReferencePipeline$Head'(no method) (0x00007f23be1ef8c0) by thread "main"
+[0.142s][info][class,init] 743 Initializing 'java/util/stream/StreamOpFlag' (0x00007f23be1f2148) by thread "main"
+[0.142s][info][class,init] 744 Initializing 'java/util/stream/StreamOpFlag$Type' (0x00007f23be3ac3f0) by thread "main"
+[0.142s][info][class,init] 745 Initializing 'java/util/stream/StreamOpFlag$MaskBuilder'(no method) (0x00007f23be3abf18) by thread "main"
+[0.142s][info][class,init] 746 Initializing 'java/util/EnumMap' (0x00007f23be354220) by thread "main"
+[0.142s][info][class,init] 747 Initializing 'java/util/EnumMap$1'(no method) (0x00007f23be3551e8) by thread "main"
+[0.142s][info][class,init] 748 Initializing 'java/lang/Class$3'(no method) (0x00007f23be203398) by thread "main"
+[0.142s][info][class,init] 749 Initializing 'jdk/internal/reflect/ConstantPool' (0x00007f23be1bf810) by thread "main"
+[0.142s][info][class,init] 750 Initializing 'sun/reflect/annotation/AnnotationParser' (0x00007f23be203d08) by thread "main"
+[0.143s][info][class,init] 751 Initializing 'java/lang/invoke/LambdaForm$MH+0x00007f23bf009000' (0x00007f23bf009000) by thread "main"
+[0.143s][info][class,init] 752 Initializing 'java/util/function/Consumer'(no method) (0x00007f23be1e92d8) by thread "main"
+[0.143s][info][class,init] 753 Initializing 'java/util/Spliterators$1Adapter'(no method) (0x00007f23be3674e8) by thread "main"
+[0.143s][info][class,init] 754 Initializing 'java/util/HashMap$Values'(no method) (0x00007f23be281438) by thread "main"
+[0.143s][info][class,init] 755 Initializing 'java/util/HashMap$ValueIterator'(no method) (0x00007f23be2837b0) by thread "main"
+[0.144s][info][class,init] 756 Initializing 'java/util/ServiceLoader$LazyClassPathLookupIterator' (0x00007f23be365f88) by thread "main"
+[0.144s][info][class,init] 757 Initializing 'java/util/ServiceLoader$2'(no method) (0x00007f23be3666b8) by thread "main"
+[0.144s][info][class,init] 758 Initializing 'java/util/ServiceLoader$3'(no method) (0x00007f23be366ad0) by thread "main"
+[0.144s][info][class,init] 759 Initializing 'jdk/internal/module/Resources'(no method) (0x00007f23be1feec0) by thread "main"
+[0.144s][info][class,init] 760 Initializing 'jdk/internal/loader/BuiltinClassLoader$2'(no method) (0x00007f23be25a918) by thread "main"
+[0.144s][info][class,init] 761 Initializing 'jdk/internal/loader/BuiltinClassLoader$5'(no method) (0x00007f23be25b220) by thread "main"
+[0.144s][info][class,init] 762 Initializing 'java/lang/module/ModuleReader'(no method) (0x00007f23be25a058) by thread "main"
+[0.144s][info][class,init] 763 Initializing 'jdk/internal/module/SystemModuleFinders$SystemModuleReader'(no method) (0x00007f23be2bb7e8) by thread "main"
+[0.144s][info][class,init] 764 Initializing 'jdk/internal/module/SystemModuleFinders$SystemImage' (0x00007f23be2b9ac8) by thread "main"
+[0.144s][info][class,init] 765 Initializing 'jdk/internal/jimage/ImageReaderFactory' (0x00007f23be3b2b48) by thread "main"
+[0.144s][info][class,init] 766 Initializing 'java/nio/file/Paths'(no method) (0x00007f23be2b9240) by thread "main"
+[0.144s][info][class,init] 767 Initializing 'jdk/internal/jimage/ImageReaderFactory$1'(no method) (0x00007f23be3b2f68) by thread "main"
+[0.144s][info][class,init] 768 Initializing 'jdk/internal/jimage/ImageReader'(no method) (0x00007f23be2b9e28) by thread "main"
+[0.144s][info][class,init] 769 Initializing 'jdk/internal/jimage/BasicImageReader' (0x00007f23be3aeb40) by thread "main"
+[0.144s][info][class,init] 770 Initializing 'jdk/internal/jimage/BasicImageReader$1'(no method) (0x00007f23be3afbb8) by thread "main"
+[0.145s][info][class,init] 771 Initializing 'jdk/internal/jimage/ImageReader$SharedImageReader' (0x00007f23be3b1dc0) by thread "main"
+[0.145s][info][class,init] 772 Initializing 'jdk/internal/jimage/NativeImageBuffer' (0x00007f23be3aff48) by thread "main"
+[0.145s][info][class,init] 773 Initializing 'jdk/internal/jimage/NativeImageBuffer$1'(no method) (0x00007f23be3b3310) by thread "main"
+[0.145s][info][class,init] 774 Initializing 'jdk/internal/jimage/ImageHeader'(no method) (0x00007f23be3b02b8) by thread "main"
+[0.145s][info][class,init] 775 Initializing 'java/nio/IntBuffer' (0x00007f23be26bcb0) by thread "main"
+[0.145s][info][class,init] 776 Initializing 'java/nio/DirectIntBufferU' (0x00007f23be303498) by thread "main"
+[0.147s][info][class,init] 777 Initializing 'java/nio/DirectByteBufferR' (0x00007f23be3021d8) by thread "main"
+[0.147s][info][class,init] 778 Initializing 'java/nio/DirectIntBufferRU' (0x00007f23be304cf8) by thread "main"
+[0.147s][info][class,init] 779 Initializing 'jdk/internal/jimage/ImageStrings'(no method) (0x00007f23be3b0ef0) by thread "main"
+[0.147s][info][class,init] 780 Initializing 'jdk/internal/jimage/ImageStringsReader'(no method) (0x00007f23be3b0c90) by thread "main"
+[0.147s][info][class,init] 781 Initializing 'jdk/internal/jimage/decompressor/Decompressor'(no method) (0x00007f23be3b1a38) by thread "main"
+[0.147s][info][class,init] 782 Initializing 'jdk/internal/jimage/ImageLocation'(no method) (0x00007f23be2bab48) by thread "main"
+[0.147s][info][class,init] 783 Initializing 'java/util/Collections$EmptyIterator' (0x00007f23be29d1c8) by thread "main"
+[0.147s][info][class,init] 784 Initializing 'java/util/Collections$EmptyEnumeration' (0x00007f23be29d680) by thread "main"
+[0.147s][info][class,init] 785 Initializing 'jdk/internal/loader/BuiltinClassLoader$1'(no method) (0x00007f23be25a4b8) by thread "main"
+[0.148s][info][class,init] 786 Initializing 'java/lang/CompoundEnumeration'(no method) (0x00007f23be20cd58) by thread "main"
+[0.149s][info][class,init] 787 Initializing 'jdk/internal/loader/URLClassPath$1'(no method) (0x00007f23be2cac60) by thread "main"
+[0.149s][info][class,init] 788 Initializing 'java/util/concurrent/CopyOnWriteArrayList$COWIterator'(no method) (0x00007f23be2d4300) by thread "main"
+[0.149s][info][class,init] 789 Initializing 'java/util/ServiceLoader$1'(no method) (0x00007f23be364cc8) by thread "main"
+[0.150s][info][class,init] 790 Initializing 'java/util/ServiceLoader$ProviderImpl'(no method) (0x00007f23be365058) by thread "main"
+[0.150s][info][class,init] 791 Initializing 'jdk/internal/logger/BootstrapLogger$LoggingBackend' (0x00007f23be3b46e0) by thread "main"
+[0.150s][info][class,init] 792 Initializing 'jdk/internal/logger/AbstractLoggerWrapper'(no method) (0x00007f23bf053ab8) by thread "main"
+[0.150s][info][class,init] 793 Initializing 'jdk/internal/logger/LazyLoggers$LazyLoggerWrapper'(no method) (0x00007f23bf053ec0) by thread "main"
+[0.150s][info][class,init] 794 Initializing 'jdk/internal/logger/LazyLoggers$JdkLazyLogger'(no method) (0x00007f23bf0542d8) by thread "main"
+[0.150s][info][class,init] 795 Initializing 'jdk/internal/logger/LazyLoggers$LazyLoggerAccessor' (0x00007f23bf0548f8) by thread "main"
+[0.150s][info][class,init] 796 Initializing 'java/lang/System$Logger$Level' (0x00007f23bf054b38) by thread "main"
+[0.150s][info][class,init] 797 Initializing 'jdk/internal/logger/BootstrapLogger$RedirectedLoggers' (0x00007f23be3b4b58) by thread "main"
+[0.151s][info][class,init] 798 Initializing 'sun/util/logging/PlatformLogger$ConfigurableBridge$LoggerConfiguration'(no method) (0x00007f23bf054f88) by thread "main"
+[0.151s][info][class,init] 799 Initializing 'jdk/internal/logger/SimpleConsoleLogger' (0x00007f23bf0551a8) by thread "main"
+[0.151s][info][class,init] 800 Initializing 'sun/util/logging/PlatformLogger' (0x00007f23bf055898) by thread "main"
+[0.151s][info][class,init] 801 Initializing 'sun/util/logging/PlatformLogger$Level' (0x00007f23bf055b80) by thread "main"
+[0.151s][info][class,init] 802 Initializing 'jdk/internal/logger/SurrogateLogger' (0x00007f23bf055520) by thread "main"
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3388)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/TestDeadlock.java#FileChannel_map \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/TestDeadlock.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/TestDeadlock_FileChannel_map.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-native-access=ALL-UNNAMED \\
+        -Xlog:class+init \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/TestDeadlock_FileChannel_map.d/main.0.jta FileChannel
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

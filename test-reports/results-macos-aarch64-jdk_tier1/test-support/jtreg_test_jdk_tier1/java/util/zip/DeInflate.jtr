@@ -1,0 +1,566 @@
+#Test Results (version 2)
+#Mon Apr 29 00:59:15 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug7110149 bug8184306 bug6341887 randomness
+run=ASSUMED_ACTION main DeInflate\n
+source=DeInflate.java
+title=Test basic deflater & inflater functionality
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java
+elapsed=9718 0\:00\:09.718
+end=Mon Apr 29 00\:59\:15 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 00\:59\:05 UTC 2024
+test=java/util/zip/DeInflate.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=9719
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/zip
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/208)----------
+command: build DeInflate
+reason: Named class compiled on demand
+started: Mon Apr 29 00:59:05 UTC 2024
+Test directory:
+  compile: DeInflate
+finished: Mon Apr 29 00:59:05 UTC 2024
+elapsed time (seconds): 0.026
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/274)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:59:05 UTC 2024
+Mode: agentvm
+Agent id: 42
+finished: Mon Apr 29 00:59:05 UTC 2024
+elapsed time (seconds): 0.026
+----------configuration:(10/659)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d
+
+----------rerun:(33/3054)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/zip/DeInflate.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/221)----------
+command: main DeInflate
+reason: Assumed action based on file name: run main DeInflate 
+started: Mon Apr 29 00:59:05 UTC 2024
+Mode: agentvm
+Agent id: 45
+finished: Mon Apr 29 00:59:15 UTC 2024
+elapsed time (seconds): 9.692
+----------configuration:(13/914)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip
+
+----------rerun:(26/2579)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/zip/DeInflate.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip/DeInflate.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/zip/DeInflate.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        DeInflate
+----------System.out:(396/13505)----------
+level:-1, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 304445
+iteration: 3 input length: 510260
+iteration: 4 input length: 320677
+iteration: 5 input length: 292593
+level:-1, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 107100
+iteration: 3 input length: 83401
+iteration: 4 input length: 94795
+iteration: 5 input length: 244490
+level:-1, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 223435
+iteration: 3 input length: 430889
+iteration: 4 input length: 57386
+iteration: 5 input length: 391665
+level:-1, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 339589
+iteration: 3 input length: 380357
+iteration: 4 input length: 78666
+iteration: 5 input length: 469219
+level:-1, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 259912
+iteration: 3 input length: 322652
+iteration: 4 input length: 237672
+iteration: 5 input length: 233902
+level:-1, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 274394
+iteration: 3 input length: 282756
+iteration: 4 input length: 6514
+iteration: 5 input length: 328240
+level:0, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 301523
+iteration: 3 input length: 75291
+iteration: 4 input length: 103865
+iteration: 5 input length: 482008
+level:0, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 510340
+iteration: 3 input length: 103831
+iteration: 4 input length: 344369
+iteration: 5 input length: 142590
+level:0, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 503018
+iteration: 3 input length: 217801
+iteration: 4 input length: 40384
+iteration: 5 input length: 50359
+level:0, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 403418
+iteration: 3 input length: 498386
+iteration: 4 input length: 85918
+iteration: 5 input length: 254572
+level:0, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 162592
+iteration: 3 input length: 63257
+iteration: 4 input length: 314360
+iteration: 5 input length: 221487
+level:0, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 95395
+iteration: 3 input length: 165196
+iteration: 4 input length: 478690
+iteration: 5 input length: 41600
+level:1, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 192559
+iteration: 3 input length: 477869
+iteration: 4 input length: 76242
+iteration: 5 input length: 225242
+level:1, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 200579
+iteration: 3 input length: 503727
+iteration: 4 input length: 415108
+iteration: 5 input length: 65258
+level:1, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 253986
+iteration: 3 input length: 155174
+iteration: 4 input length: 38784
+iteration: 5 input length: 166681
+level:1, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 95871
+iteration: 3 input length: 435227
+iteration: 4 input length: 54747
+iteration: 5 input length: 321323
+level:1, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 85823
+iteration: 3 input length: 5137
+iteration: 4 input length: 201660
+iteration: 5 input length: 85317
+level:1, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 103971
+iteration: 3 input length: 68742
+iteration: 4 input length: 92877
+iteration: 5 input length: 414916
+level:2, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 496480
+iteration: 3 input length: 194948
+iteration: 4 input length: 347729
+iteration: 5 input length: 95613
+level:2, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 498934
+iteration: 3 input length: 97876
+iteration: 4 input length: 201690
+iteration: 5 input length: 253882
+level:2, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 213322
+iteration: 3 input length: 412605
+iteration: 4 input length: 65177
+iteration: 5 input length: 18890
+level:2, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 191850
+iteration: 3 input length: 36940
+iteration: 4 input length: 280408
+iteration: 5 input length: 381534
+level:2, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 275105
+iteration: 3 input length: 168177
+iteration: 4 input length: 158016
+iteration: 5 input length: 77615
+level:2, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 487350
+iteration: 3 input length: 35511
+iteration: 4 input length: 120856
+iteration: 5 input length: 469207
+level:3, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 29005
+iteration: 3 input length: 108254
+iteration: 4 input length: 44909
+iteration: 5 input length: 197768
+level:3, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 371950
+iteration: 3 input length: 169139
+iteration: 4 input length: 172305
+iteration: 5 input length: 271387
+level:3, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 238466
+iteration: 3 input length: 262529
+iteration: 4 input length: 121473
+iteration: 5 input length: 170104
+level:3, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 3525
+iteration: 3 input length: 131947
+iteration: 4 input length: 173189
+iteration: 5 input length: 340513
+level:3, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 84679
+iteration: 3 input length: 451145
+iteration: 4 input length: 241717
+iteration: 5 input length: 270442
+level:3, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 195534
+iteration: 3 input length: 313423
+iteration: 4 input length: 417083
+iteration: 5 input length: 439459
+level:4, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 222392
+iteration: 3 input length: 387881
+iteration: 4 input length: 301461
+iteration: 5 input length: 195108
+level:4, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 343390
+iteration: 3 input length: 116924
+iteration: 4 input length: 92736
+iteration: 5 input length: 189961
+level:4, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 131860
+iteration: 3 input length: 464806
+iteration: 4 input length: 74025
+iteration: 5 input length: 149393
+level:4, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 44942
+iteration: 3 input length: 12358
+iteration: 4 input length: 465860
+iteration: 5 input length: 329810
+level:4, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 179711
+iteration: 3 input length: 435349
+iteration: 4 input length: 53773
+iteration: 5 input length: 180012
+level:4, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 337004
+iteration: 3 input length: 457615
+iteration: 4 input length: 34063
+iteration: 5 input length: 307933
+level:5, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 192446
+iteration: 3 input length: 462151
+iteration: 4 input length: 230729
+iteration: 5 input length: 439999
+level:5, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 195534
+iteration: 3 input length: 355844
+iteration: 4 input length: 369306
+iteration: 5 input length: 444797
+level:5, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 488521
+iteration: 3 input length: 133664
+iteration: 4 input length: 238069
+iteration: 5 input length: 364535
+level:5, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 499102
+iteration: 3 input length: 242476
+iteration: 4 input length: 100048
+iteration: 5 input length: 221064
+level:5, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 428085
+iteration: 3 input length: 204498
+iteration: 4 input length: 34194
+iteration: 5 input length: 70777
+level:5, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 477302
+iteration: 3 input length: 176775
+iteration: 4 input length: 286740
+iteration: 5 input length: 256118
+level:6, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 240923
+iteration: 3 input length: 375127
+iteration: 4 input length: 289027
+iteration: 5 input length: 52521
+level:6, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 420064
+iteration: 3 input length: 369137
+iteration: 4 input length: 520088
+iteration: 5 input length: 504998
+level:6, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 437221
+iteration: 3 input length: 6592
+iteration: 4 input length: 323693
+iteration: 5 input length: 468201
+level:6, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 1381
+iteration: 3 input length: 324804
+iteration: 4 input length: 419946
+iteration: 5 input length: 156060
+level:6, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 331729
+iteration: 3 input length: 388241
+iteration: 4 input length: 2575
+iteration: 5 input length: 160413
+level:6, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 373668
+iteration: 3 input length: 508533
+iteration: 4 input length: 397404
+iteration: 5 input length: 490621
+level:7, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 184604
+iteration: 3 input length: 143942
+iteration: 4 input length: 352289
+iteration: 5 input length: 18461
+level:7, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 373531
+iteration: 3 input length: 307644
+iteration: 4 input length: 243206
+iteration: 5 input length: 50202
+level:7, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 205114
+iteration: 3 input length: 521218
+iteration: 4 input length: 27481
+iteration: 5 input length: 35827
+level:7, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 447855
+iteration: 3 input length: 84335
+iteration: 4 input length: 137052
+iteration: 5 input length: 416703
+level:7, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 102626
+iteration: 3 input length: 91574
+iteration: 4 input length: 342342
+iteration: 5 input length: 346942
+level:7, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 434012
+iteration: 3 input length: 408792
+iteration: 4 input length: 425333
+iteration: 5 input length: 458272
+level:8, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 451309
+iteration: 3 input length: 366135
+iteration: 4 input length: 139940
+iteration: 5 input length: 523903
+level:8, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 124912
+iteration: 3 input length: 279218
+iteration: 4 input length: 332333
+iteration: 5 input length: 363747
+level:8, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 372603
+iteration: 3 input length: 348749
+iteration: 4 input length: 490691
+iteration: 5 input length: 356591
+level:8, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 420077
+iteration: 3 input length: 91019
+iteration: 4 input length: 109504
+iteration: 5 input length: 225383
+level:8, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 224422
+iteration: 3 input length: 150362
+iteration: 4 input length: 23084
+iteration: 5 input length: 403915
+level:8, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 66153
+iteration: 3 input length: 202931
+iteration: 4 input length: 116009
+iteration: 5 input length: 76672
+level:9, strategy: 0, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 158323
+iteration: 3 input length: 487796
+iteration: 4 input length: 322178
+iteration: 5 input length: 360239
+level:9, strategy: 0, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 373345
+iteration: 3 input length: 358969
+iteration: 4 input length: 461808
+iteration: 5 input length: 319256
+level:9, strategy: 1, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 382435
+iteration: 3 input length: 466318
+iteration: 4 input length: 287658
+iteration: 5 input length: 334738
+level:9, strategy: 1, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 316344
+iteration: 3 input length: 509494
+iteration: 4 input length: 469937
+iteration: 5 input length: 440217
+level:9, strategy: 2, dowrap: false
+iteration: 1 input length: 524288
+iteration: 2 input length: 347975
+iteration: 3 input length: 297591
+iteration: 4 input length: 13400
+iteration: 5 input length: 518017
+level:9, strategy: 2, dowrap: true
+iteration: 1 input length: 524288
+iteration: 2 input length: 88593
+iteration: 3 input length: 64407
+iteration: 4 input length: 288837
+iteration: 5 input length: 234268
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

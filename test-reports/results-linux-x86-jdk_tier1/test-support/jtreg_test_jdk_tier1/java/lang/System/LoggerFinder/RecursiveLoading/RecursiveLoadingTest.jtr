@@ -1,0 +1,197 @@
+#Test Results (version 2)
+#Mon Apr 29 00:49:50 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8314263 othervm
+library=../lib
+modules=java.base/jdk.internal.logger\:+open
+run=USER_SPECIFIED compile RecursiveLoadingTest.java SimpleLoggerFinder.java\nUSER_SPECIFIED main/othervm RecursiveLoadingTest\n
+source=RecursiveLoadingTest.java
+title=Creating a logger while loading the Logger finder triggers recursion and StackOverflowError
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java
+elapsed=938 0\:00\:00.938
+end=Mon Apr 29 00\:49\:50 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.logger\:+open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build main
+start=Mon Apr 29 00\:49\:49 UTC 2024
+test=java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=938
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/RecursiveLoading
+
+#section:script_messages
+----------messages:(7/600)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library ../lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib
+
+#section:compile
+----------messages:(8/588)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/SimpleLoggerFinder.java
+reason: User specified action: run compile RecursiveLoadingTest.java SimpleLoggerFinder.java 
+started: Mon Apr 29 00:49:49 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:49:49 UTC 2024
+elapsed time (seconds): 0.096
+----------configuration:(14/1114)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading 
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib 
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib 
+
+----------rerun:(38/4455)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.logger:+open \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/SimpleLoggerFinder.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/180)----------
+command: build RecursiveLoadingTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:49 UTC 2024
+finished: Mon Apr 29 00:49:49 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/415)----------
+command: main RecursiveLoadingTest
+reason: User specified action: run main/othervm RecursiveLoadingTest 
+started: Mon Apr 29 00:49:49 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED --add-opens java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 00:49:50 UTC 2024
+elapsed time (seconds): 0.841
+----------configuration:(5/172)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  add opens:   java.base/jdk.internal.logger ALL-UNNAMED
+
+----------System.out:(3/769)----------
+SimpleLogRecord[message=in main, instant=2024-04-29T00:49:49.983120414Z, loggerName=main, level=INFO, params=null, resourceBundleName=null, seqNumber=0, sourceClassName=RecursiveLoadingTest, methodName=main, thrown=null]
+SimpleLogRecord[message=Logger finder service load sleep value: 530, instant=2024-04-29T00:49:49.983122780Z, loggerName=dummy, level=INFO, params=null, resourceBundleName=null, seqNumber=1, sourceClassName=jdk.internal.logger.BootstrapLogger$LogEvent, methodName=log, thrown=null]
+SimpleLogRecord[message=Logger finder service created, instant=2024-04-29T00:49:50.043228928Z, loggerName=dummy, level=INFO, params=null, resourceBundleName=null, seqNumber=2, sourceClassName=jdk.internal.logger.BootstrapLogger$LogEvent, methodName=log, thrown=null]
+----------System.err:(7/314)----------
+Apr 29, 2024 12:49:49 AM RecursiveLoadingTest main
+INFO: in main
+Apr 29, 2024 12:49:49 AM jdk.internal.logger.BootstrapLogger$LogEvent log
+INFO: Logger finder service load sleep value: 530
+Apr 29, 2024 12:49:50 AM jdk.internal.logger.BootstrapLogger$LogEvent log
+INFO: Logger finder service created
+STATUS:Passed.
+----------rerun:(40/4427)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/RecursiveLoading:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/lib \\
+        -Dtest.modules=java.base/jdk.internal.logger:+open \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        --add-opens java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/RecursiveLoading/RecursiveLoadingTest.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

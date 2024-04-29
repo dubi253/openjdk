@@ -1,0 +1,450 @@
+#Test Results (version 2)
+#Mon Apr 29 01:23:59 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+author=danielfuchs
+keywords=bug8140364 othervm driver
+run=USER_SPECIFIED build CustomLoggerTest AccessSystemLogger\r\nUSER_SPECIFIED driver AccessSystemLogger\r\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot CustomLoggerTest NOSECURITY\r\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot -Djava.security.manager\=allow CustomLoggerTest NOPERMISSIONS\r\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot -Djava.security.manager\=allow CustomLoggerTest WITHPERMISSIONS\r\n
+source=CustomLoggerTest.java
+title=Tests loggers returned by System.getLogger with a naive implementation of LoggerFinder, and in particular the default body of System.Logger methods.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/java/lang/System/Logger/custom/CustomLoggerTest.java
+elapsed=1148 0\:00\:01.148
+end=Mon Apr 29 01\:23\:59 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build driver build main build main build main
+start=Mon Apr 29 01\:23\:58 UTC 2024
+test=java/lang/System/Logger/custom/CustomLoggerTest.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=1171
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\System\\Logger\\custom
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/307)----------
+command: build CustomLoggerTest AccessSystemLogger
+reason: User specified action: run build CustomLoggerTest AccessSystemLogger 
+started: Mon Apr 29 01:23:58 UTC 2024
+Test directory:
+  compile: CustomLoggerTest, AccessSystemLogger
+finished: Mon Apr 29 01:23:58 UTC 2024
+elapsed time (seconds): 0.082
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/397)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\AccessSystemLogger.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:23:58 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:23:58 UTC 2024
+elapsed time (seconds): 0.081
+----------configuration:(10/698)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d
+
+----------rerun:(36/3697)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=java/lang/System/Logger/custom/CustomLoggerTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\AccessSystemLogger.java'
+----------direct:(34/3116)*----------
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:256: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+            SecurityManager sm = System.getSecurityManager();
+            ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:256: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+            SecurityManager sm = System.getSecurityManager();
+                                       ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:281: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+        if (System.getSecurityManager() == null) {
+                  ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:282: warning: [removal] Policy in java.security has been deprecated and marked for removal
+            Policy.setPolicy(new SimplePolicy(allowControl, allowAll));
+            ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:283: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                                          ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:283: warning: [removal] setSecurityManager(SecurityManager) in System has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                  ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:352: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:389: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:705: warning: [removal] Policy in java.security has been deprecated and marked for removal
+    public static class SimplePolicy extends Policy {
+                                             ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:707: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                     ^
+D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java:707: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                                             ^
+11 warnings
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/183)----------
+command: build AccessSystemLogger
+reason: Named class compiled on demand
+started: Mon Apr 29 01:23:58 UTC 2024
+finished: Mon Apr 29 01:23:58 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/238)----------
+command: driver AccessSystemLogger
+reason: User specified action: run driver AccessSystemLogger 
+started: Mon Apr 29 01:23:58 UTC 2024
+Mode: agentvm
+Agent id: 26
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.396
+----------configuration:(13/915)*----------
+Boot Layer
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\junit-platform-console-standalone-1.9.2.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+Test Layer
+  class path: D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d
+              D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom
+
+----------rerun:(28/3022)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/System/Logger/custom/CustomLoggerTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+        AccessSystemLogger
+----------System.err:(3/38)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build CustomLoggerTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:23:59 UTC 2024
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/313)----------
+command: main -Xbootclasspath/a:boot CustomLoggerTest NOSECURITY
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot CustomLoggerTest NOSECURITY 
+started: Mon Apr 29 01:23:59 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.206
+----------configuration:(0/0)----------
+----------System.out:(12/437)----------
+
+*** Without Security Manager
+
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@36a54c7
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@3783647a
+Testing System.getLogger("foo");
+Testing AccessSystemLogger.getLogger("foo")
+Testing System.getLogger("foo", loggerBundle)
+Testing AccessSystemLogger.getLogger("foo", loggerBundle)
+Tetscase count: 1304
+
+PASSED: Tested 1304 cases.
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(38/3691)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/System/Logger/custom/CustomLoggerTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Xbootclasspath/a:boot \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d\\main.0.jta' NOSECURITY
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build CustomLoggerTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:23:59 UTC 2024
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/379)----------
+command: main -Xbootclasspath/a:boot -Djava.security.manager=allow CustomLoggerTest NOPERMISSIONS
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot -Djava.security.manager=allow CustomLoggerTest NOPERMISSIONS 
+started: Mon Apr 29 01:23:59 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.234
+----------configuration:(0/0)----------
+----------System.out:(12/456)----------
+
+*** With Security Manager, without permissions
+
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@6ac4d10e
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@7c36720d
+Testing System.getLogger("foo");
+Testing AccessSystemLogger.getLogger("foo")
+Testing System.getLogger("foo", loggerBundle)
+Testing AccessSystemLogger.getLogger("foo", loggerBundle)
+Tetscase count: 1304
+
+PASSED: Tested 1304 cases.
+----------System.err:(5/465)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by CustomLoggerTest (file:/D:/a/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/java/lang/System/Logger/custom/CustomLoggerTest.d/)
+WARNING: Please consider reporting this to the maintainers of CustomLoggerTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3736)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/System/Logger/custom/CustomLoggerTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Xbootclasspath/a:boot \\
+        -Djava.security.manager=allow \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d\\main.1.jta' NOPERMISSIONS
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build CustomLoggerTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:23:59 UTC 2024
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/383)----------
+command: main -Xbootclasspath/a:boot -Djava.security.manager=allow CustomLoggerTest WITHPERMISSIONS
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot -Djava.security.manager=allow CustomLoggerTest WITHPERMISSIONS 
+started: Mon Apr 29 01:23:59 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:23:59 UTC 2024
+elapsed time (seconds): 0.229
+----------configuration:(0/0)----------
+----------System.out:(11/438)----------
+
+*** With Security Manager, with control permission
+
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@6ac4d10e
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@7c36720d
+Testing System.getLogger("foo");
+Testing AccessSystemLogger.getLogger("foo")
+Testing System.getLogger("foo", loggerBundle)
+Testing AccessSystemLogger.getLogger("foo", loggerBundle)
+
+PASSED: Tested 1304 cases.
+----------System.err:(5/465)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by CustomLoggerTest (file:/D:/a/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/java/lang/System/Logger/custom/CustomLoggerTest.d/)
+WARNING: Please consider reporting this to the maintainers of CustomLoggerTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3738)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/System/Logger/custom/CustomLoggerTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\System\\Logger\\custom' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Xbootclasspath/a:boot \\
+        -Djava.security.manager=allow \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\System\\Logger\\custom\\CustomLoggerTest.d\\main.2.jta' WITHPERMISSIONS
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

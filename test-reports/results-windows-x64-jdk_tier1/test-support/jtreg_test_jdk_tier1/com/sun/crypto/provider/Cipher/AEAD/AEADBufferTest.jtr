@@ -1,0 +1,1562 @@
+#Test Results (version 2)
+#Mon Apr 29 01:04:12 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=
+run=ASSUMED_ACTION main AEADBufferTest\r\n
+source=AEADBufferTest.java
+title=Use Cipher update and doFinal with a mixture of byte[], bytebuffer, and offset while verifying return values.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/com/sun/crypto/provider/Cipher/AEAD/AEADBufferTest.java
+elapsed=4834 0\:00\:04.834
+end=Mon Apr 29 01\:04\:12 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 01\:04\:07 UTC 2024
+test=com/sun/crypto/provider/Cipher/AEAD/AEADBufferTest.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=4834
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\com\\sun\\crypto\\provider\\Cipher\\AEAD
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/225)----------
+command: build AEADBufferTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:04:07 UTC 2024
+Test directory:
+  compile: AEADBufferTest
+finished: Mon Apr 29 01:04:07 UTC 2024
+elapsed time (seconds): 0.047
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/305)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:04:07 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:04:07 UTC 2024
+elapsed time (seconds): 0.047
+----------configuration:(10/714)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d
+
+----------rerun:(36/3660)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=com/sun/crypto/provider/Cipher/AEAD/AEADBufferTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.java'
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/237)----------
+command: main AEADBufferTest
+reason: Assumed action based on file name: run main AEADBufferTest 
+started: Mon Apr 29 01:04:07 UTC 2024
+Mode: agentvm
+Agent id: 8
+finished: Mon Apr 29 01:04:12 UTC 2024
+elapsed time (seconds): 4.787
+----------configuration:(13/925)*----------
+Boot Layer
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\junit-platform-console-standalone-1.9.2.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+Test Layer
+  class path: D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d
+              D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD
+
+----------rerun:(28/3065)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=com/sun/crypto/provider/Cipher/AEAD/AEADBufferTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\crypto\\provider\\Cipher\\AEAD\\AEADBufferTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\crypto\\provider\\Cipher\\AEAD;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+        AEADBufferTest
+----------System.err:(1391/68674)----------
+Algo: AES/GCM/NoPadding 	Ops: [BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [BYTE, BYTE, BYTE]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [HEAP, HEAP, HEAP]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 2  in/out buffer: different
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 2  in/out buffer: different
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 2  in/out buffer: different
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT, DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2075  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 2090  inOfs 0  outOfs 0  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12345  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 12361  inOfs 0  outOfs 0  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT, DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2075  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 3
+	input len: 2090  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 2090  inOfs 2  outOfs 2  in-place: same
+Encrypt:  Data Index: 4
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12345  inOfs 2  outOfs 2  in/out buffer: in-place
+Decrypt:  Data Index: 4
+	input len: 12361  inOfs 2  outOfs 2  in/out buffer: different
+	input len: 12361  inOfs 2  outOfs 2  in-place: same
+Algo: AES/GCM/NoPadding 	Ops: [DIRECT, DIRECT]
+Encrypt:  Data Index: 1
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 51  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 67  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 67  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 2
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 0  inOfs 2  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 2
+	input len: 16  inOfs 2  outOfs 0  in/out buffer: different
+	input len: 16  inOfs 2  outOfs 0  in-place: same
+Encrypt:  Data Index: 3
+	input len: 2075  inOfs 2  outOfs 0  in/out buffer: dif
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+ 1 	Sizes[ 10 110 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 110 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 110 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 110 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 110 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 110 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 16 110 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 17 110 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 18 110 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 19 110 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 20 110 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 111 19 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 111 18 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 111 17 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 111 16 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 111 15 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 111 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 111 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 111 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 111 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 111 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 111 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 111 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 111 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 111 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 111 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 111 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 16 111 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 17 111 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 18 111 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 19 111 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 112 18 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 112 17 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 112 16 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 112 15 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 112 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 112 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 112 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 112 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 112 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 112 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 112 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 112 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 112 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 112 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 112 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 112 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 16 112 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 17 112 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 18 112 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 113 17 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 113 16 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 113 15 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 113 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 113 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 113 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 113 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 113 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 113 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 113 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 113 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 113 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 113 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 113 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 113 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 113 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 16 113 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 17 113 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 114 16 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 114 15 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 114 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 114 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 114 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 114 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 114 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 114 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 114 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 114 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 114 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 114 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 114 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 114 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 114 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 114 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 16 114 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 115 15 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 115 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 115 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 115 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 115 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 115 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 115 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 115 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 115 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 115 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 115 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 115 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 115 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 115 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 115 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 15 115 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 116 14 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 116 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 116 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 116 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 116 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 116 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 116 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 116 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 116 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 116 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 116 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 116 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 116 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 116 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 14 116 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 117 13 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 117 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 117 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 117 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 117 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 117 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 117 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 117 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 117 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 117 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 117 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 117 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 117 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 13 117 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 118 12 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 118 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 118 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 118 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 118 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 118 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 118 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 118 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 118 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 118 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 118 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 118 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 12 118 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 119 11 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 119 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 119 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 119 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 119 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 119 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 119 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 119 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 119 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 119 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 119 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 11 119 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 120 10 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 120 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 120 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 120 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 120 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 120 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 120 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 120 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 120 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 120 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 10 120 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 121 9 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 121 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 121 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 121 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 121 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 121 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 121 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 121 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 121 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 9 121 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 122 8 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 122 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 122 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 122 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 122 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 122 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 122 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 122 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 8 122 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 123 7 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 123 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 123 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 123 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 123 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 123 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 123 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 7 123 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 124 6 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 124 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 124 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 124 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 124 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 124 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 6 124 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 125 5 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 125 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 125 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 125 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 125 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 5 125 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 126 4 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 126 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 126 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 126 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 4 126 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 127 3 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 127 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 127 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 3 127 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 128 2 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 128 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 2 128 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 0 129 1 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Decrypt:  Data Index: 1 	Sizes[ 1 129 0 ]
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+Algo: ChaCha20-Poly1305 	Ops: [DIRECT, DIRECT, DIRECT]
+Encrypt:  Data Index: 1
+	input len: 114  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 114  inOfs 0  outOfs 0  in/out buffer: in-place
+Decrypt:  Data Index: 1
+	input len: 130  inOfs 0  outOfs 0  in/out buffer: different
+	input len: 130  inOfs 0  outOfs 0  in-place: same
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

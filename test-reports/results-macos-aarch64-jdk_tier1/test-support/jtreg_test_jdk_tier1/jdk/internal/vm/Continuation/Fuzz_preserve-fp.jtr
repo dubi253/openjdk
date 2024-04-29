@@ -1,0 +1,571 @@
+#Test Results (version 2)
+#Mon Apr 29 01:02:21 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+id=preserve-fp
+keywords=randomness othervm driver
+library=/test/lib
+maxTimeout=300
+modules=java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm
+requires=((vm.continuations) & (vm.flavor \=\= "server" & (vm.opt.TieredStopAtLevel \=\= null | vm.opt.TieredStopAtLevel \=\= 4))) & (vm.opt.TieredCompilation \=\= null | vm.opt.TieredCompilation \=\= true)
+run=USER_SPECIFIED build java.base/java.lang.StackWalkerHelper\nUSER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm/timeout\=300 -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI -Xbootclasspath/a\:. -XX\:+PreserveFramePointer Fuzz\n
+source=Fuzz.java
+title=Fuzz tests for jdk.internal.vm.Continuation
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java\#preserve-fp
+elapsed=27563 0\:00\:27.563
+end=Mon Apr 29 01\:02\:21 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build build driver build compile main
+start=Mon Apr 29 01\:01\:53 UTC 2024
+test=jdk/internal/vm/Continuation/Fuzz.java\#preserve-fp
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=27564
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation
+
+#section:script_messages
+----------messages:(7/572)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+#section:build
+----------messages:(7/305)----------
+command: build java.base/java.lang.StackWalkerHelper
+reason: User specified action: run build java.base/java.lang.StackWalkerHelper 
+started: Mon Apr 29 01:01:58 UTC 2024
+Test directory:
+  compile: java.base/java.lang.StackWalkerHelper
+finished: Mon Apr 29 01:01:58 UTC 2024
+elapsed time (seconds): 0.053
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/490)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base/java/lang/StackWalkerHelper.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:01:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 43
+finished: Mon Apr 29 01:01:58 UTC 2024
+elapsed time (seconds): 0.052
+----------configuration:(16/1364)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                            
+  add exports: java.base/jdk.internal.vm            ALL-UNNAMED
+               java.base/jdk.internal.vm.annotation ALL-UNNAMED
+  add reads:   java.base                            ALL-UNNAMED
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+  patch:       java.base                            /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base
+                                                    /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base
+
+----------rerun:(39/4266)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/Fuzz.java#preserve-fp \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules='java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm' \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/java.base/java/lang/StackWalkerHelper.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 01:01:58 UTC 2024
+finished: Mon Apr 29 01:01:58 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Apr 29 01:01:58 UTC 2024
+finished: Mon Apr 29 01:01:58 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/531)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 01:01:58 UTC 2024
+Mode: othervm [test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:01:58 UTC 2024
+elapsed time (seconds): 0.112
+----------configuration:(6/414)----------
+Boot Layer
+  add modules: java.base                            
+  add exports: java.base/jdk.internal.vm            ALL-UNNAMED
+               java.base/jdk.internal.vm.annotation ALL-UNNAMED
+  patch:       java.base                            /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base
+
+----------System.out:(0/0)----------
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(40/4318)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Fuzz.java#preserve-fp \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules='java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm' \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/driver.0.jta jdk.test.whitebox.WhiteBox
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/198)----------
+command: build Fuzz
+reason: Named class compiled on demand
+started: Mon Apr 29 01:01:58 UTC 2024
+Test directory:
+  compile: Fuzz
+finished: Mon Apr 29 01:01:59 UTC 2024
+elapsed time (seconds): 0.068
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/457)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:01:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 43
+finished: Mon Apr 29 01:01:59 UTC 2024
+elapsed time (seconds): 0.068
+----------configuration:(17/1368)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                            
+  add exports: java.base/jdk.internal.vm            ALL-UNNAMED
+               java.base/jdk.internal.vm.annotation ALL-UNNAMED
+  add reads:   java.base                            ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/test/lib 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+  patch:       java.base                            /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base
+
+----------rerun:(40/4262)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/Fuzz.java#preserve-fp \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules='java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm' \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java
+----------direct:(2/177)----------
+Note: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/632)----------
+command: main -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -Xbootclasspath/a:. -XX:+PreserveFramePointer Fuzz
+reason: User specified action: run main/othervm/timeout=300 -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -Xbootclasspath/a:. -XX:+PreserveFramePointer Fuzz 
+started: Mon Apr 29 01:01:59 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:02:21 UTC 2024
+elapsed time (seconds): 22.303
+----------configuration:(6/414)----------
+Boot Layer
+  add modules: java.base                            
+  add exports: java.base/jdk.internal.vm            ALL-UNNAMED
+               java.base/jdk.internal.vm.annotation ALL-UNNAMED
+  patch:       java.base                            /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base
+
+----------System.out:(205/19059)----------
+-- FILE (fuzz.dat) --
+
+1: COMPILE_LEVEL: 4 COMPILE_RUN: true
+Compile in 9207 ms
+CALL_I_INT, CALL_C_MANY, YIELD, CALL_I_INT, CALL_C_MANY, YIELD
+
+2: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, LOOP, YIELD, CALL_C_CTCH, CALL_I_MANY, CALL_I_CTCH, CALL_I_INT, CALL_C_INT, YIELD
+CHANGED COMPILATION
+CALL_I_CTCH, LOOP, YIELD, CALL_I_CTCH, CALL_I_MANY, CALL_I_CTCH, CALL_I_INT, CALL_I_INT, YIELD
+RETRYING 1
+Compile in 1451 ms
+CALL_C_CTCH, LOOP, YIELD, CALL_C_CTCH, CALL_I_MANY, CALL_I_CTCH, CALL_I_INT, CALL_C_INT, YIELD
+
+3: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_C_MANY, CALL_C_DBL, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_DBL, YIELD, CALL_C_MANY, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD
+
+4: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_INT, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, CALL_C_DBL, YIELD, CALL_C_INT
+
+5: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_INT, CALL_C_INT, YIELD, CALL_C_DBL, LOOP, LOOP, CALL_C_CTCH, LOOP, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, YIELD, LOOP, CALL_C_CTCH, LOOP, CALL_C_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_CTCH, LOOP, LOOP, YIELD, YIELD, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_DBL, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_INT, CALL_C_MANY
+Test (823 yields) in 1553 ms
+CHANGED COMPILATION
+CALL_C_INT, CALL_C_INT, YIELD, CALL_C_DBL, LOOP, LOOP, CALL_C_CTCH, LOOP, CALL_C_CTCH, CALL_I_MANY, CALL_C_INT, YIELD, LOOP, CALL_C_CTCH, LOOP, CALL_I_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_CTCH, LOOP, LOOP, YIELD, YIELD, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_I_MANY, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_I_MANY, CALL_I_MANY, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_DBL, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_INT, CALL_I_MANY
+RETRYING 1
+Compile in 1318 ms
+CALL_C_INT, CALL_C_INT, YIELD, CALL_C_DBL, LOOP, LOOP, CALL_C_CTCH, LOOP, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, YIELD, LOOP, CALL_C_CTCH, LOOP, CALL_C_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_CTCH, LOOP, LOOP, YIELD, YIELD, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, YIELD, YIELD, YIELD, CALL_C_DBL, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_INT, CALL_C_MANY
+Test (823 yields) in 737 ms
+
+6: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_MANY, CALL_C_INT, CALL_C_DBL, YIELD, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, CALL_C_DBL, LOOP, CALL_C_CTCH, LOOP, CALL_C_INT, CALL_C_INT, CALL_C_MANY, YIELD, CALL_C_MANY, CALL_C_CTCH, LOOP, CALL_C_INT, CALL_C_INT, LOOP, YIELD, CALL_C_CTCH, YIELD, CALL_C_INT, CALL_C_MANY, YIELD, CALL_C_CTCH, CALL_C_CTCH, LOOP, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, LOOP, YIELD, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_MANY
+
+7: COMPILE_LEVEL: 4 COMPILE_RUN: true
+MH_I_MANY, YIELD, CALL_I_INT, YIELD
+
+8: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_MANY, CALL_C_CTCH, LOOP, LOOP, CALL_I_DBL, CALL_I_INT, CALL_C_DBL, CALL_C_INT, CALL_I_CTCH, LOOP, CALL_I_INT, CALL_C_CTCH, YIELD, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, CALL_I_MANY, MH_I_MANY, CALL_I_INT, CALL_C_MANY, CALL_C_CTCH, CALL_C_MANY, CALL_I_MANY, MH_I_MANY, YIELD, CALL_I_CTCH, CALL_I_CTCH, CALL_C_DBL, CALL_C_MANY, CALL_I_CTCH, YIELD, CALL_I_CTCH, CALL_C_DBL, CALL_C_INT, CALL_I_DBL, CALL_C_MANY, LOOP, CALL_C_DBL, MH_C_MANY, CALL_I_INT, CALL_I_INT, CALL_C_DBL, LOOP, CALL_C_MANY, CALL_C_CTCH, CALL_I_MANY, CALL_I_CTCH, CALL_I_CTCH
+
+9: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_C_MANY, LOOP, YIELD, CALL_C_PIN, LOOP, CALL_C_INT, YIELD, CALL_C_PIN, LOOP, CALL_C_MANY, LOOP, YIELD, YIELD, CALL_C_DBL, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, LOOP, YIELD, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, CALL_C_DBL, LOOP, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, YIELD, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_DBL, CALL_C_CTCH, YIELD, CALL_C_CTCH, YIELD, CALL_C_INT, YIELD, YIELD, CALL_C_CTCH
+Iteration in 694 ms
+Test (3 yields) in 867 ms
+CHANGED COMPILATION
+YIELD, CALL_C_MANY, LOOP, YIELD, CALL_I_PIN, LOOP, CALL_C_INT, YIELD, CALL_I_PIN, LOOP, CALL_C_MANY, LOOP, YIELD, YIELD, CALL_C_DBL, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, LOOP, YIELD, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, CALL_C_DBL, LOOP, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, YIELD, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_DBL, CALL_C_CTCH, YIELD, CALL_C_CTCH, YIELD, CALL_C_INT, YIELD, YIELD, CALL_C_CTCH
+RETRYING 1
+Compile in 1488 ms
+YIELD, CALL_C_MANY, LOOP, YIELD, CALL_C_PIN, LOOP, CALL_C_INT, YIELD, CALL_C_PIN, LOOP, CALL_C_MANY, LOOP, YIELD, YIELD, CALL_C_DBL, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, LOOP, YIELD, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, CALL_C_DBL, LOOP, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_MANY, YIELD, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_DBL, CALL_C_CTCH, YIELD, CALL_C_CTCH, YIELD, CALL_C_INT, YIELD, YIELD, CALL_C_CTCH
+Test (3 yields) in 542 ms
+
+10: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_DBL, CALL_I_CTCH, CALL_I_CTCH, CALL_I_DBL, CALL_I_INT, CALL_I_DBL, CALL_I_DBL, CALL_I_DBL, CALL_I_DBL, LOOP, CALL_I_CTCH, CALL_I_MANY, CALL_C_DBL, CALL_I_DBL, YIELD, CALL_C_DBL, CALL_C_CTCH, CALL_I_INT, CALL_I_MANY, CALL_I_INT, CALL_C_DBL, CALL_I_DBL, CALL_C_INT, CALL_C_MANY, CALL_I_MANY, CALL_C_INT, LOOP, LOOP, CALL_C_DBL, LOOP, LOOP, CALL_I_CTCH, LOOP, CALL_I_CTCH, CALL_I_CTCH, YIELD, LOOP, CALL_I_INT, CALL_I_INT, YIELD, CALL_I_CTCH, CALL_C_CTCH, CALL_I_MANY, CALL_I_CTCH, CALL_I_CTCH
+Test (110 yields) in 1005 ms
+-- RANDOM (seed: 1714352537786) --
+
+1: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_C_MANY, LOOP, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, YIELD
+
+2: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_MANY, CALL_I_DBL
+
+3: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_C_DBL, CALL_C_DBL, CALL_C_INT, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, YIELD, CALL_C_INT
+
+4: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_DBL, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, YIELD, CALL_C_MANY, CALL_C_MANY, YIELD, CALL_C_DBL, CALL_C_DBL, CALL_C_INT, YIELD, LOOP, CALL_C_MANY, YIELD, CALL_C_INT, CALL_C_MANY, LOOP, CALL_C_DBL, LOOP, LOOP, LOOP, LOOP, CALL_C_MANY, CALL_C_MANY, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, CALL_C_INT, YIELD, CALL_C_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_CTCH
+
+5: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_CTCH, CALL_C_INT, CALL_I_MANY, CALL_I_DBL, YIELD, CALL_I_CTCH, CALL_C_DBL
+
+6: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP
+
+7: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_I_INT, CALL_I_INT, CALL_C_MANY, LOOP, CALL_C_CTCH, CALL_C_DBL, YIELD, YIELD, CALL_I_INT, CALL_I_MANY, CALL_C_INT, YIELD, CALL_I_CTCH, CALL_I_INT, CALL_C_DBL, YIELD, CALL_C_INT, CALL_I_INT, CALL_C_INT, CALL_C_CTCH, CALL_C_DBL, CALL_I_DBL, CALL_I_INT, LOOP, CALL_I_MANY, CALL_C_DBL, CALL_I_DBL, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_I_CTCH, CALL_I_DBL, CALL_C_CTCH, CALL_C_DBL, CALL_C_MANY, CALL_I_CTCH, CALL_C_DBL, YIELD, YIELD, YIELD, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_I_CTCH, LOOP, CALL_C_DBL, CALL_I_MANY, YIELD
+
+8: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, YIELD, CALL_C_INT, CALL_C_DBL, CALL_C_MANY, YIELD, CALL_C_MANY, LOOP, CALL_C_MANY, LOOP, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, LOOP, LOOP, CALL_C_DBL, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_MANY, CALL_C_DBL, CALL_C_CTCH, CALL_C_DBL, CALL_C_DBL, CALL_C_CTCH, YIELD, YIELD, CALL_C_MANY, CALL_C_DBL, CALL_C_MANY, CALL_C_MANY, YIELD, YIELD, LOOP, YIELD, LOOP, CALL_C_DBL, CALL_C_INT, CALL_C_INT, CALL_C_INT, LOOP, CALL_C_INT, CALL_C_MANY, CALL_C_INT, CALL_C_INT
+
+9: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_I_CTCH, CALL_I_MANY, LOOP, YIELD, YIELD, YIELD, CALL_C_DBL, CALL_C_MANY, CALL_C_MANY, CALL_C_CTCH, YIELD, CALL_I_INT, CALL_I_DBL
+
+10: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_DBL, CALL_C_DBL, YIELD, CALL_I_DBL, CALL_I_MANY, CALL_I_INT, LOOP, YIELD, CALL_I_CTCH, YIELD, CALL_C_DBL, CALL_C_INT, CALL_C_INT, CALL_C_INT, CALL_I_MANY, LOOP, YIELD, CALL_I_DBL, YIELD, YIELD, CALL_I_CTCH, CALL_I_MANY, CALL_C_INT, CALL_I_CTCH, CALL_C_MANY, YIELD, CALL_I_INT, CALL_C_DBL, YIELD, LOOP, LOOP, CALL_C_CTCH, CALL_C_CTCH, YIELD, CALL_C_INT, CALL_I_DBL, LOOP, LOOP, LOOP, CALL_I_MANY, CALL_C_INT, YIELD, CALL_I_MANY, CALL_C_CTCH, CALL_I_INT, CALL_C_MANY, CALL_C_CTCH, CALL_I_MANY, CALL_C_CTCH, CALL_I_MANY, CALL_I_INT, CALL_I_MANY
+
+11: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_DBL, CALL_C_CTCH, CALL_C_INT, CALL_I_CTCH, CALL_C_INT, CALL_I_DBL, CALL_C_INT
+
+12: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_C_MANY, CALL_C_DBL, CALL_C_DBL, YIELD, YIELD, LOOP, LOOP, CALL_C_CTCH, CALL_C_INT
+
+13: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_DBL, LOOP, CALL_I_DBL, CALL_C_INT, CALL_C_CTCH, CALL_I_CTCH, CALL_I_INT, YIELD, LOOP, CALL_C_DBL
+
+14: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, YIELD, CALL_C_INT, LOOP, CALL_I_CTCH, CALL_I_CTCH, LOOP
+
+15: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_CTCH, CALL_C_MANY, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, CALL_C_DBL, CALL_C_INT, CALL_C_DBL, YIELD, CALL_C_INT, LOOP, LOOP, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_DBL, LOOP, CALL_C_INT, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, CALL_C_DBL, LOOP, LOOP, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, LOOP, CALL_C_MANY, LOOP, CALL_C_DBL, CALL_C_DBL, CALL_C_CTCH, CALL_C_CTCH, CALL_C_DBL, CALL_C_DBL, CALL_C_MANY, YIELD, YIELD, CALL_C_MANY, CALL_C_INT, YIELD
+
+16: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_MANY, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, YIELD, CALL_C_DBL, LOOP
+
+17: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_C_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_INT, LOOP, LOOP, LOOP, CALL_C_CTCH, CALL_C_DBL, CALL_C_CTCH, LOOP, LOOP, CALL_C_CTCH, YIELD, YIELD, CALL_C_CTCH, LOOP, LOOP, CALL_C_DBL, CALL_C_MANY, YIELD, CALL_C_CTCH, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_MANY, CALL_C_MANY, CALL_C_INT, CALL_C_DBL, YIELD, CALL_C_DBL, CALL_C_INT, YIELD, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_MANY, CALL_C_CTCH, YIELD, CALL_C_DBL, YIELD, CALL_C_MANY
+
+18: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_MANY, CALL_I_DBL, CALL_C_INT, LOOP, CALL_I_MANY, LOOP, CALL_C_INT, CALL_I_MANY, CALL_I_INT, CALL_I_CTCH, CALL_I_CTCH, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_I_INT, CALL_I_MANY, CALL_C_MANY, CALL_C_CTCH, CALL_C_INT, CALL_I_CTCH, YIELD, CALL_C_INT, CALL_C_INT, CALL_C_MANY, CALL_I_INT, CALL_C_CTCH, CALL_I_INT, CALL_C_CTCH, LOOP, CALL_I_MANY, CALL_C_MANY, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, LOOP, YIELD, CALL_I_MANY, YIELD, YIELD, CALL_C_MANY, CALL_I_MANY, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_I_MANY, CALL_C_CTCH, CALL_C_DBL, CALL_C_INT, CALL_I_MANY
+Test (272 yields) in 1365 ms
+
+19: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_C_INT
+
+20: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_C_DBL, CALL_C_INT, YIELD, YIELD, YIELD, CALL_C_MANY
+
+21: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, YIELD, CALL_C_MANY, YIELD, CALL_C_DBL, YIELD, CALL_C_INT, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, CALL_C_DBL, CALL_C_DBL, YIELD, CALL_C_CTCH, CALL_C_DBL, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_CTCH, YIELD, CALL_C_DBL, LOOP, CALL_C_INT, CALL_C_DBL, CALL_C_MANY, LOOP, CALL_C_MANY, CALL_C_DBL, YIELD, CALL_C_MANY, CALL_C_INT, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_DBL, LOOP, YIELD, CALL_C_MANY, CALL_C_DBL, LOOP, YIELD, CALL_C_MANY, CALL_C_CTCH, YIELD, YIELD, CALL_C_CTCH, YIELD
+
+22: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_MANY, CALL_C_INT, CALL_I_CTCH, CALL_I_DBL, CALL_I_INT, CALL_C_CTCH, YIELD
+
+23: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_I_MANY, LOOP, CALL_C_INT, CALL_I_MANY, CALL_I_DBL, CALL_C_INT, CALL_I_INT, CALL_I_CTCH, CALL_I_CTCH, CALL_C_DBL, LOOP, YIELD, YIELD, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_DBL, CALL_I_CTCH, CALL_I_CTCH, CALL_C_INT, CALL_C_DBL, CALL_I_INT, CALL_I_DBL, LOOP, CALL_C_DBL, CALL_C_DBL, LOOP, CALL_I_MANY, CALL_I_INT, CALL_I_CTCH, CALL_I_CTCH, CALL_C_DBL, YIELD, CALL_C_DBL, CALL_I_DBL, CALL_C_INT, CALL_C_CTCH, CALL_I_DBL, CALL_C_DBL, CALL_I_DBL, CALL_I_MANY, CALL_C_CTCH, CALL_C_INT, CALL_I_INT, YIELD, YIELD, CALL_C_MANY, CALL_C_MANY
+
+24: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_INT, CALL_C_DBL, YIELD, LOOP, LOOP, LOOP, YIELD, CALL_C_MANY, CALL_C_CTCH, LOOP, YIELD, LOOP, CALL_C_INT
+
+25: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_INT, CALL_I_DBL, LOOP, CALL_C_MANY, LOOP, CALL_I_MANY, CALL_C_CTCH, CALL_C_DBL, CALL_I_MANY, CALL_I_CTCH, YIELD, CALL_C_DBL, YIELD, CALL_C_MANY, CALL_I_INT, CALL_I_INT, YIELD, CALL_C_MANY, YIELD, CALL_I_MANY, CALL_C_MANY, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, YIELD, CALL_I_DBL, CALL_I_CTCH, YIELD, CALL_I_MANY, CALL_I_MANY, CALL_I_INT, LOOP, LOOP, CALL_I_DBL, CALL_C_DBL, CALL_C_CTCH, CALL_I_DBL, LOOP, CALL_C_MANY, CALL_C_MANY, CALL_C_MANY, CALL_I_DBL, CALL_C_INT, CALL_I_DBL, LOOP, CALL_C_CTCH, CALL_C_INT, CALL_C_MANY, CALL_I_INT
+
+26: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_C_CTCH, YIELD, YIELD, CALL_C_DBL, CALL_C_CTCH
+
+27: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_DBL, CALL_C_MANY, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_MANY, CALL_C_MANY, YIELD, CALL_C_CTCH, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, CALL_C_DBL
+
+28: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_DBL, CALL_C_DBL, CALL_C_DBL, YIELD, CALL_C_CTCH, YIELD, CALL_C_CTCH, CALL_I_MANY, CALL_C_DBL, LOOP, CALL_C_MANY, CALL_I_CTCH, CALL_I_MANY
+
+29: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_INT, CALL_C_MANY, CALL_C_DBL, CALL_C_INT, CALL_C_INT, CALL_C_DBL, YIELD, CALL_C_DBL, CALL_C_DBL, LOOP, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_MANY, CALL_C_MANY, CALL_C_DBL, CALL_C_DBL, CALL_C_INT, YIELD, CALL_C_DBL, CALL_C_CTCH, LOOP, YIELD, YIELD, CALL_C_DBL, YIELD, CALL_C_MANY, LOOP, CALL_C_MANY, CALL_C_INT, CALL_C_MANY, LOOP, CALL_C_DBL, CALL_C_CTCH, YIELD, CALL_C_DBL, CALL_C_INT, CALL_C_INT, CALL_C_MANY, LOOP, LOOP, YIELD, CALL_C_MANY, CALL_C_CTCH, CALL_C_MANY, CALL_C_MANY, CALL_C_MANY, YIELD, YIELD, CALL_C_DBL, CALL_C_MANY, CALL_C_CTCH, CALL_C_DBL
+
+30: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_I_MANY, YIELD, CALL_C_INT
+
+31: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_INT
+
+32: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_I_CTCH, CALL_I_MANY, CALL_C_INT, CALL_I_CTCH, CALL_I_INT, CALL_C_DBL, CALL_C_MANY, CALL_C_MANY
+
+33: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_I_DBL, CALL_C_CTCH, LOOP, LOOP, CALL_C_MANY, CALL_I_INT, CALL_C_DBL, CALL_C_INT, YIELD, CALL_I_DBL
+
+34: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_I_INT, CALL_C_INT, CALL_I_INT, CALL_C_MANY, CALL_I_DBL
+
+35: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, YIELD, CALL_I_MANY, CALL_I_INT, CALL_C_INT, CALL_C_MANY
+
+36: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_I_DBL, YIELD, CALL_I_DBL, CALL_C_DBL, CALL_I_CTCH, CALL_I_CTCH, CALL_C_CTCH, CALL_C_DBL
+
+37: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_C_INT, LOOP, YIELD, CALL_C_MANY, CALL_C_INT, CALL_C_INT, LOOP, CALL_C_CTCH
+
+38: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_C_DBL, LOOP, CALL_C_DBL, CALL_C_CTCH, LOOP, LOOP, YIELD, CALL_C_INT, CALL_C_INT, CALL_C_INT, CALL_C_CTCH, YIELD, CALL_C_CTCH, LOOP, CALL_C_MANY, CALL_C_CTCH, YIELD, YIELD, LOOP, CALL_C_MANY, CALL_C_DBL, LOOP, YIELD, CALL_C_MANY, LOOP, CALL_C_INT, CALL_C_CTCH, CALL_C_CTCH, CALL_C_INT, CALL_C_INT, YIELD, CALL_C_MANY, YIELD, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, CALL_C_CTCH, CALL_C_MANY, YIELD, CALL_C_INT, CALL_C_DBL, CALL_C_INT, CALL_C_CTCH, YIELD, CALL_C_INT, YIELD, CALL_C_CTCH, CALL_C_DBL, YIELD, CALL_C_DBL, CALL_C_CTCH, CALL_C_MANY, CALL_C_CTCH, CALL_C_INT
+
+39: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_MANY, CALL_C_INT, LOOP, CALL_I_MANY, CALL_I_DBL, CALL_I_DBL, CALL_C_DBL, CALL_I_CTCH, CALL_I_MANY, CALL_I_MANY, CALL_I_INT, CALL_C_MANY, CALL_C_INT, CALL_C_INT, CALL_C_INT, CALL_C_INT, CALL_I_MANY, CALL_C_MANY, CALL_I_DBL, CALL_I_PIN, CALL_C_DBL, CALL_C_CTCH, CALL_I_CTCH, CALL_C_DBL, LOOP, CALL_C_CTCH, CALL_I_PIN, CALL_C_DBL, CALL_I_INT, CALL_I_MANY, YIELD, CALL_C_PIN, CALL_C_PIN, CALL_C_MANY, CALL_I_INT, CALL_C_PIN, CALL_I_INT, LOOP, CALL_I_DBL, CALL_C_INT, CALL_I_DBL, CALL_C_CTCH, CALL_C_INT, CALL_I_MANY, CALL_I_INT, CALL_I_INT, LOOP, YIELD, CALL_I_PIN, CALL_C_MANY, CALL_I_CTCH, CALL_I_DBL, CALL_I_CTCH
+
+40: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_I_DBL, CALL_C_MANY, CALL_C_DBL, CALL_I_MANY, CALL_C_INT
+
+41: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_DBL, LOOP, LOOP, CALL_C_DBL, YIELD, CALL_C_CTCH, YIELD, CALL_C_DBL, YIELD, CALL_C_MANY, LOOP, CALL_C_DBL, CALL_C_DBL, CALL_C_MANY
+
+42: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP
+
+43: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_C_MANY, YIELD, CALL_C_MANY, YIELD, LOOP, CALL_C_DBL, LOOP, CALL_C_DBL, CALL_C_INT, CALL_C_DBL, CALL_C_DBL, CALL_C_CTCH, CALL_C_DBL, CALL_C_MANY
+
+44: COMPILE_LEVEL: 4 COMPILE_RUN: true
+LOOP, CALL_I_INT, CALL_C_INT, CALL_C_MANY
+
+45: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_C_MANY
+
+46: COMPILE_LEVEL: 4 COMPILE_RUN: true
+YIELD, CALL_I_INT, CALL_I_DBL, CALL_I_CTCH, CALL_I_INT, LOOP, CALL_I_DBL, CALL_C_DBL, CALL_I_INT, CALL_C_DBL, CALL_I_INT
+
+47: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_MANY, CALL_I_INT, CALL_I_DBL, CALL_C_MANY, CALL_I_INT, CALL_C_INT, CALL_I_INT, CALL_I_CTCH, YIELD, CALL_C_MANY, CALL_I_MANY, CALL_C_CTCH, CALL_C_DBL, CALL_I_MANY, CALL_C_CTCH, CALL_I_INT, CALL_I_DBL, CALL_C_MANY, CALL_I_MANY, CALL_I_CTCH, CALL_C_MANY, CALL_I_MANY, LOOP, CALL_C_DBL, CALL_C_INT, CALL_I_CTCH, CALL_I_CTCH, CALL_C_CTCH, CALL_I_MANY, CALL_I_INT, CALL_C_CTCH, CALL_C_DBL, CALL_C_MANY, CALL_I_DBL, CALL_I_INT, CALL_I_INT, YIELD, LOOP, CALL_I_DBL, CALL_I_CTCH, YIELD, CALL_I_CTCH, LOOP, LOOP, CALL_C_INT, CALL_C_INT, CALL_I_CTCH, CALL_C_MANY
+
+48: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_DBL, CALL_C_DBL, CALL_I_DBL, CALL_I_MANY, CALL_C_DBL, CALL_C_DBL, YIELD, LOOP, CALL_I_MANY, CALL_I_CTCH, CALL_C_MANY, CALL_I_MANY, CALL_I_INT, CALL_C_INT
+
+49: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_I_CTCH, CALL_C_MANY, YIELD, CALL_I_MANY, LOOP, CALL_C_MANY, CALL_C_CTCH, CALL_I_MANY
+
+50: COMPILE_LEVEL: 4 COMPILE_RUN: true
+CALL_C_CTCH, CALL_I_CTCH, CALL_C_MANY, YIELD, LOOP, CALL_C_MANY, CALL_I_CTCH, CALL_C_MANY, LOOP, CALL_C_DBL, LOOP
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(44/4427)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/Fuzz.java#preserve-fp \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/Fuzz.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules='java.base java.base/jdk.internal.vm.annotation java.base/jdk.internal.vm' \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/patches/java.base \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm.annotation=ALL-UNNAMED \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        -Xbootclasspath/a:. \\
+        -XX:+PreserveFramePointer \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/Fuzz_preserve-fp.d/main.1.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

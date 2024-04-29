@@ -28,7 +28,7 @@
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -56,7 +56,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -127,15 +127,15 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">SocketOptions</span></div>
 <div class="block">Interface of methods to get/set socket options.  This interface is
- implemented by: <B>SocketImpl</B> and  <B>DatagramSocketImpl</B>.
- Subclasses of these should override the methods
- of this interface in order to support their own options.
+ implemented by <a href="SocketImpl.html" title="class in java.net"><code>SocketImpl</code></a> and <a href="DatagramSocketImpl.html" title="class in java.net"><code>DatagramSocketImpl</code></a>.
+ Subclasses of these two classes should override the <a href="#getOption(int)"><code>getOption(int)</code></a> and
+ <a href="#setOption(int,java.lang.Object)"><code>setOption(int, Object)</code></a> methods of this interface in order to support their own options.
  <P>
- The methods and constants which specify options in this interface are
- for implementation only.  If you're not subclassing SocketImpl or
- DatagramSocketImpl, <B>you won't use these directly.</B> There are
- type-safe methods to get/set each of these options in Socket, ServerSocket,
- DatagramSocket and MulticastSocket.</div>
+ The methods and constants defined in this interface are
+ for implementation only. If you're not subclassing <code>SocketImpl</code> or
+ <code>DatagramSocketImpl</code>, then you won't use these directly. There are
+ type-safe methods to get/set each of these options in <a href="Socket.html" title="class in java.net"><code>Socket</code></a>, <a href="ServerSocket.html" title="class in java.net"><code>ServerSocket</code></a>,
+  <a href="DatagramSocket.html" title="class in java.net"><code>DatagramSocket</code></a> and <a href="MulticastSocket.html" title="class in java.net"><code>MulticastSocket</code></a>.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.1</dd>
@@ -156,86 +156,85 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#IP_MULTICAST_IF" class="member-name-link">IP_MULTICAST_IF</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Set which outgoing interface on which to send multicast packets.</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_MULTICAST_IF"><code>StandardSocketOptions.IP_MULTICAST_IF</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#IP_MULTICAST_IF2" class="member-name-link">IP_MULTICAST_IF2</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Same as above.</div>
+<div class="block">This option is used to both set and fetch the outgoing interface on which the multicast
+ packets are sent.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#IP_MULTICAST_LOOP" class="member-name-link">IP_MULTICAST_LOOP</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">This option enables or disables local loopback of multicast datagrams.</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_MULTICAST_LOOP"><code>StandardSocketOptions.IP_MULTICAST_LOOP</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#IP_TOS" class="member-name-link">IP_TOS</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">This option sets the type-of-service or traffic class field
- in the IP header for a TCP or UDP socket.</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_TOS"><code>StandardSocketOptions.IP_TOS</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SO_BINDADDR" class="member-name-link">SO_BINDADDR</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Fetch the local address binding of a socket (this option cannot
- be "set" only "gotten", since sockets are bound at creation time,
- and so the locally bound address cannot be changed).</div>
+<div class="block">Fetch the local address binding of a socket.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SO_BROADCAST" class="member-name-link">SO_BROADCAST</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Sets SO_BROADCAST for a socket.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_BROADCAST"><code>StandardSocketOptions.SO_BROADCAST</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SO_KEEPALIVE" class="member-name-link">SO_KEEPALIVE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">When the keepalive option is set for a TCP socket and no data
- has been exchanged across the socket in either direction for
- 2 hours (NOTE: the actual value is implementation dependent),
- TCP automatically sends a keepalive probe to the peer.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_KEEPALIVE"><code>StandardSocketOptions.SO_KEEPALIVE</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SO_LINGER" class="member-name-link">SO_LINGER</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Specify a linger-on-close timeout.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_LINGER"><code>StandardSocketOptions.SO_LINGER</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SO_OOBINLINE" class="member-name-link">SO_OOBINLINE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">When the OOBINLINE option is set, any TCP urgent data received on
- the socket will be received through the socket input stream.</div>
+<div class="block">When this option is set, any TCP urgent data received on the socket will be received
+ through the socket input stream.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SO_RCVBUF" class="member-name-link">SO_RCVBUF</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Set a hint the size of the underlying buffers used by the
- platform for incoming network I/O.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_RCVBUF"><code>StandardSocketOptions.SO_RCVBUF</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SO_REUSEADDR" class="member-name-link">SO_REUSEADDR</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Sets SO_REUSEADDR for a socket.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_REUSEADDR"><code>StandardSocketOptions.SO_REUSEADDR</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SO_REUSEPORT" class="member-name-link">SO_REUSEPORT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Sets SO_REUSEPORT for a socket.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_REUSEPORT"><code>StandardSocketOptions.SO_REUSEPORT</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SO_SNDBUF" class="member-name-link">SO_SNDBUF</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Set a hint the size of the underlying buffers used by the
- platform for outgoing network I/O.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_SNDBUF"><code>StandardSocketOptions.SO_SNDBUF</code></a> for description of this socket option.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SO_TIMEOUT" class="member-name-link">SO_TIMEOUT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Set a timeout on blocking Socket operations:</div>
+<div class="block">This option is used to both set and fetch a timeout value on blocking
+ <code>Socket</code> operations:
+ 
+     <a href="ServerSocket.html#accept()">ServerSocket.accept()</a>
+     <a href="Socket.html#getInputStream()">Socket InputStream.read()</a>
+     <a href="DatagramSocket.html#receive(java.net.DatagramPacket)">DatagramSocket.receive()</a>
+ </div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#TCP_NODELAY" class="member-name-link">TCP_NODELAY</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Disable Nagle's algorithm for this connection.</div>
+<div class="block">See <a href="StandardSocketOptions.html#TCP_NODELAY"><code>StandardSocketOptions.TCP_NODELAY</code></a> for description of this socket option.</div>
 </div>
 </div>
 </section>
@@ -260,7 +259,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setOption(int,java.lang.Object)" class="member-name-link">setOption</a><wbr>(int&nbsp;optID,
  <a href="../lang/Object.html" title="class in java.lang">Object</a>&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Enable/disable the option specified by <I>optID</I>.</div>
+<div class="block">Enable/disable the option specified by <code>optID</code>.</div>
 </div>
 </div>
 </div>
@@ -282,11 +281,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">TCP_NODELAY</span></div>
-<div class="block">Disable Nagle's algorithm for this connection.  Written data
- to the network is not buffered pending acknowledgement of
- previously written data.
-<P>
- Valid for TCP only: SocketImpl.</div>
+<div class="block">See <a href="StandardSocketOptions.html#TCP_NODELAY"><code>StandardSocketOptions.TCP_NODELAY</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -306,19 +301,14 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_BINDADDR</span></div>
-<div class="block">Fetch the local address binding of a socket (this option cannot
- be "set" only "gotten", since sockets are bound at creation time,
- and so the locally bound address cannot be changed).  The default local
- address of a socket is INADDR_ANY, meaning any local address on a
- multi-homed host.  A multi-homed host can use this option to accept
+<div class="block">Fetch the local address binding of a socket. This option cannot be set and can only be
+ fetched. The default local address of a socket is
+ <a href="InetAddress.html#isAnyLocalAddress()"><code>INADDR_ANY</code></a>, meaning any local
+ address on a multi-homed host. A multi-homed host can use this option to accept
  connections to only one of its addresses (in the case of a
- ServerSocket or DatagramSocket), or to specify its return address
- to the peer (for a Socket or DatagramSocket).  The parameter of
- this option is an InetAddress.
- <P>
- This option <B>must</B> be specified in the constructor.
- <P>
- Valid for: SocketImpl, DatagramSocketImpl</div>
+ <a href="ServerSocket.html" title="class in java.net"><code>ServerSocket</code></a> or <a href="DatagramSocket.html" title="class in java.net"><code>DatagramSocket</code></a>), or to specify its return address
+ to the peer (for a <a href="Socket.html" title="class in java.net"><code>Socket</code></a> or <a href="DatagramSocket.html" title="class in java.net"><code>DatagramSocket</code></a>). The type of this option's
+ value is an <a href="InetAddress.html" title="class in java.net"><code>InetAddress</code></a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -338,10 +328,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_REUSEADDR</span></div>
-<div class="block">Sets SO_REUSEADDR for a socket.  This is used only for MulticastSockets
- in java, and it is set by default for MulticastSockets.
- <P>
- Valid for: DatagramSocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_REUSEADDR"><code>StandardSocketOptions.SO_REUSEADDR</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -359,18 +346,13 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_REUSEPORT</span></div>
-<div class="block">Sets SO_REUSEPORT for a socket. This option enables and disables
-  the ability to have multiple sockets listen to the same address
-  and port.
- <P>
- Valid for: SocketImpl, DatagramSocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_REUSEPORT"><code>StandardSocketOptions.SO_REUSEPORT</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>9</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list-long">
-<li><a href="StandardSocketOptions.html#SO_REUSEPORT"><code>StandardSocketOptions.SO_REUSEPORT</code></a></li>
+<ul class="tag-list">
 <li><a href="../../../constant-values.html#java.net.SocketOptions.SO_REUSEPORT">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -384,11 +366,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_BROADCAST</span></div>
-<div class="block">Sets SO_BROADCAST for a socket. This option enables and disables
- the ability of the process to send broadcast messages. It is supported
- for only datagram sockets and only on networks that support
- the concept of a broadcast message (e.g. Ethernet, token ring, etc.),
- and it is set by default for DatagramSockets.</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_BROADCAST"><code>StandardSocketOptions.SO_BROADCAST</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.4</dd>
@@ -408,11 +386,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">IP_MULTICAST_IF</span></div>
-<div class="block">Set which outgoing interface on which to send multicast packets.
- Useful on hosts with multiple network interfaces, where applications
- want to use other than the system default.  Takes/returns an InetAddress.
- <P>
- Valid for Multicast: DatagramSocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_MULTICAST_IF"><code>StandardSocketOptions.IP_MULTICAST_IF</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -432,12 +406,10 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">IP_MULTICAST_IF2</span></div>
-<div class="block">Same as above. This option is introduced so that the behaviour
-  with IP_MULTICAST_IF will be kept the same as before, while
-  this new option can support setting outgoing interfaces with either
-  IPv4 and IPv6 addresses.
-
-  NOTE: make sure there is no conflict with this</div>
+<div class="block">This option is used to both set and fetch the outgoing interface on which the multicast
+ packets are sent. Useful on hosts with multiple network interfaces, where applications
+ want to use other than the system default. This option supports setting outgoing interfaces
+ with either IPv4 and IPv6 addresses.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.4</dd>
@@ -459,8 +431,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">IP_MULTICAST_LOOP</span></div>
-<div class="block">This option enables or disables local loopback of multicast datagrams.
- This option is enabled by default for Multicast Sockets.</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_MULTICAST_LOOP"><code>StandardSocketOptions.IP_MULTICAST_LOOP</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.4</dd>
@@ -480,8 +451,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">IP_TOS</span></div>
-<div class="block">This option sets the type-of-service or traffic class field
- in the IP header for a TCP or UDP socket.</div>
+<div class="block">See <a href="StandardSocketOptions.html#IP_TOS"><code>StandardSocketOptions.IP_TOS</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.4</dd>
@@ -501,17 +471,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_LINGER</span></div>
-<div class="block">Specify a linger-on-close timeout.  This option disables/enables
- immediate return from a <B>close()</B> of a TCP Socket.  Enabling
- this option with a non-zero Integer <I>timeout</I> means that a
- <B>close()</B> will block pending the transmission and acknowledgement
- of all data written to the peer, at which point the socket is closed
- <I>gracefully</I>.  Upon reaching the linger timeout, the socket is
- closed <I>forcefully</I>, with a TCP RST. Enabling the option with a
- timeout of zero does a forceful close immediately. If the specified
- timeout value exceeds 65,535 it will be reduced to 65,535.
- <P>
- Valid only for TCP: SocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_LINGER"><code>StandardSocketOptions.SO_LINGER</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -531,20 +491,19 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_TIMEOUT</span></div>
-<div class="block">Set a timeout on blocking Socket operations:
- <PRE>
- ServerSocket.accept();
- SocketInputStream.read();
- DatagramSocket.receive();
- </PRE>
+<div class="block">This option is used to both set and fetch a timeout value on blocking
+ <code>Socket</code> operations:
+ <ul>
+     <li><a href="ServerSocket.html#accept()">ServerSocket.accept()</a></li>
+     <li><a href="Socket.html#getInputStream()">Socket InputStream.read()</a></li>
+     <li><a href="DatagramSocket.html#receive(java.net.DatagramPacket)">DatagramSocket.receive()</a></li>
+ </ul>
 
- <P> The option must be set prior to entering a blocking
- operation to take effect.  If the timeout expires and the
- operation would continue to block,
- <B>java.io.InterruptedIOException</B> is raised.  The Socket is
- not closed in this case.
-
- <P> Valid for all sockets: SocketImpl, DatagramSocketImpl</div>
+ <P>
+ This option must be set prior to entering a blocking operation to take effect. If the
+ timeout expires and the operation would continue to block, then
+ <a href="../io/InterruptedIOException.html" title="class in java.io"><code>InterruptedIOException</code></a> is raised. The <code>Socket</code> is not closed
+ in such cases.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -565,14 +524,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_SNDBUF</span></div>
-<div class="block">Set a hint the size of the underlying buffers used by the
- platform for outgoing network I/O. When used in set, this is a
- suggestion to the kernel from the application about the size of
- buffers to use for the data to be sent over the socket. When
- used in get, this must return the size of the buffer actually
- used by the platform when sending out data on this socket.
-
- Valid for all sockets: SocketImpl, DatagramSocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_SNDBUF"><code>StandardSocketOptions.SO_SNDBUF</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -594,15 +546,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_RCVBUF</span></div>
-<div class="block">Set a hint the size of the underlying buffers used by the
- platform for incoming network I/O. When used in set, this is a
- suggestion to the kernel from the application about the size of
- buffers to use for the data to be received over the
- socket. When used in get, this must return the size of the
- buffer actually used by the platform when receiving in data on
- this socket.
-
- Valid for all sockets: SocketImpl, DatagramSocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_RCVBUF"><code>StandardSocketOptions.SO_RCVBUF</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -624,22 +568,7 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_KEEPALIVE</span></div>
-<div class="block">When the keepalive option is set for a TCP socket and no data
- has been exchanged across the socket in either direction for
- 2 hours (NOTE: the actual value is implementation dependent),
- TCP automatically sends a keepalive probe to the peer. This probe is a
- TCP segment to which the peer must respond.
- One of three responses is expected:
- 1. The peer responds with the expected ACK. The application is not
-    notified (since everything is OK). TCP will send another probe
-    following another 2 hours of inactivity.
- 2. The peer responds with an RST, which tells the local TCP that
-    the peer host has crashed and rebooted. The socket is closed.
- 3. There is no response from the peer. The socket is closed.
-
- The purpose of this option is to detect if the peer host crashes.
-
- Valid only for TCP socket: SocketImpl</div>
+<div class="block">See <a href="StandardSocketOptions.html#SO_KEEPALIVE"><code>StandardSocketOptions.SO_KEEPALIVE</code></a> for description of this socket option.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -659,10 +588,9 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="annotations"><a href="../lang/annotation/Native.html" title="annotation interface in java.lang.annotation">@Native</a>
 </span><span class="modifiers">static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SO_OOBINLINE</span></div>
-<div class="block">When the OOBINLINE option is set, any TCP urgent data received on
- the socket will be received through the socket input stream.
- When the option is disabled (which is the default) urgent data
- is silently discarded.</div>
+<div class="block">When this option is set, any TCP urgent data received on the socket will be received
+ through the socket input stream. When the option is disabled (which is the default)
+ urgent data is silently discarded.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -691,47 +619,48 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setOption</span><wbr><span class="parameters">(int&nbsp;optID,
  <a href="../lang/Object.html" title="class in java.lang">Object</a>&nbsp;value)</span>
         throws <span class="exceptions"><a href="SocketException.html" title="class in java.net">SocketException</a></span></div>
-<div class="block">Enable/disable the option specified by <I>optID</I>.  If the option
- is to be enabled, and it takes an option-specific "value",  this is
- passed in <I>value</I>.  The actual type of value is option-specific,
- and it is an error to pass something that isn't of the expected type:
- <BR><PRE>
- SocketImpl s;
+<div class="block">Enable/disable the option specified by <code>optID</code>. If the option
+ is to be enabled, and it takes an option-specific "value", this is passed in <code>value</code>.
+ The actual type of <code>value</code> is option-specific, and it is an error to pass something
+ that isn't of the expected type:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java"> SocketImpl s;
  ...
  s.setOption(SO_LINGER, Integer.valueOf(10));
     // OK - set SO_LINGER w/ timeout of 10 sec.
  s.setOption(SO_LINGER, Double.valueOf(10));
     // ERROR - expects java.lang.Integer
-</PRE>
- If the requested option is binary, it can be set using this method by
- a java.lang.Boolean:
- <BR><PRE>
- s.setOption(TCP_NODELAY, Boolean.TRUE);
-    // OK - enables TCP_NODELAY, a binary option
- </PRE>
- <BR>
- Any option can be disabled using this method with a Boolean.FALSE:
- <BR><PRE>
- s.setOption(TCP_NODELAY, Boolean.FALSE);
-    // OK - disables TCP_NODELAY
- s.setOption(SO_LINGER, Boolean.FALSE);
-    // OK - disables SO_LINGER
- </PRE>
- <BR>
- For an option that has a notion of on and off, and requires
- a non-boolean parameter, setting its value to anything other than
- <I>Boolean.FALSE</I> implicitly enables it.
- <BR>
- Throws SocketException if the option is unrecognized,
- the socket is closed, or some low-level error occurred
- <BR></div>
+</code></pre>
+</div>
+
+ If the requested option is binary, it can be set using this method by a <a href="../lang/Boolean.html" title="class in java.lang"><code>Boolean</code></a>:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">s.setOption(TCP_NODELAY, Boolean.TRUE);
+   // OK - enables TCP_NODELAY, a binary option
+</code></pre>
+</div>
+
+ Any option can be disabled using this method with a <a href="../lang/Boolean.html#FALSE"><code>Boolean.FALSE</code></a>:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">s.setOption(TCP_NODELAY, Boolean.FALSE);
+   // OK - disables TCP_NODELAY
+s.setOption(SO_LINGER, Boolean.FALSE);
+   // OK - disables SO_LINGER
+</code></pre>
+</div>
+
+ For an option that has a notion of on and off, and requires a non-boolean parameter, setting
+ its value to anything other than <a href="../lang/Boolean.html#FALSE"><code>Boolean.FALSE</code></a> implicitly enables it.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>optID</code> - identifies the option</dd>
 <dd><code>value</code> - the parameter of the socket option</dd>
 <dt>Throws:</dt>
-<dd><code><a href="SocketException.html" title="class in java.net">SocketException</a></code> - if the option is unrecognized,
-         the socket is closed, or some low-level error occurred</dd>
+<dd><code><a href="SocketException.html" title="class in java.net">SocketException</a></code> - if the option is unrecognized, the socket is closed, or some
+                         low-level error occurred</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -748,39 +677,42 @@ loadScripts(document, 'script');</script>
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="return-type"><a href="../lang/Object.html" title="class in java.lang">Object</a></span>&nbsp;<span class="element-name">getOption</span><wbr><span class="parameters">(int&nbsp;optID)</span>
           throws <span class="exceptions"><a href="SocketException.html" title="class in java.net">SocketException</a></span></div>
-<div class="block">Fetch the value of an option.
- Binary options will return java.lang.Boolean.TRUE
- if enabled, java.lang.Boolean.FALSE if disabled, e.g.:
- <BR><PRE>
- SocketImpl s;
- ...
- Boolean noDelay = (Boolean)(s.getOption(TCP_NODELAY));
- if (noDelay.booleanValue()) {
-     // true if TCP_NODELAY is enabled...
- ...
- }
- </PRE>
+<div class="block">Fetch the value of an option. Binary options will return <a href="../lang/Boolean.html#TRUE"><code>Boolean.TRUE</code></a> if enabled,
+ <a href="../lang/Boolean.html#FALSE"><code>Boolean.FALSE</code></a> if disabled, e.g.:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">SocketImpl s;
+...
+Boolean noDelay = (Boolean)(s.getOption(TCP_NODELAY));
+if (noDelay.booleanValue()) {
+    // true if TCP_NODELAY is enabled...
+...
+}
+</code></pre>
+</div>
+
  <P>
- For options that take a particular type as a parameter,
- getOption(int) will return the parameter's value, else
- it will return java.lang.Boolean.FALSE:
- <PRE>
- Object o = s.getOption(SO_LINGER);
- if (o instanceof Integer) {
-     System.out.print("Linger time is " + ((Integer)o).intValue());
- } else {
-   // the true type of o is java.lang.Boolean.FALSE;
- }
- </PRE></div>
+ For options that take a particular type as a parameter, this method will return the
+ parameter's value, else it will return <a href="../lang/Boolean.html#FALSE"><code>Boolean.FALSE</code></a>:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">Object o = s.getOption(SO_LINGER);
+if (o instanceof Integer) {
+    System.out.print("Linger time is " + ((Integer)o).intValue());
+} else {
+  // the true type of o is java.lang.Boolean.FALSE;
+}
+</code></pre>
+</div>
+</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>optID</code> - an <code>int</code> identifying the option to fetch</dd>
 <dt>Returns:</dt>
 <dd>the value of the option</dd>
 <dt>Throws:</dt>
-<dd><code><a href="SocketException.html" title="class in java.net">SocketException</a></code> - if the socket is closed</dd>
-<dd><code><a href="SocketException.html" title="class in java.net">SocketException</a></code> - if <I>optID</I> is unknown along the
-         protocol stack (including the SocketImpl)</dd>
+<dd><code><a href="SocketException.html" title="class in java.net">SocketException</a></code> - if the socket is closed or if <code>optID</code> is unknown along the
+                         protocol stack</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -799,7 +731,7 @@ loadScripts(document, 'script');</script>
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

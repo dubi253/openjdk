@@ -1,0 +1,216 @@
+#Test Results (version 2)
+#Mon Apr 29 00:46:26 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8060130
+library=/test/lib
+requires=vm.flagless
+run=USER_SPECIFIED build package2.Class2 GetSystemPackage\nUSER_SPECIFIED main GetSystemPackage\n
+source=GetSystemPackage.java
+title=Test if getSystemPackage() return consistent values for cases where a manifest is provided or not and ensure only jars on bootclasspath gets resolved via Package.getSystemPackage
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java
+elapsed=549 0\:00\:00.549
+end=Mon Apr 29 00\:46\:26 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main
+start=Mon Apr 29 00\:46\:26 UTC 2024
+test=java/lang/ClassLoader/GetSystemPackage.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=550
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader
+
+#section:script_messages
+----------messages:(7/572)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(7/291)----------
+command: build package2.Class2 GetSystemPackage
+reason: User specified action: run build package2.Class2 GetSystemPackage 
+started: Mon Apr 29 00:46:26 UTC 2024
+Test directory:
+  compile: package2.Class2, GetSystemPackage
+finished: Mon Apr 29 00:46:26 UTC 2024
+elapsed time (seconds): 0.029
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/375)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package2/Class2.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:46:26 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:46:26 UTC 2024
+elapsed time (seconds): 0.029
+----------configuration:(12/876)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(33/3725)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/GetSystemPackage.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package2/Class2.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java
+----------direct:(2/183)----------
+Note: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/176)----------
+command: build GetSystemPackage
+reason: Named class compiled on demand
+started: Mon Apr 29 00:46:26 UTC 2024
+finished: Mon Apr 29 00:46:26 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/223)----------
+command: main GetSystemPackage
+reason: User specified action: run main GetSystemPackage 
+started: Mon Apr 29 00:46:26 UTC 2024
+Mode: agentvm
+Agent id: 17
+finished: Mon Apr 29 00:46:26 UTC 2024
+elapsed time (seconds): 0.519
+----------configuration:(15/1121)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader
+              /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /Users/runner/work/openjdk/openjdk/test/lib
+
+----------rerun:(26/3132)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/GetSystemPackage.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/GetSystemPackage.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        GetSystemPackage
+----------System.out:(25/6887)----------
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d/manifest.jar GetSystemPackage system-manifest ]
+[2024-04-29T00:46:26.166253Z] Gathering output for process 24213
+[2024-04-29T00:46:26.169817Z] Waiting for completion for process 24213
+[2024-04-29T00:46:26.266675Z] Waiting for completion finished for process 24213
+Output and diagnostic info for process 24213 was saved into 'pid-24213-output.log'
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d GetSystemPackage system-no-manifest ]
+[2024-04-29T00:46:26.269780Z] Gathering output for process 24216
+[2024-04-29T00:46:26.270535Z] Waiting for completion for process 24216
+[2024-04-29T00:46:26.369031Z] Waiting for completion finished for process 24216
+Output and diagnostic info for process 24216 was saved into 'pid-24216-output.log'
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -Xbootclasspath/a:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d/no-manifest.jar GetSystemPackage system-no-manifest ]
+[2024-04-29T00:46:26.372238Z] Gathering output for process 24218
+[2024-04-29T00:46:26.372603Z] Waiting for completion for process 24218
+[2024-04-29T00:46:26.460288Z] Waiting for completion finished for process 24218
+Output and diagnostic info for process 24218 was saved into 'pid-24218-output.log'
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d/manifest.jar GetSystemPackage non-system-manifest ]
+[2024-04-29T00:46:26.465053Z] Gathering output for process 24219
+[2024-04-29T00:46:26.465821Z] Waiting for completion for process 24219
+[2024-04-29T00:46:26.566594Z] Waiting for completion finished for process 24219
+Output and diagnostic info for process 24219 was saved into 'pid-24219-output.log'
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/GetSystemPackage.d/no-manifest.jar GetSystemPackage non-system-no-manifest ]
+[2024-04-29T00:46:26.569747Z] Gathering output for process 24221
+[2024-04-29T00:46:26.570246Z] Waiting for completion for process 24221
+[2024-04-29T00:46:26.656080Z] Waiting for completion finished for process 24221
+Output and diagnostic info for process 24221 was saved into 'pid-24221-output.log'
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

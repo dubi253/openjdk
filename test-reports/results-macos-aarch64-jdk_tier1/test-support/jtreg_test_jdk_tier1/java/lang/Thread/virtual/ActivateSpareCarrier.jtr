@@ -1,0 +1,1465 @@
+#Test Results (version 2)
+#Mon Apr 29 00:40:51 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8292240 othervm
+requires=vm.continuations
+run=USER_SPECIFIED main/othervm -Djdk.virtualThreadScheduler.parallelism\=1 -Djdk.virtualThreadScheduler.maxPoolSize\=2 ActivateSpareCarrier 100\n
+source=ActivateSpareCarrier.java
+title=Test the scenario where a blocking operation pins a virtual thread to its carrier thread (cT1) and doesn't activate a spare.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java
+elapsed=5627 0\:00\:05.627
+end=Mon Apr 29 00\:40\:51 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 00\:40\:45 UTC 2024
+test=java/lang/Thread/virtual/ActivateSpareCarrier.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=5627
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/Thread/virtual
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/229)----------
+command: build ActivateSpareCarrier
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:45 UTC 2024
+Test directory:
+  compile: ActivateSpareCarrier
+finished: Mon Apr 29 00:40:45 UTC 2024
+elapsed time (seconds): 0.02
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/294)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:45 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:45 UTC 2024
+elapsed time (seconds): 0.02
+----------configuration:(10/703)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d
+
+----------rerun:(33/3285)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/Thread/virtual/ActivateSpareCarrier.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/427)----------
+command: main -Djdk.virtualThreadScheduler.parallelism=1 -Djdk.virtualThreadScheduler.maxPoolSize=2 ActivateSpareCarrier 100
+reason: User specified action: run main/othervm -Djdk.virtualThreadScheduler.parallelism=1 -Djdk.virtualThreadScheduler.maxPoolSize=2 ActivateSpareCarrier 100 
+started: Mon Apr 29 00:40:45 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:40:51 UTC 2024
+elapsed time (seconds): 5.607
+----------configuration:(0/0)----------
+----------System.out:(1300/36274)----------
+---- 0 ----
+starting waiter thread #19
+VirtualThread[#19]/runnable@ForkJoinPool-1-worker-1
+starting #22
+Waiting for #22 to terminate
+VirtualThread[#22]/runnable@ForkJoinPool-1-worker-2
+#22 terminated
+Waiting for #19 to terminate
+#19 terminated
+starting #23
+Waiting for #23 to terminate
+VirtualThread[#23]/runnable@ForkJoinPool-1-worker-1
+#23 terminated
+---- 1 ----
+starting waiter thread #24
+VirtualThread[#24]/runnable@ForkJoinPool-1-worker-2
+starting #25
+Waiting for #25 to terminate
+VirtualThread[#25]/runnable@ForkJoinPool-1-worker-1
+#25 terminated
+Waiting for #24 to terminate
+#24 terminated
+starting #26
+Waiting for #26 to terminate
+VirtualThread[#26]/runnable@ForkJoinPool-1-worker-2
+#26 terminated
+---- 2 ----
+starting waiter thread #27
+VirtualThread[#27]/runnable@ForkJoinPool-1-worker-2
+starting #28
+Waiting for #28 to terminate
+VirtualThread[#28]/runnable@ForkJoinPool-1-worker-1
+#28 terminated
+Waiting for #27 to terminate
+#27 terminated
+starting #29
+Waiting for #29 to terminate
+VirtualThread[#29]/runnable@ForkJoinPool-1-worker-2
+#29 terminated
+---- 3 ----
+starting waiter thread #30
+VirtualThread[#30]/runnable@ForkJoinPool-1-worker-1
+starting #31
+Waiting for #31 to terminate
+VirtualThread[#31]/runnable@ForkJoinPool-1-worker-2
+#31 terminated
+Waiting for #30 to terminate
+#30 terminated
+starting #32
+Waiting for #32 to terminate
+VirtualThread[#32]/runnable@ForkJoinPool-1-worker-1
+#32 terminated
+---- 4 ----
+starting waiter thread #33
+VirtualThread[#33]/runnable@ForkJoinPool-1-worker-2
+starting #34
+Waiting for #34 to terminate
+VirtualThread[#34]/runnable@ForkJoinPool-1-worker-1
+#34 terminated
+Waiting for #33 to terminate
+#33 terminated
+starting #35
+Waiting for #35 to terminate
+VirtualThread[#35]/runnable@ForkJoinPool-1-worker-2
+#35 terminated
+---- 5 ----
+starting waiter thread #36
+VirtualThread[#36]/runnable@ForkJoinPool-1-worker-1
+starting #37
+Waiting for #37 to terminate
+VirtualThread[#37]/runnable@ForkJoinPool-1-worker-2
+#37 terminated
+Waiting for #36 to terminate
+#36 terminated
+starting #38
+Waiting for #38 to terminate
+VirtualThread[#38]/runnable@ForkJoinPool-1-worker-1
+#38 terminated
+---- 6 ----
+starting waiter thread #39
+VirtualThread[#39]/runnable@ForkJoinPool-1-worker-2
+starting #40
+Waiting for #40 to terminate
+VirtualThread[#40]/runnable@ForkJoinPool-1-worker-1
+#40 terminated
+Waiting for #39 to terminate
+#39 terminated
+starting #41
+Waiting for #41 to terminate
+VirtualThread[#41]/runnable@ForkJoinPool-1-worker-2
+#41 terminated
+---- 7 ----
+starting waiter thread #42
+VirtualThread[#42]/runnable@ForkJoinPool-1-worker-2
+starting #43
+Waiting for #43 to terminate
+VirtualThread[#43]/runnable@ForkJoinPool-1-worker-1
+#43 terminated
+Waiting for #42 to terminate
+#42 terminated
+starting #44
+Waiting for #44 to terminate
+VirtualThread[#44]/runnable@ForkJoinPool-1-worker-2
+#44 terminated
+---- 8 ----
+starting waiter thread #45
+VirtualThread[#45]/runnable@ForkJoinPool-1-worker-2
+starting #46
+Waiting for #46 to terminate
+VirtualThread[#46]/runnable@ForkJoinPool-1-worker-1
+#46 terminated
+Waiting for #45 to terminate
+#45 terminated
+starting #47
+Waiting for #47 to terminate
+VirtualThread[#47]/runnable@ForkJoinPool-1-worker-2
+#47 terminated
+---- 9 ----
+starting waiter thread #48
+VirtualThread[#48]/runnable@ForkJoinPool-1-worker-2
+starting #49
+Waiting for #49 to terminate
+VirtualThread[#49]/runnable@ForkJoinPool-1-worker-1
+#49 terminated
+Waiting for #48 to terminate
+#48 terminated
+starting #50
+Waiting for #50 to terminate
+VirtualThread[#50]/runnable@ForkJoinPool-1-worker-2
+#50 terminated
+---- 10 ----
+starting waiter thread #51
+VirtualThread[#51]/runnable@ForkJoinPool-1-worker-2
+starting #52
+Waiting for #52 to terminate
+VirtualThread[#52]/runnable@ForkJoinPool-1-worker-1
+#52 terminated
+Waiting for #51 to terminate
+#51 terminated
+starting #53
+Waiting for #53 to terminate
+VirtualThread[#53]/runnable@ForkJoinPool-1-worker-2
+#53 terminated
+---- 11 ----
+starting waiter thread #54
+VirtualThread[#54]/runnable@ForkJoinPool-1-worker-2
+starting #55
+Waiting for #55 to terminate
+VirtualThread[#55]/runnable@ForkJoinPool-1-worker-1
+#55 terminated
+Waiting for #54 to terminate
+#54 terminated
+starting #56
+Waiting for #56 to terminate
+VirtualThread[#56]/runnable@ForkJoinPool-1-worker-2
+#56 terminated
+---- 12 ----
+starting waiter thread #57
+VirtualThread[#57]/runnable@ForkJoinPool-1-worker-2
+starting #58
+Waiting for #58 to terminate
+VirtualThread[#58]/runnable@ForkJoinPool-1-worker-1
+#58 terminated
+Waiting for #57 to terminate
+#57 terminated
+starting #59
+Waiting for #59 to terminate
+VirtualThread[#59]/runnable@ForkJoinPool-1-worker-2
+#59 terminated
+---- 13 ----
+starting waiter thread #60
+VirtualThread[#60]/runnable@ForkJoinPool-1-worker-1
+starting #61
+Waiting for #61 to terminate
+VirtualThread[#61]/runnable@ForkJoinPool-1-worker-2
+#61 terminated
+Waiting for #60 to terminate
+#60 terminated
+starting #62
+Waiting for #62 to terminate
+VirtualThread[#62]/runnable@ForkJoinPool-1-worker-1
+#62 terminated
+---- 14 ----
+starting waiter thread #63
+VirtualThread[#63]/runnable@ForkJoinPool-1-worker-2
+starting #64
+Waiting for #64 to terminate
+VirtualThread[#64]/runnable@ForkJoinPool-1-worker-1
+#64 terminated
+Waiting for #63 to terminate
+#63 terminated
+starting #65
+Waiting for #65 to terminate
+VirtualThread[#65]/runnable@ForkJoinPool-1-worker-2
+#65 terminated
+---- 15 ----
+starting waiter thread #66
+VirtualThread[#66]/runnable@ForkJoinPool-1-worker-2
+starting #67
+Waiting for #67 to terminate
+VirtualThread[#67]/runnable@ForkJoinPool-1-worker-1
+#67 terminated
+Waiting for #66 to terminate
+#66 terminated
+starting #68
+Waiting for #68 to terminate
+VirtualThread[#68]/runnable@ForkJoinPool-1-worker-2
+#68 terminated
+---- 16 ----
+starting waiter thread #69
+VirtualThread[#69]/runnable@ForkJoinPool-1-worker-2
+starting #70
+Waiting for #70 to terminate
+VirtualThread[#70]/runnable@ForkJoinPool-1-worker-1
+#70 terminated
+Waiting for #69 to terminate
+#69 terminated
+starting #71
+Waiting for #71 to terminate
+VirtualThread[#71]/runnable@ForkJoinPool-1-worker-2
+#71 terminated
+---- 17 ----
+starting waiter thread #72
+VirtualThread[#72]/runnable@ForkJoinPool-1-worker-1
+starting #73
+Waiting for #73 to terminate
+VirtualThread[#73]/runnable@ForkJoinPool-1-worker-2
+#73 terminated
+Waiting for #72 to terminate
+#72 terminated
+starting #74
+Waiting for #74 to terminate
+VirtualThread[#74]/runnable@ForkJoinPool-1-worker-1
+#74 terminated
+---- 18 ----
+starting waiter thread #75
+VirtualThread[#75]/runnable@ForkJoinPool-1-worker-2
+starting #76
+Waiting for #76 to terminate
+VirtualThread[#76]/runnable@ForkJoinPool-1-worker-1
+#76 terminated
+Waiting for #75 to terminate
+#75 terminated
+starting #77
+Waiting for #77 to terminate
+VirtualThread[#77]/runnable@ForkJoinPool-1-worker-2
+#77 terminated
+---- 19 ----
+starting waiter thread #78
+VirtualThread[#78]/runnable@ForkJoinPool-1-worker-1
+starting #79
+Waiting for #79 to terminate
+VirtualThread[#79]/runnable@ForkJoinPool-1-worker-2
+#79 terminated
+Waiting for #78 to terminate
+#78 terminated
+starting #80
+Waiting for #80 to terminate
+VirtualThread[#80]/runnable@ForkJoinPool-1-worker-1
+#80 terminated
+---- 20 ----
+starting waiter thread #81
+VirtualThread[#81]/runnable@ForkJoinPool-1-worker-2
+starting #82
+Waiting for #82 to terminate
+VirtualThread[#82]/runnable@ForkJoinPool-1-worker-1
+#82 terminated
+Waiting for #81 to terminate
+#81 terminated
+starting #83
+Waiting for #83 to terminate
+VirtualThread[#83]/runnable@ForkJoinPool-1-worker-2
+#83 terminated
+---- 21 ----
+starting waiter thread #84
+VirtualThread[#84]/runnable@ForkJoinPool-1-worker-1
+starting #85
+Waiting for #85 to terminate
+VirtualThread[#85]/runnable@ForkJoinPool-1-worker-2
+#85 terminated
+Waiting for #84 to terminate
+#84 terminated
+starting #86
+Waiting for #86 to terminate
+VirtualThread[#86]/runnable@ForkJoinPool-1-worker-1
+#86 terminated
+---- 22 ----
+starting waiter thread #87
+VirtualThread[#87]/runnable@ForkJoinPool-1-worker-1
+starting #88
+Waiting for #88 to terminate
+VirtualThread[#88]/runnable@ForkJoinPool-1-worker-2
+#88 terminated
+Waiting for #87 to terminate
+#87 terminated
+starting #89
+Waiting for #89 to terminate
+VirtualThread[#89]/runnable@ForkJoinPool-1-worker-1
+#89 terminated
+---- 23 ----
+starting waiter thread #90
+VirtualThread[#90]/runnable@ForkJoinPool-1-worker-2
+starting #91
+Waiting for #91 to terminate
+VirtualThread[#91]/runnable@ForkJoinPool-1-worker-1
+#91 terminated
+Waiting for #90 to terminate
+#90 terminated
+starting #92
+Waiting for #92 to terminate
+VirtualThread[#92]/runnable@ForkJoinPool-1-worker-2
+#92 terminated
+---- 24 ----
+starting waiter thread #93
+VirtualThread[#93]/runnable@ForkJoinPool-1-worker-1
+starting #94
+Waiting for #94 to terminate
+VirtualThread[#94]/runnable@ForkJoinPool-1-worker-2
+#94 terminated
+Waiting for #93 to terminate
+#93 terminated
+starting #95
+Waiting for #95 to terminate
+VirtualThread[#95]/runnable@ForkJoinPool-1-worker-1
+#95 terminated
+---- 25 ----
+starting waiter thread #96
+VirtualThread[#96]/runnable@ForkJoinPool-1-worker-2
+starting #97
+Waiting for #97 to terminate
+VirtualThread[#97]/runnable@ForkJoinPool-1-worker-1
+#97 terminated
+Waiting for #96 to terminate
+#96 terminated
+starting #98
+Waiting for #98 to terminate
+VirtualThread[#98]/runnable@ForkJoinPool-1-worker-2
+#98 terminated
+---- 26 ----
+starting waiter thread #99
+VirtualThread[#99]/runnable@ForkJoinPool-1-worker-2
+starting #100
+Waiting for #100 to terminate
+VirtualThread[#100]/runnable@ForkJoinPool-1-worker-1
+#100 terminated
+Waiting for #99 to terminate
+#99 terminated
+starting #101
+Waiting for #101 to terminate
+VirtualThread[#101]/runnable@ForkJoinPool-1-worker-2
+#101 terminated
+---- 27 ----
+starting waiter thread #102
+VirtualThread[#102]/runnable@ForkJoinPool-1-worker-1
+starting #103
+Waiting for #103 to terminate
+VirtualThread[#103]/runnable@ForkJoinPool-1-worker-2
+#103 terminated
+Waiting for #102 to terminate
+#102 terminated
+starting #104
+Waiting for #104 to terminate
+VirtualThread[#104]/runnable@ForkJoinPool-1-worker-1
+#104 terminated
+---- 28 ----
+starting waiter thread #105
+VirtualThread[#105]/runnable@ForkJoinPool-1-worker-1
+starting #106
+Waiting for #106 to terminate
+VirtualThread[#106]/runnable@ForkJoinPool-1-worker-2
+#106 terminated
+Waiting for #105 to terminate
+#105 terminated
+starting #107
+Waiting for #107 to terminate
+VirtualThread[#107]/runnable@ForkJoinPool-1-worker-1
+#107 terminated
+---- 29 ----
+starting waiter thread #108
+VirtualThread[#108]/runnable@ForkJoinPool-1-worker-1
+starting #109
+Waiting for #109 to terminate
+VirtualThread[#109]/runnable@ForkJoinPool-1-worker-2
+#109 terminated
+Waiting for #108 to terminate
+#108 terminated
+starting #110
+Waiting for #110 to terminate
+VirtualThread[#110]/runnable@ForkJoinPool-1-worker-1
+#110 terminated
+---- 30 ----
+starting waiter thread #111
+VirtualThread[#111]/runnable@ForkJoinPool-1-worker-1
+starting #112
+Waiting for #112 to terminate
+VirtualThread[#112]/runnable@ForkJoinPool-1-worker-2
+#112 terminated
+Waiting for #111 to terminate
+#111 terminated
+starting #113
+Waiting for #113 to terminate
+VirtualThread[#113]/runnable@ForkJoinPool-1-worker-1
+#113 terminated
+---- 31 ----
+starting waiter thread #114
+VirtualThread[#114]/runnable@ForkJoinPool-1-worker-2
+starting #115
+Waiting for #115 to terminate
+VirtualThread[#115]/runnable@ForkJoinPool-1-worker-1
+#115 terminated
+Waiting for #114 to terminate
+#114 terminated
+starting #116
+Waiting for #116 to terminate
+VirtualThread[#116]/runnable@ForkJoinPool-1-worker-2
+#116 terminated
+---- 32 ----
+starting waiter thread #117
+VirtualThread[#117]/runnable@ForkJoinPool-1-worker-2
+starting #118
+Waiting for #118 to terminate
+VirtualThread[#118]/runnable@ForkJoinPool-1-worker-1
+#118 terminated
+Waiting for #117 to terminate
+#117 terminated
+starting #119
+Waiting for #119 to terminate
+VirtualThread[#119]/runnable@ForkJoinPool-1-worker-2
+#119 terminated
+---- 33 ----
+starting waiter thread #120
+VirtualThread[#120]/runnable@ForkJoinPool-1-worker-1
+starting #121
+Waiting for #121 to terminate
+VirtualThread[#121]/runnable@ForkJoinPool-1-worker-2
+#121 terminated
+Waiting for #120 to terminate
+#120 terminated
+starting #122
+Waiting for #122 to terminate
+VirtualThread[#122]/runnable@ForkJoinPool-1-worker-1
+#122 terminated
+---- 34 ----
+starting waiter thread #123
+VirtualThread[#123]/runnable@ForkJoinPool-1-worker-1
+starting #124
+Waiting for #124 to terminate
+VirtualThread[#124]/runnable@ForkJoinPool-1-worker-2
+#124 terminated
+Waiting for #123 to terminate
+#123 terminated
+starting #125
+Waiting for #125 to terminate
+VirtualThread[#125]/runnable@ForkJoinPool-1-worker-1
+#125 terminated
+---- 35 ----
+starting waiter thread #126
+VirtualThread[#126]/runnable@ForkJoinPool-1-worker-2
+starting #127
+Waiting for #127 to terminate
+VirtualThread[#127]/runnable@ForkJoinPool-1-worker-1
+#127 terminated
+Waiting for #126 to terminate
+#126 terminated
+starting #128
+Waiting for #128 to terminate
+VirtualThread[#128]/runnable@ForkJoinPool-1-worker-2
+#128 terminated
+---- 36 ----
+starting waiter thread #129
+VirtualThread[#129]/runnable@ForkJoinPool-1-worker-2
+starting #130
+Waiting for #130 to terminate
+VirtualThread[#130]/runnable@ForkJoinPool-1-worker-1
+#130 terminated
+Waiting for #129 to terminate
+#129 terminated
+starting #131
+Waiting for #131 to terminate
+VirtualThread[#131]/runnable@ForkJoinPool-1-worker-2
+#131 terminated
+---- 37 ----
+starting waiter thread #132
+VirtualThread[#132]/runnable@ForkJoinPool-1-worker-1
+starting #133
+Waiting for #133 to terminate
+VirtualThread[#133]/runnable@ForkJoinPool-1-worker-2
+#133 terminated
+Waiting for #132 to terminate
+#132 terminated
+starting #134
+Waiting for #134 to terminate
+VirtualThread[#134]/runnable@ForkJoinPool-1-worker-1
+#134 terminated
+---- 38 ----
+starting waiter thread #135
+VirtualThread[#135]/runnable@ForkJoinPool-1-worker-1
+starting #136
+Waiting for #136 to terminate
+VirtualThread[#136]/runnable@ForkJoinPool-1-worker-2
+#136 terminated
+Waiting for #135 to terminate
+#135 terminated
+starting #137
+Waiting for #137 to terminate
+VirtualThread[#137]/runnable@ForkJoinPool-1-worker-1
+#137 terminated
+---- 39 ----
+starting waiter thread #138
+VirtualThread[#138]/runnable@ForkJoinPool-1-worker-1
+starting #139
+Waiting for #139 to terminate
+VirtualThread[#139]/runnable@ForkJoinPool-1-worker-2
+#139 terminated
+Waiting for #138 to terminate
+#138 terminated
+starting #140
+Waiting for #140 to terminate
+VirtualThread[#140]/runnable@ForkJoinPool-1-worker-1
+#140 terminated
+---- 40 ----
+starting waiter thread #141
+VirtualThread[#141]/runnable@ForkJoinPool-1-worker-1
+starting #142
+Waiting for #142 to terminate
+VirtualThread[#142]/runnable@ForkJoinPool-1-worker-2
+#142 terminated
+Waiting for #141 to terminate
+#141 terminated
+starting #143
+Waiting for #143 to terminate
+VirtualThread[#143]/runnable@ForkJoinPool-1-worker-1
+#143 terminated
+---- 41 ----
+starting waiter thread #144
+VirtualThread[#144]/runnable@ForkJoinPool-1-worker-1
+starting #145
+Waiting for #145 to terminate
+VirtualThread[#145]/runnable@ForkJoinPool-1-worker-2
+#145 terminated
+Waiting for #144 to terminate
+#144 terminated
+starting #146
+Waiting for #146 to terminate
+VirtualThread[#146]/runnable@ForkJoinPool-1-worker-1
+#146 terminated
+---- 42 ----
+starting waiter thread #147
+VirtualThread[#147]/runnable@ForkJoinPool-1-worker-1
+starting #148
+Waiting for #148 to terminate
+VirtualThread[#148]/runnable@ForkJoinPool-1-worker-2
+#148 terminated
+Waiting for #147 to terminate
+#147 terminated
+starting #149
+Waiting for #149 to terminate
+VirtualThread[#149]/runnable@ForkJoinPool-1-worker-1
+#149 terminated
+---- 43 ----
+starting waiter thread #150
+VirtualThread[#150]/runnable@ForkJoinPool-1-worker-1
+starting #151
+Waiting for #151 to terminate
+VirtualThread[#151]/runnable@ForkJoinPool-1-worker-2
+#151 terminated
+Waiting for #150 to terminate
+#150 terminated
+starting #152
+Waiting for #152 to terminate
+VirtualThread[#152]/runnable@ForkJoinPool-1-worker-1
+#152 terminated
+---- 44 ----
+starting waiter thread #153
+VirtualThread[#153]/runnable@ForkJoinPool-1-worker-1
+starting #154
+Waiting for #154 to terminate
+VirtualThread[#154]/runnable@ForkJoinPool-1-worker-2
+#154 terminated
+Waiting for #153 to terminate
+#153 terminated
+starting #155
+Waiting for #155 to terminate
+VirtualThread[#155]/runnable@ForkJoinPool-1-worker-1
+#155 terminated
+---- 45 ----
+starting waiter thread #156
+VirtualThread[#156]/runnable@ForkJoinPool-1-worker-1
+starting #157
+Waiting for #157 to terminate
+VirtualThread[#157]/runnable@ForkJoinPool-1-worker-2
+#157 terminated
+Waiting for #156 to terminate
+#156 terminated
+starting #158
+Waiting for #158 to terminate
+VirtualThread[#158]/runnable@ForkJoinPool-1-worker-1
+#158 terminated
+---- 46 ----
+starting waiter thread #159
+VirtualThread[#159]/runnable@ForkJoinPool-1-worker-1
+starting #160
+Waiting for #160 to terminate
+VirtualThread[#160]/runnable@ForkJoinPool-1-worker-2
+#160 terminated
+Waiting for #159 to terminate
+#159 terminated
+starting #161
+Waiting for #161 to terminate
+VirtualThread[#161]/runnable@ForkJoinPool-1-worker-1
+#161 terminated
+---- 47 ----
+starting waiter thread #162
+VirtualThread[#162]/runnable@ForkJoinPool-1-worker-1
+starting #163
+Waiting for #163 to terminate
+VirtualThread[#163]/runnable@ForkJoinPool-1-worker-2
+#163 terminated
+Waiting for #162 to terminate
+#162 terminated
+starting #164
+Waiting for #164 to terminate
+VirtualThread[#164]/runnable@ForkJoinPool-1-worker-1
+#164 terminated
+---- 48 ----
+starting waiter thread #165
+VirtualThread[#165]/runnable@ForkJoinPool-1-worker-2
+starting #166
+Waiting for #166 to terminate
+VirtualThread[#166]/runnable@ForkJoinPool-1-worker-1
+#166 terminated
+Waiting for #165 to terminate
+#165 terminated
+starting #167
+Waiting for #167 to terminate
+VirtualThread[#167]/runnable@ForkJoinPool-1-worker-2
+#167 terminated
+---- 49 ----
+starting waiter thread #168
+VirtualThread[#168]/runnable@ForkJoinPool-1-worker-2
+starting #169
+Waiting for #169 to terminate
+VirtualThread[#169]/runnable@ForkJoinPool-1-worker-1
+#169 terminated
+Waiting for #168 to terminate
+#168 terminated
+starting #170
+Waiting for #170 to terminate
+VirtualThread[#170]/runnable@ForkJoinPool-1-worker-2
+#170 terminated
+---- 50 ----
+starting waiter thread #171
+VirtualThread[#171]/runnable@ForkJoinPool-1-worker-2
+starting #172
+Waiting for #172 to terminate
+VirtualThread[#172]/runnable@ForkJoinPool-1-worker-1
+#172 terminated
+Waiting for #171 to terminate
+#171 terminated
+starting #173
+Waiting for #173 to terminate
+VirtualThread[#173]/runnable@ForkJoinPool-1-worker-2
+#173 terminated
+---- 51 ----
+starting waiter thread #174
+VirtualThread[#174]/runnable@ForkJoinPool-1-worker-2
+starting #175
+Waiting for #175 to terminate
+VirtualThread[#175]/runnable@ForkJoinPool-1-worker-1
+#175 terminated
+Waiting for #174 to terminate
+#174 terminated
+starting #176
+Waiting for #176 to terminate
+VirtualThread[#176]/runnable@ForkJoinPool-1-worker-2
+#176 terminated
+---- 52 ----
+starting waiter thread #177
+VirtualThread[#177]/runnable@ForkJoinPool-1-worker-2
+starting #178
+Waiting for #178 to terminate
+VirtualThread[#178]/runnable@ForkJoinPool-1-worker-1
+#178 terminated
+Waiting for #177 to terminate
+#177 terminated
+starting #179
+Waiting for #179 to terminate
+VirtualThread[#179]/runnable@ForkJoinPool-1-worker-2
+#179 terminated
+---- 53 ----
+starting waiter thread #180
+VirtualThread[#180]/runnable@ForkJoinPool-1-worker-2
+starting #181
+Waiting for #181 to terminate
+VirtualThread[#181]/runnable@ForkJoinPool-1-worker-1
+#181 terminated
+Waiting for #180 to terminate
+#180 terminated
+starting #182
+Waiting for #182 to terminate
+VirtualThread[#182]/runnable@ForkJoinPool-1-worker-2
+#182 terminated
+---- 54 ----
+starting waiter thread #183
+VirtualThread[#183]/runnable@ForkJoinPool-1-worker-2
+starting #184
+Waiting for #184 to terminate
+VirtualThread[#184]/runnable@ForkJoinPool-1-worker-1
+#184 terminated
+Waiting for #183 to terminate
+#183 terminated
+starting #185
+Waiting for #185 to terminate
+VirtualThread[#185]/runnable@ForkJoinPool-1-worker-2
+#185 terminated
+---- 55 ----
+starting waiter thread #186
+VirtualThread[#186]/runnable@ForkJoinPool-1-worker-1
+starting #187
+Waiting for #187 to terminate
+VirtualThread[#187]/runnable@ForkJoinPool-1-worker-2
+#187 terminated
+Waiting for #186 to terminate
+#186 terminated
+starting #188
+Waiting for #188 to terminate
+VirtualThread[#188]/runnable@ForkJoinPool-1-worker-1
+#188 terminated
+---- 56 ----
+starting waiter thread #189
+VirtualThread[#189]/runnable@ForkJoinPool-1-worker-2
+starting #190
+Waiting for #190 to terminate
+VirtualThread[#190]/runnable@ForkJoinPool-1-worker-1
+#190 terminated
+Waiting for #189 to terminate
+#189 terminated
+starting #191
+Waiting for #191 to terminate
+VirtualThread[#191]/runnable@ForkJoinPool-1-worker-2
+#191 terminated
+---- 57 ----
+starting waiter thread #192
+VirtualThread[#192]/runnable@ForkJoinPool-1-worker-1
+starting #193
+Waiting for #193 to terminate
+VirtualThread[#193]/runnable@ForkJoinPool-1-worker-2
+#193 terminated
+Waiting for #192 to terminate
+#192 terminated
+starting #194
+Waiting for #194 to terminate
+VirtualThread[#194]/runnable@ForkJoinPool-1-worker-1
+#194 terminated
+---- 58 ----
+starting waiter thread #195
+VirtualThread[#195]/runnable@ForkJoinPool-1-worker-2
+starting #196
+Waiting for #196 to terminate
+VirtualThread[#196]/runnable@ForkJoinPool-1-worker-1
+#196 terminated
+Waiting for #195 to terminate
+#195 terminated
+starting #197
+Waiting for #197 to terminate
+VirtualThread[#197]/runnable@ForkJoinPool-1-worker-2
+#197 terminated
+---- 59 ----
+starting waiter thread #198
+VirtualThread[#198]/runnable@ForkJoinPool-1-worker-2
+starting #199
+Waiting for #199 to terminate
+VirtualThread[#199]/runnable@ForkJoinPool-1-worker-1
+#199 terminated
+Waiting for #198 to terminate
+#198 terminated
+starting #200
+Waiting for #200 to terminate
+VirtualThread[#200]/runnable@ForkJoinPool-1-worker-2
+#200 terminated
+---- 60 ----
+starting waiter thread #201
+VirtualThread[#201]/runnable@ForkJoinPool-1-worker-2
+starting #202
+Waiting for #202 to terminate
+VirtualThread[#202]/runnable@ForkJoinPool-1-worker-1
+#202 terminated
+Waiting for #201 to terminate
+#201 terminated
+starting #203
+Waiting for #203 to terminate
+VirtualThread[#203]/runnable@ForkJoinPool-1-worker-2
+#203 terminated
+---- 61 ----
+starting waiter thread #204
+VirtualThread[#204]/runnable@ForkJoinPool-1-worker-2
+starting #205
+Waiting for #205 to terminate
+VirtualThread[#205]/runnable@ForkJoinPool-1-worker-1
+#205 terminated
+Waiting for #204 to terminate
+#204 terminated
+starting #206
+Waiting for #206 to terminate
+VirtualThread[#206]/runnable@ForkJoinPool-1-worker-2
+#206 terminated
+---- 62 ----
+starting waiter thread #207
+VirtualThread[#207]/runnable@ForkJoinPool-1-worker-2
+starting #208
+Waiting for #208 to terminate
+VirtualThread[#208]/runnable@ForkJoinPool-1-worker-1
+#208 terminated
+Waiting for #207 to terminate
+#207 terminated
+starting #209
+Waiting for #209 to terminate
+VirtualThread[#209]/runnable@ForkJoinPool-1-worker-2
+#209 terminated
+---- 63 ----
+starting waiter thread #210
+VirtualThread[#210]/runnable@ForkJoinPool-1-worker-2
+starting #211
+Waiting for #211 to terminate
+VirtualThread[#211]/runnable@ForkJoinPool-1-worker-1
+#211 terminated
+Waiting for #210 to terminate
+#210 terminated
+starting #212
+Waiting for #212 to terminate
+VirtualThread[#212]/runnable@ForkJoinPool-1-worker-2
+#212 terminated
+---- 64 ----
+starting waiter thread #213
+VirtualThread[#213]/runnable@ForkJoinPool-1-worker-2
+starting #214
+Waiting for #214 to terminate
+VirtualThread[#214]/runnable@ForkJoinPool-1-worker-1
+#214 terminated
+Waiting for #213 to terminate
+#213 terminated
+starting #215
+Waiting for #215 to terminate
+VirtualThread[#215]/runnable@ForkJoinPool-1-worker-2
+#215 terminated
+---- 65 ----
+starting waiter thread #216
+VirtualThread[#216]/runnable@ForkJoinPool-1-worker-2
+starting #217
+Waiting for #217 to terminate
+VirtualThread[#217]/runnable@ForkJoinPool-1-worker-1
+#217 terminated
+Waiting for #216 to terminate
+#216 terminated
+starting #218
+Waiting for #218 to terminate
+VirtualThread[#218]/runnable@ForkJoinPool-1-worker-2
+#218 terminated
+---- 66 ----
+starting waiter thread #219
+VirtualThread[#219]/runnable@ForkJoinPool-1-worker-2
+starting #220
+Waiting for #220 to terminate
+VirtualThread[#220]/runnable@ForkJoinPool-1-worker-1
+#220 terminated
+Waiting for #219 to terminate
+#219 terminated
+starting #221
+Waiting for #221 to terminate
+VirtualThread[#221]/runnable@ForkJoinPool-1-worker-2
+#221 terminated
+---- 67 ----
+starting waiter thread #222
+VirtualThread[#222]/runnable@ForkJoinPool-1-worker-2
+starting #223
+Waiting for #223 to terminate
+VirtualThread[#223]/runnable@ForkJoinPool-1-worker-1
+#223 terminated
+Waiting for #222 to terminate
+#222 terminated
+starting #224
+Waiting for #224 to terminate
+VirtualThread[#224]/runnable@ForkJoinPool-1-worker-2
+#224 terminated
+---- 68 ----
+starting waiter thread #225
+VirtualThread[#225]/runnable@ForkJoinPool-1-worker-2
+starting #226
+Waiting for #226 to terminate
+VirtualThread[#226]/runnable@ForkJoinPool-1-worker-1
+#226 terminated
+Waiting for #225 to terminate
+#225 terminated
+starting #227
+Waiting for #227 to terminate
+VirtualThread[#227]/runnable@ForkJoinPool-1-worker-2
+#227 terminated
+---- 69 ----
+starting waiter thread #228
+VirtualThread[#228]/runnable@ForkJoinPool-1-worker-1
+starting #229
+Waiting for #229 to terminate
+VirtualThread[#229]/runnable@ForkJoinPool-1-worker-2
+#229 terminated
+Waiting for #228 to terminate
+#228 terminated
+starting #230
+Waiting for #230 to terminate
+VirtualThread[#230]/runnable@ForkJoinPool-1-worker-1
+#230 terminated
+---- 70 ----
+starting waiter thread #231
+VirtualThread[#231]/runnable@ForkJoinPool-1-worker-1
+starting #232
+Waiting for #232 to terminate
+VirtualThread[#232]/runnable@ForkJoinPool-1-worker-2
+#232 terminated
+Waiting for #231 to terminate
+#231 terminated
+starting #233
+Waiting for #233 to terminate
+VirtualThread[#233]/runnable@ForkJoinPool-1-worker-1
+#233 terminated
+---- 71 ----
+starting waiter thread #234
+VirtualThread[#234]/runnable@ForkJoinPool-1-worker-1
+starting #235
+Waiting for #235 to terminate
+VirtualThread[#235]/runnable@ForkJoinPool-1-worker-2
+#235 terminated
+Waiting for #234 to terminate
+#234 terminated
+starting #236
+Waiting for #236 to terminate
+VirtualThread[#236]/runnable@ForkJoinPool-1-worker-1
+#236 terminated
+---- 72 ----
+starting waiter thread #237
+VirtualThread[#237]/runnable@ForkJoinPool-1-worker-2
+starting #238
+Waiting for #238 to terminate
+VirtualThread[#238]/runnable@ForkJoinPool-1-worker-1
+#238 terminated
+Waiting for #237 to terminate
+#237 terminated
+starting #239
+Waiting for #239 to terminate
+VirtualThread[#239]/runnable@ForkJoinPool-1-worker-2
+#239 terminated
+---- 73 ----
+starting waiter thread #240
+VirtualThread[#240]/runnable@ForkJoinPool-1-worker-2
+starting #241
+Waiting for #241 to terminate
+VirtualThread[#241]/runnable@ForkJoinPool-1-worker-1
+#241 terminated
+Waiting for #240 to terminate
+#240 terminated
+starting #242
+Waiting for #242 to terminate
+VirtualThread[#242]/runnable@ForkJoinPool-1-worker-2
+#242 terminated
+---- 74 ----
+starting waiter thread #243
+VirtualThread[#243]/runnable@ForkJoinPool-1-worker-1
+starting #244
+Waiting for #244 to terminate
+VirtualThread[#244]/runnable@ForkJoinPool-1-worker-2
+#244 terminated
+Waiting for #243 to terminate
+#243 terminated
+starting #245
+Waiting for #245 to terminate
+VirtualThread[#245]/runnable@ForkJoinPool-1-worker-1
+#245 terminated
+---- 75 ----
+starting waiter thread #246
+VirtualThread[#246]/runnable@ForkJoinPool-1-worker-2
+starting #247
+Waiting for #247 to terminate
+VirtualThread[#247]/runnable@ForkJoinPool-1-worker-1
+#247 terminated
+Waiting for #246 to terminate
+#246 terminated
+starting #248
+Waiting for #248 to terminate
+VirtualThread[#248]/runnable@ForkJoinPool-1-worker-2
+#248 terminated
+---- 76 ----
+starting waiter thread #249
+VirtualThread[#249]/runnable@ForkJoinPool-1-worker-1
+starting #250
+Waiting for #250 to terminate
+VirtualThread[#250]/runnable@ForkJoinPool-1-worker-2
+#250 terminated
+Waiting for #249 to terminate
+#249 terminated
+starting #251
+Waiting for #251 to terminate
+VirtualThread[#251]/runnable@ForkJoinPool-1-worker-1
+#251 terminated
+---- 77 ----
+starting waiter thread #252
+VirtualThread[#252]/runnable@ForkJoinPool-1-worker-2
+starting #253
+Waiting for #253 to terminate
+VirtualThread[#253]/runnable@ForkJoinPool-1-worker-1
+#253 terminated
+Waiting for #252 to terminate
+#252 terminated
+starting #254
+Waiting for #254 to terminate
+VirtualThread[#254]/runnable@ForkJoinPool-1-worker-2
+#254 terminated
+---- 78 ----
+starting waiter thread #255
+VirtualThread[#255]/runnable@ForkJoinPool-1-worker-1
+starting #256
+Waiting for #256 to terminate
+VirtualThread[#256]/runnable@ForkJoinPool-1-worker-2
+#256 terminated
+Waiting for #255 to terminate
+#255 terminated
+starting #257
+Waiting for #257 to terminate
+VirtualThread[#257]/runnable@ForkJoinPool-1-worker-1
+#257 terminated
+---- 79 ----
+starting waiter thread #258
+VirtualThread[#258]/runnable@ForkJoinPool-1-worker-2
+starting #259
+Waiting for #259 to terminate
+VirtualThread[#259]/runnable@ForkJoinPool-1-worker-1
+#259 terminated
+Waiting for #258 to terminate
+#258 terminated
+starting #260
+Waiting for #260 to terminate
+VirtualThread[#260]/runnable@ForkJoinPool-1-worker-2
+#260 terminated
+---- 80 ----
+starting waiter thread #261
+VirtualThread[#261]/runnable@ForkJoinPool-1-worker-1
+starting #262
+Waiting for #262 to terminate
+VirtualThread[#262]/runnable@ForkJoinPool-1-worker-2
+#262 terminated
+Waiting for #261 to terminate
+#261 terminated
+starting #263
+Waiting for #263 to terminate
+VirtualThread[#263]/runnable@ForkJoinPool-1-worker-1
+#263 terminated
+---- 81 ----
+starting waiter thread #264
+VirtualThread[#264]/runnable@ForkJoinPool-1-worker-1
+starting #265
+Waiting for #265 to terminate
+VirtualThread[#265]/runnable@ForkJoinPool-1-worker-2
+#265 terminated
+Waiting for #264 to terminate
+#264 terminated
+starting #266
+Waiting for #266 to terminate
+VirtualThread[#266]/runnable@ForkJoinPool-1-worker-1
+#266 terminated
+---- 82 ----
+starting waiter thread #267
+VirtualThread[#267]/runnable@ForkJoinPool-1-worker-2
+starting #268
+Waiting for #268 to terminate
+VirtualThread[#268]/runnable@ForkJoinPool-1-worker-1
+#268 terminated
+Waiting for #267 to terminate
+#267 terminated
+starting #269
+Waiting for #269 to terminate
+VirtualThread[#269]/runnable@ForkJoinPool-1-worker-2
+#269 terminated
+---- 83 ----
+starting waiter thread #270
+VirtualThread[#270]/runnable@ForkJoinPool-1-worker-1
+starting #271
+Waiting for #271 to terminate
+VirtualThread[#271]/runnable@ForkJoinPool-1-worker-2
+#271 terminated
+Waiting for #270 to terminate
+#270 terminated
+starting #272
+Waiting for #272 to terminate
+VirtualThread[#272]/runnable@ForkJoinPool-1-worker-1
+#272 terminated
+---- 84 ----
+starting waiter thread #273
+VirtualThread[#273]/runnable@ForkJoinPool-1-worker-1
+starting #274
+Waiting for #274 to terminate
+VirtualThread[#274]/runnable@ForkJoinPool-1-worker-2
+#274 terminated
+Waiting for #273 to terminate
+#273 terminated
+starting #275
+Waiting for #275 to terminate
+VirtualThread[#275]/runnable@ForkJoinPool-1-worker-1
+#275 terminated
+---- 85 ----
+starting waiter thread #276
+VirtualThread[#276]/runnable@ForkJoinPool-1-worker-2
+starting #277
+Waiting for #277 to terminate
+VirtualThread[#277]/runnable@ForkJoinPool-1-worker-1
+#277 terminated
+Waiting for #276 to terminate
+#276 terminated
+starting #278
+Waiting for #278 to terminate
+VirtualThread[#278]/runnable@ForkJoinPool-1-worker-2
+#278 terminated
+---- 86 ----
+starting waiter thread #279
+VirtualThread[#279]/runnable@ForkJoinPool-1-worker-1
+starting #280
+Waiting for #280 to terminate
+VirtualThread[#280]/runnable@ForkJoinPool-1-worker-2
+#280 terminated
+Waiting for #279 to terminate
+#279 terminated
+starting #281
+Waiting for #281 to terminate
+VirtualThread[#281]/runnable@ForkJoinPool-1-worker-1
+#281 terminated
+---- 87 ----
+starting waiter thread #282
+VirtualThread[#282]/runnable@ForkJoinPool-1-worker-2
+starting #283
+Waiting for #283 to terminate
+VirtualThread[#283]/runnable@ForkJoinPool-1-worker-1
+#283 terminated
+Waiting for #282 to terminate
+#282 terminated
+starting #284
+Waiting for #284 to terminate
+VirtualThread[#284]/runnable@ForkJoinPool-1-worker-2
+#284 terminated
+---- 88 ----
+starting waiter thread #285
+VirtualThread[#285]/runnable@ForkJoinPool-1-worker-1
+starting #286
+Waiting for #286 to terminate
+VirtualThread[#286]/runnable@ForkJoinPool-1-worker-2
+#286 terminated
+Waiting for #285 to terminate
+#285 terminated
+starting #287
+Waiting for #287 to terminate
+VirtualThread[#287]/runnable@ForkJoinPool-1-worker-1
+#287 terminated
+---- 89 ----
+starting waiter thread #288
+VirtualThread[#288]/runnable@ForkJoinPool-1-worker-2
+starting #289
+Waiting for #289 to terminate
+VirtualThread[#289]/runnable@ForkJoinPool-1-worker-1
+#289 terminated
+Waiting for #288 to terminate
+#288 terminated
+starting #290
+Waiting for #290 to terminate
+VirtualThread[#290]/runnable@ForkJoinPool-1-worker-2
+#290 terminated
+---- 90 ----
+starting waiter thread #291
+VirtualThread[#291]/runnable@ForkJoinPool-1-worker-1
+starting #292
+Waiting for #292 to terminate
+VirtualThread[#292]/runnable@ForkJoinPool-1-worker-2
+#292 terminated
+Waiting for #291 to terminate
+#291 terminated
+starting #293
+Waiting for #293 to terminate
+VirtualThread[#293]/runnable@ForkJoinPool-1-worker-1
+#293 terminated
+---- 91 ----
+starting waiter thread #294
+VirtualThread[#294]/runnable@ForkJoinPool-1-worker-2
+starting #295
+Waiting for #295 to terminate
+VirtualThread[#295]/runnable@ForkJoinPool-1-worker-1
+#295 terminated
+Waiting for #294 to terminate
+#294 terminated
+starting #296
+Waiting for #296 to terminate
+VirtualThread[#296]/runnable@ForkJoinPool-1-worker-2
+#296 terminated
+---- 92 ----
+starting waiter thread #297
+VirtualThread[#297]/runnable@ForkJoinPool-1-worker-1
+starting #298
+Waiting for #298 to terminate
+VirtualThread[#298]/runnable@ForkJoinPool-1-worker-2
+#298 terminated
+Waiting for #297 to terminate
+#297 terminated
+starting #299
+Waiting for #299 to terminate
+VirtualThread[#299]/runnable@ForkJoinPool-1-worker-1
+#299 terminated
+---- 93 ----
+starting waiter thread #300
+VirtualThread[#300]/runnable@ForkJoinPool-1-worker-2
+starting #301
+Waiting for #301 to terminate
+VirtualThread[#301]/runnable@ForkJoinPool-1-worker-1
+#301 terminated
+Waiting for #300 to terminate
+#300 terminated
+starting #302
+Waiting for #302 to terminate
+VirtualThread[#302]/runnable@ForkJoinPool-1-worker-2
+#302 terminated
+---- 94 ----
+starting waiter thread #303
+VirtualThread[#303]/runnable@ForkJoinPool-1-worker-1
+starting #304
+Waiting for #304 to terminate
+VirtualThread[#304]/runnable@ForkJoinPool-1-worker-2
+#304 terminated
+Waiting for #303 to terminate
+#303 terminated
+starting #305
+Waiting for #305 to terminate
+VirtualThread[#305]/runnable@ForkJoinPool-1-worker-1
+#305 terminated
+---- 95 ----
+starting waiter thread #306
+VirtualThread[#306]/runnable@ForkJoinPool-1-worker-1
+starting #307
+Waiting for #307 to terminate
+VirtualThread[#307]/runnable@ForkJoinPool-1-worker-2
+#307 terminated
+Waiting for #306 to terminate
+#306 terminated
+starting #308
+Waiting for #308 to terminate
+VirtualThread[#308]/runnable@ForkJoinPool-1-worker-2
+#308 terminated
+---- 96 ----
+starting waiter thread #309
+VirtualThread[#309]/runnable@ForkJoinPool-1-worker-1
+starting #310
+Waiting for #310 to terminate
+VirtualThread[#310]/runnable@ForkJoinPool-1-worker-2
+#310 terminated
+Waiting for #309 to terminate
+#309 terminated
+starting #311
+Waiting for #311 to terminate
+VirtualThread[#311]/runnable@ForkJoinPool-1-worker-1
+#311 terminated
+---- 97 ----
+starting waiter thread #312
+VirtualThread[#312]/runnable@ForkJoinPool-1-worker-2
+starting #313
+Waiting for #313 to terminate
+VirtualThread[#313]/runnable@ForkJoinPool-1-worker-1
+#313 terminated
+Waiting for #312 to terminate
+#312 terminated
+starting #314
+Waiting for #314 to terminate
+VirtualThread[#314]/runnable@ForkJoinPool-1-worker-2
+#314 terminated
+---- 98 ----
+starting waiter thread #315
+VirtualThread[#315]/runnable@ForkJoinPool-1-worker-2
+starting #316
+Waiting for #316 to terminate
+VirtualThread[#316]/runnable@ForkJoinPool-1-worker-1
+#316 terminated
+Waiting for #315 to terminate
+#315 terminated
+starting #317
+Waiting for #317 to terminate
+VirtualThread[#317]/runnable@ForkJoinPool-1-worker-2
+#317 terminated
+---- 99 ----
+starting waiter thread #318
+VirtualThread[#318]/runnable@ForkJoinPool-1-worker-1
+starting #319
+Waiting for #319 to terminate
+VirtualThread[#319]/runnable@ForkJoinPool-1-worker-2
+#319 terminated
+Waiting for #318 to terminate
+#318 terminated
+starting #320
+Waiting for #320 to terminate
+VirtualThread[#320]/runnable@ForkJoinPool-1-worker-1
+#320 terminated
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(36/3465)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/Thread/virtual/ActivateSpareCarrier.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual/ActivateSpareCarrier.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/Thread/virtual/ActivateSpareCarrier.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/Thread/virtual \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djdk.virtualThreadScheduler.parallelism=1 \\
+        -Djdk.virtualThreadScheduler.maxPoolSize=2 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/Thread/virtual/ActivateSpareCarrier.d/main.0.jta 100
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

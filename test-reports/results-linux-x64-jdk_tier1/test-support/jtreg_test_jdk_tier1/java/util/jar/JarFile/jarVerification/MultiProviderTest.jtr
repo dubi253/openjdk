@@ -1,0 +1,598 @@
+#Test Results (version 2)
+#Mon Apr 29 00:55:49 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiProviderTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8234466
+library=/test/lib
+modules=java.base/jdk.internal.access\:+open
+run=USER_SPECIFIED build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher MultiThreadLoad FooService\nUSER_SPECIFIED main MultiProviderTest\nUSER_SPECIFIED main MultiProviderTest sign\n
+source=MultiProviderTest.java
+title=attempt to trigger class loading from the classloader during JAR file verification
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiProviderTest.java
+elapsed=8512 0\:00\:08.512
+end=Mon Apr 29 00\:55\:49 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.access\:+open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main build main
+start=Mon Apr 29 00\:55\:41 UTC 2024
+test=java/util/jar/JarFile/jarVerification/MultiProviderTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=8515
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/jar/JarFile/jarVerification
+
+#section:script_messages
+----------messages:(7/551)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+#section:build
+----------messages:(7/503)----------
+command: build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher MultiThreadLoad FooService
+reason: User specified action: run build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher MultiThreadLoad FooService 
+started: Mon Apr 29 00:55:41 UTC 2024
+Test directory:
+  compile: MultiThreadLoad, FooService
+finished: Mon Apr 29 00:55:41 UTC 2024
+elapsed time (seconds): 0.078
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/513)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiThreadLoad.java /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/FooService.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:55:41 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:55:41 UTC 2024
+elapsed time (seconds): 0.077
+----------configuration:(14/1025)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification 
+               /home/runner/work/openjdk/openjdk/test/lib 
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+
+----------rerun:(38/4152)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.access:+open \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiThreadLoad.java /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/FooService.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/177)----------
+command: build MultiProviderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:55:41 UTC 2024
+finished: Mon Apr 29 00:55:41 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(9/389)----------
+command: main MultiProviderTest
+reason: User specified action: run main MultiProviderTest 
+started: Mon Apr 29 00:55:41 UTC 2024
+Mode: agentvm
+Agent id: 29
+Additional exports to unnamed modules from @modules: java.base/jdk.internal.access
+Additional opens to unnamed modules from @modules: java.base/jdk.internal.access
+finished: Mon Apr 29 00:55:42 UTC 2024
+elapsed time (seconds): 0.798
+----------configuration:(17/1265)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+  add opens:   java.base/jdk.internal.access ALL-UNNAMED
+  class path:  /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d 
+               /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+               /home/runner/work/openjdk/openjdk/test/lib 
+
+----------rerun:(29/3401)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.access:+open \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        MultiProviderTest
+----------System.out:(13/2559)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider0.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider1.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider2.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider3.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider4.jar: --add-opens java.base/jdk.internal.access=ALL-UNNAMED -Djava.util.logging.config.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/logging.properties MultiThreadLoad /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d]
+[2024-04-29T00:55:41.855199458Z] Gathering output for process 135309
+[2024-04-29T00:55:41.876636112Z] Waiting for completion for process 135309
+[2024-04-29T00:55:42.107868430Z] Waiting for completion finished for process 135309
+Output and diagnostic info for process 135309 was saved into 'pid-135309-output.log'
+Thread context class loader: java.util.ServiceLoader[FooService]
+System class loader: java.util.ServiceLoader[FooService]
+null (defer to system class loader): java.util.ServiceLoader[FooService]
+
+Output:Thread context class loader: java.util.ServiceLoader[FooService]
+System class loader: java.util.ServiceLoader[FooService]
+null (defer to system class loader): java.util.ServiceLoader[FooService]
+
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build MultiProviderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:55:42 UTC 2024
+finished: Mon Apr 29 00:55:42 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(9/399)----------
+command: main MultiProviderTest sign
+reason: User specified action: run main MultiProviderTest sign 
+started: Mon Apr 29 00:55:42 UTC 2024
+Mode: agentvm
+Agent id: 29
+Additional exports to unnamed modules from @modules: java.base/jdk.internal.access
+Additional opens to unnamed modules from @modules: java.base/jdk.internal.access
+finished: Mon Apr 29 00:55:49 UTC 2024
+elapsed time (seconds): 7.635
+----------configuration:(17/1265)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+  add opens:   java.base/jdk.internal.access ALL-UNNAMED
+  class path:  /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d 
+               /home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+               /home/runner/work/openjdk/openjdk/test/lib 
+
+----------rerun:(29/3406)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/MultiProviderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.access:+open \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        MultiProviderTest sign
+----------System.out:(306/35510)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/keytool -J-Duser.language=en -J-Duser.country=US -genkey -keyalg rsa -alias JavaTest -keystore keystore.jks -keypass changeit -dname cn=sample -storepass changeit]
+[2024-04-29T00:55:42.153271283Z] Gathering output for process 135338
+[2024-04-29T00:55:42.158294515Z] Waiting for completion for process 135338
+[2024-04-29T00:55:44.971542116Z] Waiting for completion finished for process 135338
+Output and diagnostic info for process 135338 was saved into 'pid-135338-output.log'
+Generating 3,072 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
+	for: CN=sample
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore keystore.jks -storepass changeit -keypass changeit -verbose /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider0.jar JavaTest]
+[2024-04-29T00:55:45.044741729Z] Gathering output for process 135397
+[2024-04-29T00:55:45.053766673Z] Waiting for completion for process 135397
+[2024-04-29T00:55:45.905594997Z] Waiting for completion finished for process 135397
+Output and diagnostic info for process 135397 was saved into 'pid-135397-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: META-INF/services/FooService
+  signing: FooProvider0.class
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore keystore.jks -storepass changeit -keypass changeit -verbose /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider1.jar JavaTest]
+[2024-04-29T00:55:45.934720437Z] Gathering output for process 135441
+[2024-04-29T00:55:45.938157410Z] Waiting for completion for process 135441
+[2024-04-29T00:55:46.649973511Z] Waiting for completion finished for process 135441
+Output and diagnostic info for process 135441 was saved into 'pid-135441-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: FooProvider1.class
+  signing: META-INF/services/FooService
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore keystore.jks -storepass changeit -keypass changeit -verbose /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider2.jar JavaTest]
+[2024-04-29T00:55:46.686598636Z] Gathering output for process 135472
+[2024-04-29T00:55:46.690330406Z] Waiting for completion for process 135472
+[2024-04-29T00:55:47.596638843Z] Waiting for completion finished for process 135472
+Output and diagnostic info for process 135472 was saved into 'pid-135472-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: FooProvider2.class
+  signing: META-INF/services/FooService
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore keystore.jks -storepass changeit -keypass changeit -verbose /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider3.jar JavaTest]
+[2024-04-29T00:55:47.623494042Z] Gathering output for process 135501
+[2024-04-29T00:55:47.630196737Z] Waiting for completion for process 135501
+[2024-04-29T00:55:48.405477233Z] Waiting for completion finished for process 135501
+Output and diagnostic info for process 135501 was saved into 'pid-135501-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: META-INF/services/FooService
+  signing: FooProvider3.class
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore keystore.jks -storepass changeit -keypass changeit -verbose /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider4.jar JavaTest]
+[2024-04-29T00:55:48.430714145Z] Gathering output for process 135549
+[2024-04-29T00:55:48.440362749Z] Waiting for completion for process 135549
+[2024-04-29T00:55:49.216597747Z] Waiting for completion finished for process 135549
+Output and diagnostic info for process 135549 was saved into 'pid-135549-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: FooProvider4.class
+  signing: META-INF/services/FooService
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider0.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider1.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider2.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider3.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d/FooProvider4.jar: --add-opens java.base/jdk.internal.access=ALL-UNNAMED -Djava.util.logging.config.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/jar/JarFile/jarVerification/logging.properties MultiThreadLoad /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/jar/JarFile/jarVerification/MultiProviderTest.d]
+[2024-04-29T00:55:49.219702731Z] Gathering output for process 135577
+[2024-04-29T00:55:49.223453316Z] Waiting for completion for process 135577
+[2024-04-29T00:55:49.743263356Z] Waiting for completion finished for process 135577
+Output and diagnostic info for process 135577 was saved into 'pid-135577-output.log'
+System class loader: java.util.ServiceLoader[FooService]
+null (defer to system class loader): java.util.ServiceLoader[FooService]
+Thread context class loader: java.util.ServiceLoader[FooService]
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+
+Output:System class loader: java.util.ServiceLoader[FooService]
+null (defer to system class loader): java.util.ServiceLoader[FooService]
+Thread context class loader: java.util.ServiceLoader[FooService]
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+Apr 29, 2024 12:55:49 AM jdk.internal.event.EventHelper logX509CertificateEvent
+FINE: X509Certificate: Alg:SHA384withRSA, Serial:00:a1:c0:11:c3:04:b9:f8:68, Subject:CN=sample, Issuer:CN=sample, Key type:RSA, Length:3072, Cert Id:1196543301, Valid from:4/29/24, 12:55?AM, Valid until:7/28/24, 12:55?AM
+
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -28,6 +28,8 @@
 <meta name="keywords" content="setGroupingSize()">
 <meta name="keywords" content="isDecimalSeparatorAlwaysShown()">
 <meta name="keywords" content="setDecimalSeparatorAlwaysShown()">
+<meta name="keywords" content="isStrict()">
+<meta name="keywords" content="setStrict()">
 <meta name="keywords" content="isParseBigDecimal()">
 <meta name="keywords" content="setParseBigDecimal()">
 <meta name="keywords" content="clone()">
@@ -53,7 +55,7 @@
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -81,7 +83,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -110,7 +112,13 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
-<li><a href="#patterns" tabindex="0">Patterns</a></li>
+<li><a href="#getting-a-decimalformat-heading" tabindex="0">Getting a DecimalFormat</a></li>
+<li><a href="#using-decimalformat-heading" tabindex="0">Using DecimalFormat</a></li>
+<li><a href="#formatting" tabindex="0">Formatting and Parsing</a></li>
+</ol>
+<ol class="toc-list">
+<li><a href="#synchronization" tabindex="0">Synchronization</a></li>
+<li><a href="#patterns" tabindex="0">DecimalFormat Pattern</a></li>
 </ol>
 </li>
 <li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
@@ -147,6 +155,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#setGroupingSize(int)" tabindex="0">setGroupingSize(int)</a></li>
 <li><a href="#isDecimalSeparatorAlwaysShown()" tabindex="0">isDecimalSeparatorAlwaysShown()</a></li>
 <li><a href="#setDecimalSeparatorAlwaysShown(boolean)" tabindex="0">setDecimalSeparatorAlwaysShown(boolean)</a></li>
+<li><a href="#isStrict()" tabindex="0">isStrict()</a></li>
+<li><a href="#setStrict(boolean)" tabindex="0">setStrict(boolean)</a></li>
 <li><a href="#isParseBigDecimal()" tabindex="0">isParseBigDecimal()</a></li>
 <li><a href="#setParseBigDecimal(boolean)" tabindex="0">setParseBigDecimal(boolean)</a></li>
 <li><a href="#clone()" tabindex="0">clone()</a></li>
@@ -195,48 +205,105 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DecimalFormat</span>
 <span class="extends-implements">extends <a href="NumberFormat.html" title="class in java.text">NumberFormat</a></span></div>
 <div class="block"><code>DecimalFormat</code> is a concrete subclass of
- <code>NumberFormat</code> that formats decimal numbers. It has a variety of
- features designed to make it possible to parse and format numbers in any
- locale, including support for Western, Arabic, and Indic digits.  It also
- supports different kinds of numbers, including integers (123), fixed-point
+ <code>NumberFormat</code> that formats decimal numbers in a localized manner.
+ It has a variety of features designed to make it possible to parse and format
+ numbers in any locale, including support for Western, Arabic, and Indic digits.
+ It also supports different kinds of numbers, including integers (123), fixed-point
  numbers (123.4), scientific notation (1.23E4), percentages (12%), and
- currency amounts ($123).  All of these can be localized.
+ currency amounts ($123).
 
- <p>To obtain a <code>NumberFormat</code> for a specific locale, including the
- default locale, call one of <code>NumberFormat</code>'s factory methods, such
- as <code>getInstance()</code>.  In general, do not call the
- <code>DecimalFormat</code> constructors directly, since the
- <code>NumberFormat</code> factory methods may return subclasses other than
- <code>DecimalFormat</code>. If you need to customize the format object, do
- something like this:
+ <h2 id="getting-a-decimalformat-heading">Getting a DecimalFormat</h2>
 
- <blockquote>
+ To obtain a standard decimal format for a specific locale, including the default locale,
+ it is recommended to call one of the <code>NumberFormat</code>
+ <a href="NumberFormat.html#factory_methods"><code>factory methods</code></a>, such as <a href="NumberFormat.html#getInstance()"><code>NumberFormat.getInstance()</code></a>.
+ These factory methods may not always return a <code>DecimalFormat</code>
+ depending on the locale-service provider implementation
+ installed. Thus, to use an instance method defined by <code>DecimalFormat</code>,
+ the <code>NumberFormat</code> returned by the factory method should be
+ type checked before converted to <code>DecimalFormat</code>. If the installed locale-sensitive
+ service implementation does not support the given <code>Locale</code>, the parent
+ locale chain will be looked up, and a <code>Locale</code> used that is supported.
+
+ <p>If the factory methods are not desired, use one of the constructors such
+ as <a href="#%3Cinit%3E(java.lang.String)"><code>DecimalFormat(String pattern)</code></a>. See the <a href="#patterns"><code>Pattern</code></a> section for more information on the <code>pattern</code> parameter.
+
+ <h2 id="using-decimalformat-heading">Using DecimalFormat</h2>
+ The following is an example of formatting and parsing,
+ 
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
-<pre class="snippet"><code class="language-java">NumberFormat numFormat = NumberFormat.getInstance(loc);
-if (numFormat instanceof DecimalFormat decFormat) {
-    decFormat.setDecimalSeparatorAlwaysShown(true);
+<pre class="snippet"><code class="language-java">NumberFormat nFmt = NumberFormat.getCurrencyInstance(Locale.US);
+if (nFmt instanceof DecimalFormat dFmt) {
+    // pattern match to DecimalFormat to use setPositiveSuffix(String)
+    dFmt.setPositiveSuffix(" dollars");
+    dFmt.format(100000); // returns "$100,000.00 dollars"
+    dFmt.parse("$100,000.00 dollars"); // returns 100000
 }
 </code></pre>
 </div>
-</blockquote>
 
- <p>A <code>DecimalFormat</code> comprises a <em>pattern</em> and a set of
- <em>symbols</em>.  The pattern may be set directly using
- <code>applyPattern()</code>, or indirectly using the API methods.  The
- symbols are stored in a <code>DecimalFormatSymbols</code> object.  When using
- the <code>NumberFormat</code> factory methods, the pattern and symbols are
- read from localized <code>ResourceBundle</code>s.
 
- <h2 id="patterns">Patterns</h2>
 
- Note: For any given <code>DecimalFormat</code> pattern, if the pattern is not
- in scientific notation, the maximum number of integer digits will not be
- derived from the pattern, and instead set to <a href="../lang/Integer.html#MAX_VALUE"><code>Integer.MAX_VALUE</code></a>.
- Otherwise, if the pattern is in scientific notation, the maximum number of
- integer digits will be derived from the pattern. This derivation is detailed
- in the <a href="#scientific_notation"><code>Scientific Notation</code></a> section. This behavior
- is the typical end-user desire; <a href="#setMaximumIntegerDigits(int)"><code>setMaximumIntegerDigits(int)</code></a> can be
- used to manually adjust the maximum integer digits.
+ <h2 id="formatting">Formatting and Parsing</h2>
+ <h3 id="rounding">Rounding</h3>
+
+ When formatting, <code>DecimalFormat</code> can adjust its rounding using <a href="#setRoundingMode(java.math.RoundingMode)"><code>setRoundingMode(RoundingMode)</code></a>. By default, it uses
+ <a href="../math/RoundingMode.html#HALF_EVEN"><code>RoundingMode.HALF_EVEN</code></a>.
+
+ <h3 id="digits-heading">Digits</h3>
+
+ When formatting, <code>DecimalFormat</code> uses the ten consecutive
+ characters starting with the localized zero digit defined in the
+ <code>DecimalFormatSymbols</code> object as digits.
+ <p>When parsing, these digits as well as all Unicode decimal digits, as
+ defined by <a href="../lang/Character.html#digit(char,int)"><code>Character.digit</code></a>, are recognized.
+
+ <h3 id="digit_limits"> Integer and Fraction Digit Limits </h3></div>
+<dl class="notes">
+<dt>Implementation Requirements:</dt>
+<dd>When formatting a <code>Number</code> other than <code>BigInteger</code> and
+ <code>BigDecimal</code>, <code>309</code> is used as the upper limit for integer digits,
+ and <code>340</code> as the upper limit for fraction digits. This occurs, even if
+ one of the <code>DecimalFormat</code> getter methods, for example, <a href="#getMinimumFractionDigits()"><code>getMinimumFractionDigits()</code></a>
+ returns a numerically greater value.
+
+ <h3 id="special-values-heading">Special Values</h3>
+ <ul>
+ <li><p><b>Not a Number</b> (<code>NaN</code>) is formatted as a string,
+ which is typically given as "NaN". This string is determined by <a href="DecimalFormatSymbols.html#getNaN()"><code>DecimalFormatSymbols.getNaN()</code></a>. This is the only value for which the prefixes
+ and suffixes are not attached.
+
+ <li><p><b>Infinity</b> is formatted as a string, which is typically given as
+ "&#8734;" (<code>U+221E</code>), with the positive or negative prefixes and suffixes
+ attached. This string is determined by <a href="DecimalFormatSymbols.html#getInfinity()"><code>DecimalFormatSymbols.getInfinity()</code></a>.
+
+ <li><p><b>Negative zero</b> (<code>"-0"</code>) parses to
+ <ul>
+ <li><code>BigDecimal(0)</code> if <code>isParseBigDecimal()</code> is
+ true
+ <li><code>Long(0)</code> if <code>isParseBigDecimal()</code> is false
+     and <code>isParseIntegerOnly()</code> is true
+ <li><code>Double(-0.0)</code> if both <code>isParseBigDecimal()</code>
+ and <code>isParseIntegerOnly()</code> are false
+ </ul>
+ </ul>
+
+ <h2><a id="synchronization">Synchronization</a></h2>
+
+ <p>
+ Decimal formats are generally not synchronized.
+ It is recommended to create separate format instances for each thread.
+ If multiple threads access a format concurrently, it must be synchronized
+ externally.
+
+ <h2 id="patterns">DecimalFormat Pattern</h2>
+
+ A <code>DecimalFormat</code> comprises a <em>pattern</em> and a set of
+ <em>symbols</em>. The pattern may be set directly using <code>applyPattern()</code>,
+ or indirectly using the various API methods. The symbols are stored in a <code>
+ DecimalFormatSymbols</code> object. When using the <code>NumberFormat</code> factory
+ methods, the pattern and symbols are created from the locale-sensitive service
+ implementation installed.
 
  <p> <code>DecimalFormat</code> patterns have the following syntax:
  <blockquote><pre>
@@ -275,11 +342,114 @@ if (numFormat instanceof DecimalFormat decFormat) {
          0 <i>MinimumExponent<sub>opt</sub></i>
  </pre></blockquote>
 
- <p>A <code>DecimalFormat</code> pattern contains a positive and negative
+ <h3><a id="special_pattern_character">Special Pattern Characters</a></h3>
+
+ <p>The special characters in the table below are interpreted syntactically when
+ used in the DecimalFormat pattern.
+ They must be quoted, unless noted otherwise, if they are to appear in the
+ prefix or suffix as literals.
+
+ <p> The characters in the <code>Symbol</code> column are used in non-localized
+ patterns. The corresponding characters in the <code>Localized Symbol</code> column are used
+ in localized patterns, with the characters in <code>Symbol</code> losing their
+ syntactical meaning. Two exceptions are the currency sign (<code>U+00A4</code>) and
+ quote (<code>U+0027</code>), which are not localized.
+ <p>
+ Non-localized patterns should be used when calling <a href="#applyPattern(java.lang.String)"><code>applyPattern(String)</code></a>.
+ Localized patterns should be used when calling <a href="#applyLocalizedPattern(java.lang.String)"><code>applyLocalizedPattern(String)</code></a>.
+
+ <blockquote>
+ <table class="striped">
+ <caption style="display:none">Chart showing symbol, location, localized, and meaning.</caption>
+ <thead>
+     <tr>
+          <th scope="col" style="text-align:left">Symbol
+          <th scope="col" style="text-align:left">Localized Symbol
+          <th scope="col" style="text-align:left">Location
+          <th scope="col" style="text-align:left;width:50%">Meaning
+ </thead>
+ <tbody>
+     <tr>
+          <th scope="row"><code>0</code>
+          <td><a href="DecimalFormatSymbols.html#getZeroDigit()"><code>DecimalFormatSymbols.getZeroDigit()</code></a>
+          <td>Number
+          <td>Digit
+     <tr>
+          <th scope="row"><code>#</code>
+          <td><a href="DecimalFormatSymbols.html#getDigit()"><code>DecimalFormatSymbols.getDigit()</code></a>
+          <td>Number
+          <td>Digit, zero shows as absent
+     <tr>
+          <th scope="row"><code>.</code>
+          <td><a href="DecimalFormatSymbols.html#getDecimalSeparator()"><code>DecimalFormatSymbols.getDecimalSeparator()</code></a>
+          <td>Number
+          <td>Decimal separator or monetary decimal separator
+     <tr>
+          <th scope="row"><code>- (U+002D)</code>
+          <td><a href="DecimalFormatSymbols.html#getMinusSign()"><code>DecimalFormatSymbols.getMinusSign()</code></a>
+          <td>Number
+          <td>Minus sign
+     <tr>
+          <th scope="row"><code>,</code>
+          <td><a href="DecimalFormatSymbols.html#getGroupingSeparator()"><code>DecimalFormatSymbols.getGroupingSeparator()</code></a>
+          <td>Number
+          <td>Grouping separator or monetary grouping separator
+     <tr>
+          <th scope="row"><code>E</code>
+          <td><a href="DecimalFormatSymbols.html#getExponentSeparator()"><code>DecimalFormatSymbols.getExponentSeparator()</code></a>
+          <td>Number
+          <td>Separates mantissa and exponent in scientific notation. This value
+              is case sensistive. <em>Need not be quoted in prefix or suffix.</em>
+     <tr>
+          <th scope="row"><code>;</code>
+          <td><a href="DecimalFormatSymbols.html#getPatternSeparator()"><code>DecimalFormatSymbols.getPatternSeparator()</code></a>
+          <td>Subpattern boundary
+          <td>Separates positive and negative subpatterns
+     <tr>
+          <th scope="row"><code>%</code>
+          <td><a href="DecimalFormatSymbols.html#getPercent()"><code>DecimalFormatSymbols.getPercent()</code></a>
+          <td>Prefix or suffix
+          <td>Multiply by 100 and show as percentage
+     <tr>
+          <th scope="row">&permil; (<code>U+2030</code>)
+          <td><a href="DecimalFormatSymbols.html#getPerMill()"><code>DecimalFormatSymbols.getPerMill()</code></a>
+          <td>Prefix or suffix
+          <td>Multiply by 1000 and show as per mille value
+     <tr>
+          <th scope="row">&#164; (<code>U+00A4</code>)
+          <td> n/a (not localized)
+          <td>Prefix or suffix
+          <td>Currency sign, replaced by currency symbol.  If
+              doubled, replaced by international currency symbol.
+              If present in a pattern, the monetary decimal/grouping separators
+              are used instead of the decimal/grouping separators.
+     <tr>
+          <th scope="row"><code>' (U+0027)</code>
+          <td> n/a (not localized)
+          <td>Prefix or suffix
+          <td>Used to quote special characters in a prefix or suffix,
+              for example, <code>"'#'#"</code> formats 123 to
+              <code>"#123"</code>.  To create a single quote
+              itself, use two in a row: <code>"# o''clock"</code>.
+ </tbody>
+ </table>
+ </blockquote>
+
+ <h3 id="maximum-digits-derivation-heading">Maximum Digits Derivation</h3>
+ For any given <code>DecimalFormat</code> pattern, if the pattern is not
+ in scientific notation, the maximum number of integer digits will not be
+ derived from the pattern, and instead set to <a href="../lang/Integer.html#MAX_VALUE"><code>Integer.MAX_VALUE</code></a>.
+ Otherwise, if the pattern is in scientific notation, the maximum number of
+ integer digits will be derived from the pattern. This derivation is detailed
+ in the <a href="#scientific_notation"><code>Scientific Notation</code></a> section. <a href="#setMaximumIntegerDigits(int)"><code>setMaximumIntegerDigits(int)</code></a> can be used to manually adjust the maximum
+ integer digits.
+
+ <h3 id="negative-subpatterns-heading">Negative Subpatterns</h3>
+ A <code>DecimalFormat</code> pattern contains a positive and negative
  subpattern, for example, <code>"#,##0.00;(#,##0.00)"</code>.  Each
  subpattern has a prefix, numeric part, and suffix. The negative subpattern
  is optional; if absent, then the positive subpattern prefixed with the
- minus sign (<code>'-' U+002D HYPHEN-MINUS</code>) is used as the
+ minus sign <code>'-' (U+002D HYPHEN-MINUS)</code> is used as the
  negative subpattern. That is, <code>"0.00"</code> alone is equivalent to
  <code>"0.00;-0.00"</code>.  If there is an explicit negative subpattern, it
  serves only to specify the negative prefix and suffix; the number of digits,
@@ -298,104 +468,14 @@ if (numFormat instanceof DecimalFormat decFormat) {
  specified.)  Another example is that the decimal separator and grouping
  separator should be distinct characters, or parsing will be impossible.
 
+ <h3 id="grouping-separator-heading">Grouping Separator</h3>
  <p>The grouping separator is commonly used for thousands, but in some
- countries it separates ten-thousands. The grouping size is a constant number
+ locales it separates ten-thousands. The grouping size is a constant number
  of digits between the grouping characters, such as 3 for 100,000,000 or 4 for
- 1,0000,0000.  If you supply a pattern with multiple grouping characters, the
+ 1,0000,0000. If you supply a pattern with multiple grouping characters, the
  interval between the last one and the end of the integer is the one that is
- used. So <code>"#,##,###,####"</code> == <code>"######,####"</code> ==
+ used. For example, <code>"#,##,###,####"</code> == <code>"######,####"</code> ==
  <code>"##,####,####"</code>.
-
- <h3><a id="special_pattern_character">Special Pattern Characters</a></h3>
-
- <p>Many characters in a pattern are taken literally; they are matched during
- parsing and output unchanged during formatting.  Special characters, on the
- other hand, stand for other characters, strings, or classes of characters.
- They must be quoted, unless noted otherwise, if they are to appear in the
- prefix or suffix as literals.
-
- <p>The characters listed here are used in non-localized patterns.  Localized
- patterns use the corresponding characters taken from this formatter's
- <code>DecimalFormatSymbols</code> object instead, and these characters lose
- their special status.  Two exceptions are the currency sign and quote, which
- are not localized.
-
- <blockquote>
- <table class="striped">
- <caption style="display:none">Chart showing symbol, location, localized, and meaning.</caption>
- <thead>
-     <tr>
-          <th scope="col" style="text-align:left">Symbol
-          <th scope="col" style="text-align:left">Location
-          <th scope="col" style="text-align:left">Localized?
-          <th scope="col" style="text-align:left">Meaning
- </thead>
- <tbody>
-     <tr style="vertical-align:top">
-          <th scope="row"><code>0</code>
-          <td>Number
-          <td>Yes
-          <td>Digit
-     <tr style="vertical-align: top">
-          <th scope="row"><code>#</code>
-          <td>Number
-          <td>Yes
-          <td>Digit, zero shows as absent
-     <tr style="vertical-align:top">
-          <th scope="row"><code>.</code>
-          <td>Number
-          <td>Yes
-          <td>Decimal separator or monetary decimal separator
-     <tr style="vertical-align: top">
-          <th scope="row"><code>-</code>
-          <td>Number
-          <td>Yes
-          <td>Minus sign
-     <tr style="vertical-align:top">
-          <th scope="row"><code>,</code>
-          <td>Number
-          <td>Yes
-          <td>Grouping separator or monetary grouping separator
-     <tr style="vertical-align: top">
-          <th scope="row"><code>E</code>
-          <td>Number
-          <td>Yes
-          <td>Separates mantissa and exponent in scientific notation.
-              <em>Need not be quoted in prefix or suffix.</em>
-     <tr style="vertical-align:top">
-          <th scope="row"><code>;</code>
-          <td>Subpattern boundary
-          <td>Yes
-          <td>Separates positive and negative subpatterns
-     <tr style="vertical-align: top">
-          <th scope="row"><code>%</code>
-          <td>Prefix or suffix
-          <td>Yes
-          <td>Multiply by 100 and show as percentage
-     <tr style="vertical-align:top">
-          <th scope="row"><code>U+2030</code>
-          <td>Prefix or suffix
-          <td>Yes
-          <td>Multiply by 1000 and show as per mille value
-     <tr style="vertical-align: top">
-          <th scope="row">&#164; (<code>U+00A4</code>)
-          <td>Prefix or suffix
-          <td>No
-          <td>Currency sign, replaced by currency symbol.  If
-              doubled, replaced by international currency symbol.
-              If present in a pattern, the monetary decimal/grouping separators
-              are used instead of the decimal/grouping separators.
-     <tr style="vertical-align:top">
-          <th scope="row"><code>'</code>
-          <td>Prefix or suffix
-          <td>No
-          <td>Used to quote special characters in a prefix or suffix,
-              for example, <code>"'#'#"</code> formats 123 to
-              <code>"#123"</code>.  To create a single quote
-              itself, use two in a row: <code>"# o''clock"</code>.
- </tbody>
- </table>
- </blockquote>
 
  <h3 id="scientific_notation">Scientific Notation</h3>
 
@@ -480,97 +560,15 @@ if (numFormat instanceof DecimalFormat decFormat) {
 
 
  <li>Exponential patterns may not contain grouping separators.
- </ul>
-
- <h3 id="rounding-heading">Rounding</h3>
-
- <code>DecimalFormat</code> provides rounding modes defined in
- <a href="../math/RoundingMode.html" title="enum class in java.math"><code>RoundingMode</code></a> for formatting.  By default, it uses
- <a href="../math/RoundingMode.html#HALF_EVEN"><code>RoundingMode.HALF_EVEN</code></a>.
-
- <h3 id="digits-heading">Digits</h3>
-
- For formatting, <code>DecimalFormat</code> uses the ten consecutive
- characters starting with the localized zero digit defined in the
- <code>DecimalFormatSymbols</code> object as digits. For parsing, these
- digits as well as all Unicode decimal digits, as defined by
- <a href="../lang/Character.html#digit(char,int)"><code>Character.digit</code></a>, are recognized.
-
- <h3 id="digit_limits"> Integer and Fraction Digit Limits </h3></div>
-<dl class="notes">
-<dt>Implementation Requirements:</dt>
-<dd>When formatting a <code>Number</code> other than <code>BigInteger</code> and
- <code>BigDecimal</code>, <code>309</code> is used as the upper limit for integer digits,
- and <code>340</code> as the upper limit for fraction digits. This occurs, even if
- one of the <code>DecimalFormat</code> getter methods, for example, <a href="#getMinimumFractionDigits()"><code>getMinimumFractionDigits()</code></a>
- returns a numerically greater value.
-
- <h4 id="special-values-heading">Special Values</h4>
-
- <p>Not a Number(<code>NaN</code>) is formatted as a string, which typically has a
- single character <code>U+FFFD</code>.  This string is determined by the
- <code>DecimalFormatSymbols</code> object.  This is the only value for which
- the prefixes and suffixes are not used.
-
- <p>Infinity is formatted as a string, which typically has a single character
- <code>U+221E</code>, with the positive or negative prefixes and suffixes
- applied.  The infinity string is determined by the
- <code>DecimalFormatSymbols</code> object.
-
- <p>Negative zero (<code>"-0"</code>) parses to
- <ul>
- <li><code>BigDecimal(0)</code> if <code>isParseBigDecimal()</code> is
- true,
- <li><code>Long(0)</code> if <code>isParseBigDecimal()</code> is false
-     and <code>isParseIntegerOnly()</code> is true,
- <li><code>Double(-0.0)</code> if both <code>isParseBigDecimal()</code>
- and <code>isParseIntegerOnly()</code> are false.
- </ul>
-
- <h3><a id="synchronization">Synchronization</a></h3>
-
- <p>
- Decimal formats are generally not synchronized.
- It is recommended to create separate format instances for each thread.
- If multiple threads access a format concurrently, it must be synchronized
- externally.
-
- <h3 id="example-heading">Example</h3>
-
- <blockquote>
-<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
-<pre class="snippet"><code class="language-java">// Print out a number using the localized number, integer, currency,
-// and percent format for each locale
-Locale[] locales = NumberFormat.getAvailableLocales();
-double myNumber = -1234.56;
-NumberFormat form;
-for (int j = 0; j &lt; 4; ++j) {
-    System.out.println("FORMAT");
-    for (Locale locale : locales) {
-        if (locale.getCountry().length() == 0) {
-            continue; // Skip language-only locales
-        }
-        System.out.print(locale.getDisplayName());
-        form = switch (j) {
-            case 0 -&gt; NumberFormat.getInstance(locale);
-            case 1 -&gt; NumberFormat.getIntegerInstance(locale);
-            case 2 -&gt; NumberFormat.getCurrencyInstance(locale);
-            default -&gt; NumberFormat.getPercentInstance(locale);
-        };
-        if (form instanceof DecimalFormat decForm) {
-            System.out.print(": " + decForm.toPattern());
-        }
-        System.out.print(" -&gt; " + form.format(myNumber));
-        try {
-            System.out.println(" -&gt; " + form.parse(form.format(myNumber)));
-        } catch (ParseException e) {}
-    }
-}
-</code></pre>
-</div>
-</blockquote></dd>
+ </ul></dd>
 <dt>Since:</dt>
 <dd>1.1</dd>
+<dt>External Specifications</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="https://www.unicode.org/reports/tr35"><span id="UnicodeLocaleDataMarkupLanguage(LDML)" class="search-tag-result">Unicode Locale Data Markup Language (LDML)</span></a></li>
+</ul>
+</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
@@ -578,6 +576,7 @@ for (int j = 0; j &lt; 4; ++j) {
 <li><a href="NumberFormat.html" title="class in java.text"><code>NumberFormat</code></a></li>
 <li><a href="DecimalFormatSymbols.html" title="class in java.text"><code>DecimalFormatSymbols</code></a></li>
 <li><a href="ParsePosition.html" title="class in java.text"><code>ParsePosition</code></a></li>
+<li><a href="../util/Locale.html" title="class in java.util"><code>Locale</code></a></li>
 <li><a href="../../../serialized-form.html#java.text.DecimalFormat">Serialized Form</a></li>
 </ul>
 </dd>
@@ -776,94 +775,105 @@ for (int j = 0; j &lt; 4; ++j) {
 <div class="block">Returns whether the <a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(java.lang.String, java.text.ParsePosition)</code></a>
  method returns <code>BigDecimal</code>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/Number.html" title="class in java.lang">Number</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(java.lang.String,java.text.ParsePosition)" class="member-name-link">parse</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
- <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isStrict()" class="member-name-link">isStrict</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Parses text from a string to produce a <code>Number</code>.</div>
+<div class="block">Returns <code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrency(java.util.Currency)" class="member-name-link">setCurrency</a><wbr>(<a href="../util/Currency.html" title="class in java.util">Currency</a>&nbsp;currency)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/Number.html" title="class in java.lang">Number</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(java.lang.String,java.text.ParsePosition)" class="member-name-link">parse</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
+ <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Parses text from the beginning of the given string to produce a <code>Number</code>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrency(java.util.Currency)" class="member-name-link">setCurrency</a><wbr>(<a href="../util/Currency.html" title="class in java.util">Currency</a>&nbsp;currency)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the currency used by this number format when formatting
  currency values.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDecimalFormatSymbols(java.text.DecimalFormatSymbols)" class="member-name-link">setDecimalFormatSymbols</a><wbr>(<a href="DecimalFormatSymbols.html" title="class in java.text">DecimalFormatSymbols</a>&nbsp;newSymbols)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDecimalFormatSymbols(java.text.DecimalFormatSymbols)" class="member-name-link">setDecimalFormatSymbols</a><wbr>(<a href="DecimalFormatSymbols.html" title="class in java.text">DecimalFormatSymbols</a>&nbsp;newSymbols)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the decimal format symbols, which is generally not changed
  by the programmer or user.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDecimalSeparatorAlwaysShown(boolean)" class="member-name-link">setDecimalSeparatorAlwaysShown</a><wbr>(boolean&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDecimalSeparatorAlwaysShown(boolean)" class="member-name-link">setDecimalSeparatorAlwaysShown</a><wbr>(boolean&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Allows you to set the behavior of the decimal separator with integers.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingSize(int)" class="member-name-link">setGroupingSize</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingSize(int)" class="member-name-link">setGroupingSize</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the grouping size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumFractionDigits(int)" class="member-name-link">setMaximumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumFractionDigits(int)" class="member-name-link">setMaximumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the maximum number of digits allowed in the fraction portion of a
  number.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumIntegerDigits(int)" class="member-name-link">setMaximumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumIntegerDigits(int)" class="member-name-link">setMaximumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the maximum number of digits allowed in the integer portion of a
  number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumFractionDigits(int)" class="member-name-link">setMinimumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumFractionDigits(int)" class="member-name-link">setMinimumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the minimum number of digits allowed in the fraction portion of a
  number.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumIntegerDigits(int)" class="member-name-link">setMinimumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumIntegerDigits(int)" class="member-name-link">setMinimumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the minimum number of digits allowed in the integer portion of a
  number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMultiplier(int)" class="member-name-link">setMultiplier</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMultiplier(int)" class="member-name-link">setMultiplier</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the multiplier for use in percent, per mille, and similar
  formats.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNegativePrefix(java.lang.String)" class="member-name-link">setNegativePrefix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNegativePrefix(java.lang.String)" class="member-name-link">setNegativePrefix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the negative prefix.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNegativeSuffix(java.lang.String)" class="member-name-link">setNegativeSuffix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNegativeSuffix(java.lang.String)" class="member-name-link">setNegativeSuffix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the negative suffix.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseBigDecimal(boolean)" class="member-name-link">setParseBigDecimal</a><wbr>(boolean&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseBigDecimal(boolean)" class="member-name-link">setParseBigDecimal</a><wbr>(boolean&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets whether the <a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(java.lang.String, java.text.ParsePosition)</code></a>
  method returns <code>BigDecimal</code>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPositivePrefix(java.lang.String)" class="member-name-link">setPositivePrefix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPositivePrefix(java.lang.String)" class="member-name-link">setPositivePrefix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the positive prefix.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPositiveSuffix(java.lang.String)" class="member-name-link">setPositiveSuffix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPositiveSuffix(java.lang.String)" class="member-name-link">setPositiveSuffix</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the positive suffix.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRoundingMode(java.math.RoundingMode)" class="member-name-link">setRoundingMode</a><wbr>(<a href="../math/RoundingMode.html" title="enum class in java.math">RoundingMode</a>&nbsp;roundingMode)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRoundingMode(java.math.RoundingMode)" class="member-name-link">setRoundingMode</a><wbr>(<a href="../math/RoundingMode.html" title="enum class in java.math">RoundingMode</a>&nbsp;roundingMode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the <a href="../math/RoundingMode.html" title="enum class in java.math"><code>RoundingMode</code></a> used in this DecimalFormat.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStrict(boolean)" class="member-name-link">setStrict</a><wbr>(boolean&nbsp;strict)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Change the leniency value for parsing.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/String.html" title="class in java.lang">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toLocalizedPattern()" class="member-name-link">toLocalizedPattern</a>()</code></div>
@@ -1176,18 +1186,44 @@ for (int j = 0; j &lt; 4; ++j) {
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../lang/Number.html" title="class in java.lang">Number</a></span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
  <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</span></div>
-<div class="block">Parses text from a string to produce a <code>Number</code>.
+<div class="block">Parses text from the beginning of the given string to produce a <code>Number</code>.
  <p>
- The method attempts to parse text starting at the index given by
- <code>pos</code>.
- If parsing succeeds, then the index of <code>pos</code> is updated
- to the index after the last character used (parsing does not necessarily
- use all characters up to the end of the string), and the parsed
- number is returned. The updated <code>pos</code> can be used to
- indicate the starting point for the next call to this method.
- If an error occurs, then the index of <code>pos</code> is not
- changed, the error index of <code>pos</code> is set to the index of
- the character where the error occurred, and null is returned.
+ This method attempts to parse text starting at the index given by the
+ <code>ParsePosition</code>. If parsing succeeds, then the index of the <code>
+ ParsePosition</code> is updated to the index after the last character used
+ (parsing does not necessarily use all characters up to the end of the
+ string), and the parsed number is returned. The updated <code>
+ ParsePosition</code> can be used to indicate the starting
+ point for the next call to this method. If an error occurs, then the
+ index of the <code>ParsePosition</code> is not changed, the error index of the
+ <code>ParsePosition</code> is set to the index of the character where the error
+ occurred, and <code>null</code> is returned.
+ <p>
+ This method will return a Long if possible (e.g., within the range [Long.MIN_VALUE,
+ Long.MAX_VALUE] and with no decimals), otherwise a Double.
+ <p>
+ Parsing can be done in either a strict or lenient manner, by default it is lenient.
+ <p>
+ Parsing fails when <b>lenient</b>, if the prefix and/or suffix are non-empty
+ and cannot be found due to parsing ending early, or the first character
+ after the prefix cannot be parsed.
+ <p>
+ Parsing fails when <b>strict</b>, if in <code>text</code>,
+ <ul>
+   <li> The prefix is not found. For example, a <code>Locale.US</code> currency
+   format prefix: "<code>$</code>"
+   <li> The suffix is not found. For example, a <code>Locale.US</code> percent
+   format suffix: "<code>%</code>"
+   <li> <a href="NumberFormat.html#isGroupingUsed()"><code>NumberFormat.isGroupingUsed()</code></a> returns <code>true</code>, and <a href="#getGroupingSize()"><code>getGroupingSize()</code></a> is not adhered to
+   <li> <a href="NumberFormat.html#isGroupingUsed()"><code>NumberFormat.isGroupingUsed()</code></a> returns <code>false</code>, and the grouping
+   symbol is found
+   <li> <a href="NumberFormat.html#isParseIntegerOnly()"><code>NumberFormat.isParseIntegerOnly()</code></a> returns <code>true</code>, and the decimal
+   separator is found
+   <li> <a href="NumberFormat.html#isGroupingUsed()"><code>NumberFormat.isGroupingUsed()</code></a> returns <code>true</code> and <a href="NumberFormat.html#isParseIntegerOnly()"><code>NumberFormat.isParseIntegerOnly()</code></a> returns <code>false</code>, and the grouping
+   symbol occurs after the decimal separator
+   <li> Any other characters are found, that are not the expected symbols,
+   and are not digits that occur within the numerical portion
+ </ul>
  <p>
  The subclass returned depends on the value of <a href="#isParseBigDecimal()"><code>isParseBigDecimal()</code></a>
  as well as on the string being parsed.
@@ -1237,9 +1273,8 @@ for (int j = 0; j &lt; 4; ++j) {
              <code>pos</code> is null.</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list-long">
-<li><a href="NumberFormat.html#isParseIntegerOnly()"><code>NumberFormat.isParseIntegerOnly()</code></a></li>
-<li><a href="Format.html#parseObject(java.lang.String,java.text.ParsePosition)"><code>Format.parseObject(java.lang.String, java.text.ParsePosition)</code></a></li>
+<ul class="tag-list">
+<li><a href="NumberFormat.html#isStrict()"><code>NumberFormat.isStrict()</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -1531,6 +1566,58 @@ for (int j = 0; j &lt; 4; ++j) {
 <dt>Parameters:</dt>
 <dd><code>newValue</code> - <code>true</code> if the decimal separator is always shown;
                  <code>false</code> otherwise</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isStrict()">
+<h3>isStrict</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isStrict</span>()</div>
+<div class="block">Returns <code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="NumberFormat.html#isStrict()">isStrict</a></code>&nbsp;in class&nbsp;<code><a href="NumberFormat.html" title="class in java.text">NumberFormat</a></code></dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise</dd>
+<dt>Since:</dt>
+<dd>23</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#setStrict(boolean)"><code>setStrict(boolean)</code></a></li>
+<li><a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(String, ParsePosition)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setStrict(boolean)">
+<h3>setStrict</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStrict</span><wbr><span class="parameters">(boolean&nbsp;strict)</span></div>
+<div class="block">Change the leniency value for parsing. Parsing can either be strict or lenient,
+ by default it is lenient.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="NumberFormat.html#setStrict(boolean)">setStrict</a></code>&nbsp;in class&nbsp;<code><a href="NumberFormat.html" title="class in java.text">NumberFormat</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>strict</code> - <code>true</code> if parsing should be done strictly;
+               <code>false</code> otherwise</dd>
+<dt>Since:</dt>
+<dd>23</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#isStrict()"><code>isStrict()</code></a></li>
+<li><a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(String, ParsePosition)</code></a></li>
+</ul>
+</dd>
 </dl>
 </div>
 </section>
@@ -2068,7 +2155,7 @@ for (int j = 0; j &lt; 4; ++j) {
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

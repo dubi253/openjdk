@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -58,7 +58,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -220,19 +220,43 @@ client.sendAsync(request, BodyHandlers.ofString())
 <dd>Resources allocated by the <code>HttpClient</code> may be
  reclaimed early by <a href="#close()">closing</a> the client.</dd>
 <dt>Implementation Note:</dt>
-<dd><p id="closing">
-  The JDK built-in implementation of the <code>HttpClient</code> overrides
+<dd><p id="streaming">
+  The <a href="HttpResponse.BodyHandlers.html" title="class in java.net.http"><code>HttpResponse.BodyHandlers</code></a> and <a href="HttpResponse.BodySubscribers.html" title="class in java.net.http"><code>HttpResponse.BodySubscribers</code></a>
+  classes provide some <a href="HttpResponse.BodySubscribers.html#streaming-body">streaming
+  or publishing <code>BodyHandler</code> and <code>BodySubscriber</code>
+  implementations</a> which allow to stream body data back to the caller.
+  In order for the resources associated with these streams to be
+  reclaimed, and for the HTTP request to be considered completed,
+  a caller must eventually <a href="HttpResponse.html#body()">obtain the streaming response body</a> and close, cancel, or
+  read the returned streams to exhaustion. Likewise, a custom
+  <a href="HttpResponse.BodySubscriber.html" title="interface in java.net.http"><code>HttpResponse.BodySubscriber</code></a> implementation should either <a href="../../../../java.base/java/util/concurrent/Flow.Subscription.html#request(long)">request</a> all data until <a href="../../../../java.base/java/util/concurrent/Flow.Subscriber.html#onComplete()"><code>onComplete</code></a> or <a href="../../../../java.base/java/util/concurrent/Flow.Subscriber.html#onError(java.lang.Throwable)"><code>onError</code></a> is signalled, or eventually
+  <a href="../../../../java.base/java/util/concurrent/Flow.Subscription.html#cancel()">cancel</a> its subscription.
+
+ <p id="closing">
+ The JDK built-in implementation of the <code>HttpClient</code> overrides
  <a href="#close()"><code>close()</code></a>, <a href="#shutdown()"><code>shutdown()</code></a>, <a href="#shutdownNow()"><code>shutdownNow()</code></a>,
  <a href="#awaitTermination(java.time.Duration)"><code>awaitTermination(Duration)</code></a>, and <a href="#isTerminated()"><code>isTerminated()</code></a> to
  provide a best effort implementation. Failing to close, cancel, or
- read returned streams to exhaustion, such as streams provided when using
- <a href="HttpResponse.BodyHandlers.html#ofInputStream()"><code>HttpResponse.BodyHandlers.ofInputStream()</code></a>, <a href="HttpResponse.BodyHandlers.html#ofLines()"><code>HttpResponse.BodyHandlers.ofLines()</code></a>, or
- <a href="HttpResponse.BodyHandlers.html#ofPublisher()"><code>HttpResponse.BodyHandlers.ofPublisher()</code></a>, may prevent requests submitted
- before an <a href="#shutdown()">orderly shutdown</a>
- to run to completion. Likewise, failing to
- <a href="../../../../java.base/java/util/concurrent/Flow.Subscription.html#request(long)">request data</a> or <a href="../../../../java.base/java/util/concurrent/Flow.Subscription.html#cancel()">cancel subscriptions</a> from a custom <a href="HttpResponse.BodySubscriber.html" title="interface in java.net.http">BodySubscriber</a> may stop
- delivery of data and <a href="#awaitTermination(java.time.Duration)">stall an
- orderly shutdown</a>.
+ read <a href="#streaming"><code>streaming or publishing bodies</code></a> to exhaustion
+ may stop delivery of data while leaving the request open, and
+ <a href="#awaitTermination(java.time.Duration)">stall an
+ orderly shutdown</a>. The <a href="#shutdownNow()"><code>shutdownNow()</code></a> method, if called, will
+ attempt to cancel any such non-completed requests, but may cause
+ abrupt termination of any on going operation.
+
+ <p id="gc">
+ If not <a href="#closing">explicitly closed</a>, the JDK
+ built-in implementation of the <code>HttpClient</code> releases
+ its resources when an <code>HttpClient</code> instance is no longer
+ strongly reachable, and all operations started on that instance have
+ eventually completed. This relies both on the garbage collector
+ to notice that the instance is no longer reachable, and on all
+ requests started on the client to eventually complete. Failure
+ to properly close <a href="#streaming">streaming or publishing bodies</a>
+ may prevent the associated requests from running to completion, and
+ prevent the resources allocated by the associated client from
+ being reclaimed by the garbage collector.
+
 
  <p>
  If an explicit <a href="HttpClient.Builder.html#executor(java.util.concurrent.Executor)">executor</a> has not been set for an <code>HttpClient</code>, and a security manager
@@ -755,7 +779,7 @@ client.sendAsync(request, BodyHandlers.ofString())
           information.</li>
  </ul>
 
- <p> The default <code>HttpClient</code> implementation returns
+ <p id="cancel"> The default <code>HttpClient</code> implementation returns
  <code>CompletableFuture</code> objects that are <em>cancelable</em>.
  <code>CompletableFuture</code> objects <a href="../../../../java.base/java/util/concurrent/CompletableFuture.html#newIncompleteFuture()">derived</a> from cancelable futures are themselves <em>cancelable</em>.
  Invoking <a href="../../../../java.base/java/util/concurrent/CompletableFuture.html#cancel(boolean)">cancel(true)</a>
@@ -1018,7 +1042,7 @@ CompletableFuture&lt;WebSocket&gt; ws = client.newWebSocketBuilder()
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

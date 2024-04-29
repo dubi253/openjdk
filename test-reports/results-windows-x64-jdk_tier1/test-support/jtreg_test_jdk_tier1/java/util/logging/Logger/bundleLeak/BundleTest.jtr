@@ -1,0 +1,228 @@
+#Test Results (version 2)
+#Mon Apr 29 01:38:10 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=bug8239013 othervm
+modules=java.logging
+run=USER_SPECIFIED build BundleTest MyBundle LoggingApp\r\nUSER_SPECIFIED main/othervm -Xmx64M -Djava.util.logging.config.file\=logging.properties BundleTest\r\n
+source=BundleTest.java
+title=This test verifies that the Logger cache does not keep a strong reference on dynamically loaded resource bundles
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/java/util/logging/Logger/bundleLeak/BundleTest.java
+elapsed=3696 0\:00\:03.696
+end=Mon Apr 29 01\:38\:10 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main
+start=Mon Apr 29 01\:38\:07 UTC 2024
+test=java/util/logging/Logger/bundleLeak/BundleTest.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=3696
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\util\\logging\\Logger\\bundleLeak
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/293)----------
+command: build BundleTest MyBundle LoggingApp
+reason: User specified action: run build BundleTest MyBundle LoggingApp 
+started: Mon Apr 29 01:38:07 UTC 2024
+Test directory:
+  compile: BundleTest, MyBundle, LoggingApp
+finished: Mon Apr 29 01:38:07 UTC 2024
+elapsed time (seconds): 0.032
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/546)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.java D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\MyBundle.java D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\LoggingApp.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:38:07 UTC 2024
+Additional options from @modules: --add-modules java.logging
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:38:07 UTC 2024
+elapsed time (seconds): 0.032
+----------configuration:(11/736)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: java.logging
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d
+
+----------rerun:(38/3885)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=java/util/logging/Logger/bundleLeak/BundleTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -J-Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\MyBundle.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\LoggingApp.java'
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/175)----------
+command: build BundleTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:38:07 UTC 2024
+finished: Mon Apr 29 01:38:07 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/413)----------
+command: main -Xmx64M -Djava.util.logging.config.file=logging.properties BundleTest
+reason: User specified action: run main/othervm -Xmx64M -Djava.util.logging.config.file=logging.properties BundleTest 
+started: Mon Apr 29 01:38:07 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:38:10 UTC 2024
+elapsed time (seconds): 3.664
+----------configuration:(3/43)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(33/874)----------
+Waiting for URL loader to be GC'ed
+Total memory added: 1 Mb
+Total memory added: 2 Mb
+Total memory added: 3 Mb
+Total memory added: 4 Mb
+Total memory added: 5 Mb
+Total memory added: 6 Mb
+Total memory added: 7 Mb
+Total memory added: 8 Mb
+Total memory added: 9 Mb
+Total memory added: 10 Mb
+Total memory added: 11 Mb
+Total memory added: 12 Mb
+Total memory added: 13 Mb
+Total memory added: 14 Mb
+Total memory added: 15 Mb
+Total memory added: 16 Mb
+Total memory added: 17 Mb
+Total memory added: 18 Mb
+Total memory added: 19 Mb
+Total memory added: 20 Mb
+Total memory added: 21 Mb
+Total memory added: 22 Mb
+Total memory added: 23 Mb
+Total memory added: 24 Mb
+Total memory added: 25 Mb
+Total memory added: 26 Mb
+Total memory added: 27 Mb
+Total memory added: 28 Mb
+Total memory added: 29 Mb
+Total memory added: 30 Mb
+no more memory...
+Loader was GC'ed
+----------System.err:(5/140)----------
+Apr 29, 2024 1:38:07 AM BundleTest main
+FINE: foo-728245880
+Apr 29, 2024 1:38:07 AM BundleTest main
+FINE: foo-728245880
+STATUS:Passed.
+----------rerun:(41/3820)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/util/logging/Logger/bundleLeak/BundleTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\util\\logging\\Logger\\bundleLeak' \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Xmx64M \\
+        -Djava.util.logging.config.file=logging.properties \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\util\\logging\\Logger\\bundleLeak\\BundleTest.d\\main.0.jta'
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

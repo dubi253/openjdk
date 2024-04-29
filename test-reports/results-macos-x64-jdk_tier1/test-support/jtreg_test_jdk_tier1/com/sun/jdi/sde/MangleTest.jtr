@@ -1,0 +1,463 @@
+#Test Results (version 2)
+#Mon Apr 29 00:38:39 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=Robert Field
+keywords=bug4390869 bug4460328 driver
+library=..
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter InstallSDE\nUSER_SPECIFIED compile MangleTest.java\nUSER_SPECIFIED compile -g onion/pickle/Mangle.java\nUSER_SPECIFIED driver MangleTest\n
+source=MangleTest.java
+title=Test the new SourceDebugExtension facility
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java
+elapsed=295 0\:00\:00.295
+end=Mon Apr 29 00\:38\:39 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile compile build driver
+start=Mon Apr 29 00\:38\:38 UTC 2024
+test=com/sun/jdi/sde/MangleTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=295
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/com/sun/jdi/sde
+
+#section:script_messages
+----------messages:(7/580)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library ..; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi
+
+#section:build
+----------messages:(7/334)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter InstallSDE
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter InstallSDE 
+started: Mon Apr 29 00:38:38 UTC 2024
+Test directory:
+  compile: InstallSDE
+finished: Mon Apr 29 00:38:38 UTC 2024
+elapsed time (seconds): 0.038
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/332)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/InstallSDE.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:38:38 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:38:38 UTC 2024
+elapsed time (seconds): 0.037
+----------configuration:(13/890)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi
+
+----------rerun:(35/3614)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/InstallSDE.java
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/342)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java
+reason: User specified action: run compile MangleTest.java 
+started: Mon Apr 29 00:38:38 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:38:38 UTC 2024
+elapsed time (seconds): 0.044
+----------configuration:(13/890)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi
+
+----------rerun:(35/3614)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java
+----------direct:(2/170)----------
+Note: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/365)----------
+command: compile -g /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/onion/pickle/Mangle.java
+reason: User specified action: run compile -g onion/pickle/Mangle.java 
+started: Mon Apr 29 00:38:38 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:38:39 UTC 2024
+elapsed time (seconds): 0.08
+----------configuration:(13/890)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi
+
+----------rerun:(36/3637)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -g /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/onion/pickle/Mangle.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/172)----------
+command: build MangleTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:39 UTC 2024
+finished: Mon Apr 29 00:38:39 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/214)----------
+command: driver MangleTest
+reason: User specified action: run driver MangleTest 
+started: Mon Apr 29 00:38:39 UTC 2024
+Mode: agentvm
+Agent id: 5
+finished: Mon Apr 29 00:38:39 UTC 2024
+elapsed time (seconds): 0.129
+----------configuration:(15/1118)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde
+              /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi
+              /Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(27/3097)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/sde/MangleTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde/MangleTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/sde/MangleTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/sde:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi:/Users/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        MangleTest
+----------System.out:(54/1813)----------
+4 read class attr -- 'java/lang/Object'
+5 read class attr -- '<init>'
+6 read class attr -- '()V'
+10 read class attr -- 'java/lang/System'
+11 read class attr -- 'out'
+12 read class attr -- 'Ljava/io/PrintStream;'
+14 read class attr -- 'four'
+18 read class attr -- 'java/io/PrintStream'
+19 read class attr -- 'println'
+20 read class attr -- '(Ljava/lang/String;)V'
+22 read class attr -- 'five'
+24 read class attr -- 'six'
+26 read class attr -- 'seven'
+28 read class attr -- 'eight'
+30 read class attr -- 'nine'
+32 read class attr -- 'ten'
+34 read class attr -- 'onion/pickle/Mangle'
+35 read class attr -- 'Code'
+36 read class attr -- 'LineNumberTable'
+37 read class attr -- 'LocalVariableTable'
+38 read class attr -- 'this'
+39 read class attr -- 'Lonion/pickle/Mangle;'
+40 read class attr -- 'main'
+41 read class attr -- '([Ljava/lang/String;)V'
+42 read class attr -- 'args'
+43 read class attr -- '[Ljava/lang/String;'
+44 read class attr -- 'SourceFile'
+45 read class attr -- 'Mangle.java'
+SourceDebugExtension not found, installed at: 46
+interfaceCount: 0
+members count: 0
+members count: 2
+member attr count: 1
+attr len: 47
+member attr count: 1
+attr len: 127
+class attrCount: 1
+attr len: 2
+class attrCount incremented
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK 64-Bit Server VM, mixed mode, sharing)
+four
+five
+six
+seven
+eight
+nine
+ten
+----------System.err:(89/3614)----------
+[0ms] run args: [onion.pickle.Mangle]
+[102ms] ref type sourceName: Mangle.xyz
+[103ms] ref type Java sourceNames: [Mangle.java]
+[103ms] ref type XYZ sourceNames: [Mangle.xyz, Incl.xyz]
+[103ms] ref type null sourceNames: [Mangle.xyz, Incl.xyz]
+[103ms] ref type Rats sourceNames: [Mangle.rats, Incl.rats]
+[103ms] ref type Java sourcePaths: [onion/pickle/Mangle.java]
+[103ms] ref type XYZ sourcePaths: [database14, onion/pickle/Incl.xyz]
+[103ms] ref type null sourcePaths: [database14, onion/pickle/Incl.xyz]
+[103ms] ref type Rats sourcePaths: [onion/pickle/Mangle.rats, bleep:bleep:Incl.rats]
+[104ms] allLineLocations() is OK
+[104ms] allLineLocations("bogus") is OK
+[104ms] allLineLocations(null) is OK
+[104ms] *** Java
+4 - Incl.xyz : 200 ... Mangle.rats : [105ms] 1000
+5 - Incl.xyz : 200 ... Incl.rats : [105ms] 1111
+6 - Incl.xyz : 200 ... Incl.rats : [105ms] 1111
+7 - Mangle.xyz : 210 ... Incl.rats : [105ms] 1112
+8 - Mangle.xyz : 217 ... Incl.rats : [105ms] 1112
+9 - Mangle.xyz : 218 ... Incl.rats : [105ms] 1112
+10 - Mangle.xyz : 218 ... Incl.rats : [105ms] 1112
+11 - Mangle.xyz : 218 ... Incl.rats : [105ms] 1112
+[105ms] *** XYZ
+5 - Incl.xyz : 200 ... Incl.rats : [105ms] 1111
+7 - Mangle.xyz : 210 ... Incl.rats : [105ms] 1112
+8 - Mangle.xyz : 217 ... Incl.rats : [105ms] 1112
+9 - Mangle.xyz : 218 ... Incl.rats : [105ms] 1112
+[105ms] *** Rats
+4 - Incl.xyz : 200 ... Mangle.rats : [106ms] 1000
+5 - Incl.xyz : 200 ... Incl.rats : [106ms] 1111
+7 - Mangle.xyz : 210 ... Incl.rats : [106ms] 1112
+[106ms] 0 sourceName: Incl.xyz
+[106ms] 0 sourcePath: onion/pickle/Incl.xyz
+[106ms] 0 line number: 200
+[106ms] 0(null) sourceName: Incl.xyz
+[106ms] 0(null) sourcePath: onion/pickle/Incl.xyz
+[109ms] 0(null) line number: 200
+[110ms] 0(bogus) sourceName: Incl.xyz
+[110ms] 0(bogus) sourcePath: onion/pickle/Incl.xyz
+[110ms] 0(bogus) line number: 200
+[110ms] 0(Java) sourceName: Mangle.java
+[110ms] 0(Java) sourcePath: onion/pickle/Mangle.java
+[110ms] 0(Java) line number: 4
+[110ms] 0(XYZ) sourceName: Incl.xyz
+[110ms] 0(XYZ) sourcePath: onion/pickle/Incl.xyz
+[110ms] 0(XYZ) line number: 200
+[110ms] 0(Rats) sourceName: Mangle.rats
+[110ms] 0(Rats) sourcePath: onion/pickle/Mangle.rats
+[110ms] 0(Rats) line number: 1000
+[110ms] 3 sourceName: Mangle.xyz
+[110ms] 3 sourcePath: database14
+[110ms] 3 line number: 210
+[110ms] 3(null) sourceName: Mangle.xyz
+[110ms] 3(null) sourcePath: database14
+[110ms] 3(null) line number: 210
+[110ms] 3(bogus) sourceName: Mangle.xyz
+[110ms] 3(bogus) sourcePath: database14
+[110ms] 3(bogus) line number: 210
+[110ms] 3(Java) sourceName: Mangle.java
+[110ms] 3(Java) sourcePath: onion/pickle/Mangle.java
+[110ms] 3(Java) line number: 7
+[110ms] 3(XYZ) sourceName: Mangle.xyz
+[110ms] 3(XYZ) sourcePath: database14
+[110ms] 3(XYZ) line number: 210
+[110ms] 3(Rats) sourceName: Incl.rats
+[110ms] 3(Rats) sourcePath: bleep:bleep:Incl.rats
+[110ms] 3(Rats) line number: 1112
+[110ms] 6 sourceName: Mangle.xyz
+[110ms] 6 sourcePath: database14
+[110ms] 6 line number: 218
+[110ms] 6(null) sourceName: Mangle.xyz
+[110ms] 6(null) sourcePath: database14
+[110ms] 6(null) line number: 218
+[110ms] 6(bogus) sourceName: Mangle.xyz
+[110ms] 6(bogus) sourcePath: database14
+[110ms] 6(bogus) line number: 218
+[110ms] 6(Java) sourceName: Mangle.java
+[110ms] 6(Java) sourcePath: onion/pickle/Mangle.java
+[110ms] 6(Java) line number: 10
+[110ms] 6(XYZ) sourceName: Mangle.xyz
+[110ms] 6(XYZ) sourcePath: database14
+[110ms] 6(XYZ) line number: 218
+[111ms] 6(Rats) sourceName: Incl.rats
+[111ms] 6(Rats) sourcePath: bleep:bleep:Incl.rats
+[111ms] 6(Rats) line number: 1112
+[119ms] MangleTest: passed
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

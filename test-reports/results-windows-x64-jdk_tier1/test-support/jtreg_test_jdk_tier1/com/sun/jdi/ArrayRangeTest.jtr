@@ -1,0 +1,405 @@
+#Test Results (version 2)
+#Mon Apr 29 00:59:22 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+author=Robert Field
+keywords=bug4439631 bug4448721 bug4448603 driver
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter\r\nUSER_SPECIFIED compile -g ArrayRangeTest.java\r\nUSER_SPECIFIED driver ArrayRangeTest\r\n
+source=ArrayRangeTest.java
+title=Test access to ranges within ArrayReferences
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/com/sun/jdi/ArrayRangeTest.java
+elapsed=2885 0\:00\:02.885
+end=Mon Apr 29 00\:59\:22 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile build driver
+start=Mon Apr 29 00\:59\:19 UTC 2024
+test=com/sun/jdi/ArrayRangeTest.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=2964
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\com\\sun\\jdi
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/366)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter 
+started: Mon Apr 29 00:59:19 UTC 2024
+Test directory:
+  compile: TestScaffold, VMConnection, TargetListener, TargetAdapter
+finished: Mon Apr 29 00:59:19 UTC 2024
+elapsed time (seconds): 0.274
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/543)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TestScaffold.java D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\VMConnection.java D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TargetListener.java D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TargetAdapter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:59:19 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:59:19 UTC 2024
+elapsed time (seconds): 0.274
+----------configuration:(11/657)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d
+
+----------rerun:(38/3597)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=com/sun/jdi/ArrayRangeTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TestScaffold.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\VMConnection.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TargetListener.java' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\TargetAdapter.java'
+----------direct:(6/365)*----------
+D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\DebuggeeWrapper.java:115: warning: [removal] ThreadDeath in java.lang has been deprecated and marked for removal
+            if (e instanceof ThreadDeath) {
+                             ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/355)*----------
+command: compile -g D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java
+reason: User specified action: run compile -g ArrayRangeTest.java 
+started: Mon Apr 29 00:59:19 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:59:19 UTC 2024
+elapsed time (seconds): 0.137
+----------configuration:(11/657)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d
+
+----------rerun:(39/3398)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=com/sun/jdi/ArrayRangeTest.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -g 'D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java'
+----------direct:(2/167)*----------
+Note: D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/179)----------
+command: build ArrayRangeTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:59:19 UTC 2024
+finished: Mon Apr 29 00:59:19 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/229)----------
+command: driver ArrayRangeTest
+reason: User specified action: run driver ArrayRangeTest 
+started: Mon Apr 29 00:59:19 UTC 2024
+Mode: agentvm
+Agent id: 3
+finished: Mon Apr 29 00:59:22 UTC 2024
+elapsed time (seconds): 2.474
+----------configuration:(13/871)*----------
+Boot Layer
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\junit-platform-console-standalone-1.9.2.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+Test Layer
+  class path: D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d
+              D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi
+
+----------rerun:(29/2833)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=com/sun/jdi/ArrayRangeTest.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi\\ArrayRangeTest.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi' \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\com\\sun\\jdi\\ArrayRangeTest.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\com\\sun\\jdi;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+        ArrayRangeTest
+----------System.err:(133/12455)----------
+[0ms] run args: [ArrayRangeTarg]
+[105ms] pass - full.getValue(0) - value=0
+[106ms] pass - full.getValue(4) - value=400
+[110ms] pass - full.getValue(-1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[110ms] pass - full.getValue(-2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[110ms] pass - empty.getValue(-1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[111ms] pass - empty.getValue(-2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[111ms] pass - full.getValue(5) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 5 to 5
+[111ms] pass - empty.getValue(0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 0
+[111ms] pass - empty.getValue(5) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 5
+[112ms] pass - full.getValues())
+[112ms] pass - empty.getValues())
+[112ms] pass - full.getValues(0, 5))
+[113ms] pass - full.getValues(0, 4))
+[114ms] pass - full.getValues(1, 4))
+[114ms] pass - full.getValues(5, 0))
+[114ms] pass - full.getValues(0, 0))
+[114ms] pass - full.getValues(0, -1))
+[115ms] pass - full.getValues(1, -1))
+[115ms] pass - full.getValues(5, -1))
+[115ms] pass - empty.getValues(0, 0))
+[115ms] pass - empty.getValues(0, -1))
+[116ms] pass - full.getValue(-1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[116ms] pass - full.getValue(-1, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[116ms] pass - full.getValue(-1, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[116ms] pass - empty.getValue(-1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[116ms] pass - full.getValue(-2, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[116ms] pass - full.getValue(-2, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[116ms] pass - full.getValue(-2, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[116ms] pass - empty.getValue(-2, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[116ms] pass - full.getValue(6, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[116ms] pass - full.getValue(6, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[116ms] pass - empty.getValue(1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[116ms] pass - empty.getValue(1, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[116ms] pass - full.getValue(0, -2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -2
+[116ms] pass - empty.getValue(0, -2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -2
+[116ms] pass - full.getValue(0, 6) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 5
+[116ms] pass - full.getValue(1, 5) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 1 to 5
+[116ms] pass - full.getValue(2, 4) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 2 to 5
+[116ms] pass - full.getValue(5, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 5 to 5
+[116ms] pass - empty.getValue(0, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 0
+[124ms] pass - full.setValue(0, ..)
+[125ms] pass - full.setValue(4, ..)
+[125ms] pass - full.setValue(-1,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[125ms] pass - full.setValue(-2,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[125ms] pass - full.setValue(5,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 5 to 5
+[125ms] pass - full.setValue(6,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[126ms] pass - full - check - [55,100,200,300,66]
+[126ms] pass - empty.setValue(-1,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[126ms] pass - empty.setValue(-2,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[126ms] pass - empty.setValue(0,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 0
+[126ms] pass - empty.setValue(1,...) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[127ms] pass - full.setValues([40,41,42])
+[127ms] pass - full.setValues([])
+[127ms] pass - full - check - [40,41,42,300,66]
+[127ms] pass - full.setValues([99,51,52,53,54,55])
+[128ms] pass - full.setValues([50])
+[128ms] pass - full - check - [50,51,52,53,54]
+[129ms] pass - empty.setValues([])
+[129ms] pass - empty.setValues([88])
+[134ms] pass - full.setValues(2, [30,31,32,33,34,35], 0, 3)
+[134ms] pass - full.setValues(0, [80], 0, 1)
+[134ms] pass - full - check - [80,51,30,31,32]
+[134ms] pass - full.setValues(0, [90,91,92,93,94,95], 3, 3)
+[134ms] pass - full.setValues(4, [81], 0, 1)
+[134ms] pass - full - check - [93,94,95,31,81]
+[134ms] pass - full.setValues(3, [60,61,62,63], 0, -1)
+[134ms] pass - full.setValues(0, [82], 0, -1)
+[134ms] pass - full - check - [82,94,95,60,61]
+[134ms] pass - full.setValues(3, [20,21,22,23], 1, -1)
+[134ms] pass - full.setValues(1, [83,84], 1, -1)
+[134ms] pass - full.setValues(1, [], 0, -1)
+[134ms] pass - full.setValues(2, [], 0, 0)
+[134ms] pass - full.setValues(3, [99], 0, 0)
+[134ms] pass - full.setValues(4, [99,98], 1, 0)
+[134ms] pass - full - check - [82,84,95,21,22]
+[134ms] pass - empty.setValues(0, [], 0, -1)
+[134ms] pass - empty.setValues(0, [], 0, 0)
+[134ms] pass - empty.setValues(0, [99], 0, 0)
+[134ms] pass - empty.setValues(0, [99,98], 1, 0)
+[134ms] pass - full.setValues(-1, [30,31,32,33,34,35], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[134ms] pass - full.setValues(-1, [30,31,32,33,34,35], 0, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[134ms] pass - full.setValues(-2, [30,31,32,33,34,35], 0, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[134ms] pass - empty.setValues(-1, [], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -1
+[134ms] pass - empty.setValues(-2, [], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: -2
+[134ms] pass - full.setValues(6, [30,31,32,33,34,35], 0, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[134ms] pass - full.setValues(6, [30,31,32,33,34,35], 0, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[140ms] pass - empty.setValues(1, [4], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[140ms] pass - empty.setValues(1, [], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[140ms] pass - empty.setValues(1, [], 0, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 1
+[141ms] pass - full.setValues(0, [90,91,92,93,94,95], -1, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - full.setValues(0, [90,91,92,93,94,95], -1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - full.setValues(0, [90,91,92,93,94,95], -1, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - full.setValues(0, [90,91,92,93,94,95], -2, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -2
+[141ms] pass - full.setValues(1, [], -1, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - full.setValues(2, [], -1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - empty.setValues(0, [], -1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: -1
+[141ms] pass - full.setValues(0, [81], 2, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 2
+[141ms] pass - full.setValues(0, [81], 2, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 2
+[142ms] pass - full.setValues(0, [81], 2, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -1
+[142ms] pass - full.setValues(4, [], 1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 1
+[142ms] pass - full.setValues(1, [], 1, -1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -1
+[142ms] pass - full.setValues(2, [], 1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 1
+[143ms] pass - empty.setValues(0, [], 1, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 1
+[143ms] pass - empty.setValues(0, [5], 2, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 2
+[143ms] pass - full.setValues(3, [60,61,62,63], 0, -2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -2
+[143ms] pass - full.setValues(3, [], 0, -2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range length: -2
+[143ms] pass - full.setValues(0, [20,21,22,23,24,25,26], 0, 6) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 5
+[143ms] pass - full.setValues(1, [20,21,22,23,24,25,26], 0, 5) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 1 to 5
+[143ms] pass - full.setValues(2, [20,21,22,23,24,25,26], 0, 4) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 2 to 5
+[143ms] pass - full.setValues(3, [20,21,22,23,24,25,26], 0, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 3 to 5
+[143ms] pass - full.setValues(4, [20,21,22,23,24,25,26], 0, 2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 4 to 5
+[143ms] pass - full.setValues(5, [20,21,22,23,24,25,26], 0, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 5 to 5
+[144ms] pass - full.setValues(6, [20,21,22,23,24,25,26], 0, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[144ms] pass - full.setValues(2, [20,21,22,23,24,25,26], 1, 4) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 2 to 5
+[144ms] pass - full.setValues(3, [20,21,22,23,24,25,26], 1, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 3 to 5
+[144ms] pass - full.setValues(4, [20,21,22,23,24,25,26], 2, 2) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 4 to 5
+[144ms] pass - full.setValues(5, [20,21,22,23,24,25,26], 3, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 5 to 5
+[144ms] pass - full.setValues(6, [20,21,22,23,24,25,26], 4, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid array index: 6
+[144ms] pass - empty.setValues(0, [6], 0, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid array range: 0 to 0
+[145ms] pass - full.setValues(0, [82], 0, 2) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 0 to 1
+[145ms] pass - full.setValues(0, [82], 1, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 1 to 1
+[145ms] pass - full.setValues(0, [82], 2, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 2
+[145ms] pass - full.setValues(0, [20,21,22], 0, 4) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 0 to 3
+[145ms] pass - full.setValues(0, [20,21,22], 1, 3) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 1 to 3
+[145ms] pass - full.setValues(0, [20,21,22], 2, 2) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 2 to 3
+[146ms] pass - full.setValues(0, [20,21,22], 3, 1) - got expected: java.lang.IndexOutOfBoundsException: Invalid source range: 3 to 3
+[146ms] pass - full.setValues(0, [20,21,22], 4, 0) - got expected: java.lang.IndexOutOfBoundsException: Invalid source index: 4
+[146ms] pass - full - check - [82,84,95,21,22]
+[2457ms] ArrayRangeTest: passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(9/606)*----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK 64-Bit Server VM, mixed mode, sharing)
+Goodbye from ArrayRangeTarg!
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -24,7 +24,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -52,7 +52,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -79,7 +79,11 @@ loadScripts(document, 'script');</script>
 </div>
 <button class="hide-sidebar"><span>Hide sidebar&nbsp;</span>&#10094;</button><button class="show-sidebar">&#10095;<span>&nbsp;Show sidebar</span></button>
 <ol class="toc-list">
-<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#" tabindex="0">Description</a>
+<ol class="toc-list">
+<li><a href="#deprecated-methods-and-replacements-heading" tabindex="0">Deprecated Methods and Replacements</a></li>
+</ol>
+</li>
 <li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
 <li><a href="#method-summary" tabindex="0">Method Summary</a></li>
 <li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
@@ -180,7 +184,42 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
  Note that the <code>java.security.Principal</code> class
  does not implement <code>Serializable</code>.  Therefore, all concrete
  <code>Principal</code> implementations associated with Subjects
- must implement <code>Serializable</code>.</div>
+ must implement <code>Serializable</code>.
+
+ <h2 id="deprecated-methods-and-replacements-heading">Deprecated Methods and Replacements</h2>
+
+ <p> The following methods in this class for user-based authorization
+ that are dependent on Security Manager APIs are deprecated for removal:
+ <ul>
+     <li><a href="#getSubject(java.security.AccessControlContext)"><code>getSubject(AccessControlContext)</code></a>
+     <li><a href="#doAs(javax.security.auth.Subject,java.security.PrivilegedAction)"><code>doAs(Subject, PrivilegedAction)</code></a>
+     <li><a href="#doAs(javax.security.auth.Subject,java.security.PrivilegedExceptionAction)"><code>doAs(Subject, PrivilegedExceptionAction)</code></a>
+     <li><a href="#doAsPrivileged(javax.security.auth.Subject,java.security.PrivilegedAction,java.security.AccessControlContext)"><code>doAsPrivileged(Subject, PrivilegedAction, AccessControlContext)</code></a>
+     <li><a href="#doAsPrivileged(javax.security.auth.Subject,java.security.PrivilegedExceptionAction,java.security.AccessControlContext)"><code>doAsPrivileged(Subject, PrivilegedExceptionAction, AccessControlContext)</code></a>
+ </ul>
+ Methods <a href="#current()"><code>current()</code></a> and <a href="#callAs(javax.security.auth.Subject,java.util.concurrent.Callable)"><code>callAs(Subject, Callable)</code></a>
+ are replacements for these methods, where <code>current</code>
+ is mostly equivalent to <code>getSubject(AccessController.getContext())</code>
+ and <code>callAs</code> is similar to <code>doAs</code> except that the
+ input type and exceptions thrown are slightly different.
+
+ <p><b><a id="sm-allowed">These methods behave differently depending on
+ whether a security manager is
+ <a href="../../../java/lang/SecurityManager.html#set-security-manager">allowed or disallowed</a></a></b>:
+ <ul>
+ <li>If a security manager is allowed, which means it is either already set
+ or allowed to be set dynamically, a <code>Subject</code> object is associated
+ with an <code>AccessControlContext</code> through a <code>doAs</code> or
+ <code>callAs</code> call, and the subject can then be retrieved using the
+ <code>getSubject(AccessControlContext)</code> or <code>current</code> method.
+  <li>If a security manager is not allowed, which means it is not set and
+ not allowed to be set dynamically, a <code>doAs</code> or <code>callAs</code> call
+ binds a <code>Subject</code> object to the period of execution of an action,
+ and the subject can be retrieved using the <code>current</code> method inside
+ the action. This subject can be inherited by child threads if they are
+ started and terminate within the execution of its parent thread using
+ structured concurrency.
+ </ul></div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.4</dd>
@@ -518,7 +557,9 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
        which can be used to obtain the current subject.</div>
 </div>
 <div class="block">Get the <code>Subject</code> associated with the provided
- <code>AccessControlContext</code>.
+ <code>AccessControlContext</code>. This method is intended to be used with
+ a security manager. It throws an <code>UnsupportedOperationException</code>
+ if a security manager is not allowed.
 
  <p> The <code>AccessControlContext</code> may contain many
  Subjects (from nested <code>doAs</code> calls).
@@ -534,6 +575,8 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
           if no <code>Subject</code> is associated
           with the provided <code>AccessControlContext</code>.</dd>
 <dt>Throws:</dt>
+<dd><code><a href="../../../java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if a security manager is
+          not allowed</dd>
 <dd><code><a href="../../../java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if a security manager is installed and the
           caller does not have an
           <a href="AuthPermission.html#%3Cinit%3E(java.lang.String)"><code>AuthPermission("getSubject")</code></a> permission to get the
@@ -550,20 +593,22 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Subject.html" title="class in javax.security.auth">Subject</a></span>&nbsp;<span class="element-name">current</span>()</div>
 <div class="block">Returns the current subject.
- <p>
- The current subject is installed by the <a href="#callAs(javax.security.auth.Subject,java.util.concurrent.Callable)"><code>callAs(javax.security.auth.Subject, java.util.concurrent.Callable&lt;T&gt;)</code></a> method.
+
+ <p> The current subject is installed by the <a href="#callAs(javax.security.auth.Subject,java.util.concurrent.Callable)"><code>callAs(javax.security.auth.Subject, java.util.concurrent.Callable&lt;T&gt;)</code></a> method.
  When <code>callAs(subject, action)</code> is called, <code>action</code> is
  executed with <code>subject</code> as its current subject which can be
  retrieved by this method. After <code>action</code> is finished, the current
  subject is reset to its previous value. The current
- subject is <code>null</code> before the first call of <code>callAs()</code>.</div>
+ subject is <code>null</code> before the first call of <code>callAs()</code>.
+
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>, this
+ method is equivalent to calling <a href="#getSubject(java.security.AccessControlContext)"><code>getSubject(java.security.AccessControlContext)</code></a> with the current
+ <code>AccessControlContext</code>.
+
+ <p> If a security manager is not allowed, this method returns the
+ <code>Subject</code> bound to the period of the execution of the current
+ thread.</div>
 <dl class="notes">
-<dt>Implementation Note:</dt>
-<dd>This method returns the same value as
- <code>Subject.getSubject(AccessController.getContext())</code>. This
- preserves compatibility with code that may still be calling <code>doAs</code>
- which installs the subject in an <code>AccessControlContext</code>. This
- behavior is subject to change in a future version.</dd>
 <dt>Returns:</dt>
 <dd>the current subject, or <code>null</code> if a current subject is
       not installed or the current subject is set to <code>null</code>.</dd>
@@ -587,17 +632,24 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
  <a href="../../../java/util/concurrent/Callable.html" title="interface in java.util.concurrent">Callable</a>&lt;T&gt;&nbsp;action)</span>
                     throws <span class="exceptions"><a href="../../../java/util/concurrent/CompletionException.html" title="class in java.util.concurrent">CompletionException</a></span></div>
 <div class="block">Executes a <code>Callable</code> with <code>subject</code> as the
- current subject.</div>
+ current subject.
+
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>,
+ this method first retrieves the current Thread's
+ <code>AccessControlContext</code> via
+ <code>AccessController.getContext</code>,
+ and then instantiates a new <code>AccessControlContext</code>
+ using the retrieved context along with a new
+ <code>SubjectDomainCombiner</code> (constructed using
+ the provided <code>Subject</code>).
+ Finally, this method invokes <code>AccessController.doPrivileged</code>,
+ passing it the provided <code>PrivilegedAction</code>,
+ as well as the newly constructed <code>AccessControlContext</code>.
+
+ <p> If a security manager is not allowed,
+ this method launches <code>action</code> and binds <code>subject</code> to the
+ period of its execution.</div>
 <dl class="notes">
-<dt>Implementation Note:</dt>
-<dd>This method calls <a href="#doAs(javax.security.auth.Subject,java.security.PrivilegedExceptionAction)"><code>Subject.doAs(subject, altAction)</code></a> which stores the subject in
- a new <code>AccessControlContext</code>, where <code>altAction.run()</code>
- is equivalent to <code>action.call()</code> and the exception thrown is
- modified to match the specification of this method. This preserves
- compatibility with code that may still be calling
- <code>getSubject(AccessControlContext)</code> which retrieves the subject
- from an <code>AccessControlContext</code>. This behavior is subject
- to change in a future version.</dd>
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the type of value returned by the <code>call</code> method
             of <code>action</code></dd>
@@ -644,7 +696,8 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 </div>
 <div class="block">Perform work as a particular <code>Subject</code>.
 
- <p> This method first retrieves the current Thread's
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>,
+ this method first retrieves the current Thread's
  <code>AccessControlContext</code> via
  <code>AccessController.getContext</code>,
  and then instantiates a new <code>AccessControlContext</code>
@@ -653,7 +706,11 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
  the provided <code>Subject</code>).
  Finally, this method invokes <code>AccessController.doPrivileged</code>,
  passing it the provided <code>PrivilegedAction</code>,
- as well as the newly constructed <code>AccessControlContext</code>.</div>
+ as well as the newly constructed <code>AccessControlContext</code>.
+
+ <p> If a security manager is not allowed,
+ this method launches <code>action</code> and binds <code>subject</code> to the
+ period of its execution.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the type of the value returned by the PrivilegedAction's
@@ -698,7 +755,8 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 </div>
 <div class="block">Perform work as a particular <code>Subject</code>.
 
- <p> This method first retrieves the current Thread's
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>,
+ this method first retrieves the current Thread's
  <code>AccessControlContext</code> via
  <code>AccessController.getContext</code>,
  and then instantiates a new <code>AccessControlContext</code>
@@ -707,7 +765,11 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
  the provided <code>Subject</code>).
  Finally, this method invokes <code>AccessController.doPrivileged</code>,
  passing it the provided <code>PrivilegedExceptionAction</code>,
- as well as the newly constructed <code>AccessControlContext</code>.</div>
+ as well as the newly constructed <code>AccessControlContext</code>.
+
+ <p> If a security manager is not allowed,
+ this method launches <code>action</code> and binds <code>subject</code> to the
+ period of its execution.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the type of the value returned by the
@@ -755,13 +817,18 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 </div>
 <div class="block">Perform privileged work as a particular <code>Subject</code>.
 
- <p> This method behaves exactly as <code>Subject.doAs</code>,
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>,
+ this method behaves exactly as <code>Subject.doAs</code>,
  except that instead of retrieving the current Thread's
  <code>AccessControlContext</code>, it uses the provided
  <code>AccessControlContext</code>.  If the provided
  <code>AccessControlContext</code> is <code>null</code>,
  this method instantiates a new <code>AccessControlContext</code>
- with an empty collection of ProtectionDomains.</div>
+ with an empty collection of ProtectionDomains.
+
+ <p> If a security manager is not allowed,
+ this method ignores the <code>acc</code> argument, launches <code>action</code>,
+ and binds <code>subject</code> to the period of its execution.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the type of the value returned by the PrivilegedAction's
@@ -808,13 +875,18 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 </div>
 <div class="block">Perform privileged work as a particular <code>Subject</code>.
 
- <p> This method behaves exactly as <code>Subject.doAs</code>,
+ <p> If a security manager is <a href=#sm-allowed>allowed</a>,
+ this method behaves exactly as <code>Subject.doAs</code>,
  except that instead of retrieving the current Thread's
  <code>AccessControlContext</code>, it uses the provided
  <code>AccessControlContext</code>.  If the provided
  <code>AccessControlContext</code> is <code>null</code>,
  this method instantiates a new <code>AccessControlContext</code>
- with an empty collection of ProtectionDomains.</div>
+ with an empty collection of ProtectionDomains.
+
+ <p> If a security manager is not allowed,
+ this method ignores the <code>acc</code> argument, launches <code>action</code>,
+ and binds <code>subject</code> to the period of its execution.</div>
 <dl class="notes">
 <dt>Type Parameters:</dt>
 <dd><code>T</code> - the type of the value returned by the
@@ -1103,7 +1175,7 @@ implements <a href="../../../java/io/Serializable.html" title="interface in java
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

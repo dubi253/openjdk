@@ -23,6 +23,8 @@
 <meta name="keywords" content="setGroupingUsed()">
 <meta name="keywords" content="isParseIntegerOnly()">
 <meta name="keywords" content="setParseIntegerOnly()">
+<meta name="keywords" content="isStrict()">
+<meta name="keywords" content="setStrict()">
 <meta name="keywords" content="isParseBigDecimal()">
 <meta name="keywords" content="setParseBigDecimal()">
 <meta name="keywords" content="equals()">
@@ -32,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -60,7 +62,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -89,11 +91,12 @@ loadScripts(document, 'script');</script>
 <ol class="toc-list">
 <li><a href="#" tabindex="0">Description</a>
 <ol class="toc-list">
+<li><a href="#getting-a-compactnumberformat-heading" tabindex="0">Getting a CompactNumberFormat</a></li>
 <li><a href="#compact_number_style" tabindex="0">Style</a></li>
-<li><a href="#compact_number_patterns" tabindex="0">Compact Number Patterns</a></li>
-<li><a href="#formatting-heading" tabindex="0">Formatting</a></li>
+<li><a href="#using-compactnumberformat-heading" tabindex="0">Using CompactNumberFormat</a></li>
+<li><a href="#formatting" tabindex="0">Formatting</a></li>
 <li><a href="#parsing-heading" tabindex="0">Parsing</a></li>
-<li><a href="#rounding-heading" tabindex="0">Rounding</a></li>
+<li><a href="#compact_number_patterns" tabindex="0">Compact Number Patterns</a></li>
 </ol>
 </li>
 <li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
@@ -125,6 +128,8 @@ loadScripts(document, 'script');</script>
 <li><a href="#setGroupingUsed(boolean)" tabindex="0">setGroupingUsed(boolean)</a></li>
 <li><a href="#isParseIntegerOnly()" tabindex="0">isParseIntegerOnly()</a></li>
 <li><a href="#setParseIntegerOnly(boolean)" tabindex="0">setParseIntegerOnly(boolean)</a></li>
+<li><a href="#isStrict()" tabindex="0">isStrict()</a></li>
+<li><a href="#setStrict(boolean)" tabindex="0">setStrict(boolean)</a></li>
 <li><a href="#isParseBigDecimal()" tabindex="0">isParseBigDecimal()</a></li>
 <li><a href="#setParseBigDecimal(boolean)" tabindex="0">setParseBigDecimal(boolean)</a></li>
 <li><a href="#equals(java.lang.Object)" tabindex="0">equals(Object)</a></li>
@@ -158,83 +163,109 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="NumberFormat.html" title="class in java.text">NumberFormat</a></span></div>
 <div class="block"><p>
  <code>CompactNumberFormat</code> is a concrete subclass of <code>NumberFormat</code>
- that formats a decimal number in its compact form.
-
- The compact number formatting is designed for the environment where the space
- is limited, and the formatted string can be displayed in that limited space.
- It is defined by LDML's specification for
+ that formats a decimal number in a localized compact form.
+ Compact number formatting is designed for an environment with limited space.
+ For example, displaying the formatted number <code>7M</code> instead of <code>
+ 7,000,000.00</code> in the <a href="../util/Locale.html#US"><code>US locale</code></a>. The <code>
+ CompactNumberFormat</code> class is defined by LDML's specification for
  <a href="http://unicode.org/reports/tr35/tr35-numbers.html#Compact_Number_Formats">
- Compact Number Formats</a>. A compact number formatting refers
- to the representation of a number in a shorter form, based on the patterns
- provided for a given locale.
+ Compact Number Formats</a>.
 
- <p>
- For example:
- <br>In the <a href="../util/Locale.html#US"><code>US locale</code></a>, <code>1000</code> can be formatted
- as <code>"1K"</code>, and <code>1000000</code> as <code>"1M"</code>, depending upon the
- <a href="#compact_number_style">style</a> used.
- <br>In the <code>"hi_IN"</code> locale, <code>1000</code> can be formatted as
- "1 हज़ार", and <code>50000000</code> as "5 क.",
- depending upon the <a href="#compact_number_style">style</a> used.
-
- <p>
- To obtain a <code>CompactNumberFormat</code> for a locale, use one
- of the factory methods given by <code>NumberFormat</code> for compact number
- formatting. For example,
- <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a>.
-
- <blockquote>
-<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
-<pre class="snippet"><code class="language-java">NumberFormat fmt = NumberFormat.getCompactNumberInstance(
-                            Locale.forLanguageTag("hi-IN"), NumberFormat.Style.SHORT);
-String result = fmt.format(1000);
-</code></pre>
-</div>
-</blockquote>
+ <h2 id="getting-a-compactnumberformat-heading">Getting a CompactNumberFormat</h2>
+ To get a compact number format, use one of the ways listed below.
+ <ul>
+ <li> Use the factory method <a href="NumberFormat.html#getCompactNumberInstance()"><code>NumberFormat.getCompactNumberInstance()</code></a>
+ to obtain a format for the default locale with
+ <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> style.
+ <li> Use the factory methood <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a>
+ to obtain a format for a different locale
+ and to control the <a href="#compact_number_style">Style</a>.
+ <li> Use one of the <code>CompactNumberFormat</code> constructors, for example, <a href="#%3Cinit%3E(java.lang.String,java.text.DecimalFormatSymbols,java.lang.String%5B%5D)"><code>CompactNumberFormat(decimalPattern, symbols, compactPatterns)</code></a>, to obtain a
+ <code>CompactNumberFormat</code> with further customization.
+ </ul>
+ <p>If a standard compact format for a given locale and <a href="#compact_number_style"><code>style</code></a> is desired, it is recommended to use one of the
+ NumberFormat factory methods listed above. To use an instance method
+ defined by <code>CompactNumberFormat</code>, the <code>NumberFormat</code> returned by
+ these factory methods should be type checked before converted to <code>CompactNumberFormat</code>.
+ If the installed locale-sensitive service implementation does not support
+ the given <code>Locale</code>, the parent locale chain will be looked up, and
+ a <code>Locale</code> used that is supported.
 
  <h2><a id="compact_number_style">Style</a></h2>
- <p>
- A number can be formatted in the compact forms with two different
- styles, <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a>
- and <a href="NumberFormat.Style.html#LONG"><code>LONG</code></a>. Use
- <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a> for formatting and
- parsing a number in <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> or
- <a href="NumberFormat.Style.html#LONG"><code>LONG</code></a> compact form,
- where the given <code>Style</code> parameter requests the desired
- format. A <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> style
- compact number instance in the <a href="../util/Locale.html#US"><code>US locale</code></a> formats
- <code>10000</code> as <code>"10K"</code>. However, a
- <a href="NumberFormat.Style.html#LONG"><code>LONG</code></a> style instance in same locale
- formats <code>10000</code> as <code>"10 thousand"</code>.
+ When using <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a>, a
+ compact form can be retrieved with either a <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> or <a href="NumberFormat.Style.html#LONG"><code>LONG</code></a> style.
+ For example, a <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> style compact number instance in
+ the <a href="../util/Locale.html#US"><code>US locale</code></a> formats <code>10000</code> as <code>
+ "10K"</code>. However, a <a href="NumberFormat.Style.html#LONG"><code>LONG</code></a> style instance in
+ the same locale formats <code>10000</code> as <code>"10 thousand"</code>.
+
+ <h2 id="using-compactnumberformat-heading">Using CompactNumberFormat</h2>
+ The following is an example of formatting and parsing in a localized manner,
+
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">NumberFormat compactFormat = NumberFormat.getCompactNumberInstance(Locale.US, NumberFormat.Style.SHORT);
+compactFormat.format(1000); // returns "1K"
+compactFormat.parse("1K"); // returns 1000
+</code></pre>
+</div>
+
+
+ <h2 id="formatting">Formatting</h2>
+ The default formatting behavior returns a formatted string with no fractional
+ digits, however users can use the <a href="#setMinimumFractionDigits(int)"><code>setMinimumFractionDigits(int)</code></a>
+ method to include the fractional part.
+ The number <code>1000.0</code> or <code>1000</code> is formatted as <code>"1K"</code>
+ not <code>"1.00K"</code> (in the <a href="../util/Locale.html#US"><code>US locale</code></a>). For this
+ reason, the patterns provided for formatting contain only the minimum
+ integer digits, prefix and/or suffix, but no fractional part.
+ For example, patterns used are <code>{"", "", "", 0K, 00K, ...}</code>. If the pattern
+ selected for formatting a number is <code>"0"</code> (special pattern),
+ either explicit or defaulted, then the general number formatting provided by
+ <a href="DecimalFormat.html" title="class in java.text"><code>DecimalFormat</code></a>
+ for the specified locale is used.
+
+ <h3 id="rounding-heading">Rounding</h3>
+ <code>CompactNumberFormat</code> provides rounding modes defined in
+ <a href="../math/RoundingMode.html" title="enum class in java.math"><code>RoundingMode</code></a> for formatting.  By default, it uses
+ <a href="../math/RoundingMode.html#HALF_EVEN"><code>RoundingMode.HALF_EVEN</code></a>.
+
+ <h2 id="parsing-heading">Parsing</h2>
+ The default parsing behavior does not allow a grouping separator until
+ grouping used is set to <code>true</code> by using
+ <a href="#setGroupingUsed(boolean)"><code>setGroupingUsed(boolean)</code></a>. The parsing of the fractional part
+ depends on the <a href="#isParseIntegerOnly()"><code>isParseIntegerOnly()</code></a>. For example, if the
+ parse integer only is set to true, then the fractional part is skipped.
 
  <h2><a id="compact_number_patterns">Compact Number Patterns</a></h2>
  <p>
- The compact number patterns are represented in a series of patterns where each
- pattern is used to format a range of numbers. An example of
- <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> styled compact number patterns
+ The <code>compactPatterns</code> in <a href="#%3Cinit%3E(java.lang.String,java.text.DecimalFormatSymbols,java.lang.String%5B%5D)"><code>CompactNumberFormat(decimalPattern, symbols, compactPatterns)</code></a> are represented
+ as a series of strings, where each string is a <a href="#compact_number_syntax"><code>pattern</code></a> that is used to format a range of numbers.
+
+ <p> An example of the <a href="NumberFormat.Style.html#SHORT"><code>SHORT</code></a> styled compact number patterns
  for the <a href="../util/Locale.html#US"><code>US locale</code></a> is <code>{"", "", "", "0K",
  "00K", "000K", "0M", "00M", "000M", "0B", "00B", "000B", "0T", "00T", "000T"}</code>,
  ranging from <code>10</code><sup><code>0</code></sup> to <code>10</code><sup><code>14</code></sup>.
  There can be any number of patterns and they are
  strictly index based starting from the range <code>10</code><sup><code>0</code></sup>.
- For example, in the above patterns, pattern at index 3
- (<code>"0K"</code>) is used for formatting <code>number &gt;= 1000 and number &lt; 10000</code>,
- pattern at index 4 (<code>"00K"</code>) is used for formatting
- <code>number &gt;= 10000 and number &lt; 100000</code> and so on. In most of the locales,
- patterns with the range
+ For example, in the above patterns, the pattern at index 3
+ (<code>"0K"</code>) is used for formatting a number in the range: <code>1000 &lt;= number &lt; 10000</code>,
+ index 4 (<code>"00K"</code>) for formatting a number the range: <code>10000 &lt;=
+ number &lt; 100000</code>, and so forth.
+ <p>In most locales, patterns with the range
  <code>10</code><sup><code>0</code></sup>-<code>10</code><sup><code>2</code></sup> are empty
  strings, which implicitly means a special pattern <code>"0"</code>.
  A special pattern <code>"0"</code> is used for any range which does not contain
  a compact pattern. This special pattern can appear explicitly for any specific
  range, or considered as a default pattern for an empty string.
 
- <p>
+ <h3 id="negative-subpatterns-heading">Negative Subpatterns</h3>
  A compact pattern contains a positive and negative subpattern
- separated by a subpattern boundary character <code>';' (U+003B)</code>,
+ separated by a subpattern boundary character <code>';'</code>,
  for example, <code>"0K;-0K"</code>. Each subpattern has a prefix,
  minimum integer digits, and suffix. The negative subpattern
  is optional, if absent, then the positive subpattern prefixed with the
- minus sign (<code>'-' U+002D HYPHEN-MINUS</code>) is used as the negative
+ minus sign <code>'-' (U+002D HYPHEN-MINUS)</code> is used as the negative
  subpattern. That is, <code>"0K"</code> alone is equivalent to <code>"0K;-0K"</code>.
  If there is an explicit negative subpattern, it serves only to specify
  the negative prefix and suffix. The number of minimum integer digits,
@@ -242,31 +273,35 @@ String result = fmt.format(1000);
  That means that <code>"0K;-00K"</code> produces precisely the same behavior
  as <code>"0K;-0K"</code>.
 
- <p>
+ <h4 id="escaping-special-characters-heading">Escaping Special Characters</h4>
  Many characters in a compact pattern are taken literally, they are matched
  during parsing and output unchanged during formatting.
  <a href="DecimalFormat.html#special_pattern_character">Special characters</a>,
  on the other hand, stand for other characters, strings, or classes of
- characters. They must be quoted, using single quote <code>' (U+0027)</code>
+ characters. These characters must be quoted using single quotes <code>' (U+0027)</code>
  unless noted otherwise, if they are to appear in the prefix or suffix
  as literals. For example, 0क'.'.
 
  <h3 id="plurals-heading">Plurals</h3>
+ <p> <code>CompactNumberFormat</code> support patterns for both singular and plural
+ compact forms. For the plural form, the <code>Pattern</code> should consist
+ of <code>PluralPattern</code>(s) separated by a space ' ' (U+0020) that are enumerated
+ within a pair of curly brackets '{' (U+007B) and '}' (U+007D).
+ In this format, each <code>PluralPattern</code> consists of its <code>count</code>,
+ followed by a single colon <code>':' (U+003A)</code> and a <code>SimplePattern</code>.
+ As a space is reserved for separating subsequent <code>PluralPattern</code>s, it must
+ be quoted to be used literally in either the <code>prefix</code> or <code>suffix</code>.
  <p>
- In case some localization requires compact number patterns to be different for
- plurals, each singular and plural pattern can be enumerated within a pair of
- curly brackets <code>'{' (U+007B)</code> and <code>'}' (U+007D)</code>, separated
- by a space <code>' ' (U+0020)</code>. If this format is used, each pattern needs to be
- prepended by its <code>count</code>, followed by a single colon <code>':' (U+003A)</code>.
- If the pattern includes spaces literally, they must be quoted.
+ For example, while the pattern representing millions (<code>10</code><sup><code>6</code>
+ </sup>) in the US locale can be specified as the SimplePattern: <code>"0 Million"</code>, for the
+ German locale it can be specified as the PluralPattern:
+ <code>"{one:0' 'Million other:0' 'Millionen}"</code>.
+
  <p>
- For example, the compact number pattern representing millions in German locale can be
- specified as <code>"{one:0' 'Million other:0' 'Millionen}"</code>. The <code>count</code>
- follows LDML's
+ <a id="compact_number_syntax">A compact pattern has the following syntax, with <code>count</code></a>
+ following LDML's
  <a href="https://unicode.org/reports/tr35/tr35-numbers.html#Language_Plural_Rules">
- Language Plural Rules</a>.
- <p>
- A compact pattern has the following syntax:
+ Language Plural Rules</a>:
  <blockquote><pre>
  <i>Pattern:</i>
          <i>SimplePattern</i>
@@ -289,33 +324,7 @@ String result = fmt.format(1000);
  <i>MinimumInteger:</i>
       0
       0 <i>MinimumInteger</i>
- </pre></blockquote>
-
- <h2 id="formatting-heading">Formatting</h2>
- The default formatting behavior returns a formatted string with no fractional
- digits, however users can use the <a href="#setMinimumFractionDigits(int)"><code>setMinimumFractionDigits(int)</code></a>
- method to include the fractional part.
- The number <code>1000.0</code> or <code>1000</code> is formatted as <code>"1K"</code>
- not <code>"1.00K"</code> (in the <a href="../util/Locale.html#US"><code>US locale</code></a>). For this
- reason, the patterns provided for formatting contain only the minimum
- integer digits, prefix and/or suffix, but no fractional part.
- For example, patterns used are <code>{"", "", "", 0K, 00K, ...}</code>. If the pattern
- selected for formatting a number is <code>"0"</code> (special pattern),
- either explicit or defaulted, then the general number formatting provided by
- <a href="DecimalFormat.html" title="class in java.text"><code>DecimalFormat</code></a>
- for the specified locale is used.
-
- <h2 id="parsing-heading">Parsing</h2>
- The default parsing behavior does not allow a grouping separator until
- grouping used is set to <code>true</code> by using
- <a href="#setGroupingUsed(boolean)"><code>setGroupingUsed(boolean)</code></a>. The parsing of the fractional part
- depends on the <a href="#isParseIntegerOnly()"><code>isParseIntegerOnly()</code></a>. For example, if the
- parse integer only is set to true, then the fractional part is skipped.
-
- <h2 id="rounding-heading">Rounding</h2>
- <code>CompactNumberFormat</code> provides rounding modes defined in
- <a href="../math/RoundingMode.html" title="enum class in java.math"><code>RoundingMode</code></a> for formatting.  By default, it uses
- <a href="../math/RoundingMode.html#HALF_EVEN"><code>RoundingMode.HALF_EVEN</code></a>.</div>
+ </pre></blockquote></div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>12</dd>
@@ -331,6 +340,7 @@ String result = fmt.format(1000);
 <li><a href="NumberFormat.Style.html" title="enum class in java.text"><code>NumberFormat.Style</code></a></li>
 <li><a href="NumberFormat.html" title="class in java.text"><code>NumberFormat</code></a></li>
 <li><a href="DecimalFormat.html" title="class in java.text"><code>DecimalFormat</code></a></li>
+<li><a href="../util/Locale.html" title="class in java.util"><code>Locale</code></a></li>
 <li><a href="../../../serialized-form.html#java.text.CompactNumberFormat">Serialized Form</a></li>
 </ul>
 </dd>
@@ -464,63 +474,74 @@ String result = fmt.format(1000);
 <div class="block">Returns true if this format parses only an integer from the number
  component of a compact number.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/Number.html" title="class in java.lang">Number</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(java.lang.String,java.text.ParsePosition)" class="member-name-link">parse</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
- <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isStrict()" class="member-name-link">isStrict</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Parses a compact number from a string to produce a <code>Number</code>.</div>
+<div class="block">Returns <code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingSize(int)" class="member-name-link">setGroupingSize</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/Number.html" title="class in java.lang">Number</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(java.lang.String,java.text.ParsePosition)" class="member-name-link">parse</a><wbr>(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
+ <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets the grouping size.</div>
+<div class="block">Parses text from the beginning of the given string to produce a <code>Number</code>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingUsed(boolean)" class="member-name-link">setGroupingUsed</a><wbr>(boolean&nbsp;newValue)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingSize(int)" class="member-name-link">setGroupingSize</a><wbr>(int&nbsp;newValue)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Sets whether or not grouping will be used in this format.</div>
+<div class="block">Sets the grouping size.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumFractionDigits(int)" class="member-name-link">setMaximumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroupingUsed(boolean)" class="member-name-link">setGroupingUsed</a><wbr>(boolean&nbsp;newValue)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets whether or not grouping will be used in this format.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumFractionDigits(int)" class="member-name-link">setMaximumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the maximum number of digits allowed in the fraction portion of a
  number.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumIntegerDigits(int)" class="member-name-link">setMaximumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaximumIntegerDigits(int)" class="member-name-link">setMaximumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the maximum number of digits allowed in the integer portion of a
  number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumFractionDigits(int)" class="member-name-link">setMinimumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumFractionDigits(int)" class="member-name-link">setMinimumFractionDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the minimum number of digits allowed in the fraction portion of a
  number.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumIntegerDigits(int)" class="member-name-link">setMinimumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinimumIntegerDigits(int)" class="member-name-link">setMinimumIntegerDigits</a><wbr>(int&nbsp;newValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the minimum number of digits allowed in the integer portion of a
  number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseBigDecimal(boolean)" class="member-name-link">setParseBigDecimal</a><wbr>(boolean&nbsp;newValue)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseBigDecimal(boolean)" class="member-name-link">setParseBigDecimal</a><wbr>(boolean&nbsp;newValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets whether the <a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(String, ParsePosition)</code></a>
  method returns <code>BigDecimal</code>.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseIntegerOnly(boolean)" class="member-name-link">setParseIntegerOnly</a><wbr>(boolean&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParseIntegerOnly(boolean)" class="member-name-link">setParseIntegerOnly</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets whether or not this format parses only an integer from the number
  component of a compact number.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRoundingMode(java.math.RoundingMode)" class="member-name-link">setRoundingMode</a><wbr>(<a href="../math/RoundingMode.html" title="enum class in java.math">RoundingMode</a>&nbsp;roundingMode)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRoundingMode(java.math.RoundingMode)" class="member-name-link">setRoundingMode</a><wbr>(<a href="../math/RoundingMode.html" title="enum class in java.math">RoundingMode</a>&nbsp;roundingMode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Sets the <a href="../math/RoundingMode.html" title="enum class in java.math"><code>RoundingMode</code></a> used in this
  <code>CompactNumberFormat</code>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStrict(boolean)" class="member-name-link">setStrict</a><wbr>(boolean&nbsp;strict)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Change the leniency value for parsing.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/String.html" title="class in java.lang">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -562,11 +583,23 @@ String result = fmt.format(1000);
  To obtain the instance of <code>CompactNumberFormat</code> with the standard
  compact patterns for a <code>Locale</code> and <code>Style</code>,
  it is recommended to use the factory methods given by
- <code>NumberFormat</code> for compact number formatting. For example,
- <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a>.</div>
+ <code>NumberFormat</code> for compact number formatting.
+
+ <p>Below is an example of using the constructor,
+
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">String[] compactPatterns = {"", "", "", "a lot"};
+NumberFormat fmt = new CompactNumberFormat("00", DecimalFormatSymbols.getInstance(Locale.US), compactPatterns);
+fmt.format(1); // returns "01"
+fmt.format(1000); // returns "a lot"
+</code></pre>
+</div>
+</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>decimalPattern</code> - a decimal pattern for general number formatting</dd>
+<dd><code>decimalPattern</code> - a <a href="DecimalFormat.html#patterns">decimal pattern</a>
+                       for general number formatting</dd>
 <dd><code>symbols</code> - the set of symbols to be used</dd>
 <dd><code>compactPatterns</code> - an array of
         <a href="#compact_number_patterns">compact number patterns</a></dd>
@@ -605,7 +638,8 @@ String result = fmt.format(1000);
  <a href="NumberFormat.html#getCompactNumberInstance(java.util.Locale,java.text.NumberFormat.Style)"><code>NumberFormat.getCompactNumberInstance(Locale, Style)</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>decimalPattern</code> - a decimal pattern for general number formatting</dd>
+<dd><code>decimalPattern</code> - a <a href="DecimalFormat.html#patterns">decimal pattern</a>
+                      for general number formatting</dd>
 <dd><code>symbols</code> - the set of symbols to be used</dd>
 <dd><code>compactPatterns</code> - an array of
         <a href="#compact_number_patterns">compact number patterns</a></dd>
@@ -821,22 +855,52 @@ String result = fmt.format(1000);
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../lang/Number.html" title="class in java.lang">Number</a></span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="../lang/String.html" title="class in java.lang">String</a>&nbsp;text,
  <a href="ParsePosition.html" title="class in java.text">ParsePosition</a>&nbsp;pos)</span></div>
-<div class="block">Parses a compact number from a string to produce a <code>Number</code>.
+<div class="block">Parses text from the beginning of the given string to produce a <code>Number</code>.
  <p>
- The method attempts to parse text starting at the index given by
- <code>pos</code>.
- If parsing succeeds, then the index of <code>pos</code> is updated
- to the index after the last character used (parsing does not necessarily
- use all characters up to the end of the string), and the parsed
- number is returned. The updated <code>pos</code> can be used to
- indicate the starting point for the next call to this method.
- If an error occurs, then the index of <code>pos</code> is not
- changed, the error index of <code>pos</code> is set to the index of
- the character where the error occurred, and <code>null</code> is returned.
+ This method attempts to parse text starting at the index given by the
+ <code>ParsePosition</code>. If parsing succeeds, then the index of the <code>
+ ParsePosition</code> is updated to the index after the last character used
+ (parsing does not necessarily use all characters up to the end of the
+ string), and the parsed number is returned. The updated <code>
+ ParsePosition</code> can be used to indicate the starting
+ point for the next call to this method. If an error occurs, then the
+ index of the <code>ParsePosition</code> is not changed, the error index of the
+ <code>ParsePosition</code> is set to the index of the character where the error
+ occurred, and <code>null</code> is returned.
  <p>
- The value is the numeric part in the given text multiplied
+ This method will return a Long if possible (e.g., within the range [Long.MIN_VALUE,
+ Long.MAX_VALUE] and with no decimals), otherwise a Double.
+ <p>
+ The returned value is the numeric part in the given text multiplied
  by the numeric equivalent of the affix attached
  (For example, "K" = 1000 in <a href="../util/Locale.html#US"><code>US locale</code></a>).
+ <p>
+ A <code>CompactNumberFormat</code> can match
+ the default prefix/suffix to a compact prefix/suffix interchangeably.
+ <p>
+ Parsing can be done in either a strict or lenient manner, by default it is lenient.
+ <p>
+ Parsing fails when <b>lenient</b>, if the prefix and/or suffix are non-empty
+ and cannot be found due to parsing ending early, or the first character
+ after the prefix cannot be parsed.
+ <p>
+ Parsing fails when <b>strict</b>, if in <code>text</code>,
+ <ul>
+   <li> The default or a compact prefix is not found. For example, the <code>
+   Locale.US</code> currency format prefix: "<code>$</code>"
+   <li> The default or a compact suffix is not found. For example, a <code>Locale.US</code>
+   <a href="NumberFormat.Style.html#SHORT"><code>NumberFormat.Style.SHORT</code></a> compact suffix: "<code>K</code>"
+   <li> <a href="#isGroupingUsed()"><code>isGroupingUsed()</code></a> returns <code>false</code>, and the grouping
+   symbol is found
+   <li> <a href="#isGroupingUsed()"><code>isGroupingUsed()</code></a> returns <code>true</code>, and <a href="#getGroupingSize()"><code>getGroupingSize()</code></a> is not adhered to
+   <li> <a href="#isParseIntegerOnly()"><code>isParseIntegerOnly()</code></a> returns <code>true</code>, and the decimal
+   separator is found
+   <li> <a href="#isGroupingUsed()"><code>isGroupingUsed()</code></a> returns <code>true</code> and <a href="#isParseIntegerOnly()"><code>isParseIntegerOnly()</code></a> returns <code>false</code>, and the grouping
+   symbol occurs after the decimal separator
+   <li> Any other characters are found, that are not the expected symbols,
+   and are not digits that occur within the numerical portion
+ </ul>
+ <p>
  The subclass returned depends on the value of
  <a href="#isParseBigDecimal()"><code>isParseBigDecimal()</code></a>.
  <ul>
@@ -883,9 +947,8 @@ String result = fmt.format(1000);
              <code>pos</code> is null</dd>
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list-long">
-<li><a href="NumberFormat.html#isParseIntegerOnly()"><code>NumberFormat.isParseIntegerOnly()</code></a></li>
-<li><a href="Format.html#parseObject(java.lang.String,java.text.ParsePosition)"><code>Format.parseObject(java.lang.String, java.text.ParsePosition)</code></a></li>
+<ul class="tag-list">
+<li><a href="NumberFormat.html#isStrict()"><code>NumberFormat.isStrict()</code></a></li>
 </ul>
 </dd>
 </dl>
@@ -1188,6 +1251,58 @@ String result = fmt.format(1000);
 </section>
 </li>
 <li>
+<section class="detail" id="isStrict()">
+<h3>isStrict</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isStrict</span>()</div>
+<div class="block">Returns <code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="NumberFormat.html#isStrict()">isStrict</a></code>&nbsp;in class&nbsp;<code><a href="NumberFormat.html" title="class in java.text">NumberFormat</a></code></dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if this format will parse numbers strictly;
+ <code>false</code> otherwise</dd>
+<dt>Since:</dt>
+<dd>23</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#setStrict(boolean)"><code>setStrict(boolean)</code></a></li>
+<li><a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(String, ParsePosition)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setStrict(boolean)">
+<h3>setStrict</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStrict</span><wbr><span class="parameters">(boolean&nbsp;strict)</span></div>
+<div class="block">Change the leniency value for parsing. Parsing can either be strict or lenient,
+ by default it is lenient.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="NumberFormat.html#setStrict(boolean)">setStrict</a></code>&nbsp;in class&nbsp;<code><a href="NumberFormat.html" title="class in java.text">NumberFormat</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>strict</code> - <code>true</code> if parsing should be done strictly;
+               <code>false</code> otherwise</dd>
+<dt>Since:</dt>
+<dd>23</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="#isStrict()"><code>isStrict()</code></a></li>
+<li><a href="#parse(java.lang.String,java.text.ParsePosition)"><code>parse(String, ParsePosition)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="isParseBigDecimal()">
 <h3>isParseBigDecimal</h3>
 <div class="horizontal-scroll">
@@ -1328,7 +1443,7 @@ String result = fmt.format(1000);
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

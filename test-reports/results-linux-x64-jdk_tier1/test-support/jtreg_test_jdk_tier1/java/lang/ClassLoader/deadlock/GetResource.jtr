@@ -1,0 +1,255 @@
+#Test Results (version 2)
+#Mon Apr 29 00:39:54 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug6977738 bug8029891
+run=USER_SPECIFIED build GetResource\nUSER_SPECIFIED main GetResource\n
+source=GetResource.java
+title=Test ClassLoader.getResource() that should not deadlock \#          if another thread is holding the system properties object
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java
+elapsed=110 0\:00\:00.110
+end=Mon Apr 29 00\:39\:54 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main
+start=Mon Apr 29 00\:39\:54 UTC 2024
+test=java/lang/ClassLoader/deadlock/GetResource.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=110
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/deadlock
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/227)----------
+command: build GetResource
+reason: User specified action: run build GetResource 
+started: Mon Apr 29 00:39:54 UTC 2024
+Test directory:
+  compile: GetResource
+finished: Mon Apr 29 00:39:54 UTC 2024
+elapsed time (seconds): 0.059
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/291)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:54 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:54 UTC 2024
+elapsed time (seconds): 0.059
+----------configuration:(10/706)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d
+
+----------rerun:(35/3333)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/deadlock/GetResource.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/173)----------
+command: build GetResource
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:54 UTC 2024
+finished: Mon Apr 29 00:39:54 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/212)----------
+command: main GetResource
+reason: User specified action: run main GetResource 
+started: Mon Apr 29 00:39:54 UTC 2024
+Mode: agentvm
+Agent id: 6
+finished: Mon Apr 29 00:39:54 UTC 2024
+elapsed time (seconds): 0.049
+----------configuration:(13/941)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d
+              /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock
+
+----------rerun:(28/2808)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/deadlock/GetResource.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        GetResource
+----------System.out:(72/4532)*----------
+Thread 1 ready
+Thread 2 ready
+#
+#Mon Apr 29 00:39:54 UTC 2024
+compile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+file.encoding=UTF-8
+file.separator=/
+java.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d\\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar\\:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+java.class.version=67.0
+java.home=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+java.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp
+java.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native
+java.runtime.name=OpenJDK Runtime Environment
+java.runtime.version=23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c
+java.security.policy=file\\:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jtreg.policy
+java.specification.name=Java Platform API Specification
+java.specification.vendor=Oracle Corporation
+java.specification.version=23
+java.vendor=N/A
+java.vendor.url=https\\://openjdk.org/
+java.vendor.url.bug=https\\://bugreport.java.com/bugreport/
+java.version=23-internal
+java.version.date=2024-09-17
+java.vm.compressedOopsMode=32-bit
+java.vm.info=mixed mode
+java.vm.name=OpenJDK 64-Bit Server VM
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=23
+java.vm.vendor=Oracle Corporation
+java.vm.version=23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c
+jdk.debug=release
+line.separator=\\n
+native.encoding=ANSI_X3.4-1968
+os.arch=amd64
+os.name=Linux
+os.version=6.5.0-1018-azure
+path.separator=\\:
+property=value
+stderr.encoding=ANSI_X3.4-1968
+stdout.encoding=ANSI_X3.4-1968
+sun.arch.data.model=64
+sun.boot.library.path=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/lib
+sun.cpu.endian=little
+sun.io.unicode.encoding=UnicodeLittle
+sun.java.command=com.sun.javatest.regtest.agent.AgentServer -id 6 -logfile /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jtData/agentServer.6.trace -allowSetSecurityManager -port 43273 -timeoutFactor 4.0
+sun.java.launcher=SUN_STANDARD
+sun.jnu.encoding=ANSI_X3.4-1968
+sun.management.compiler=HotSpot 64-Bit Tiered Compilers
+test.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk
+test.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d
+test.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/deadlock/GetResource.d
+test.compiler.opts=
+test.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock/GetResource.java
+test.java.opts=-XX\\:-CreateCoredumpOnCrash
+test.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+test.name=java/lang/ClassLoader/deadlock/GetResource.java
+test.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native
+test.root=/home/runner/work/openjdk/openjdk/test/jdk
+test.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock
+test.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/deadlock
+test.timeout.factor=4.0
+test.tool.vm.opts=-J-Xmx768m -J-XX\\:MaxRAMPercentage\\=12.5 -J-Dtest.boot.jdk\\=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir\\=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa
+test.vm.opts=-Xmx768m -XX\\:MaxRAMPercentage\\=12.5 -Dtest.boot.jdk\\=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir\\=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa
+user.country=US
+user.dir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1
+user.home=/home/runner
+user.language=en
+user.name=runner
+user.timezone=Etc/UTC
+Thread 1 exits
+Thread 2 exits
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

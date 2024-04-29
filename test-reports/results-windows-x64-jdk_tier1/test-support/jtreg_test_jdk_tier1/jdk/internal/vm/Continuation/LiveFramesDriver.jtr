@@ -1,0 +1,903 @@
+#Test Results (version 2)
+#Mon Apr 29 02:05:12 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=othervm
+modules=java.base/jdk.internal.vm
+requires=vm.continuations
+run=USER_SPECIFIED build java.base/java.lang.LiveFrames\r\nUSER_SPECIFIED main/othervm -XX\:+UnlockDiagnosticVMOptions -Xint LiveFramesDriver\r\nUSER_SPECIFIED main/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:-TieredCompilation -Xcomp -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,java.lang.LiveFrames\:\:* LiveFramesDriver\r\nUSER_SPECIFIED main/othervm -XX\:+UnlockDiagnosticVMOptions -XX\:+TieredCompilation -XX\:TieredStopAtLevel\=3 -Xcomp -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,java.lang.LiveFrames\:\:* LiveFramesDriver\r\n
+source=LiveFramesDriver.java
+title=Functional test for continuations walked with StackWalker's LiveStackFrames
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/LiveFramesDriver.java
+elapsed=896 0\:00\:00.896
+end=Mon Apr 29 02\:05\:12 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.vm
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile main build main build main
+start=Mon Apr 29 02\:05\:11 UTC 2024
+test=jdk/internal/vm/Continuation/LiveFramesDriver.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=896
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/291)----------
+command: build java.base/java.lang.LiveFrames
+reason: User specified action: run build java.base/java.lang.LiveFrames 
+started: Mon Apr 29 02:05:11 UTC 2024
+Test directory:
+  compile: java.base/java.lang.LiveFrames
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.032
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/426)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base\\java\\lang\\LiveFrames.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 02:05:11 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.032
+----------configuration:(14/1100)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base 
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d 
+  patch:       java.base                 D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base
+                                         D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base
+
+----------rerun:(41/4035)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/LiveFramesDriver.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.modules=java.base/jdk.internal.vm \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        --patch-module 'java.base=D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        --add-reads java.base=ALL-UNNAMED 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\java.base\\java\\lang\\LiveFrames.java'
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/229)----------
+command: build LiveFramesDriver
+reason: Named class compiled on demand
+started: Mon Apr 29 02:05:11 UTC 2024
+Test directory:
+  compile: LiveFramesDriver
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.015
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/409)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 02:05:11 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.015
+----------configuration:(14/1053)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  add reads:   java.base                 ALL-UNNAMED
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation 
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation 
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d 
+  patch:       java.base                 D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base
+
+----------rerun:(42/4002)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/LiveFramesDriver.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.modules=java.base/jdk.internal.vm \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        --patch-module 'java.base=D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        --add-reads java.base=ALL-UNNAMED 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java'
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/473)----------
+command: main -XX:+UnlockDiagnosticVMOptions -Xint LiveFramesDriver
+reason: User specified action: run main/othervm -XX:+UnlockDiagnosticVMOptions -Xint LiveFramesDriver 
+started: Mon Apr 29 02:05:11 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.254
+----------configuration:(5/321)*----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  patch:       java.base                 D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base
+
+----------System.out:(157/5099)----------
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0, 3, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 2, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [1, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 1, 3, abc]
+^&^ stack: [3755726128, 0]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [java.lang.StackWalker@7c88dd1c]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 3, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 2, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [1, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 1, 3, abc]
+^&^ stack: [3755726128, 0]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, Thread[#17,MainThread,5,MainThreadGroup], 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [java.lang.LiveFrames@247007c9, 0, jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295, java.lang.LiveFrames@247007c9]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#17,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0, 4, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 3, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [2, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4617315517961601024, 2, 3, abc]
+^&^ stack: [3491072376, 4617315517961601024]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [java.lang.StackWalker@b770c36]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 4, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 3, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [2, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4617315517961601024, 2, 3, abc]
+^&^ stack: [3491072376, 4617315517961601024]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, Thread[#17,MainThread,5,MainThreadGroup], 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [java.lang.LiveFrames@247007c9, 0, jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295, java.lang.LiveFrames@247007c9]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#17,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0, 5, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 4, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [3, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4622382067542392832, 3, 3, abc]
+^&^ stack: [3490490040, 4622382067542392832]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [java.lang.StackWalker@7111d013]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 5, 0, 4621813488089437307, zzz, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 4, 0, 4621813488089437307, zzz, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [3, 0, 8, yyy, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4622382067542392832, 3, 3, abc]
+^&^ stack: [3490490040, 4622382067542392832]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, Thread[#17,MainThread,5,MainThreadGroup], 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [java.lang.LiveFrames@247007c9, 0, jdk.internal.vm.Continuation@434682e scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295, java.lang.LiveFrames@247007c9]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@198af295]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#17,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@2350bc85, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ end
+^&^ END UNMOUNTED
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(44/4065)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/LiveFramesDriver.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        --patch-module 'java.base=D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -Xint \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\main.0.jta'
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build LiveFramesDriver
+reason: Named class compiled on demand
+started: Mon Apr 29 02:05:11 UTC 2024
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/665)----------
+command: main -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation -Xcomp -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* LiveFramesDriver
+reason: User specified action: run main/othervm -XX:+UnlockDiagnosticVMOptions -XX:-TieredCompilation -Xcomp -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* LiveFramesDriver 
+started: Mon Apr 29 02:05:11 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.314
+----------configuration:(5/321)*----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  patch:       java.base                 D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base
+
+----------System.out:(159/4852)----------
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly java/lang/LiveFrames.* bool compileonly = true
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 3, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963263, 0, 0]
+^&^ stack: [-2401018183117963264, 0]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [java.lang.StackWalker@7e9b9ea6]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 3, 0, 0, null, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, null, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, null, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963263, 0, null]
+^&^ stack: [-2401018183117963264, 0]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [null, 0, jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7926083]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 4, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4617315517961601024, -2401018183117963262, 3, abc]
+^&^ stack: [3491047520, 4617315517961601024]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 4, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4617315517961601024, -2401018183117963262, 3, abc]
+^&^ stack: [3491047520, 4617315517961601024]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [null, 0, jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7926083]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 5, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4622382067542392832, -2401018183117963261, 3, abc]
+^&^ stack: [3490465232, 4622382067542392832]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 5, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 4622382067542392832, -2401018183117963261, 3, abc]
+^&^ stack: [3490465232, 4622382067542392832]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [null, 0, jdk.internal.vm.Continuation@7894556f scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7926083]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@597047a1, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ end
+^&^ END UNMOUNTED
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(46/4185)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/LiveFramesDriver.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        --patch-module 'java.base=D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:-TieredCompilation \\
+        -Xcomp \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\main.1.jta'
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build LiveFramesDriver
+reason: Named class compiled on demand
+started: Mon Apr 29 02:05:11 UTC 2024
+finished: Mon Apr 29 02:05:11 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/713)----------
+command: main -XX:+UnlockDiagnosticVMOptions -XX:+TieredCompilation -XX:TieredStopAtLevel=3 -Xcomp -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* LiveFramesDriver
+reason: User specified action: run main/othervm -XX:+UnlockDiagnosticVMOptions -XX:+TieredCompilation -XX:TieredStopAtLevel=3 -Xcomp -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* LiveFramesDriver 
+started: Mon Apr 29 02:05:11 UTC 2024
+Mode: othervm [/othervm specified, test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 02:05:12 UTC 2024
+elapsed time (seconds): 0.281
+----------configuration:(5/321)*----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  patch:       java.base                 D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base
+
+----------System.out:(159/4759)----------
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly java/lang/LiveFrames.* bool compileonly = true
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 3, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963263, 0, 0]
+^&^ stack: [-2401018183117963264, 0]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 3, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963263, 0, 0]
+^&^ stack: [-2401018183117963264, 0]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7894556f]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 4, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963262, 0, 0]
+^&^ stack: [-2401018183117963264, 4617315517961601024]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 4, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963262, 0, 0]
+^&^ stack: [-2401018183117963264, 4617315517961601024]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7894556f]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [-2401018183117963264, 5, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963261, 0, 0]
+^&^ stack: [-2401018183117963264, 4622382067542392832]
+^&^ end
+^&^ END UNMOUNTED
+^&^ start
+^&^ --==--
+^&^ locals: [0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [-2401018183117963264, 5, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, 0, -2401018183117963261, 0, 0]
+^&^ stack: [-2401018183117963264, 4622382067542392832]
+^&^ --==--
+^&^ locals: [jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0, 0, 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0, jdk.internal.vm.Continuation@7e9b9ea6 scope: java.lang.LiveFrames$1, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [[Ljava.lang.String;@7894556f]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, jdk.internal.loader.ClassLoaders$AppClassLoader@1fbc7afb, class LiveFramesDriver, public static void LiveFramesDriver.main(java.lang.String[]), 0, 0]
+^&^ stack: []
+^&^ --==--
+^&^ locals: [Thread[#20,MainThread,5,MainThreadGroup], com.sun.javatest.regtest.agent.MainWrapper$MainTask@7926083, class java.lang.Thread]
+^&^ stack: []
+^&^ end
+^&^ UNMOUNTED
+^&^ start
+^&^ end
+^&^ END UNMOUNTED
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(47/4221)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/LiveFramesDriver.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -Dtest.patch.path= \\
+        --patch-module 'java.base=D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\patches\\java.base' \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+TieredCompilation \\
+        -XX:TieredStopAtLevel=3 \\
+        -Xcomp \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,java.lang.LiveFrames::* \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\LiveFramesDriver.d\\main.2.jta'
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

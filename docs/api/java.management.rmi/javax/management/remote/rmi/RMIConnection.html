@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -62,7 +62,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../../search.html">Search</a></li>
 <li><a href="../../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -166,7 +166,12 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 
  <p>Most methods in this interface parallel methods in the <a href="../../../../../java.management/javax/management/MBeanServerConnection.html" title="interface in javax.management"><code>MBeanServerConnection</code></a> interface.  Where an aspect of the behavior
  of a method is not specified here, it is the same as in the
- corresponding <code>MBeanServerConnection</code> method.</div>
+ corresponding <code>MBeanServerConnection</code> method.
+
+ <p>JMX Subject Delegation has been removed. All methods that take a
+ <code>delegationSubject</code> parameter will throw <code>UnsupportedOperationException</code>
+ if it is non-null. This parameter is kept for interoperability with older
+ remote clients.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.5</dd>
@@ -460,9 +465,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dt>Parameters:</dt>
 <dd><code>className</code> - The class name of the MBean to be instantiated.</dd>
 <dd><code>name</code> - The object name of the MBean. May be null.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -489,9 +492,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  passed in parameter is null, the <code>ObjectName</code> passed
  in parameter contains a pattern or no <code>ObjectName</code>
  is specified for the MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -517,9 +521,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>className</code> - The class name of the MBean to be instantiated.</dd>
 <dd><code>name</code> - The object name of the MBean. May be null.</dd>
 <dd><code>loaderName</code> - The object name of the class loader to be used.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -548,9 +550,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  passed in parameter is null, the <code>ObjectName</code> passed
  in parameter contains a pattern or no <code>ObjectName</code>
  is specified for the MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -583,9 +586,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>signature</code> - An array containing the signature of the
  constructor to be invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -612,9 +613,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  passed in parameter is null, the <code>ObjectName</code> passed
  in parameter contains a pattern, or no <code>ObjectName</code>
  is specified for the MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -651,9 +653,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>signature</code> - An array containing the signature of the
  constructor to be invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An <code>ObjectInstance</code>, containing the
  <code>ObjectName</code> and the Java class name of the newly
@@ -682,9 +682,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  passed in parameter is null, the <code>ObjectName</code> passed
  in parameter contains a pattern, or no <code>ObjectName</code>
  is specified for the MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -703,9 +704,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean to be unregistered.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
@@ -716,9 +715,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null or the MBean you are when trying to
  unregister is the <a href="../../../../../java.management/javax/management/MBeanServerDelegate.html" title="class in javax.management"><code>MBeanServerDelegate</code></a> MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -736,9 +736,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The <code>ObjectInstance</code> associated with the MBean
  specified by <var>name</var>.  The contained <code>ObjectName</code>
@@ -750,9 +748,11 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.
  if any, does not have permission to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -776,17 +776,16 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  MBeans, encapsulated into a <code>MarshalledObject</code>. If
  the <code>MarshalledObject</code> encapsulates a null value no
  query expression will be applied for selecting MBeans.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>A set containing the <code>ObjectInstance</code>
  objects for the selected MBeans.  If no MBean satisfies the
  query an empty list is returned.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -810,17 +809,16 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  MBeans, encapsulated into a <code>MarshalledObject</code>. If
  the <code>MarshalledObject</code> encapsulates a null value no
  query expression will be applied for selecting MBeans.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>A set containing the ObjectNames for the MBeans
  selected.  If no MBean satisfies the query, an empty list is
  returned.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -837,9 +835,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - The object name of the MBean to be checked.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>True if the MBean is already registered in the MBean
  server, false otherwise.</dd>
@@ -847,9 +843,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -864,15 +861,14 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <a href="../../../../../java.management/javax/management/MBeanServerConnection.html#getMBeanCount()"><code>MBeanServerConnection.getMBeanCount()</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the number of MBeans registered.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -896,9 +892,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  attribute is to be retrieved.</dd>
 <dd><code>attribute</code> - A String specifying the name of the attribute
  to be retrieved.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The value of the retrieved attribute.</dd>
 <dt>Throws:</dt>
@@ -917,9 +911,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  null.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeMBeanException.html" title="class in javax.management">RuntimeMBeanException</a></code> - Wraps a runtime exception thrown
  by the MBean's getter.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -946,9 +941,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>name</code> - The object name of the MBean from which the
  attributes are retrieved.</dd>
 <dd><code>attributes</code> - A list of the attributes to be retrieved.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The list of the retrieved attributes.</dd>
 <dt>Throws:</dt>
@@ -959,9 +952,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wrap a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null or attributes in parameter is null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -994,9 +988,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>attribute</code> - The identification of the attribute to be set
  and the value it is to be set to, encapsulated into a
  <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
@@ -1013,9 +1005,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null or the attribute in parameter is
  null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -1045,9 +1038,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>attributes</code> - A list of attributes: The identification of
  the attributes to be set and the values they are to be set to,
  encapsulated into a <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The list of attributes that were set, with their new
  values.</dd>
@@ -1059,9 +1050,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null or attributes in parameter is null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -1101,9 +1093,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  class loader as the one used for loading the MBean on which the
  operation was invoked.  Can be null, equivalent to an empty
  array.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>The object returned by the operation, which represents
  the result of invoking the operation on the MBean specified.</dd>
@@ -1115,11 +1105,12 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - Wraps a
  <code>java.lang.Exception</code> thrown while trying to invoke
  the method.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps an <a href="../../../../../java.base/java/lang/IllegalArgumentException.html" title="class in java.lang"><code>IllegalArgumentException</code></a> when <code>name</code> or
  <code>operationName</code> is null.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1134,15 +1125,14 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <a href="../../../../../java.management/javax/management/MBeanServerConnection.html#getDefaultDomain()"><code>MBeanServerConnection.getDefaultDomain()</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the default domain.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1157,15 +1147,14 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <a href="../../../../../java.management/javax/management/MBeanServerConnection.html#getDomains()"><code>MBeanServerConnection.getDomains()</code></a>.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>the list of domains.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1185,9 +1174,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>name</code> - The name of the MBean to analyze</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>An instance of <code>MBeanInfo</code> allowing the
  retrieval of all attributes and operations of this MBean.</dd>
@@ -1198,12 +1185,13 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  not found.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ReflectionException.html" title="class in javax.management">ReflectionException</a></code> - An exception occurred when
  trying to invoke the getMBeanInfo of a Dynamic MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1222,21 +1210,20 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dt>Parameters:</dt>
 <dd><code>name</code> - The <code>ObjectName</code> of the MBean.</dd>
 <dd><code>className</code> - The name of the class.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>true if the MBean specified is an instance of the
  specified class according to the rules above, false otherwise.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean specified is not
  registered in the MBean server.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps a
  <code>java.lang.IllegalArgumentException</code>: The object
  name in parameter is null.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1270,9 +1257,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>handback</code> - The context to be sent to the listener when a
  notification is emitted, encapsulated into a
  <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name of the
  notification listener or of the notification broadcaster does
@@ -1281,9 +1266,10 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  <code>listener</code> exists but does not implement the
  <a href="../../../../../java.management/javax/management/NotificationListener.html" title="interface in javax.management"><code>NotificationListener</code></a> interface,
  or <code>name</code> or <code>listener</code> is null.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -1311,19 +1297,18 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>name</code> - The name of the MBean on which the listener should
  be removed.</dd>
 <dd><code>listener</code> - The object name of the listener to be removed.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name provided
  does not match any of the registered MBeans.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ListenerNotFoundException.html" title="class in javax.management">ListenerNotFoundException</a></code> - The listener is not
  registered in the MBean.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps an <a href="../../../../../java.base/java/lang/IllegalArgumentException.html" title="class in java.lang"><code>IllegalArgumentException</code></a> when <code>name</code> or
  <code>listener</code> is null.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -1360,20 +1345,19 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  was added, encapsulated into a <code>MarshalledObject</code>.</dd>
 <dd><code>handback</code> - The handback that was specified when the
  listener was added, encapsulated into a <code>MarshalledObject</code>.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - The MBean name provided
  does not match any of the registered MBeans.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/ListenerNotFoundException.html" title="class in javax.management">ListenerNotFoundException</a></code> - The listener is not
  registered in the MBean, or it is not registered with the given
  filter and handback.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to perform this operation.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to perform this operation.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.management/javax/management/RuntimeOperationsException.html" title="class in javax.management">RuntimeOperationsException</a></code> - Wraps an <a href="../../../../../java.base/java/lang/IllegalArgumentException.html" title="class in java.lang"><code>IllegalArgumentException</code></a> when <code>name</code> or
  <code>listener</code> is null.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list-long">
@@ -1417,12 +1401,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code>filters</code> - an array of marshalled representations of the
  <code>NotificationFilters</code>.  Elements of this array can
  be null.</dd>
-<dd><code>delegationSubjects</code> - the <code>Subjects</code> on behalf
- of which the listeners are being added.  Elements of this array
- can be null.  Also, the <code>delegationSubjects</code>
- parameter itself can be null, which is equivalent to an array
- of null values with the same size as the <code>names</code> and
- <code>filters</code> arrays.</dd>
+<dd><code>delegationSubjects</code> - must be <code>null</code>.</dd>
 <dt>Returns:</dt>
 <dd>an array of <code>listenerIDs</code> identifying the
  local listeners.  This array has the same number of elements as
@@ -1438,9 +1417,9 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - if one of the
  <code>names</code> does not correspond to any registered MBean.</dd>
 <dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if, for one of the MBeans, the
- client, or the delegated Subject if any, does not have
- permission to add a listener.</dd>
+ client does not have permission to add a listener.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1471,9 +1450,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  emitting the Notifications.</dd>
 <dd><code>listenerIDs</code> - the list of the IDs corresponding to the
  listeners to remove.</dd>
-<dd><code>delegationSubject</code> - The <code>Subject</code> containing the
- delegation principals or <code>null</code> if the authentication
- principal is used instead.</dd>
+<dd><code>delegationSubject</code> - must be <code>null</code>.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="../../../../../java.management/javax/management/InstanceNotFoundException.html" title="class in javax.management">InstanceNotFoundException</a></code> - if the given
  <code>name</code> does not correspond to any registered MBean.</dd>
@@ -1481,12 +1458,13 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
  not found on the server side.  This exception can happen if the
  MBean discarded a listener for some reason other than a call to
  <code>MBeanServer.removeNotificationListener</code>.</dd>
-<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client, or the delegated Subject
- if any, does not have permission to remove the listeners.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/SecurityException.html" title="class in java.lang">SecurityException</a></code> - if the client does not have permission
+ to remove the listeners.</dd>
 <dd><code><a href="../../../../../java.base/java/io/IOException.html" title="class in java.io">IOException</a></code> - if a general communication exception occurred.</dd>
 <dd><code><a href="../../../../../java.base/java/lang/IllegalArgumentException.html" title="class in java.lang">IllegalArgumentException</a></code> - if <code>ObjectName</code> or
  <code>listenerIds</code> is null or if <code>listenerIds</code>
  contains a null element.</dd>
+<dd><code><a href="../../../../../java.base/java/lang/UnsupportedOperationException.html" title="class in java.lang">UnsupportedOperationException</a></code> - if <code>delegationSubject</code> is non-null.</dd>
 </dl>
 </div>
 </section>
@@ -1545,7 +1523,7 @@ extends <a href="../../../../../java.base/java/io/Closeable.html" title="interfa
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

@@ -1,0 +1,1231 @@
+#Test Results (version 2)
+#Mon Apr 29 00:48:36 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs
+keywords=bug7184195 bug8021003 othervm
+modules=java.logging
+run=USER_SPECIFIED build TestGetGlobalConcurrent testgetglobal.HandlerImpl testgetglobal.LogManagerImpl1 testgetglobal.LogManagerImpl2 testgetglobal.LogManagerImpl3 testgetglobal.BadLogManagerImpl testgetglobal.DummyLogManagerImpl\nUSER_SPECIFIED main/othervm TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm -Djava.util.logging.manager\=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager -Djava.util.logging.manager\=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm -Djava.util.logging.manager\=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager -Djava.util.logging.manager\=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm -Djava.util.logging.manager\=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager -Djava.util.logging.manager\=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm -Djava.util.logging.manager\=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager -Djava.util.logging.manager\=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm -Djava.util.logging.manager\=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent\nUSER_SPECIFIED main/othervm/policy\=policy -Djava.security.manager -Djava.util.logging.manager\=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent\n
+source=TestGetGlobalConcurrent.java
+title=Test that the global logger can log with no configuration when accessed from multiple threads.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java
+elapsed=2010 0\:00\:02.010
+end=Mon Apr 29 00\:48\:36 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main build main build main build main build main build main build main build main build main build main build main build main
+start=Mon Apr 29 00\:48\:34 UTC 2024
+test=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=2010
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/814)----------
+command: build TestGetGlobalConcurrent testgetglobal.HandlerImpl testgetglobal.LogManagerImpl1 testgetglobal.LogManagerImpl2 testgetglobal.LogManagerImpl3 testgetglobal.BadLogManagerImpl testgetglobal.DummyLogManagerImpl
+reason: User specified action: run build TestGetGlobalConcurrent testgetglobal.HandlerImpl testgetglobal.LogManagerImpl1 testgetglobal.LogManagerImpl2 testgetglobal.LogManagerImpl3 testgetglobal.BadLogManagerImpl testgetglobal.DummyLogManagerImpl 
+started: Mon Apr 29 00:48:34 UTC 2024
+Test directory:
+  compile: TestGetGlobalConcurrent, testgetglobal.HandlerImpl, testgetglobal.LogManagerImpl1, testgetglobal.LogManagerImpl2, testgetglobal.LogManagerImpl3, testgetglobal.BadLogManagerImpl, testgetglobal.DummyLogManagerImpl
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.02
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/1054)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/HandlerImpl.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl1.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl2.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl3.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/BadLogManagerImpl.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/DummyLogManagerImpl.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:48:34 UTC 2024
+Additional options from @modules: --add-modules java.logging
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.02
+----------configuration:(11/764)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.logging
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d
+
+----------rerun:(35/4204)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -J-Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/HandlerImpl.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl1.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl2.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/LogManagerImpl3.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/BadLogManagerImpl.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/testgetglobal/DummyLogManagerImpl.java
+----------direct:(6/501)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java:158: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+            + (System.getSecurityManager() == null ? " " :
+                     ^
+Note: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:34 UTC 2024
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/314)----------
+command: main TestGetGlobalConcurrent
+reason: User specified action: run main/othervm TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:34 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.171
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(17/901)----------
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(36/3561)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.0.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:34 UTC 2024
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/376)----------
+command: main -Djava.security.manager TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:34 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.166
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(19/1049)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(39/3788)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.1.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:34 UTC 2024
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/430)----------
+command: main -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:34 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.113
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(18/946)----------
+Global is: java.util.logging.Logger@6171e4f9
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(37/3630)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.2.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:34 UTC 2024
+finished: Mon Apr 29 00:48:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/492)----------
+command: main -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:34 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.214
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(20/1094)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Global is: java.util.logging.Logger@445e6fcb
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:34 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(40/3857)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl1 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.3.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/430)----------
+command: main -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.118
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(18/946)----------
+Global is: java.util.logging.Logger@247366b3
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(37/3630)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.4.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/492)----------
+command: main -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.187
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(20/1094)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Global is: java.util.logging.Logger@5aea2781
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(40/3857)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl2 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.5.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/430)----------
+command: main -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.209
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(42/3148)----------
+Got expected exception - you cannot call Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) in LogManager subclass static initializer: java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:656)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at testgetglobal.LogManagerImpl3.<clinit>(LogManagerImpl3.java:40)
+	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method)
+	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1161)
+	at java.base/jdk.internal.reflect.MethodHandleAccessorFactory.ensureClassInitialized(MethodHandleAccessorFactory.java:340)
+	at java.base/jdk.internal.reflect.MethodHandleAccessorFactory.newConstructorAccessor(MethodHandleAccessorFactory.java:103)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newConstructorAccessor(ReflectionFactory.java:173)
+	at java.base/java.lang.reflect.Constructor.acquireConstructorAccessor(Constructor.java:549)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:132)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:259)
+	at java.base/java.lang.Class.newInstance(Class.java:804)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:234)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:223)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.<clinit>(LogManager.java:222)
+	at TestGetGlobalConcurrent.test3(TestGetGlobalConcurrent.java:93)
+	at TestGetGlobalConcurrent$Run3.run(TestGetGlobalConcurrent.java:145)
+	at TestGetGlobalConcurrent$WaitAndRun.run(TestGetGlobalConcurrent.java:131)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Global is: java.util.logging.Logger@d52b1d1
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(37/3630)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.6.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/492)----------
+command: main -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.188
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(44/3297)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Got expected exception - you cannot call Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) in LogManager subclass static initializer: java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:656)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at testgetglobal.LogManagerImpl3.<clinit>(LogManagerImpl3.java:40)
+	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized0(Native Method)
+	at java.base/jdk.internal.misc.Unsafe.ensureClassInitialized(Unsafe.java:1161)
+	at java.base/jdk.internal.reflect.MethodHandleAccessorFactory.ensureClassInitialized(MethodHandleAccessorFactory.java:340)
+	at java.base/jdk.internal.reflect.MethodHandleAccessorFactory.newConstructorAccessor(MethodHandleAccessorFactory.java:103)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newConstructorAccessor(ReflectionFactory.java:173)
+	at java.base/java.lang.reflect.Constructor.acquireConstructorAccessor(Constructor.java:549)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:132)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:259)
+	at java.base/java.lang.Class.newInstance(Class.java:804)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:234)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:223)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.<clinit>(LogManager.java:222)
+	at TestGetGlobalConcurrent.test3(TestGetGlobalConcurrent.java:93)
+	at TestGetGlobalConcurrent$Run3.run(TestGetGlobalConcurrent.java:145)
+	at TestGetGlobalConcurrent$WaitAndRun.run(TestGetGlobalConcurrent.java:131)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Global is: java.util.logging.Logger@5aea2781
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(40/3857)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        -Djava.util.logging.manager=testgetglobal.LogManagerImpl3 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.7.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/434)----------
+command: main -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent
+reason: User specified action: run main/othervm -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.149
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(36/2406)----------
+Could not load Logmanager "testgetglobal.BadLogManagerImpl"
+java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:656)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at testgetglobal.BadLogManagerImpl.<init>(BadLogManagerImpl.java:41)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:132)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:259)
+	at java.base/java.lang.Class.newInstance(Class.java:804)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:234)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:223)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.<clinit>(LogManager.java:222)
+	at TestGetGlobalConcurrent.test3(TestGetGlobalConcurrent.java:93)
+	at TestGetGlobalConcurrent$Run3.run(TestGetGlobalConcurrent.java:145)
+	at TestGetGlobalConcurrent$WaitAndRun.run(TestGetGlobalConcurrent.java:131)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(37/3632)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.8.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:35 UTC 2024
+finished: Mon Apr 29 00:48:35 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/496)----------
+command: main -Djava.security.manager -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:35 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:36 UTC 2024
+elapsed time (seconds): 0.151
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(38/2554)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Could not load Logmanager "testgetglobal.BadLogManagerImpl"
+java.lang.NullPointerException: Cannot invoke "java.util.logging.LogManager.demandLogger(String, String, java.lang.Class)" because "manager" is null
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:656)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at testgetglobal.BadLogManagerImpl.<init>(BadLogManagerImpl.java:41)
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.ReflectAccess.newInstance(ReflectAccess.java:132)
+	at java.base/jdk.internal.reflect.ReflectionFactory.newInstance(ReflectionFactory.java:259)
+	at java.base/java.lang.Class.newInstance(Class.java:804)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:234)
+	at java.logging/java.util.logging.LogManager$1.run(LogManager.java:223)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.<clinit>(LogManager.java:222)
+	at TestGetGlobalConcurrent.test3(TestGetGlobalConcurrent.java:93)
+	at TestGetGlobalConcurrent$Run3.run(TestGetGlobalConcurrent.java:145)
+	at TestGetGlobalConcurrent$WaitAndRun.run(TestGetGlobalConcurrent.java:131)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:35 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(40/3859)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        -Djava.util.logging.manager=testgetglobal.BadLogManagerImpl \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.9.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:36 UTC 2024
+finished: Mon Apr 29 00:48:36 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/438)----------
+command: main -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent
+reason: User specified action: run main/othervm -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:36 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:36 UTC 2024
+elapsed time (seconds): 0.148
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(17/901)----------
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(37/3635)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.10.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestGetGlobalConcurrent
+reason: Named class compiled on demand
+started: Mon Apr 29 00:48:36 UTC 2024
+finished: Mon Apr 29 00:48:36 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/500)----------
+command: main -Djava.security.manager -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent
+reason: User specified action: run main/othervm/policy=policy -Djava.security.manager -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl TestGetGlobalConcurrent 
+started: Mon Apr 29 00:48:36 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 00:48:36 UTC 2024
+elapsed time (seconds): 0.176
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(1/12)----------
+Test passed
+----------System.err:(19/1049)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test1
+INFO: 4. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test1
+INFO: 5. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent main
+INFO: 2. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent main
+INFO: 3. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test3
+INFO: 8. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test3
+INFO: 9. This message should now appear on the console too.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test2
+INFO: 6. This message should appear on the console.
+Apr 29, 2024 12:48:36 AM TestGetGlobalConcurrent test2
+INFO: 7. This message should now appear on the console too.
+STATUS:Passed.
+----------rerun:(40/3862)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/Logger/getGlobal \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager \\
+        -Djava.util.logging.manager=testgetglobal.DummyLogManagerImpl \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/Logger/getGlobal/TestGetGlobalConcurrent.d/main.11.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

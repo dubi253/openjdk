@@ -1,0 +1,341 @@
+#Test Results (version 2)
+#Mon Apr 29 00:39:06 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+id=default_gc
+keywords=othervm driver
+library=../ /test/lib
+requires=vm.gc \!\= "Z"
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI --enable-native-access\=ALL-UNNAMED -Xbatch TestStackWalk\n
+source=TestStackWalk.java
+title=\ 
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java\#default_gc
+elapsed=925 0\:00\:00.925
+end=Mon Apr 29 00\:39\:06 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Mon Apr 29 00\:39\:05 UTC 2024
+test=java/foreign/stackwalk/TestStackWalk.java\#default_gc
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=926
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk
+
+#section:script_messages
+----------messages:(10/784)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library ../; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:39:05 UTC 2024
+finished: Mon Apr 29 00:39:05 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:05 UTC 2024
+finished: Mon Apr 29 00:39:05 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/326)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:39:05 UTC 2024
+Mode: agentvm
+Agent id: 10
+finished: Mon Apr 29 00:39:05 UTC 2024
+elapsed time (seconds): 0.05
+----------configuration:(16/1153)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+              /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+              /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /home/runner/work/openjdk/openjdk/test/lib
+
+----------rerun:(28/3422)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestStackWalk.java#default_gc \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/216)----------
+command: build TestStackWalk
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:05 UTC 2024
+Test directory:
+  compile: TestStackWalk
+finished: Mon Apr 29 00:39:05 UTC 2024
+elapsed time (seconds): 0.063
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/285)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:05 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:05 UTC 2024
+elapsed time (seconds): 0.063
+----------configuration:(14/1080)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /home/runner/work/openjdk/openjdk/test/jdk/java/foreign
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(35/4187)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/foreign/stackwalk/TestStackWalk.java#default_gc \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/454)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch TestStackWalk
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch TestStackWalk 
+started: Mon Apr 29 00:39:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:39:06 UTC 2024
+elapsed time (seconds): 0.81
+----------configuration:(0/0)----------
+----------System.out:(78/6744)----------
+NativeTestHelper::DEFAULT_RANDOM.seed = -572824679
+Re-run with '-DNativeTestHelper.DEFAULT_RANDOM.seed=-572824679' to reproduce
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xab2b8680 unextended sp=0xab2b8680, fp=0xab2b86c0, real_fp=0xab2b86c0, pc=0xe4ff1763)
+~native method entry point (kind = native)  [0xe4ff1460, 0xe4ff1bb4]  1876 bytes
+Interpreted frame (sp=0xab2b86c8 unextended sp=0xab2b86d0, fp=0xab2b8700, real_fp=0xab2b8700, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8708 unextended sp=0xab2b8708, fp=0xab2b872c, real_fp=0xab2b872c, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8734 unextended sp=0xab2b8738, fp=0xab2b8760, real_fp=0xab2b8760, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Compiled frame (sp=0xab2b8768 unextended sp=0xab2b8770, fp=0xbc5824f8, real_fp=0xab2b8790, pc=0xe558c564)
+Compiled frame (sp=0xab2b8790 unextended sp=0xab2b8790, fp=0xbd13baa0, real_fp=0xab2b87b0, pc=0xe558d754)
+Compiled frame (sp=0xab2b87b0 unextended sp=0xab2b87b0, fp=0xbc508688, real_fp=0xab2b87d0, pc=0xe5588da0)
+C frame (sp=0xab2b87d0 unextended sp=0xab2b87d0, fp=0xab2b8818, real_fp=0xab2b8818, pc=0xe4fe6c5c)
+~Stub::call_stubNative frame (sp=0xab2b8cb0 unextended sp=0xab2b8cb0, fp=0x00000000, real_fp=0xab2b8d10, pc=0xe556ae1c)
+Compiled frame (sp=0xab2b8d10 unextended sp=0xab2b8d10, fp=0x00000002, real_fp=0xab2b8db0, pc=0xe557ab50)
+Compiled frame (sp=0xab2b8db0 unextended sp=0xab2b8db0, fp=0xbc57f3f8, real_fp=0xab2b8dd0, pc=0xe558871c)
+Interpreted frame (sp=0xab2b8dd0 unextended sp=0xab2b8dd0, fp=0xab2b8e08, real_fp=0xab2b8e08, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e10 unextended sp=0xab2b8e18, fp=0xab2b8e44, real_fp=0xab2b8e44, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e4c unextended sp=0xab2b8e50, fp=0xab2b8e7c, real_fp=0xab2b8e7c, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e84 unextended sp=0xab2b8e90, fp=0xab2b8ec0, real_fp=0xab2b8ec0, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8ec8 unextended sp=0xab2b8ec8, fp=0xab2b8efc, real_fp=0xab2b8efc, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f04 unextended sp=0xab2b8f04, fp=0xab2b8f34, real_fp=0xab2b8f34, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f3c unextended sp=0xab2b8f40, fp=0xab2b8f70, real_fp=0xab2b8f70, pc=0xe4fedeb6)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f78 unextended sp=0xab2b8f84, fp=0xab2b8fb4, real_fp=0xab2b8fb4, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8fbc unextended sp=0xab2b8fd0, fp=0xab2b8ff8, real_fp=0xab2b8ff8, pc=0xe4fedd80)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b9000 unextended sp=0xab2b9000, fp=0xab2b9030, real_fp=0xab2b9030, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+C frame (sp=0xab2b9038 unextended sp=0xab2b9040, fp=0xab2b9058, real_fp=0xab2b9058, pc=0xe4fe6c5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0xab2b8680 unextended sp=0xab2b8680, fp=0xab2b86c0, real_fp=0xab2b86c0, pc=0xe4ff1763)
+~native method entry point (kind = native)  [0xe4ff1460, 0xe4ff1bb4]  1876 bytes
+Interpreted frame (sp=0xab2b86c8 unextended sp=0xab2b86d0, fp=0xab2b8700, real_fp=0xab2b8700, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8708 unextended sp=0xab2b8708, fp=0xab2b872c, real_fp=0xab2b872c, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8734 unextended sp=0xab2b8738, fp=0xab2b8760, real_fp=0xab2b8760, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Compiled frame (sp=0xab2b8768 unextended sp=0xab2b8770, fp=0xbc5824f8, real_fp=0xab2b8790, pc=0xe558c564)
+Compiled frame (sp=0xab2b8790 unextended sp=0xab2b8790, fp=0xbd13baa0, real_fp=0xab2b87b0, pc=0xe558d754)
+Compiled frame (sp=0xab2b87b0 unextended sp=0xab2b87b0, fp=0xbc508688, real_fp=0xab2b87d0, pc=0xe5588da0)
+C frame (sp=0xab2b87d0 unextended sp=0xab2b87d0, fp=0xab2b8818, real_fp=0xab2b8818, pc=0xe4fe6c5c)
+~Stub::call_stubNative frame (sp=0xab2b8cb0 unextended sp=0xab2b8cb0, fp=0x00000000, real_fp=0xab2b8d10, pc=0xe556ae1c)
+Compiled frame (sp=0xab2b8d10 unextended sp=0xab2b8d10, fp=0x00000002, real_fp=0xab2b8db0, pc=0xe557ab50)
+Compiled frame (sp=0xab2b8db0 unextended sp=0xab2b8db0, fp=0xbc57f3f8, real_fp=0xab2b8dd0, pc=0xe558871c)
+Interpreted frame (sp=0xab2b8dd0 unextended sp=0xab2b8dd0, fp=0xab2b8e08, real_fp=0xab2b8e08, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e10 unextended sp=0xab2b8e18, fp=0xab2b8e44, real_fp=0xab2b8e44, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e4c unextended sp=0xab2b8e50, fp=0xab2b8e7c, real_fp=0xab2b8e7c, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8e84 unextended sp=0xab2b8e90, fp=0xab2b8ec0, real_fp=0xab2b8ec0, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8ec8 unextended sp=0xab2b8ec8, fp=0xab2b8efc, real_fp=0xab2b8efc, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f04 unextended sp=0xab2b8f04, fp=0xab2b8f34, real_fp=0xab2b8f34, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f3c unextended sp=0xab2b8f40, fp=0xab2b8f70, real_fp=0xab2b8f70, pc=0xe4fedeb6)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8f78 unextended sp=0xab2b8f84, fp=0xab2b8fb4, real_fp=0xab2b8fb4, pc=0xe4fedb00)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b8fbc unextended sp=0xab2b8fd0, fp=0xab2b8ff8, real_fp=0xab2b8ff8, pc=0xe4fedd80)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+Interpreted frame (sp=0xab2b9000 unextended sp=0xab2b9000, fp=0xab2b9030, real_fp=0xab2b9030, pc=0xe4fed9ca)
+~return entry points  [0xe4fed620, 0xe4fedf5c]  2364 bytes
+C frame (sp=0xab2b9038 unextended sp=0xab2b9040, fp=0xab2b9058, real_fp=0xab2b9058, pc=0xe4fe6c5c)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4431)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestStackWalk.java#default_gc \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_default_gc.d:/home/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        --enable-native-access=ALL-UNNAMED \\
+        -Xbatch \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk/TestStackWalk_default_gc.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

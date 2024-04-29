@@ -1,0 +1,356 @@
+#Test Results (version 2)
+#Mon Apr 29 00:36:22 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=jjh
+keywords=bug5089849 driver
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter\nUSER_SPECIFIED compile -g ReferrersTest.java\nUSER_SPECIFIED driver ReferrersTest\n
+source=ReferrersTest.java
+title=Add support for backtracking reference graph.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java
+elapsed=968 0\:00\:00.968
+end=Mon Apr 29 00\:36\:22 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile build driver
+start=Mon Apr 29 00\:36\:21 UTC 2024
+test=com/sun/jdi/ReferrersTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=968
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/com/sun/jdi
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/359)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter 
+started: Mon Apr 29 00:36:21 UTC 2024
+Test directory:
+  compile: TestScaffold, VMConnection, TargetListener, TargetAdapter
+finished: Mon Apr 29 00:36:21 UTC 2024
+elapsed time (seconds): 0.195
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/551)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:36:21 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:36:21 UTC 2024
+elapsed time (seconds): 0.195
+----------configuration:(11/674)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d
+
+----------rerun:(37/3392)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/ReferrersTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+----------direct:(6/363)----------
+/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/DebuggeeWrapper.java:115: warning: [removal] ThreadDeath in java.lang has been deprecated and marked for removal
+            if (e instanceof ThreadDeath) {
+                             ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/348)----------
+command: compile -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java
+reason: User specified action: run compile -g ReferrersTest.java 
+started: Mon Apr 29 00:36:21 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:36:21 UTC 2024
+elapsed time (seconds): 0.16
+----------configuration:(11/674)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d
+
+----------rerun:(38/3185)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/ReferrersTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java
+----------direct:(2/168)----------
+Note: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/173)----------
+command: build ReferrersTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:36:21 UTC 2024
+finished: Mon Apr 29 00:36:21 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/220)----------
+command: driver ReferrersTest
+reason: User specified action: run driver ReferrersTest 
+started: Mon Apr 29 00:36:21 UTC 2024
+Mode: agentvm
+Agent id: 5
+finished: Mon Apr 29 00:36:22 UTC 2024
+elapsed time (seconds): 0.612
+----------configuration:(13/905)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(29/2666)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/ReferrersTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/ReferrersTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/com/sun/jdi/ReferrersTest.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        ReferrersTest
+----------System.err:(5/97)----------
+[0ms] run args: [ReferrersTarg]
+[553ms] ReferrersTest: passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(90/6465)----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK 64-Bit Server VM, mixed mode, sharing)
+Howdy!
+476 classes from vm.allClasses() took 1 ms
+instance counts for 476 classes got 45057 instances and took 31 ms
+
+Getting instances for one class at a time (limited) in sorted order
+Expected 20000 instances, got 20000 instances for class ReferrersFiller (loaded by instance of jdk.internal.loader.ClassLoaders$AppClassLoader(id=20490)) in 56 ms
+Expected 8189 instances, got 8189 instances for array class byte[] (no class loader) in 21 ms
+Expected 8115 instances, got 8115 instances for class java.lang.String (no class loader) in 20 ms
+Expected 1571 instances, got 1571 instances for class java.lang.Class (no class loader) in 16 ms
+Expected 1354 instances, got 1354 instances for array class java.lang.Object[] (no class loader) in 10 ms
+Expected 1001 instances, got 1001 instances for class java.util.HashMap$Node (no class loader) in 8 ms
+40230 instances via making one vm.instances call for each of 6 classes took 150 ms
+Per class = 0 ms
+11 referrers for instance of ReferrersTarg(id=479) took 16 ms
+    (1) instance of ReferrersTarg(id=480)
+        1 referrers for instance of ReferrersTarg(id=480) took 17 ms
+        (1) instance of ReferrersTarg[10] (id=40245)
+            1 referrers for instance of ReferrersTarg[10] (id=40245) took 17 ms
+            (1) instance of java.lang.Class(reflected class=ReferrersTarg, id=44)
+                14 referrers for instance of java.lang.Class(reflected class=ReferrersTarg, id=44) took 16 ms
+                (1) instance of ReferrersTarg(id=479)
+                    11 referrers for instance of ReferrersTarg(id=479) took 16 ms
+                    (1):<pruned> instance of ReferrersTarg(id=480)
+                    (2) instance of ReferrersTarg(id=481)
+                        1 referrers for instance of ReferrersTarg(id=481) took 16 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (3) instance of ReferrersTarg(id=482)
+                        1 referrers for instance of ReferrersTarg(id=482) took 9 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (4) instance of ReferrersTarg(id=483)
+                        1 referrers for instance of ReferrersTarg(id=483) took 10 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (5) instance of ReferrersTarg(id=484)
+                        1 referrers for instance of ReferrersTarg(id=484) took 14 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (6):<pruned> instance of java.lang.Class(reflected class=ReferrersTarg, id=44)
+                    (7) instance of ReferrersTarg(id=485)
+                        1 referrers for instance of ReferrersTarg(id=485) took 9 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (8) instance of ReferrersTarg(id=486)
+                        1 referrers for instance of ReferrersTarg(id=486) took 15 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (9) instance of ReferrersTarg(id=487)
+                        1 referrers for instance of ReferrersTarg(id=487) took 15 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (10) instance of ReferrersTarg(id=488)
+                        1 referrers for instance of ReferrersTarg(id=488) took 14 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                    (11) instance of ReferrersTarg(id=489)
+                        1 referrers for instance of ReferrersTarg(id=489) took 8 ms
+                        (1):<pruned> instance of ReferrersTarg[10] (id=40245)
+                (2):<pruned> instance of ReferrersTarg(id=480)
+                (3):<pruned> instance of ReferrersTarg(id=481)
+                (4):<pruned> instance of ReferrersTarg(id=482)
+                (5):<pruned> instance of ReferrersTarg(id=483)
+                (6) instance of java.lang.Class(reflected class=sun.launcher.LauncherHelper, id=2)
+                    1 referrers for instance of java.lang.Class(reflected class=sun.launcher.LauncherHelper, id=2) took 8 ms
+                    (1):<pruned> instance of java.lang.Class(reflected class=sun.launcher.LauncherHelper, id=2)
+                (7):<pruned> instance of ReferrersTarg(id=484)
+                (8):<pruned> instance of java.lang.Class(reflected class=ReferrersTarg, id=44)
+                (9):<pruned> instance of ReferrersTarg(id=485)
+                (10):<pruned> instance of ReferrersTarg(id=486)
+                (11):<pruned> instance of ReferrersTarg(id=487)
+                (12) instance of java.lang.Object[2] (id=38932)
+                    1 referrers for instance of java.lang.Object[2] (id=38932) took 9 ms
+                    (1) instance of java.util.ArrayList(id=40246)
+                        1 referrers for instance of java.util.ArrayList(id=40246) took 8 ms
+                        (1) instance of jdk.internal.loader.ClassLoaders$AppClassLoader(id=20490)
+                            51 referrers for instance of jdk.internal.loader.ClassLoaders$AppClassLoader(id=20490) took 8 ms
+                (13):<pruned> instance of ReferrersTarg(id=488)
+                (14):<pruned> instance of ReferrersTarg(id=489)
+    (2):<pruned> instance of ReferrersTarg(id=481)
+    (3):<pruned> instance of ReferrersTarg(id=482)
+    (4):<pruned> instance of ReferrersTarg(id=483)
+    (5):<pruned> instance of ReferrersTarg(id=484)
+    (6):<pruned> instance of java.lang.Class(reflected class=ReferrersTarg, id=44)
+    (7):<pruned> instance of ReferrersTarg(id=485)
+    (8):<pruned> instance of ReferrersTarg(id=486)
+    (9):<pruned> instance of ReferrersTarg(id=487)
+    (10):<pruned> instance of ReferrersTarg(id=488)
+    (11):<pruned> instance of ReferrersTarg(id=489)
+Goodbye from ReferrersTarg!
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

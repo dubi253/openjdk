@@ -24,10 +24,11 @@
 <meta name="keywords" content="getNestingKind()">
 <meta name="keywords" content="getAccessLevel()">
 <meta name="keywords" content="toString()">
+<meta name="keywords" content="forSource()">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -55,7 +56,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../search.html">Search</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -113,6 +114,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#isNameCompatible(java.lang.String,javax.tools.JavaFileObject.Kind)" tabindex="0">isNameCompatible(String, JavaFileObject.Kind)</a></li>
 <li><a href="#getNestingKind()" tabindex="0">getNestingKind()</a></li>
 <li><a href="#getAccessLevel()" tabindex="0">getAccessLevel()</a></li>
+<li><a href="#forSource(java.net.URI,java.lang.String)" tabindex="0">forSource(URI, String)</a></li>
 </ol>
 </li>
 </ol>
@@ -203,7 +205,7 @@ implements <a href="JavaFileObject.html" title="interface in javax.tools">JavaFi
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -214,68 +216,74 @@ implements <a href="JavaFileObject.html" title="interface in javax.tools">JavaFi
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Deletes this file object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/model/element/Modifier.html" title="enum class in javax.lang.model.element">Modifier</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAccessLevel()" class="member-name-link">getAccessLevel</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JavaFileObject.html" title="interface in javax.tools">JavaFileObject</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forSource(java.net.URI,java.lang.String)" class="member-name-link">forSource</a><wbr>(<a href="../../../java.base/java/net/URI.html" title="class in java.net">URI</a>&nbsp;uri,
+ <a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a>&nbsp;content)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a <a href="JavaFileObject.html" title="interface in javax.tools"><code>JavaFileObject</code></a> which represents the given source content.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/model/element/Modifier.html" title="enum class in javax.lang.model.element">Modifier</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAccessLevel()" class="member-name-link">getAccessLevel</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Provides a hint about the access level of the class represented
  by this file object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/lang/CharSequence.html" title="interface in java.lang">CharSequence</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCharContent(boolean)" class="member-name-link">getCharContent</a><wbr>(boolean&nbsp;ignoreEncodingErrors)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/lang/CharSequence.html" title="interface in java.lang">CharSequence</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCharContent(boolean)" class="member-name-link">getCharContent</a><wbr>(boolean&nbsp;ignoreEncodingErrors)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the character content of this file object, if available.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="JavaFileObject.Kind.html" title="enum class in javax.tools">JavaFileObject.Kind</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getKind()" class="member-name-link">getKind</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="JavaFileObject.Kind.html" title="enum class in javax.tools">JavaFileObject.Kind</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getKind()" class="member-name-link">getKind</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the kind of this file object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastModified()" class="member-name-link">getLastModified</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastModified()" class="member-name-link">getLastModified</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the time this file object was last modified.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a user-friendly name for this file object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/model/element/NestingKind.html" title="enum class in javax.lang.model.element">NestingKind</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNestingKind()" class="member-name-link">getNestingKind</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../lang/model/element/NestingKind.html" title="enum class in javax.lang.model.element">NestingKind</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNestingKind()" class="member-name-link">getNestingKind</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Provides a hint about the nesting level of the class
  represented by this file object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNameCompatible(java.lang.String,javax.tools.JavaFileObject.Kind)" class="member-name-link">isNameCompatible</a><wbr>(<a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a>&nbsp;simpleName,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNameCompatible(java.lang.String,javax.tools.JavaFileObject.Kind)" class="member-name-link">isNameCompatible</a><wbr>(<a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a>&nbsp;simpleName,
  <a href="JavaFileObject.Kind.html" title="enum class in javax.tools">JavaFileObject.Kind</a>&nbsp;kind)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Checks if this file object is compatible with the specified
  simple name and kind.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/InputStream.html" title="class in java.io">InputStream</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openInputStream()" class="member-name-link">openInputStream</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/InputStream.html" title="class in java.io">InputStream</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openInputStream()" class="member-name-link">openInputStream</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns an InputStream for this file object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/OutputStream.html" title="class in java.io">OutputStream</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openOutputStream()" class="member-name-link">openOutputStream</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/OutputStream.html" title="class in java.io">OutputStream</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openOutputStream()" class="member-name-link">openOutputStream</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns an OutputStream for this file object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/Reader.html" title="class in java.io">Reader</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openReader(boolean)" class="member-name-link">openReader</a><wbr>(boolean&nbsp;ignoreEncodingErrors)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/Reader.html" title="class in java.io">Reader</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openReader(boolean)" class="member-name-link">openReader</a><wbr>(boolean&nbsp;ignoreEncodingErrors)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a reader for this object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/Writer.html" title="class in java.io">Writer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openWriter()" class="member-name-link">openWriter</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/io/Writer.html" title="class in java.io">Writer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#openWriter()" class="member-name-link">openWriter</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a Writer for this file object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/net/URI.html" title="class in java.net">URI</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toUri()" class="member-name-link">toUri</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../java.base/java/net/URI.html" title="class in java.net">URI</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toUri()" class="member-name-link">toUri</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a URI identifying this file object.</div>
 </div>
 </div>
@@ -631,6 +639,54 @@ implements <a href="JavaFileObject.html" title="interface in javax.tools">JavaFi
 </div>
 </section>
 </li>
+<li>
+<section class="detail" id="forSource(java.net.URI,java.lang.String)">
+<h3>forSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JavaFileObject.html" title="interface in javax.tools">JavaFileObject</a></span>&nbsp;<span class="element-name">forSource</span><wbr><span class="parameters">(<a href="../../../java.base/java/net/URI.html" title="class in java.net">URI</a>&nbsp;uri,
+ <a href="../../../java.base/java/lang/String.html" title="class in java.lang">String</a>&nbsp;content)</span></div>
+<div class="block">Creates a <a href="JavaFileObject.html" title="interface in javax.tools"><code>JavaFileObject</code></a> which represents the given source content.
+
+ <p>The provided <code>uri</code> will be returned from <a href="#toUri()"><code>toUri()</code></a>.
+ The provided <code>content</code> will be returned from <a href="#getCharContent(boolean)"><code>getCharContent(boolean)</code></a>.
+ The <a href="#getKind()"><code>getKind()</code></a> method will return <a href="JavaFileObject.Kind.html#SOURCE"><code>JavaFileObject.Kind.SOURCE</code></a>.
+
+ <p>All other methods will behave as described in the documentation in this class,
+ as if the constructor is called with <code>uri</code> and <code>Kind.SOURCE</code>.
+
+ <p>This method can be, for example, used to compile an in-memory String
+ to a set of classfile in a target directory:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">     var code = """
+                public class CompiledCode {}
+                """;
+     var compiler = ToolProvider.getSystemJavaCompiler();
+     var targetDirectory = "...";
+     var task = compiler.getTask(null,
+                                 null,
+                                 null,
+                                 List.of("-d", targetDirectory),
+                                 null,
+                                 List.of(SimpleJavaFileObject.forSource(URI.create("CompiledCode.java"), code)));
+     if (!task.call()) {
+         throw new IllegalStateException("Compilation failed!");
+     }
+</code></pre>
+</div>
+</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>uri</code> - that should be used for the resulting <code>JavaFileObject</code></dd>
+<dd><code>content</code> - the content of the <code>JavaFileObject</code></dd>
+<dt>Returns:</dt>
+<dd>a <code>JavaFileObject</code> representing the given source content.</dd>
+<dt>Since:</dt>
+<dd>23</dd>
+</dl>
+</div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -639,7 +695,7 @@ implements <a href="JavaFileObject.html" title="interface in javax.tools">JavaFi
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

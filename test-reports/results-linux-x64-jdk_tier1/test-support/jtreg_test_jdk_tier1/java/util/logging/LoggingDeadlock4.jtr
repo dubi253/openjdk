@@ -1,0 +1,187 @@
+#Test Results (version 2)
+#Mon Apr 29 00:57:14 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=Daniel D. Daugherty
+keywords=bug6977677 bug8004928 othervm
+maxTimeout=15
+modules=java.base/sun.util.logging java.logging
+run=USER_SPECIFIED compile -XDignore.symbol.file LoggingDeadlock4.java\nUSER_SPECIFIED main/othervm/timeout\=15 LoggingDeadlock4\n
+source=LoggingDeadlock4.java
+title=Deadlock between LogManager.<clinit> and Logger.getLogger()
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java
+elapsed=135 0\:00\:00.135
+end=Mon Apr 29 00\:57\:14 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/sun.util.logging java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build main
+start=Mon Apr 29 00\:57\:14 UTC 2024
+test=java/util/logging/LoggingDeadlock4.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=136
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:compile
+----------messages:(8/467)----------
+command: compile -XDignore.symbol.file /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java
+reason: User specified action: run compile -XDignore.symbol.file LoggingDeadlock4.java 
+started: Mon Apr 29 00:57:14 UTC 2024
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/sun.util.logging=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:57:14 UTC 2024
+elapsed time (seconds): 0.018
+----------configuration:(12/772)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.logging     
+  add exports: java.base/sun.util.logging ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging 
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d 
+
+----------rerun:(39/3419)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/LoggingDeadlock4.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.modules='java.base/sun.util.logging java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -XDignore.symbol.file /home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/176)----------
+command: build LoggingDeadlock4
+reason: Named class compiled on demand
+started: Mon Apr 29 00:57:14 UTC 2024
+finished: Mon Apr 29 00:57:14 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/374)----------
+command: main LoggingDeadlock4
+reason: User specified action: run main/othervm/timeout=15 LoggingDeadlock4 
+started: Mon Apr 29 00:57:14 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/sun.util.logging=ALL-UNNAMED
+finished: Mon Apr 29 00:57:14 UTC 2024
+elapsed time (seconds): 0.116
+----------configuration:(4/109)----------
+Boot Layer
+  add modules: java.base java.logging     
+  add exports: java.base/sun.util.logging ALL-UNNAMED
+
+----------System.out:(4/124)----------
+main: LoggingDeadlock4 is starting.
+LoggerThread: is running.
+LogManagerThread: is running.
+main: LoggingDeadlock4 is done.
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(39/3469)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LoggingDeadlock4.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LoggingDeadlock4.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/LoggingDeadlock4.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/sun.util.logging java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/sun.util.logging=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LoggingDeadlock4.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

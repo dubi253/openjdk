@@ -16,6 +16,7 @@
 <meta name="keywords" content="scope()">
 <meta name="keywords" content="isAccessibleBy()">
 <meta name="keywords" content="byteSize()">
+<meta name="keywords" content="maxByteAlignment()">
 <meta name="keywords" content="asSlice()">
 <meta name="keywords" content="reinterpret()">
 <meta name="keywords" content="isReadOnly()">
@@ -47,7 +48,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -75,7 +76,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -128,6 +129,7 @@ loadScripts(document, 'script');</script>
 <li><a href="#scope()" tabindex="0">scope()</a></li>
 <li><a href="#isAccessibleBy(java.lang.Thread)" tabindex="0">isAccessibleBy(Thread)</a></li>
 <li><a href="#byteSize()" tabindex="0">byteSize()</a></li>
+<li><a href="#maxByteAlignment()" tabindex="0">maxByteAlignment()</a></li>
 <li><a href="#asSlice(long,long)" tabindex="0">asSlice(long, long)</a></li>
 <li><a href="#asSlice(long,long,long)" tabindex="0">asSlice(long, long, long)</a></li>
 <li><a href="#asSlice(long,java.lang.foreign.MemoryLayout)" tabindex="0">asSlice(long, MemoryLayout)</a></li>
@@ -268,6 +270,11 @@ loadScripts(document, 'script');</script>
  <li>The address of a native segment (including mapped segments) denotes the physical
  address of the region of memory which backs the segment.</li>
  </ul>
+ <p>
+ Every memory segment has a <a href="#maxByteAlignment()">maximum byte alignment</a>,
+ expressed as a <code>long</code> value. The maximum alignment is always a power of two,
+ derived from the segment address, and the segment type, as explained in more detail
+ <a href="#segment-alignment">below</a>.
  <p>
  Every memory segment has a <a href="#byteSize()">size</a>. The size of a heap segment
  is derived from the Java array from which it is obtained. This size is predictable
@@ -597,6 +604,17 @@ longSegment.get(ValueLayout.JAVA_INT, 0); // ok: ValueLayout.JAVA_INT.byteAlignm
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
 <pre class="snippet"><code class="language-java">MemorySegment byteSegment = MemorySegment.ofArray(new byte[10]);
 byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_UNALIGNED.byteAlignment() == ValueLayout.JAVA_BYTE.byteAlignment()
+</code></pre>
+</div>
+
+
+ Clients can use the <a href="#maxByteAlignment()">maxByteAlignment()</a> method to check if
+ a memory segment supports the alignment constraint of a memory layout, as follows:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">MemoryLayout layout = ...
+MemorySegment segment = ...
+boolean isAligned = segment.maxByteAlignment() &gt;= layout.byteAlignment();
 </code></pre>
 </div>
 
@@ -1054,298 +1072,304 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <div class="block">Loads the contents of this mapped segment into physical memory.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>long</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#mismatch(java.lang.foreign.MemorySegment)" class="member-name-link">mismatch</a><wbr>(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;other)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#maxByteAlignment()" class="member-name-link">maxByteAlignment</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the <a href="#segment-alignment">maximum byte alignment</a>
+ associated with this memory segment.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#mismatch(java.lang.foreign.MemorySegment)" class="member-name-link">mismatch</a><wbr>(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;other)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Finds and returns the offset, in bytes, of the first mismatch between
  this segment and the given other segment.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static long</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#mismatch(java.lang.foreign.MemorySegment,long,long,java.lang.foreign.MemorySegment,long,long)" class="member-name-link">mismatch</a><wbr>(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;srcSegment,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#mismatch(java.lang.foreign.MemorySegment,long,long,java.lang.foreign.MemorySegment,long,long)" class="member-name-link">mismatch</a><wbr>(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;srcSegment,
  long&nbsp;srcFromOffset,
  long&nbsp;srcToOffset,
  <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;dstSegment,
  long&nbsp;dstFromOffset,
  long&nbsp;dstToOffset)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Finds and returns the relative offset, in bytes, of the first mismatch between the
  source and the destination segments.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofAddress(long)" class="member-name-link">ofAddress</a><wbr>(long&nbsp;address)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofAddress(long)" class="member-name-link">ofAddress</a><wbr>(long&nbsp;address)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a zero-length native segment from the given
  <a href="#address()">address value</a>.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(byte%5B%5D)" class="member-name-link">ofArray</a><wbr>(byte[]&nbsp;byteArray)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(byte%5B%5D)" class="member-name-link">ofArray</a><wbr>(byte[]&nbsp;byteArray)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  byte array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(char%5B%5D)" class="member-name-link">ofArray</a><wbr>(char[]&nbsp;charArray)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(char%5B%5D)" class="member-name-link">ofArray</a><wbr>(char[]&nbsp;charArray)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  char array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(double%5B%5D)" class="member-name-link">ofArray</a><wbr>(double[]&nbsp;doubleArray)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(double%5B%5D)" class="member-name-link">ofArray</a><wbr>(double[]&nbsp;doubleArray)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  double array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(float%5B%5D)" class="member-name-link">ofArray</a><wbr>(float[]&nbsp;floatArray)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(float%5B%5D)" class="member-name-link">ofArray</a><wbr>(float[]&nbsp;floatArray)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  float array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(int%5B%5D)" class="member-name-link">ofArray</a><wbr>(int[]&nbsp;intArray)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(int%5B%5D)" class="member-name-link">ofArray</a><wbr>(int[]&nbsp;intArray)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  int array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(long%5B%5D)" class="member-name-link">ofArray</a><wbr>(long[]&nbsp;longArray)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(long%5B%5D)" class="member-name-link">ofArray</a><wbr>(long[]&nbsp;longArray)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  long array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(short%5B%5D)" class="member-name-link">ofArray</a><wbr>(short[]&nbsp;shortArray)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofArray(short%5B%5D)" class="member-name-link">ofArray</a><wbr>(short[]&nbsp;shortArray)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a heap segment backed by the on-heap region of memory that holds the given
  short array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofBuffer(java.nio.Buffer)" class="member-name-link">ofBuffer</a><wbr>(<a href="../../nio/Buffer.html" title="class in java.nio">Buffer</a>&nbsp;buffer)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofBuffer(java.nio.Buffer)" class="member-name-link">ofBuffer</a><wbr>(<a href="../../nio/Buffer.html" title="class in java.nio">Buffer</a>&nbsp;buffer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">
 <div class="block">Creates a memory segment that is backed by the same region of memory that backs
  the given <a href="../../nio/Buffer.html" title="class in java.nio"><code>Buffer</code></a> instance.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(long)" class="member-name-link">reinterpret</a><wbr>(long&nbsp;newSize)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(long)" class="member-name-link">reinterpret</a><wbr>(long&nbsp;newSize)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block"><span class="restricted-label">Restricted.</span></div>
 <div class="block">Returns a new memory segment that has the same address and scope as this segment,
  but with the provided size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)" class="member-name-link">reinterpret</a><wbr>(long&nbsp;newSize,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)" class="member-name-link">reinterpret</a><wbr>(long&nbsp;newSize,
  <a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
  <a href="../../util/function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;&nbsp;cleanup)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block"><span class="restricted-label">Restricted.</span></div>
 <div class="block">Returns a new segment with the same address as this segment, but with the provided
  size and scope.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)" class="member-name-link">reinterpret</a><wbr>(<a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)" class="member-name-link">reinterpret</a><wbr>(<a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
  <a href="../../util/function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;&nbsp;cleanup)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block"><span class="restricted-label">Restricted.</span></div>
 <div class="block">Returns a new memory segment with the same address and size as this segment, but
  with the provided scope.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.Scope.html" title="interface in java.lang.foreign">MemorySegment.Scope</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scope()" class="member-name-link">scope</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="MemorySegment.Scope.html" title="interface in java.lang.foreign">MemorySegment.Scope</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scope()" class="member-name-link">scope</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns the scope associated with this memory segment.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.AddressLayout,long,java.lang.foreign.MemorySegment)" class="member-name-link">set</a><wbr>(<a href="AddressLayout.html" title="interface in java.lang.foreign">AddressLayout</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.AddressLayout,long,java.lang.foreign.MemorySegment)" class="member-name-link">set</a><wbr>(<a href="AddressLayout.html" title="interface in java.lang.foreign">AddressLayout</a>&nbsp;layout,
  long&nbsp;offset,
  <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes an address into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfBoolean,long,boolean)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfBoolean.html" title="interface in java.lang.foreign">ValueLayout.OfBoolean</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfBoolean,long,boolean)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfBoolean.html" title="interface in java.lang.foreign">ValueLayout.OfBoolean</a>&nbsp;layout,
  long&nbsp;offset,
  boolean&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a boolean into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfByte,long,byte)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfByte,long,byte)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;layout,
  long&nbsp;offset,
  byte&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a byte into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfChar,long,char)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfChar,long,char)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;layout,
  long&nbsp;offset,
  char&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a char into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfDouble,long,double)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfDouble,long,double)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;layout,
  long&nbsp;offset,
  double&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a double into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfFloat,long,float)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfFloat,long,float)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;layout,
  long&nbsp;offset,
  float&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a float into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfInt,long,int)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfInt,long,int)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;layout,
  long&nbsp;offset,
  int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes an int into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfLong,long,long)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfLong,long,long)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;layout,
  long&nbsp;offset,
  long&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a long into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfShort,long,short)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#set(java.lang.foreign.ValueLayout.OfShort,long,short)" class="member-name-link">set</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;layout,
  long&nbsp;offset,
  short&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a short into this segment at the given offset, with the given layout.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.AddressLayout,long,java.lang.foreign.MemorySegment)" class="member-name-link">setAtIndex</a><wbr>(<a href="AddressLayout.html" title="interface in java.lang.foreign">AddressLayout</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.AddressLayout,long,java.lang.foreign.MemorySegment)" class="member-name-link">setAtIndex</a><wbr>(<a href="AddressLayout.html" title="interface in java.lang.foreign">AddressLayout</a>&nbsp;layout,
  long&nbsp;index,
  <a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes an address into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfBoolean,long,boolean)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfBoolean.html" title="interface in java.lang.foreign">ValueLayout.OfBoolean</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfBoolean,long,boolean)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfBoolean.html" title="interface in java.lang.foreign">ValueLayout.OfBoolean</a>&nbsp;layout,
  long&nbsp;index,
  boolean&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a boolean into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfByte,long,byte)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfByte,long,byte)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;layout,
  long&nbsp;index,
  byte&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a byte into this segment at the given index, scaled by the given layout size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfChar,long,char)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfChar,long,char)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;layout,
  long&nbsp;index,
  char&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a char into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfDouble,long,double)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfDouble,long,double)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;layout,
  long&nbsp;index,
  double&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a double into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfFloat,long,float)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfFloat,long,float)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;layout,
  long&nbsp;index,
  float&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a float into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfInt,long,int)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfInt,long,int)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;layout,
  long&nbsp;index,
  int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes an int into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfLong,long,long)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;layout,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfLong,long,long)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;layout,
  long&nbsp;index,
  long&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a long into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfShort,long,short)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;layout,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setAtIndex(java.lang.foreign.ValueLayout.OfShort,long,short)" class="member-name-link">setAtIndex</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;layout,
  long&nbsp;index,
  short&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes a short into this segment at the given index, scaled by the given
  layout size.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setString(long,java.lang.String)" class="member-name-link">setString</a><wbr>(long&nbsp;offset,
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setString(long,java.lang.String)" class="member-name-link">setString</a><wbr>(long&nbsp;offset,
  <a href="../String.html" title="class in java.lang">String</a>&nbsp;str)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes the given string into this segment at the given offset, converting it to
  a null-terminated byte sequence using the <a href="../../nio/charset/StandardCharsets.html#UTF_8">UTF-8</a>
  charset.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setString(long,java.lang.String,java.nio.charset.Charset)" class="member-name-link">setString</a><wbr>(long&nbsp;offset,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setString(long,java.lang.String,java.nio.charset.Charset)" class="member-name-link">setString</a><wbr>(long&nbsp;offset,
  <a href="../String.html" title="class in java.lang">String</a>&nbsp;str,
  <a href="../../nio/charset/Charset.html" title="class in java.nio.charset">Charset</a>&nbsp;charset)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Writes the given string into this segment at the given offset, converting it to a
  null-terminated byte sequence using the provided charset.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../../util/Spliterator.html" title="interface in java.util">Spliterator</a><wbr>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#spliterator(java.lang.foreign.MemoryLayout)" class="member-name-link">spliterator</a><wbr>(<a href="MemoryLayout.html" title="interface in java.lang.foreign">MemoryLayout</a>&nbsp;elementLayout)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../../util/Spliterator.html" title="interface in java.util">Spliterator</a><wbr>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#spliterator(java.lang.foreign.MemoryLayout)" class="member-name-link">spliterator</a><wbr>(<a href="MemoryLayout.html" title="interface in java.lang.foreign">MemoryLayout</a>&nbsp;elementLayout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Returns a spliterator for this memory segment.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>byte[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfByte)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;elementLayout)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>byte[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfByte)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfByte.html" title="interface in java.lang.foreign">ValueLayout.OfByte</a>&nbsp;elementLayout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new byte array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>char[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfChar)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;elementLayout)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>char[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfChar)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfChar.html" title="interface in java.lang.foreign">ValueLayout.OfChar</a>&nbsp;elementLayout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new char array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>double[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfDouble)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;elementLayout)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>double[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfDouble)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfDouble.html" title="interface in java.lang.foreign">ValueLayout.OfDouble</a>&nbsp;elementLayout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new double array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>float[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfFloat)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;elementLayout)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>float[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfFloat)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfFloat.html" title="interface in java.lang.foreign">ValueLayout.OfFloat</a>&nbsp;elementLayout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new float array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfInt)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;elementLayout)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfInt)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfInt.html" title="interface in java.lang.foreign">ValueLayout.OfInt</a>&nbsp;elementLayout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new int array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>long[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfLong)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;elementLayout)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>long[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfLong)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfLong.html" title="interface in java.lang.foreign">ValueLayout.OfLong</a>&nbsp;elementLayout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new long array.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>short[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfShort)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;elementLayout)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>short[]</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#toArray(java.lang.foreign.ValueLayout.OfShort)" class="member-name-link">toArray</a><wbr>(<a href="ValueLayout.OfShort.html" title="interface in java.lang.foreign">ValueLayout.OfShort</a>&nbsp;elementLayout)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Copy the contents of this memory segment into a new short array.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#unload()" class="member-name-link">unload</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#unload()" class="member-name-link">unload</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">Unloads the contents of this mapped segment from physical memory.</div>
 </div>
 </div>
@@ -1368,7 +1392,10 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <div class="horizontal-scroll">
 <div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">NULL</span></div>
 <div class="block">A zero-length native segment modelling the <code>NULL</code> address. Equivalent to
- <code>MemorySegment.ofAddress(0L)</code>.</div>
+ <code>MemorySegment.ofAddress(0L)</code>.
+ <p>
+ The <a href="#maxByteAlignment()">maximum byte alignment</a> for
+ the <code>NULL</code> segment is of 2<sup>62</sup>.</div>
 </div>
 </section>
 </li>
@@ -1528,6 +1555,38 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 </section>
 </li>
 <li>
+<section class="detail" id="maxByteAlignment()">
+<h3>maxByteAlignment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">long</span>&nbsp;<span class="element-name">maxByteAlignment</span>()</div>
+<div class="block">Returns the <a href="#segment-alignment">maximum byte alignment</a>
+ associated with this memory segment.
+ <p>
+ The returned alignment is always a power of two and is derived from
+ the segment <a href="#address()">address()</a> and, if it is a heap segment,
+ the type of the <a href="#heapBase()">backing heap storage</a>.
+ <p>
+ This method can be used to ensure that a segment is sufficiently aligned
+ with a layout:
+ 
+<div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
+<pre class="snippet"><code class="language-java">MemoryLayout layout = ...
+MemorySegment segment = ...
+if (segment.maxByteAlignment() &lt; layout.byteAlignment()) {
+    // Take action (e.g. throw an Exception)
+}
+</code></pre>
+</div>
+</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <a href="#segment-alignment">maximum byte alignment</a>
+ associated with this memory segment</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
 <section class="detail" id="asSlice(long,long)">
 <h3>asSlice</h3>
 <div class="horizontal-scroll">
@@ -1670,7 +1729,7 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <section class="detail" id="reinterpret(long)">
 <h3>reinterpret</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(long&nbsp;newSize)</span></div>
+<div class="member-signature"><span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(long&nbsp;newSize)</span></div>
 <div class="restricted-block" id="restricted-reinterpret(long)"><span class="restricted-label"><code>reinterpret</code> is a restricted method of the Java platform.</span>
 <div class="restricted-comment">Programs can only use <code>reinterpret</code> when access to restricted methods is enabled.</div>
 <div class="restricted-comment">Restricted methods are unsafe, and, if used incorrectly, might crash the JVM or result in memory corruption.</div>
@@ -1697,7 +1756,7 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <section class="detail" id="reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)">
 <h3>reinterpret</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(<a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
+<div class="member-signature"><span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(<a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
  <a href="../../util/function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;&nbsp;cleanup)</span></div>
 <div class="restricted-block" id="restricted-reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)"><span class="restricted-label"><code>reinterpret</code> is a restricted method of the Java platform.</span>
 <div class="restricted-comment">Programs can only use <code>reinterpret</code> when access to restricted methods is enabled.</div>
@@ -1756,7 +1815,7 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <section class="detail" id="reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)">
 <h3>reinterpret</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(long&nbsp;newSize,
+<div class="member-signature"><span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">reinterpret</span><wbr><span class="parameters">(long&nbsp;newSize,
  <a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
  <a href="../../util/function/Consumer.html" title="interface in java.util.function">Consumer</a>&lt;<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&gt;&nbsp;cleanup)</span></div>
 <div class="restricted-block" id="restricted-reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)"><span class="restricted-label"><code>reinterpret</code> is a restricted method of the Java platform.</span>
@@ -4224,7 +4283,7 @@ byteSegment.get(ValueLayout.JAVA_INT_UNALIGNED, 0); // ok: ValueLayout.JAVA_INT_
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

@@ -1,0 +1,343 @@
+#Test Results (version 2)
+#Mon Apr 29 00:44:53 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+id=ZSinglegen
+keywords=othervm driver
+library=../ /test/lib
+requires=vm.gc.ZSinglegen
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:. -XX\:+UnlockDiagnosticVMOptions -XX\:+WhiteBoxAPI --enable-native-access\=ALL-UNNAMED -Xbatch -XX\:+UseZGC -XX\:-ZGenerational TestStackWalk\n
+source=TestStackWalk.java
+title=\ 
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java\#ZSinglegen
+elapsed=1040 0\:00\:01.040
+end=Mon Apr 29 00\:44\:53 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Mon Apr 29 00\:44\:52 UTC 2024
+test=java/foreign/stackwalk/TestStackWalk.java\#ZSinglegen
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=1042
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk
+
+#section:script_messages
+----------messages:(10/814)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library ../; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:44:52 UTC 2024
+finished: Mon Apr 29 00:44:52 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Apr 29 00:44:52 UTC 2024
+finished: Mon Apr 29 00:44:52 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/327)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 00:44:52 UTC 2024
+Mode: agentvm
+Agent id: 16
+finished: Mon Apr 29 00:44:52 UTC 2024
+elapsed time (seconds): 0.411
+----------configuration:(16/1165)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+              /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign
+              /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+              /Users/runner/work/openjdk/openjdk/test/lib
+
+----------rerun:(26/3385)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestStackWalk.java#ZSinglegen \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/216)----------
+command: build TestStackWalk
+reason: Named class compiled on demand
+started: Mon Apr 29 00:44:52 UTC 2024
+Test directory:
+  compile: TestStackWalk
+finished: Mon Apr 29 00:44:52 UTC 2024
+elapsed time (seconds): 0.055
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/286)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:44:52 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:44:52 UTC 2024
+elapsed time (seconds): 0.055
+----------configuration:(14/1090)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(33/4155)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/foreign/stackwalk/TestStackWalk.java#ZSinglegen \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/517)----------
+command: main -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch -XX:+UseZGC -XX:-ZGenerational TestStackWalk
+reason: User specified action: run main/othervm -Xbootclasspath/a:. -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI --enable-native-access=ALL-UNNAMED -Xbatch -XX:+UseZGC -XX:-ZGenerational TestStackWalk 
+started: Mon Apr 29 00:44:52 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:44:53 UTC 2024
+elapsed time (seconds): 0.572
+----------configuration:(0/0)----------
+----------System.out:(84/9380)----------
+NativeTestHelper::DEFAULT_RANDOM.seed = -1094677337
+Re-run with '-DNativeTestHelper.DEFAULT_RANDOM.seed=-1094677337' to reproduce
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0x000070000ab19280 unextended sp=0x000070000ab19280, fp=0x000070000ab192e8, real_fp=0x000070000ab192e8, pc=0x00000001219edd07)
+~native method entry point (kind = native)  [0x00000001219ed7a0, 0x00000001219ee370]  3024 bytes
+Interpreted frame (sp=0x000070000ab192f8 unextended sp=0x000070000ab19308, fp=0x000070000ab19368, real_fp=0x000070000ab19368, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19378 unextended sp=0x000070000ab19378, fp=0x000070000ab193c0, real_fp=0x000070000ab193c0, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab193d0 unextended sp=0x000070000ab193d8, fp=0x000070000ab19428, real_fp=0x000070000ab19428, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19438 unextended sp=0x000070000ab19438, fp=0x000070000ab19490, real_fp=0x000070000ab19490, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab194a0 unextended sp=0x000070000ab194a8, fp=0x000070000ab194f8, real_fp=0x000070000ab194f8, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19508 unextended sp=0x000070000ab19510, fp=0x000070000ab19568, real_fp=0x000070000ab19568, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Compiled frame (sp=0x000070000ab19578 unextended sp=0x000070000ab19590, fp=0x0000100000315e40, real_fp=0x000070000ab195d0, pc=0x0000000121faa294)
+C frame (sp=0x000070000ab195d0 unextended sp=0x000070000ab195d0, fp=0x000070000ab19630, real_fp=0x000070000ab19630, pc=0x0000000121b0b713)
+C frame (sp=0x000070000ab19640 unextended sp=0x000070000ab19640, fp=0x000070000ab19640, real_fp=0x000070000ab19650, pc=0x0000000121b19e64)
+Compiled frame (sp=0x000070000ab19650 unextended sp=0x000070000ab19650, fp=0x0000000000000001, real_fp=0x000070000ab196a0, pc=0x0000000121fa8924)
+Interpreted frame (sp=0x000070000ab196a0 unextended sp=0x000070000ab196a0, fp=0x000070000ab196f8, real_fp=0x000070000ab196f8, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19708 unextended sp=0x000070000ab19718, fp=0x000070000ab19770, real_fp=0x000070000ab19770, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19780 unextended sp=0x000070000ab19788, fp=0x000070000ab197e0, real_fp=0x000070000ab197e0, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab197f0 unextended sp=0x000070000ab19808, fp=0x000070000ab19868, real_fp=0x000070000ab19868, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19878 unextended sp=0x000070000ab19878, fp=0x000070000ab198e0, real_fp=0x000070000ab198e0, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab198f0 unextended sp=0x000070000ab198f0, fp=0x000070000ab19950, real_fp=0x000070000ab19950, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19960 unextended sp=0x000070000ab19968, fp=0x000070000ab199c8, real_fp=0x000070000ab199c8, pc=0x00000001219e9226)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab199d8 unextended sp=0x000070000ab199f0, fp=0x000070000ab19a50, real_fp=0x000070000ab19a50, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19a60 unextended sp=0x000070000ab19a88, fp=0x000070000ab19ad8, real_fp=0x000070000ab19ad8, pc=0x00000001219e9457)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19ae8 unextended sp=0x000070000ab19ae8, fp=0x000070000ab19b48, real_fp=0x000070000ab19b48, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+C frame (sp=0x000070000ab19b58 unextended sp=0x000070000ab19b68, fp=0x000070000ab19bd0, real_fp=0x000070000ab19bd0, pc=0x00000001219e1c7f)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+[WhiteBox::VerifyFrames] Walking Frames
+Interpreted frame (sp=0x000070000ab19280 unextended sp=0x000070000ab19280, fp=0x000070000ab192e8, real_fp=0x000070000ab192e8, pc=0x00000001219edd07)
+~native method entry point (kind = native)  [0x00000001219ed7a0, 0x00000001219ee370]  3024 bytes
+Interpreted frame (sp=0x000070000ab192f8 unextended sp=0x000070000ab19308, fp=0x000070000ab19368, real_fp=0x000070000ab19368, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19378 unextended sp=0x000070000ab19378, fp=0x000070000ab193c0, real_fp=0x000070000ab193c0, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab193d0 unextended sp=0x000070000ab193d8, fp=0x000070000ab19428, real_fp=0x000070000ab19428, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19438 unextended sp=0x000070000ab19438, fp=0x000070000ab19490, real_fp=0x000070000ab19490, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab194a0 unextended sp=0x000070000ab194a8, fp=0x000070000ab194f8, real_fp=0x000070000ab194f8, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19508 unextended sp=0x000070000ab19510, fp=0x000070000ab19568, real_fp=0x000070000ab19568, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Compiled frame (sp=0x000070000ab19578 unextended sp=0x000070000ab19590, fp=0x0000100000315e40, real_fp=0x000070000ab195d0, pc=0x0000000121faa294)
+C frame (sp=0x000070000ab195d0 unextended sp=0x000070000ab195d0, fp=0x000070000ab19630, real_fp=0x000070000ab19630, pc=0x0000000121b0b713)
+C frame (sp=0x000070000ab19640 unextended sp=0x000070000ab19640, fp=0x000070000ab19640, real_fp=0x000070000ab19650, pc=0x0000000121b19e64)
+Compiled frame (sp=0x000070000ab19650 unextended sp=0x000070000ab19650, fp=0x0000000000000001, real_fp=0x000070000ab196a0, pc=0x0000000121fa8924)
+Interpreted frame (sp=0x000070000ab196a0 unextended sp=0x000070000ab196a0, fp=0x000070000ab196f8, real_fp=0x000070000ab196f8, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19708 unextended sp=0x000070000ab19718, fp=0x000070000ab19770, real_fp=0x000070000ab19770, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19780 unextended sp=0x000070000ab19788, fp=0x000070000ab197e0, real_fp=0x000070000ab197e0, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab197f0 unextended sp=0x000070000ab19808, fp=0x000070000ab19868, real_fp=0x000070000ab19868, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19878 unextended sp=0x000070000ab19878, fp=0x000070000ab198e0, real_fp=0x000070000ab198e0, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab198f0 unextended sp=0x000070000ab198f0, fp=0x000070000ab19950, real_fp=0x000070000ab19950, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19960 unextended sp=0x000070000ab19968, fp=0x000070000ab199c8, real_fp=0x000070000ab199c8, pc=0x00000001219e9226)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab199d8 unextended sp=0x000070000ab199f0, fp=0x000070000ab19a50, real_fp=0x000070000ab19a50, pc=0x00000001219e8d20)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19a60 unextended sp=0x000070000ab19a88, fp=0x000070000ab19ad8, real_fp=0x000070000ab19ad8, pc=0x00000001219e9457)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+Interpreted frame (sp=0x000070000ab19ae8 unextended sp=0x000070000ab19ae8, fp=0x000070000ab19b48, real_fp=0x000070000ab19b48, pc=0x00000001219e8f51)
+~return entry points  [0x00000001219e8820, 0x00000001219e94b0]  3216 bytes
+C frame (sp=0x000070000ab19b58 unextended sp=0x000070000ab19b68, fp=0x000070000ab19bd0, real_fp=0x000070000ab19bd0, pc=0x00000001219e1c7f)
+~Stub::call_stub[WhiteBox::VerifyFrames] Done
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4453)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/foreign/stackwalk/TestStackWalk.java#ZSinglegen \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk/TestStackWalk.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/foreign/stackwalk:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/foreign:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:. \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        --enable-native-access=ALL-UNNAMED \\
+        -Xbatch \\
+        -XX:+UseZGC \\
+        -XX:-ZGenerational \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/foreign/stackwalk/TestStackWalk_ZSinglegen.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

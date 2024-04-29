@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="package-declaration-page">
@@ -39,7 +39,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../../search.html">Search</a></li>
 <li><a href="../../../../../help-doc.html#package">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -63,6 +63,7 @@ loadScripts(document, 'script');</script>
 <button class="hide-sidebar"><span>Hide sidebar&nbsp;</span>&#10094;</button><button class="show-sidebar">&#10095;<span>&nbsp;Show sidebar</span></button>
 <ol class="toc-list">
 <li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#expectedEvolution" tabindex="0">Expected visitor evolution</a></li>
 <li><a href="#related-package-summary" tabindex="0">Related Packages</a></li>
 <li><a href="#class-summary" tabindex="0">Classes and Interfaces</a></li>
 </ol>
@@ -86,6 +87,273 @@ loadScripts(document, 'script');</script>
  <p> Unless otherwise specified, methods in this package will throw
  a <code>NullPointerException</code> if given a <code>null</code> argument.</div>
 <dl class="notes">
+<dt>API Note:</dt>
+<dd><h2 id=expectedEvolution>Expected visitor evolution</h2>
+
+ As the Java programming language evolves, the visitor interfaces of
+ the language model also evolve as do the concrete visitors in this
+ package. A <a href="https://openjdk.org/jeps/12">preview language
+ feature</a> in JDK <i>N</i> may have API elements added in the set
+ of visitors for the preview language level. Such new elements are
+ marked as reflective preview API. Any existing methods whose
+ specification is updated to support the preview feature are
+ <em>not</em> marked as preview.
+
+ <p>The remainder of this note will show two examples of the API
+ changes in the model and visitors that can be added to support a
+ language feature. The examples will use additions to the elements
+ portion of the language model, but the updates to visitors for
+ types or annotation values would be analogous.
+
+ Two distinct cases are:
+ <ul>
+
+ <li>the preview language construct has a corresponding new modeling
+ interface and a concomitant new kind constant, such as a new <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element"><code>ElementKind</code></a> constant
+
+ <li>the preview language construct only triggers the introduction
+ of a new kind <em>without</em> a new modeling interface
+
+ </ul>
+
+ If a preview language feature is withdrawn rather than evolving to
+ a permanent platform feature, the API elements associated with the
+ feature are expected to be removed. The examples below outline the
+ API changes expected when a preview feature becomes a permanent
+ feature.
+
+ <h3 id=topLevelLangConstruct>Adding visitor support for a
+ top-level language construct</h3>
+
+ Consider a new language feature, preview feature 1, in JDK <i>N</i>. This
+ feature has a top-level element interface to model it:
+
+ <pre>
+ package javax.lang.model.element;
+ /**
+  * Represents a preview feature 1.
+  *
+  * &commat;since N
+  *&sol;
+  public interface PreviewFeature1Element extends Element {
+  // Methods to retrieve information specific to the preview feature...
+  }
+ </pre>
+ A new element kind would also be introduced to model such a feature:
+
+ <pre>
+  //  Sample diff of ElementKind.java
+  +    /**
+  +     * A preview feature 1.
+  +     * &commat;since N
+  +     *&sol;
+  +     PREVIEW_FEATURE_1,
+ </pre>
+
+ A <code>default</code> method is added to <code>ElementVisitor</code> to accommodate the new construct:
+ <pre>
+ //  Sample diff for ElementVisitor.java
+  +    /**
+  +     * Visits a preview feature 1.
+  +     *
+  +     * &commat;implSpec The default implementation visits a {&commat;code
+  +     * PreviewFeature1Element} by calling {&commat;code visitUnknown(e, p)}.
+  +     *
+  +     * &commat;param e  the element to visit
+  +     * &commat;param p  a visitor-specified parameter
+  +     * &commat;return a visitor-specified result
+  +     * &commat;since N
+  +     *&sol;
+  +    default R visitPreviewFeature1(PreviewFeature1Element e, P p) {
+  +        return visitUnknown(e, p);
+  +    }
+ </pre>
+
+ Given the <code>default</code> method on the visitor interface, the
+ preview visitor classes need to override this method and take an
+ action appropriate for the visitor's semantics:
+
+ <pre>
+ //  Sample diff for AbstractElementVisitorPreview.java
+ //  Re-abstract visitPreviewFeature1.
+  +    /**
+  +     * {&commat;inheritDoc ElementVisitor}
+  +     *
+  +     * &commat;implSpec Visits a {&commat;code PreviewFeature1Element} in a manner
+  +     * defined by a subclass.
+  +     *
+  +     * &commat;param e {&commat;inheritDoc ElementVisitor}
+  +     * &commat;param p {&commat;inheritDoc ElementVisitor}
+  +     * &commat;return a visitor-specified result
+  +     * &commat;since N
+  +     *&sol;
+  +    @Override
+  +    public abstract R visitPreviewFeature1(PreviewFeature1Element e, P p);
+
+ //  Sample diff for ElementKindVisitorPreview.java
+ //  Take the default action for a preview feature 1.
+  +
+  +    /**
+  +     * {&commat;inheritDoc ElementVisitor}
+  +     *
+  +     * &commat;implSpec This implementation calls {&commat;code defaultAction}.
+  +     *
+  +     * &commat;param e {&commat;inheritDoc ElementVisitor}
+  +     * &commat;param p {&commat;inheritDoc ElementVisitor}
+  +     * &commat;return  the result of {&commat;code defaultAction}
+  +     * &commat;since N
+  +     *&sol;
+  +    @Override
+  +    public R visitPreviewFeature1(PreviewFeature1Element e, P p) {
+  +        return defaultAction(e, p);
+  +    }
+
+ //  Sample diff for ElementScannerPreview.java
+ //  Scan the enclosed elements of a preview feature 1.
+  +
+  +    /**
+  +     * {&commat;inheritDoc ElementVisitor}
+  +     *
+  +     * &commat;implSpec This implementation scans the enclosed elements.
+  +     *
+  +     * &commat;param e {&commat;inheritDoc ElementVisitor}
+  +     * &commat;param p {&commat;inheritDoc ElementVisitor}
+  +     * &commat;return  {&commat;inheritDoc ElementScanner6}
+  +     * &commat;since N
+  +     *&sol;
+  +    @Override
+  +    public R visitPreviewFeature1(PreviewFeature1Element e, P p) {
+  +        return scan(e.getEnclosedElements(), p);
+  +    }
+
+ //  Sample diff for SimpleElementVisitorPreview.java
+ //  Take the default action for a preview feature 1.
+  +    /**
+  +     * {&commat;inheritDoc ElementVisitor}
+  +     *
+  +     * &commat;implSpec Visits a {&commat;code PreviewFeature1Element} by calling
+  +     * <code>defaultAction</code>.
+  +     *
+  +     * &commat;param e {&commat;inheritDoc ElementVisitor}
+  +     * &commat;param p {&commat;inheritDoc ElementVisitor}
+  +     * &commat;return  {&commat;inheritDoc ElementVisitor}
+  +     * &commat;since N
+  +     *&sol;
+  +    @Override
+  +    public R visitPreviewFeature1(PreviewFeature1Element e, P p) {
+  +        return defaultAction(e, p);
+  +    }
+ </pre>
+
+ When preview feature 1 exits preview in JDK (<i>N+k</i>), a set of
+ visitors for language level (<i>N+k</i>) would be added. The
+ methods operating over the feature would be moved from the preview
+ visitors to the new language level (<i>N+k</i>) visitors. Each
+ preview visitor would then have its direct superclass changed to
+ the new corresponding (<i>N+k</i>) visitor.
+
+ <h3 id=newKindLangConstruct>Adding visitor support for a language
+ construct that is a new kind of an existing construct</h3>
+
+ Consider a new language feature, preview feature 2, in JDK
+ <i>N</i>. This feature has a new element kind <em>without</em> a
+ new top-level element interface needed to model it. Concretely,
+ assume a preview feature 2 is a new kind of variable; the changes
+ would be analogous if the feature were a new kind of executable
+ instead or new kind of another existing top-level construct. In
+ that case, the API changes are more limited:
+
+ <pre>
+  //  Sample diff for ElementKind.java
+  +    /**
+  +     * A preview feature 2.
+  +     * &commat;since N
+  +     *&sol;
+  +     PREVIEW_FEATURE_2,
+  ...
+  // Update existing methods as needed
+       public boolean isVariable() {
+           return switch(this) {
+           case ENUM_CONSTANT, FIELD, PARAMETER,
+                LOCAL_VARIABLE, EXCEPTION_PARAMETER, RESOURCE_VARIABLE,
+  -             BINDING_VARIABLE -&gt; true;
+  +             BINDING_VARIABLE, PREVIEW_FEATURE_2 -&gt; true;
+           default -&gt; false;
+           };
+       }
+ </pre>
+
+ The kind visitors need support for the new variety of element:
+ <pre>
+ // Update visitVariable in ElementKindVisitor6:
+        ...
+        * &commat;implSpec This implementation dispatches to the visit method for
+        * the specific {&commat;linkplain ElementKind kind} of variable, {&commat;code
+        * ENUM_CONSTANT}, {&commat;code EXCEPTION_PARAMETER}, {&commat;code FIELD},
+  -     * {&commat;code LOCAL_VARIABLE}, {&commat;code PARAMETER}, or {&commat;code RESOURCE_VARIABLE}.
+  +     * {&commat;code LOCAL_VARIABLE}, {&commat;code PARAMETER}, {&commat;code RESOURCE_VARIABLE},
+  +     * or {&commat;code PREVIEW_FEATURE_2}.
+        *
+        * &commat;param e {&commat;inheritDoc ElementVisitor}
+        * &commat;param p {&commat;inheritDoc ElementVisitor}
+        * &commat;return  the result of the kind-specific visit method
+        *&sol;
+        &commat;Override
+        public R visitVariable(VariableElement e, P p) {
+        ...
+           case BINDING_VARIABLE:
+               return visitVariableAsBindingVariable(e, p);
+
+  +        case PREVIEW_FEATURE_2:
+  +            return visitVariableAsPreviewFeature2(e, p);
+  +
+           default:
+               throw new AssertionError("Bad kind " + k + " for VariableElement" + e);
+        ...
+  +    /**
+  +     * Visits a {&commat;code PREVIEW_FEATURE_2} variable element.
+  +     *
+  +     * &commat;implSpec This implementation calls {&commat;code visitUnknown}.
+  +     *
+  +     * &commat;param e the element to visit
+  +     * &commat;param p a visitor-specified parameter
+  +     * &commat;return  the result of {&commat;code visitUnknown}
+  +     *
+  +     * &commat;since N
+  +     *&sol;
+  +    public R visitVariableAsPreviewFeature2(VariableElement e, P p) {
+  +        return visitUnknown(e, p);
+  +    }
+ </pre>
+
+ The preview element kind visitor in turn overrides <code>
+ visitVariableAsPreviewFeature2</code>:
+ <pre>
+ // Sample diff for ElementKindVisitorPreview:
+  +    /**
+  +     * {&commat;inheritDoc ElementKindVisitor6}
+  +     *
+  +     * &commat;implSpec This implementation calls {&commat;code defaultAction}.
+  +     *
+  +     * &commat;param e {&commat;inheritDoc ElementKindVisitor6}
+  +     * &commat;param p {&commat;inheritDoc ElementKindVisitor6}
+  +     * &commat;return  the result of {&commat;code defaultAction}
+  +     *
+  +     * &commat;since N
+  +     *&sol;
+  +    @Override
+  +    public R visitVariableAsPreviewFeature2(VariableElement e, P p) {
+  +        return defaultAction(e, p);
+  +    }
+ </pre>
+
+ As in the case where a new interface is introduced, when preview
+ feature 2 exits preview in JDK (<i>N+k</i>), a set of visitors for
+ language level (<i>N+k</i>) would be added. The methods operating
+ over the new feature in the kind visitors would be moved from the
+ preview visitors to new language level (<i>N+k</i>) visitors. Each
+ preview visitor would then have its direct superclass changed to
+ the new corresponding (<i>N+k</i>) visitor.</dd>
 <dt>Since:</dt>
 <dd>1.6</dd>
 <dt>See Also:</dt>
@@ -157,34 +425,46 @@ loadScripts(document, 'script');</script>
 <div class="block">A skeletal visitor for annotation values with default behavior
  appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor14.html" title="class in javax.lang.model.util">AbstractElementVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractAnnotationValueVisitorPreview.html" title="class in javax.lang.model.util">AbstractAnnotationValueVisitorPreview</a><sup><a href="AbstractAnnotationValueVisitorPreview.html#preview-javax.lang.model.util.AbstractAnnotationValueVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A skeletal visitor for annotation values with default behavior
+ appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor14.html" title="class in javax.lang.model.util">AbstractElementVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A skeletal visitor of program elements with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>
  source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor6.html" title="class in javax.lang.model.util">AbstractElementVisitor6</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor6.html" title="class in javax.lang.model.util">AbstractElementVisitor6</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A skeletal visitor of program elements with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_6"><code>RELEASE_6</code></a>
  source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor7.html" title="class in javax.lang.model.util">AbstractElementVisitor7</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor7.html" title="class in javax.lang.model.util">AbstractElementVisitor7</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A skeletal visitor of program elements with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_7"><code>RELEASE_7</code></a>
  source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor8.html" title="class in javax.lang.model.util">AbstractElementVisitor8</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor8.html" title="class in javax.lang.model.util">AbstractElementVisitor8</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A skeletal visitor of program elements with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_8"><code>RELEASE_8</code></a>
  source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor9.html" title="class in javax.lang.model.util">AbstractElementVisitor9</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitor9.html" title="class in javax.lang.model.util">AbstractElementVisitor9</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A skeletal visitor of program elements with default behavior
  appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractElementVisitorPreview.html" title="class in javax.lang.model.util">AbstractElementVisitorPreview</a><sup><a href="AbstractElementVisitorPreview.html#preview-javax.lang.model.util.AbstractElementVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A skeletal visitor of program elements with default behavior
+ appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
 </div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="AbstractTypeVisitor14.html" title="class in javax.lang.model.util">AbstractTypeVisitor14</a>&lt;R,<wbr>P&gt;</div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
@@ -215,31 +495,45 @@ loadScripts(document, 'script');</script>
  source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through
  <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementFilter.html" title="class in javax.lang.model.util">ElementFilter</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="AbstractTypeVisitorPreview.html" title="class in javax.lang.model.util">AbstractTypeVisitorPreview</a><sup><a href="AbstractTypeVisitorPreview.html#preview-javax.lang.model.util.AbstractTypeVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A skeletal visitor of types with default behavior appropriate for a
+ <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source
+ version.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementFilter.html" title="class in javax.lang.model.util">ElementFilter</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Filters for selecting just the elements of interest from a
  collection of elements.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor14.html" title="class in javax.lang.model.util">ElementKindVisitor14</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor14.html" title="class in javax.lang.model.util">ElementKindVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for the <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a> source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor6.html" title="class in javax.lang.model.util">ElementKindVisitor6</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor6.html" title="class in javax.lang.model.util">ElementKindVisitor6</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for the <a href="../SourceVersion.html#RELEASE_6"><code>RELEASE_6</code></a> source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor7.html" title="class in javax.lang.model.util">ElementKindVisitor7</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor7.html" title="class in javax.lang.model.util">ElementKindVisitor7</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for the <a href="../SourceVersion.html#RELEASE_7"><code>RELEASE_7</code></a> source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor8.html" title="class in javax.lang.model.util">ElementKindVisitor8</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor8.html" title="class in javax.lang.model.util">ElementKindVisitor8</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for the <a href="../SourceVersion.html#RELEASE_8"><code>RELEASE_8</code></a> source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor9.html" title="class in javax.lang.model.util">ElementKindVisitor9</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ElementKindVisitor9.html" title="class in javax.lang.model.util">ElementKindVisitor9</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for source
  versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementKindVisitorPreview.html" title="class in javax.lang.model.util">ElementKindVisitorPreview</a><sup><a href="ElementKindVisitorPreview.html#preview-javax.lang.model.util.ElementKindVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A visitor of program elements based on their <a href="../element/ElementKind.html" title="enum class in javax.lang.model.element">kind</a> with default behavior appropriate for a
+ <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source
+ version.</div>
 </div>
 <div class="col-first odd-row-color class-summary class-summary-tab1"><a href="Elements.html" title="interface in javax.lang.model.util">Elements</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab1">
@@ -279,33 +573,45 @@ loadScripts(document, 'script');</script>
 <div class="block">A scanning visitor of program elements with default behavior
  appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor14.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ElementScannerPreview.html" title="class in javax.lang.model.util">ElementScannerPreview</a><sup><a href="ElementScannerPreview.html#preview-javax.lang.model.util.ElementScannerPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A scanning visitor of program elements with default behavior
+ appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor14.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor for annotation values with default behavior
  appropriate for source version <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor6.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor6</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor6.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor6</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor for annotation values with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_6"><code>RELEASE_6</code></a>
  source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor7.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor7</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor7.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor7</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor for annotation values with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_7"><code>RELEASE_7</code></a>
  source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor8.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor8</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor8.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor8</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor for annotation values with default behavior
  appropriate for the <a href="../SourceVersion.html#RELEASE_8"><code>RELEASE_8</code></a>
  source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor9.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor9</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitor9.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitor9</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor for annotation values with default behavior
  appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleAnnotationValueVisitorPreview.html" title="class in javax.lang.model.util">SimpleAnnotationValueVisitorPreview</a><sup><a href="SimpleAnnotationValueVisitorPreview.html#preview-javax.lang.model.util.SimpleAnnotationValueVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A simple visitor for annotation values with default behavior
+ appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
 </div>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleElementVisitor14.html" title="class in javax.lang.model.util">SimpleElementVisitor14</a>&lt;R,<wbr>P&gt;</div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
@@ -336,31 +642,44 @@ loadScripts(document, 'script');</script>
 <div class="block">A simple visitor of program elements with default behavior
  appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor14.html" title="class in javax.lang.model.util">SimpleTypeVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleElementVisitorPreview.html" title="class in javax.lang.model.util">SimpleElementVisitorPreview</a><sup><a href="SimpleElementVisitorPreview.html#preview-javax.lang.model.util.SimpleElementVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A simple visitor of program elements with default behavior
+ appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor14.html" title="class in javax.lang.model.util">SimpleTypeVisitor14</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor of types with default behavior appropriate for
  source version <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor6.html" title="class in javax.lang.model.util">SimpleTypeVisitor6</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor6.html" title="class in javax.lang.model.util">SimpleTypeVisitor6</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor of types with default behavior appropriate for the
  <a href="../SourceVersion.html#RELEASE_6"><code>RELEASE_6</code></a> source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor7.html" title="class in javax.lang.model.util">SimpleTypeVisitor7</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor7.html" title="class in javax.lang.model.util">SimpleTypeVisitor7</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor of types with default behavior appropriate for the
  <a href="../SourceVersion.html#RELEASE_7"><code>RELEASE_7</code></a> source version.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor8.html" title="class in javax.lang.model.util">SimpleTypeVisitor8</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor8.html" title="class in javax.lang.model.util">SimpleTypeVisitor8</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor of types with default behavior appropriate for the
  <a href="../SourceVersion.html#RELEASE_8"><code>RELEASE_8</code></a> source version.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor9.html" title="class in javax.lang.model.util">SimpleTypeVisitor9</a>&lt;R,<wbr>P&gt;</div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitor9.html" title="class in javax.lang.model.util">SimpleTypeVisitor9</a>&lt;R,<wbr>P&gt;</div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A simple visitor of types with default behavior appropriate for
  source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through
  <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="SimpleTypeVisitorPreview.html" title="class in javax.lang.model.util">SimpleTypeVisitorPreview</a><sup><a href="SimpleTypeVisitorPreview.html#preview-javax.lang.model.util.SimpleTypeVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A simple visitor of types with default behavior appropriate for a
+ <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source
+ version.</div>
 </div>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TypeKindVisitor14.html" title="class in javax.lang.model.util">TypeKindVisitor14</a>&lt;R,<wbr>P&gt;</div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
@@ -387,8 +706,14 @@ loadScripts(document, 'script');</script>
 <div class="block">A visitor of types based on their <a href="../type/TypeKind.html" title="enum class in javax.lang.model.type">kind</a> with
  default behavior appropriate for source versions <a href="../SourceVersion.html#RELEASE_9"><code>RELEASE_9</code></a> through <a href="../SourceVersion.html#RELEASE_14"><code>RELEASE_14</code></a>.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="Types.html" title="interface in javax.lang.model.util">Types</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TypeKindVisitorPreview.html" title="class in javax.lang.model.util">TypeKindVisitorPreview</a><sup><a href="TypeKindVisitorPreview.html#preview-javax.lang.model.util.TypeKindVisitorPreview">PREVIEW</a></sup>&lt;R,<wbr>P&gt;</div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block"><span class="preview-label">Preview.</span></div>
+<div class="block">A visitor of types based on their <a href="../type/TypeKind.html" title="enum class in javax.lang.model.type">kind</a> with
+ default behavior appropriate for a <a href="../../../annotation/processing/ProcessingEnvironment.html#isPreviewEnabled()">preview</a> source version.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="Types.html" title="interface in javax.lang.model.util">Types</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block">Utility methods for operating on types.</div>
 </div>
 </div>
@@ -399,7 +724,7 @@ loadScripts(document, 'script');</script>
 </section>
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

@@ -1,0 +1,641 @@
+#Test Results (version 2)
+#Mon Apr 29 01:08:00 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=bug8196830 bug8235351 bug8257874 othervm testng
+modules=java.base/jdk.internal.reflect
+run=USER_SPECIFIED testng/othervm CallerSensitiveAccess\r\n
+source=CallerSensitiveAccess.java
+title=Check Lookup findVirtual, findStatic and unreflect behavior with caller sensitive methods with focus on AccessibleObject.setAccessible
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/java/lang/invoke/callerSensitive/CallerSensitiveAccess.java
+elapsed=1581 0\:00\:01.581
+end=Mon Apr 29 01\:08\:00 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.reflect
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile testng
+start=Mon Apr 29 01\:07\:58 UTC 2024
+test=java/lang/invoke/callerSensitive/CallerSensitiveAccess.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=1581
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\invoke\\callerSensitive
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/239)----------
+command: build CallerSensitiveAccess
+reason: Named class compiled on demand
+started: Mon Apr 29 01:07:58 UTC 2024
+Test directory:
+  compile: CallerSensitiveAccess
+finished: Mon Apr 29 01:07:58 UTC 2024
+elapsed time (seconds): 0.063
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/423)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:07:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.reflect=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 01:07:58 UTC 2024
+elapsed time (seconds): 0.063
+----------configuration:(15/1064)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  add modules: java.base                      
+  add exports: java.base/jdk.internal.reflect ALL-UNNAMED
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive 
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive 
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d 
+               D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar 
+               D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar 
+               D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar 
+
+----------rerun:(39/4015)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=java/lang/invoke/callerSensitive/CallerSensitiveAccess.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -J-Dtest.modules=java.base/jdk.internal.reflect \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.reflect=ALL-UNNAMED \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java'
+----------direct:(2/197)*----------
+Note: D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+result: Passed. Compilation successful
+
+#section:testng
+----------messages:(7/375)----------
+command: testng CallerSensitiveAccess
+reason: User specified action: run testng/othervm CallerSensitiveAccess 
+started: Mon Apr 29 01:07:58 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.reflect=ALL-UNNAMED
+finished: Mon Apr 29 01:08:00 UTC 2024
+elapsed time (seconds): 1.518
+----------configuration:(4/121)----------
+Boot Layer
+  add modules: java.base                      
+  add exports: java.base/jdk.internal.reflect ALL-UNNAMED
+
+----------System.out:(451/70613)----------
+test CallerSensitiveAccess.testInnerPrivateField(): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@1f248c13, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@25535b0e, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@75ee7ed1, "java.util.ResourceBundle.getBundle(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@584aa6c5, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@207b0193, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3ab33d42, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4b0bc73d, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@495d7bd7, "java.util.ResourceBundle.getBundle(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4e168dc8, "java.util.ResourceBundle.clearCache()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@696e1593, "java.util.ServiceLoader.load(java.lang.Class,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@29969934, "java.util.ServiceLoader.load(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5455ac96, "java.util.ServiceLoader.load(java.lang.ModuleLayer,java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3e3aef32, "java.util.ServiceLoader.loadInstalled(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@7384ba16, "java.util.concurrent.atomic.AtomicIntegerFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6d4e47ee, "java.util.concurrent.atomic.AtomicLongFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5558d04b, "java.util.concurrent.atomic.AtomicReferenceFieldUpdater.newUpdater(java.lang.Class,java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3a5064aa, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@7d120ec7, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@520b4f4, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@64848a1b, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@67daae62, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@f5ce93, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3cb66714, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5834ae22, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3275d74d, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6242cc03, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@67b50b7c, "java.lang.Class.forName(java.lang.String,boolean,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5d7409bd, "java.lang.Class.forName(java.lang.Module,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5adca03d, "java.lang.Class.forName(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@195685ec, "java.lang.Class.getClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5e89c504, "java.lang.Class.newInstance()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5b09da3, "java.lang.Class.getEnclosingClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@267a1b10, "java.lang.Class.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3d14a1fe, "java.lang.Class.getResource(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@16db862a, "java.lang.Class.getMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@41a9c665, "java.lang.Class.getNestHost()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@155debd2, "java.lang.Class.getPermittedSubclasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@52aa1235, "java.lang.Class.getEnclosingMethod()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@19f933ac, "java.lang.Class.getEnclosingConstructor()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3d315441, "java.lang.Class.getDeclaringClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@cdfbb0f, "java.lang.Class.getClasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@42cbef7a, "java.lang.Class.getFields()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@22859a6b, "java.lang.Class.getMethods()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@412b2f0e, "java.lang.Class.getConstructors()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@30af78f3, "java.lang.Class.getField(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4e2bc643, "java.lang.Class.getConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@57b51836, "java.lang.Class.getDeclaredClasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@170a0353, "java.lang.Class.getDeclaredFields()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@599974cb, "java.lang.Class.getRecordComponents()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@689c8286, "java.lang.Class.getDeclaredMethods()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2d122d82, "java.lang.Class.getDeclaredConstructors()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@489091d2, "java.lang.Class.getDeclaredField(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@32e79090, "java.lang.Class.getDeclaredMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@1f5b9f89, "java.lang.Class.getDeclaredConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@31a4506a, "java.lang.Class.getNestMembers()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6d8729b5, "java.lang.ClassLoader.getPlatformClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@8acd5b3, "java.lang.ClassLoader.getSystemClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6804fec2, "java.lang.ClassLoader.registerAsParallelCapable()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5a229d3e, "java.lang.ClassLoader.getParent()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@7cff8fc1, "java.lang.Module.addReads(java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6857ca01, "java.lang.Module.addExports(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4f1f1b16, "java.lang.Module.addOpens(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2c6df641, "java.lang.Module.addUses(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@24193a33, "java.lang.Module.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2553db92, "java.lang.ModuleLayer$Controller.enableNativeAccess(java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6afa12ff, "java.lang.Package.getPackage(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@105c815c, "java.lang.Package.getPackages()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@d399779, "java.lang.Runtime.load(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@16a4aa70, "java.lang.Runtime.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@253cd44b, "java.lang.StackWalker.getCallerClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@40a0743e, "java.lang.StackWalker.forEach(java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@1fb13017, "java.lang.StackWalker.walk(java.util.function.Function)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@af90403, "java.lang.System.load(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@21455d23, "java.lang.System.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@56e40193, "java.lang.System.setSecurityManager(java.lang.SecurityManager)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@37460643, "java.lang.System.getLogger(java.lang.String,java.util.ResourceBundle)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6a22da0f, "java.lang.System.getLogger(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6f70ec0b, "java.lang.Thread.getContextClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@552f0bfc, "java.lang.reflect.AccessibleObject.setAccessible(java.lang.reflect.AccessibleObject[],boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@497a43bb, "java.lang.reflect.AccessibleObject.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@47d67841, "java.lang.reflect.AccessibleObject.trySetAccessible()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6a87da53, "java.lang.reflect.AccessibleObject.canAccess(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2ba9950a, "java.lang.reflect.Constructor.newInstance(java.lang.Object[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5739e60d, "java.lang.reflect.Constructor.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@20d0557b, "java.lang.reflect.Field.get(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@7c3650a4, "java.lang.reflect.Field.getBoolean(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2d604de8, "java.lang.reflect.Field.getByte(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@393d3c18, "java.lang.reflect.Field.getShort(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5431bab3, "java.lang.reflect.Field.getChar(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@74058d35, "java.lang.reflect.Field.getInt(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5be66adc, "java.lang.reflect.Field.getLong(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@62794d91, "java.lang.reflect.Field.getFloat(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@55c54b31, "java.lang.reflect.Field.getDouble(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2f79812e, "java.lang.reflect.Field.set(java.lang.Object,java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@667b991, "java.lang.reflect.Field.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4099b5b0, "java.lang.reflect.Field.setBoolean(java.lang.Object,boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@25191b70, "java.lang.reflect.Field.setByte(java.lang.Object,byte)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5a585e74, "java.lang.reflect.Field.setChar(java.lang.Object,char)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@65bc1e4d, "java.lang.reflect.Field.setShort(java.lang.Object,short)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@209bb4c5, "java.lang.reflect.Field.setInt(java.lang.Object,int)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@37645efa, "java.lang.reflect.Field.setLong(java.lang.Object,long)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3541dca3, "java.lang.reflect.Field.setFloat(java.lang.Object,float)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@692523af, "java.lang.reflect.Field.setDouble(java.lang.Object,double)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@11dfc9fa, "java.lang.reflect.InvocationHandler.invokeDefault(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@34ebc6a1, "java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@741de8e2, "java.lang.reflect.Method.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@778dbbfd, "java.lang.reflect.Proxy.newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6435e39f, "java.lang.reflect.Proxy.getInvocationHandler(java.lang.Object)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@2e550001, "java.lang.reflect.Proxy.getProxyClass(java.lang.ClassLoader,java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@386d38c3, "java.lang.invoke.MethodHandleProxies.asInterfaceInstance(java.lang.Class,java.lang.invoke.MethodHandle)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@62c6bd8e, "java.lang.invoke.MethodHandles.lookup()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@3899ad0b, "java.lang.foreign.AddressLayout.withTargetLayout(java.lang.foreign.MemoryLayout)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5497c02a, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6ea5607e, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.MemorySegment,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@73e327cf, "java.lang.foreign.Linker.upcallStub(java.lang.invoke.MethodHandle,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Arena,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@9de8972, "java.lang.foreign.MemorySegment.reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@304082b, "java.lang.foreign.MemorySegment.reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@5f407310, "java.lang.foreign.MemorySegment.reinterpret(long)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@6cc8f338, "java.lang.foreign.SymbolLookup.libraryLookup(java.nio.file.Path,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@4acc6109, "java.lang.foreign.SymbolLookup.libraryLookup(java.lang.String,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@8c2bb32, "java.lang.foreign.SymbolLookup.loaderLookup()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@771f6f53, "java.io.ObjectStreamClass.forClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessFind(java.lang.reflect.Method@f2e3c8f, "java.io.ObjectStreamField.getType()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@49b2e9a9, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@658a2576, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@2573edd0, "java.util.ResourceBundle.getBundle(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@7ff044d3, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@4bc1118f, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@6d1df0de, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@74d63a31, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@10549206, "java.util.ResourceBundle.getBundle(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@22f8d8bc, "java.util.ResourceBundle.clearCache()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@6c632347, "java.util.ServiceLoader.load(java.lang.Class,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3c3a253a, "java.util.ServiceLoader.load(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@b107d15, "java.util.ServiceLoader.load(java.lang.ModuleLayer,java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@2791167c, "java.util.ServiceLoader.loadInstalled(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@31e7f0b6, "java.util.concurrent.atomic.AtomicIntegerFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@2b7f8bf9, "java.util.concurrent.atomic.AtomicLongFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@22d18659, "java.util.concurrent.atomic.AtomicReferenceFieldUpdater.newUpdater(java.lang.Class,java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@633dcdea, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@c852d9a, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@60378279, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@23f350bf, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@50490e1f, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@15e5ec27, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@affbeb2, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@4dab6946, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@5b71e40d, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1377e794, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@d9c528d, "java.lang.Class.forName(java.lang.String,boolean,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@2685201d, "java.lang.Class.forName(java.lang.Module,java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@5ccf445c, "java.lang.Class.forName(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@48d039d4, "java.lang.Class.getClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1e47d239, "java.lang.Class.newInstance()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@43b9d637, "java.lang.Class.getEnclosingClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3f79675e, "java.lang.Class.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@4a6b89da, "java.lang.Class.getResource(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@5c755202, "java.lang.Class.getMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@7aa36ae4, "java.lang.Class.getNestHost()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@30d00df0, "java.lang.Class.getPermittedSubclasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3de6528c, "java.lang.Class.getEnclosingMethod()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@56e2598a, "java.lang.Class.getEnclosingConstructor()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1a92487e, "java.lang.Class.getDeclaringClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@53210d4b, "java.lang.Class.getClasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@36a93728, "java.lang.Class.getFields()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@23fd0aff, "java.lang.Class.getMethods()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@60979a59, "java.lang.Class.getConstructors()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3bd40957, "java.lang.Class.getField(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3f1abc99, "java.lang.Class.getConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@7e8a784e, "java.lang.Class.getDeclaredClasses()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@6adcf6ae, "java.lang.Class.getDeclaredFields()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@5871718b, "java.lang.Class.getRecordComponents()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@16fc9028, "java.lang.Class.getDeclaredMethods()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@11e9f6a5, "java.lang.Class.getDeclaredConstructors()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3bc5df5e, "java.lang.Class.getDeclaredField(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1ea91555, "java.lang.Class.getDeclaredMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@110f1369, "java.lang.Class.getDeclaredConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@5b943b64, "java.lang.Class.getNestMembers()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1e7c2b2b, "java.lang.ClassLoader.getPlatformClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@6528bbf8, "java.lang.ClassLoader.getSystemClassLoader()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@62dc166e, "java.lang.ClassLoader.registerAsParallelCapable()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@32853654, "java.lang.ClassLoader.getParent()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1f5d53cf, "java.lang.Module.addReads(java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3e0a432, "java.lang.Module.addExports(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@69b2f58a, "java.lang.Module.addOpens(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@17763aab, "java.lang.Module.addUses(java.lang.Class)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@55d99b8d, "java.lang.Module.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@6c9e8122, "java.lang.ModuleLayer$Controller.enableNativeAccess(java.lang.Module)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@17f7f15a, "java.lang.Package.getPackage(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@1f3ebad0, "java.lang.Package.getPackages()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@61e17e5d, "java.lang.Runtime.load(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@13cfc6d, "java.lang.Runtime.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@3c1a30d, "java.lang.StackWalker.getCallerClass()"): success
+test CallerSensitiveAccess.testLookupNoOriginalAccessUnreflect(java.lang.reflect.Method@7fc3f960, "java.lang.StackWalker.forEach(java.util.function.Consumer)"): success
+test CallerSensitiveAcce
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+xceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@376de93d, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@14c43b3, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@23978f7d, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@16575b8e, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@2fc05331, "java.lang.Class.forName(java.lang.String,boolean,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5823e8a9, "java.lang.Class.forName(java.lang.Module,java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5bbb8b85, "java.lang.Class.forName(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4a7c516a, "java.lang.Class.getClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@43e05192, "java.lang.Class.newInstance()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@ab586c6, "java.lang.Class.getEnclosingClass()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@f357709, "java.lang.Class.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@58acf55a, "java.lang.Class.getResource(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7409497f, "java.lang.Class.getMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7b768d74, "java.lang.Class.getNestHost()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@12774791, "java.lang.Class.getPermittedSubclasses()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@64673dc4, "java.lang.Class.getEnclosingMethod()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3df0f3ab, "java.lang.Class.getEnclosingConstructor()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@63555537, "java.lang.Class.getDeclaringClass()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5735f66b, "java.lang.Class.getClasses()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@2e00e739, "java.lang.Class.getFields()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@2a0ec9b0, "java.lang.Class.getMethods()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4bb3f174, "java.lang.Class.getConstructors()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@42d0fbba, "java.lang.Class.getField(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@6b3bbcd2, "java.lang.Class.getConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4f496fcc, "java.lang.Class.getDeclaredClasses()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@786473bd, "java.lang.Class.getDeclaredFields()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7c16aacb, "java.lang.Class.getRecordComponents()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@15d58628, "java.lang.Class.getDeclaredMethods()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@8458e63, "java.lang.Class.getDeclaredConstructors()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@40f0461d, "java.lang.Class.getDeclaredField(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@442da12e, "java.lang.Class.getDeclaredMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@14cee5cc, "java.lang.Class.getDeclaredConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@258a3f0b, "java.lang.Class.getNestMembers()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@747a2c8b, "java.lang.ClassLoader.getPlatformClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@329208b5, "java.lang.ClassLoader.getSystemClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4ad4fa6b, "java.lang.ClassLoader.registerAsParallelCapable()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@efb6073, "java.lang.ClassLoader.getParent()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@70061664, "java.lang.Module.addReads(java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@79eeae3a, "java.lang.Module.addExports(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@410ffe5a, "java.lang.Module.addOpens(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7cb76061, "java.lang.Module.addUses(java.lang.Class)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1035ffaf, "java.lang.Module.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3cf7391, "java.lang.ModuleLayer$Controller.enableNativeAccess(java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@231910c9, "java.lang.Package.getPackage(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7a1777c7, "java.lang.Package.getPackages()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7f808cca, "java.lang.Runtime.load(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5acf3a23, "java.lang.Runtime.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@17decd50, "java.lang.StackWalker.getCallerClass()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@111f8b86, "java.lang.StackWalker.forEach(java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@32ce333, "java.lang.StackWalker.walk(java.util.function.Function)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@49091a95, "java.lang.System.load(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@73815fe, "java.lang.System.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1de9e992, "java.lang.System.setSecurityManager(java.lang.SecurityManager)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@73c746f2, "java.lang.System.getLogger(java.lang.String,java.util.ResourceBundle)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@111c0db2, "java.lang.System.getLogger(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@552c5426, "java.lang.Thread.getContextClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3913e063, "java.lang.reflect.AccessibleObject.setAccessible(java.lang.reflect.AccessibleObject[],boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@39877725, "java.lang.reflect.AccessibleObject.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4f584988, "java.lang.reflect.AccessibleObject.trySetAccessible()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@2fc6eb99, "java.lang.reflect.AccessibleObject.canAccess(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3ecc26e8, "java.lang.reflect.Constructor.newInstance(java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5fb7efde, "java.lang.reflect.Constructor.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1a3479a2, "java.lang.reflect.Field.get(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@17b1bd1a, "java.lang.reflect.Field.getBoolean(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@6c475d85, "java.lang.reflect.Field.getByte(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4201ebff, "java.lang.reflect.Field.getShort(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7f2fb73c, "java.lang.reflect.Field.getChar(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7c94c1d1, "java.lang.reflect.Field.getInt(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@448ffe41, "java.lang.reflect.Field.getLong(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1315190d, "java.lang.reflect.Field.getFloat(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@37e8dadb, "java.lang.reflect.Field.getDouble(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@6b219946, "java.lang.reflect.Field.set(java.lang.Object,java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@64b99ba4, "java.lang.reflect.Field.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@6a62c56c, "java.lang.reflect.Field.setBoolean(java.lang.Object,boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@6256eb12, "java.lang.reflect.Field.setByte(java.lang.Object,byte)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@674521b7, "java.lang.reflect.Field.setChar(java.lang.Object,char)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@29757aa0, "java.lang.reflect.Field.setShort(java.lang.Object,short)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7aeef6e3, "java.lang.reflect.Field.setInt(java.lang.Object,int)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@746ce181, "java.lang.reflect.Field.setLong(java.lang.Object,long)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@caf1b4f, "java.lang.reflect.Field.setFloat(java.lang.Object,float)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@18b9d56c, "java.lang.reflect.Field.setDouble(java.lang.Object,double)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@30fc0471, "java.lang.reflect.InvocationHandler.invokeDefault(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3fc0bc5f, "java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4348db7a, "java.lang.reflect.Method.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3028235e, "java.lang.reflect.Proxy.newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1a81dc45, "java.lang.reflect.Proxy.getInvocationHandler(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@63dae094, "java.lang.reflect.Proxy.getProxyClass(java.lang.ClassLoader,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5221bd35, "java.lang.invoke.MethodHandleProxies.asInterfaceInstance(java.lang.Class,java.lang.invoke.MethodHandle)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3c926823, "java.lang.invoke.MethodHandles.lookup()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@14363d79, "java.lang.foreign.AddressLayout.withTargetLayout(java.lang.foreign.MemoryLayout)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@74427784, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@1516be21, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.MemorySegment,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5f619e30, "java.lang.foreign.Linker.upcallStub(java.lang.invoke.MethodHandle,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Arena,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@3b893c92, "java.lang.foreign.MemorySegment.reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@11cc02a0, "java.lang.foreign.MemorySegment.reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@b067de6, "java.lang.foreign.MemorySegment.reinterpret(long)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@44b974b5, "java.lang.foreign.SymbolLookup.libraryLookup(java.nio.file.Path,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@48daab98, "java.lang.foreign.SymbolLookup.libraryLookup(java.lang.String,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@7fad2159, "java.lang.foreign.SymbolLookup.loaderLookup()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@4a9c5a0c, "java.io.ObjectStreamClass.forClass()"): success
+test CallerSensitiveAccess.testPublicLookupFind(java.lang.reflect.Method@5bed9434, "java.io.ObjectStreamField.getType()"): success
+test CallerSensitiveAccess.testPublicLookupSubclass1(): success
+test CallerSensitiveAccess.testPublicLookupSubclass2(): success
+test CallerSensitiveAccess.testPublicLookupSubclass3(): success
+test CallerSensitiveAccess.testPublicLookupSubclass4(): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@e768444, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@62939776, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4437fd2c, "java.util.ResourceBundle.getBundle(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@49e6a0b, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@49c4ccc8, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.ClassLoader,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@75cdd34, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.util.ResourceBundle$Control)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@56077d36, "java.util.ResourceBundle.getBundle(java.lang.String,java.util.Locale,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6e9784f1, "java.util.ResourceBundle.getBundle(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@68974e3d, "java.util.ResourceBundle.clearCache()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2f49946a, "java.util.ServiceLoader.load(java.lang.Class,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@5b247293, "java.util.ServiceLoader.load(java.lang.Class)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1c9b7d2e, "java.util.ServiceLoader.load(java.lang.ModuleLayer,java.lang.Class)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6cd2dc1e, "java.util.ServiceLoader.loadInstalled(java.lang.Class)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@467b03b0, "java.util.concurrent.atomic.AtomicIntegerFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7cce1c4d, "java.util.concurrent.atomic.AtomicLongFieldUpdater.newUpdater(java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@106f70a3, "java.util.concurrent.atomic.AtomicReferenceFieldUpdater.newUpdater(java.lang.Class,java.lang.Class,java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2aeac71b, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@736ce246, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7d25f726, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1a4dc721, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1000ee61, "java.security.AccessController.doPrivileged(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@5141c5b4, "java.security.AccessController.doPrivileged(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@71b283ed, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@39f3f3, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction,java.security.AccessControlContext,java.security.Permission[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3324b615, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedExceptionAction)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@744197a6, "java.security.AccessController.doPrivilegedWithCombiner(java.security.PrivilegedAction)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@53482bd8, "java.lang.Class.forName(java.lang.String,boolean,java.lang.ClassLoader)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@52f738b0, "java.lang.Class.forName(java.lang.Module,java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@50e23f92, "java.lang.Class.forName(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@ace79c5, "java.lang.Class.getClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3fd4d5af, "java.lang.Class.newInstance()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@181bf095, "java.lang.Class.getEnclosingClass()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@240f8299, "java.lang.Class.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@172885b3, "java.lang.Class.getResource(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@84a5b53, "java.lang.Class.getMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@9fd2289, "java.lang.Class.getNestHost()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4b227712, "java.lang.Class.getPermittedSubclasses()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2888f5d6, "java.lang.Class.getEnclosingMethod()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@20c781d3, "java.lang.Class.getEnclosingConstructor()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@c35c555, "java.lang.Class.getDeclaringClass()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@47abc013, "java.lang.Class.getClasses()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@63b96935, "java.lang.Class.getFields()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@51038702, "java.lang.Class.getMethods()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@18a7dc0f, "java.lang.Class.getConstructors()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1649b633, "java.lang.Class.getField(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7f47a7ca, "java.lang.Class.getConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7f6cd6d, "java.lang.Class.getDeclaredClasses()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2efa7594, "java.lang.Class.getDeclaredFields()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6bf041e2, "java.lang.Class.getRecordComponents()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7548c00e, "java.lang.Class.getDeclaredMethods()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2528cc08, "java.lang.Class.getDeclaredConstructors()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4b09df3, "java.lang.Class.getDeclaredField(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@58c3a2bb, "java.lang.Class.getDeclaredMethod(java.lang.String,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3426603d, "java.lang.Class.getDeclaredConstructor(java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@9afd0cc, "java.lang.Class.getNestMembers()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@73e9e70d, "java.lang.ClassLoader.getPlatformClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2b88deb9, "java.lang.ClassLoader.getSystemClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@29a3310c, "java.lang.ClassLoader.registerAsParallelCapable()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2ae94703, "java.lang.ClassLoader.getParent()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7c33c374, "java.lang.Module.addReads(java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1257bb9d, "java.lang.Module.addExports(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@79b90cd2, "java.lang.Module.addOpens(java.lang.String,java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1564b52d, "java.lang.Module.addUses(java.lang.Class)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@255dac6e, "java.lang.Module.getResourceAsStream(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2c8c1cb2, "java.lang.ModuleLayer$Controller.enableNativeAccess(java.lang.Module)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6f2f6c01, "java.lang.Package.getPackage(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3791fb8f, "java.lang.Package.getPackages()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@482a8c84, "java.lang.Runtime.load(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2bbeca8a, "java.lang.Runtime.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@66af7431, "java.lang.StackWalker.getCallerClass()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@70af8fc6, "java.lang.StackWalker.forEach(java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7b1df1b0, "java.lang.StackWalker.walk(java.util.function.Function)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1de11b2a, "java.lang.System.load(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1f8064f4, "java.lang.System.loadLibrary(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@78d859f8, "java.lang.System.setSecurityManager(java.lang.SecurityManager)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4beab540, "java.lang.System.getLogger(java.lang.String,java.util.ResourceBundle)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@354ff018, "java.lang.System.getLogger(java.lang.String)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@727da7d6, "java.lang.Thread.getContextClassLoader()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@247a122c, "java.lang.reflect.AccessibleObject.setAccessible(java.lang.reflect.AccessibleObject[],boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4d8e7168, "java.lang.reflect.AccessibleObject.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@28f93bf8, "java.lang.reflect.AccessibleObject.trySetAccessible()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@552c8d18, "java.lang.reflect.AccessibleObject.canAccess(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@5d2d0b70, "java.lang.reflect.Constructor.newInstance(java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3a380266, "java.lang.reflect.Constructor.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6574b683, "java.lang.reflect.Field.get(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7c59e628, "java.lang.reflect.Field.getBoolean(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@568f1890, "java.lang.reflect.Field.getByte(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2460bc92, "java.lang.reflect.Field.getShort(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@67c45a4a, "java.lang.reflect.Field.getChar(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@a11ff29, "java.lang.reflect.Field.getInt(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@aa57913, "java.lang.reflect.Field.getLong(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6624e03, "java.lang.reflect.Field.getFloat(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@5b414a55, "java.lang.reflect.Field.getDouble(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@343c7072, "java.lang.reflect.Field.set(java.lang.Object,java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@712838d0, "java.lang.reflect.Field.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@578a72eb, "java.lang.reflect.Field.setBoolean(java.lang.Object,boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1123b63a, "java.lang.reflect.Field.setByte(java.lang.Object,byte)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4a28fb8, "java.lang.reflect.Field.setChar(java.lang.Object,char)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@462c3047, "java.lang.reflect.Field.setShort(java.lang.Object,short)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@b460ba2, "java.lang.reflect.Field.setInt(java.lang.Object,int)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@704b4b15, "java.lang.reflect.Field.setLong(java.lang.Object,long)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1cf431c3, "java.lang.reflect.Field.setFloat(java.lang.Object,float)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@76f24167, "java.lang.reflect.Field.setDouble(java.lang.Object,double)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@4dcb4f67, "java.lang.reflect.InvocationHandler.invokeDefault(java.lang.Object,java.lang.reflect.Method,java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@28cc2e28, "java.lang.reflect.Method.invoke(java.lang.Object,java.lang.Object[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@2f630157, "java.lang.reflect.Method.setAccessible(boolean)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@273ae1df, "java.lang.reflect.Proxy.newProxyInstance(java.lang.ClassLoader,java.lang.Class[],java.lang.reflect.InvocationHandler)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@eb4c58d, "java.lang.reflect.Proxy.getInvocationHandler(java.lang.Object)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@61db60c1, "java.lang.reflect.Proxy.getProxyClass(java.lang.ClassLoader,java.lang.Class[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@207a426f, "java.lang.invoke.MethodHandleProxies.asInterfaceInstance(java.lang.Class,java.lang.invoke.MethodHandle)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@7110e37c, "java.lang.invoke.MethodHandles.lookup()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@582885cd, "java.lang.foreign.AddressLayout.withTargetLayout(java.lang.foreign.MemoryLayout)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@5f2e9ea1, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@772dedff, "java.lang.foreign.Linker.downcallHandle(java.lang.foreign.MemorySegment,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@6924c9b0, "java.lang.foreign.Linker.upcallStub(java.lang.invoke.MethodHandle,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Arena,java.lang.foreign.Linker$Option[])"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@22c72d57, "java.lang.foreign.MemorySegment.reinterpret(long,java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@bb5c75d, "java.lang.foreign.MemorySegment.reinterpret(java.lang.foreign.Arena,java.util.function.Consumer)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@41a09a48, "java.lang.foreign.MemorySegment.reinterpret(long)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3f3b14a5, "java.lang.foreign.SymbolLookup.libraryLookup(java.nio.file.Path,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@153b90f0, "java.lang.foreign.SymbolLookup.libraryLookup(java.lang.String,java.lang.foreign.Arena)"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@65781214, "java.lang.foreign.SymbolLookup.loaderLookup()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@1da30d08, "java.io.ObjectStreamClass.forClass()"): success
+test CallerSensitiveAccess.testPublicLookupUnreflect(java.lang.reflect.Method@3766895a, "java.io.ObjectStreamField.getType()"): success
+test CallerSensitiveAccess.testSetAccessible1(): success
+test CallerSensitiveAccess.testSetAccessible2(): success
+test CallerSensitiveAccess.testSetAccessible3(): success
+test CallerSensitiveAccess.testSetAccessible4(): success
+test CallerSensitiveAccess.testSetAccessible5(): success
+test CallerSensitiveAccess.testSetAccessible6(): success
+test CallerSensitiveAccess.testSetAccessible7(): success
+test CallerSensitiveAccess.testSetAccessible8(): success
+
+===============================================
+java/lang/invoke/callerSensitive/CallerSensitiveAccess.java
+Total tests run: 638, Passes: 638, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(40/4142)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\testng-7.3.0.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\guice-5.1.0.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jcommander-1.82.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=java/lang/invoke/callerSensitive/CallerSensitiveAccess.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\java\\lang\\invoke\\callerSensitive' \\
+        -Dtest.modules=java.base/jdk.internal.reflect \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.reflect=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\java\\lang\\invoke\\callerSensitive\\CallerSensitiveAccess.d\\testng.0.jta' java/lang/invoke/callerSensitive/CallerSensitiveAccess.java false CallerSensitiveAccess
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

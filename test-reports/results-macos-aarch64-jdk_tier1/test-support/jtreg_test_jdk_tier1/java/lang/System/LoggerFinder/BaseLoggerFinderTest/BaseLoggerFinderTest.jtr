@@ -1,0 +1,476 @@
+#Test Results (version 2)
+#Mon Apr 29 00:38:10 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs
+keywords=bug8140364 othervm driver
+run=USER_SPECIFIED build AccessSystemLogger BaseLoggerFinderTest CustomSystemClassLoader BaseLoggerFinder TestLoggerFinder\nUSER_SPECIFIED driver AccessSystemLogger\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerFinderTest NOSECURITY\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot -Djava.security.manager\=allow -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerFinderTest NOPERMISSIONS\nUSER_SPECIFIED main/othervm -Xbootclasspath/a\:boot -Djava.security.manager\=allow -Djava.system.class.loader\=CustomSystemClassLoader BaseLoggerFinderTest WITHPERMISSIONS\n
+source=BaseLoggerFinderTest.java
+title=Tests a naive implementation of LoggerFinder, and in particular the default body of System.Logger methods.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java
+elapsed=638 0\:00\:00.638
+end=Mon Apr 29 00\:38\:10 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build driver build main build main build main
+start=Mon Apr 29 00\:38\:09 UTC 2024
+test=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=638
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/BaseLoggerFinderTest
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/489)----------
+command: build AccessSystemLogger BaseLoggerFinderTest CustomSystemClassLoader BaseLoggerFinder TestLoggerFinder
+reason: User specified action: run build AccessSystemLogger BaseLoggerFinderTest CustomSystemClassLoader BaseLoggerFinder TestLoggerFinder 
+started: Mon Apr 29 00:38:09 UTC 2024
+Test directory:
+  compile: AccessSystemLogger, BaseLoggerFinderTest, CustomSystemClassLoader, BaseLoggerFinder, TestLoggerFinder
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.089
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/798)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/AccessSystemLogger.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/CustomSystemClassLoader.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinder.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/TestLoggerFinder.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:38:09 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.089
+----------configuration:(10/781)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d
+
+----------rerun:(33/4100)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/AccessSystemLogger.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/CustomSystemClassLoader.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinder.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/TestLoggerFinder.java
+----------direct:(46/4584)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:109: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+        if (System.getSecurityManager() == null) {
+                  ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:110: warning: [removal] Policy in java.security has been deprecated and marked for removal
+            Policy.setPolicy(new SimplePolicy(allowControl, allowAccess));
+            ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:111: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                                          ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:111: warning: [removal] setSecurityManager(SecurityManager) in System has been deprecated and marked for removal
+            System.setSecurityManager(new SecurityManager());
+                  ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:140: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+                    } catch (AccessControlException x) {
+                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:190: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:216: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:262: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:287: warning: [removal] AccessControlException in java.security has been deprecated and marked for removal
+        } catch (AccessControlException acx) {
+                 ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:651: warning: [removal] Policy in java.security has been deprecated and marked for removal
+    public static class SimplePolicy extends Policy {
+                                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:655: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                     ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java:655: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinder.java:35: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+        SecurityManager sm = System.getSecurityManager();
+        ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinder.java:35: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+        SecurityManager sm = System.getSecurityManager();
+                                   ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinder.java:40: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+        ClassLoader callerLoader = AccessController.doPrivileged(pa);
+                                   ^
+15 warnings
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/180)----------
+command: build AccessSystemLogger
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:09 UTC 2024
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/231)----------
+command: driver AccessSystemLogger
+reason: User specified action: run driver AccessSystemLogger 
+started: Mon Apr 29 00:38:09 UTC 2024
+Mode: agentvm
+Agent id: 27
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.003
+----------configuration:(13/999)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d
+              /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest
+
+----------rerun:(26/3024)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        AccessSystemLogger
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build BaseLoggerFinderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:09 UTC 2024
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/417)----------
+command: main -Xbootclasspath/a:boot -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest NOSECURITY
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest NOSECURITY 
+started: Mon Apr 29 00:38:09 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.178
+----------configuration:(0/0)----------
+----------System.out:(19/1456)----------
+[0.006s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+Using provider class: class BaseLoggerFinder[CustomSystemClassLoader@6ff3c5b5]
+
+*** Without Security Manager
+
+Testing provider.getLogger("foo", BaseLoggerFinderTest.class.getModule()) [TestLoggerFinder$LoggerImpl@511d3f26]
+Testing provider.getLogger("foo", Thread.class.getModule()) [TestLoggerFinder$LoggerImpl@3a7fc53]
+Testing provider.getLocalizedLogger("foo", loggerBundle, BaseLoggerFinderTest.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@20621d2c]
+Testing provider.getLocalizedLogger("foo", loggerBundle, Thread.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@7d8728bf]
+Testing System.getLogger("foo") [TestLoggerFinder$LoggerImpl@511d3f26]
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@73363d32
+Testing AccessSystemLogger.getLogger("foo") [jdk.internal.logger.LazyLoggers$JdkLazyLogger@73363d32]
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@f311bc5]
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@6c2923b9
+Testing AccessSystemLogger.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@6c2923b9]
+Tetscase count: 2608
+
+PASSED: Tested 2608 cases.
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(36/3746)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:boot \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d/main.0.jta NOSECURITY
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build BaseLoggerFinderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:09 UTC 2024
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/483)----------
+command: main -Xbootclasspath/a:boot -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest NOPERMISSIONS
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest NOPERMISSIONS 
+started: Mon Apr 29 00:38:09 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.156
+----------configuration:(0/0)----------
+----------System.out:(23/2035)----------
+[0.003s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+Using provider class: class BaseLoggerFinder[CustomSystemClassLoader@3764951d]
+
+*** With Security Manager, without permissions
+
+Got expected exception for logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Got expected exception for system logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Testing provider.getLogger("foo", BaseLoggerFinderTest.class.getModule()) [TestLoggerFinder$LoggerImpl@3c4c933]
+Testing provider.getLogger("foo", Thread.class.getModule()) [TestLoggerFinder$LoggerImpl@7448ba54]
+Got expected exception for logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Got expected exception for localized system logger: java.security.AccessControlException: access denied ("java.lang.RuntimePermission" "loggerFinder")
+Testing provider.getLocalizedLogger("foo", loggerBundle, BaseLoggerFinderTest.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@583d6e79]
+Testing provider.getLocalizedLogger("foo", loggerBundle, Thread.class.getModule())) [jdk.internal.logger.LocalizedLoggerWrapper@7ee756c5]
+Testing System.getLogger("foo") [TestLoggerFinder$LoggerImpl@3c4c933]
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@75e18548
+Testing AccessSystemLogger.getLogger("foo") [jdk.internal.logger.LazyLoggers$JdkLazyLogger@75e18548]
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@6c6b281a]
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@7633c184
+Testing AccessSystemLogger.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@7633c184]
+Tetscase count: 2608
+
+PASSED: Tested 2608 cases.
+----------System.err:(5/507)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by BaseLoggerFinderTest (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d/)
+WARNING: Please consider reporting this to the maintainers of BaseLoggerFinderTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(37/3790)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:boot \\
+        -Djava.security.manager=allow \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d/main.1.jta NOPERMISSIONS
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build BaseLoggerFinderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:38:09 UTC 2024
+finished: Mon Apr 29 00:38:09 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/487)----------
+command: main -Xbootclasspath/a:boot -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest WITHPERMISSIONS
+reason: User specified action: run main/othervm -Xbootclasspath/a:boot -Djava.security.manager=allow -Djava.system.class.loader=CustomSystemClassLoader BaseLoggerFinderTest WITHPERMISSIONS 
+started: Mon Apr 29 00:38:09 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:38:10 UTC 2024
+elapsed time (seconds): 0.209
+----------configuration:(0/0)----------
+----------System.out:(18/1459)----------
+[0.005s][warning][cds] Archived non-system classes are disabled because the java.system.class.loader property is specified (value = "CustomSystemClassLoader"). To use archived non-system classes, this property must not be set
+Loaded BaseLoggerFinder
+Using provider class: class BaseLoggerFinder[CustomSystemClassLoader@3764951d]
+
+*** With Security Manager, with control permission
+
+Testing provider.getLogger("foo", BaseLoggerFinderTest.class.getModule()) [TestLoggerFinder$LoggerImpl@1c18bd53]
+Testing provider.getLogger("foo", Thread.class.getModule()) [TestLoggerFinder$LoggerImpl@1a8aaaad]
+Testing provider.getLocalizedLogger("foo", loggerBundle, BaseLoggerFinderTest.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@3903eff4]
+Testing provider.getLocalizedLogger("foo", loggerBundle, Thread.class.getModule()) [jdk.internal.logger.LocalizedLoggerWrapper@55627b12]
+Testing System.getLogger("foo") [TestLoggerFinder$LoggerImpl@1c18bd53]
+System.getLogger("foo"): jdk.internal.logger.LazyLoggers$JdkLazyLogger@67748c17
+Testing AccessSystemLogger.getLogger("foo") [jdk.internal.logger.LazyLoggers$JdkLazyLogger@67748c17]
+Testing System.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@24822d3d]
+System.getLogger("foo", bundle): jdk.internal.logger.LocalizedLoggerWrapper@20419fa6
+Testing AccessSystemLogger.getLogger("foo", loggerBundle) [jdk.internal.logger.LocalizedLoggerWrapper@20419fa6]
+
+PASSED: Tested 2608 cases.
+----------System.err:(5/507)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by BaseLoggerFinderTest (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d/)
+WARNING: Please consider reporting this to the maintainers of BaseLoggerFinderTest
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(37/3792)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/BaseLoggerFinderTest \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbootclasspath/a:boot \\
+        -Djava.security.manager=allow \\
+        -Djava.system.class.loader=CustomSystemClassLoader \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/BaseLoggerFinderTest/BaseLoggerFinderTest.d/main.2.jta WITHPERMISSIONS
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

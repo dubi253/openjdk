@@ -1,0 +1,329 @@
+#Test Results (version 2)
+#Mon Apr 29 02:04:13 UTC 2024
+#-----testdescription-----
+$file=D\:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java
+$root=D\:\\a\\openjdk\\openjdk\\test\\jdk
+keywords=othervm
+requires=vm.continuations
+run=USER_SPECIFIED compile ClassUnloading.java\r\nUSER_SPECIFIED main/othervm -XX\:-UseCompressedOops ClassUnloading\r\nUSER_SPECIFIED main/othervm -XX\:+UseCompressedOops ClassUnloading\r\nUSER_SPECIFIED main/othervm -Xcomp -XX\:-TieredCompilation -XX\:CompileOnly\=jdk.internal.vm.Continuation\:\:*,ClassUnloading\:\:* ClassUnloading\r\n
+source=ClassUnloading.java
+title=Tests class unloading on virtual threads
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/D\:/a/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/ClassUnloading.java
+elapsed=7748 0\:00\:07.748
+end=Mon Apr 29 02\:04\:13 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az978-691.aqccnys5fsauxnvc2cwlk3lemf.dx.internal.cloudapp.net
+javatestOS=Windows Server 2019 10.0 (amd64)
+javatestVersion=6.0-ea+b24-2024-04-29-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build main build main build main
+start=Mon Apr 29 02\:04\:05 UTC 2024
+test=jdk/internal/vm/Continuation/ClassUnloading.java
+testJDK=d\:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+testJDK_OS=[name\:Windows Server 2019,arch\:amd64,version\:10.0,family\:windows,simple_arch\:x64,simple_version\:10.0,processors\:4,maxMemory\:17179398144,maxSwap\:20266405888]
+testJDK_os.arch=amd64
+testJDK_os.name=Windows Server 2019
+testJDK_os.version=10.0
+totalTime=7748
+user.name=runneradmin
+work=D\:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation
+
+#section:script_messages
+----------messages:(4/317)*----------
+JDK under test: d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:compile
+----------messages:(7/310)*----------
+command: compile D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java
+reason: User specified action: run compile ClassUnloading.java 
+started: Mon Apr 29 02:04:05 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 02:04:05 UTC 2024
+elapsed time (seconds): 0.032
+----------configuration:(10/687)*----------
+Boot Layer (javac runtime environment)
+  class path: D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar 
+              D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar 
+  patch:      java.base D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\patches\\java.base
+
+javac compilation environment
+  source path: D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation
+  class path:  D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation
+               D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d
+
+----------rerun:(36/3545)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\javac' \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=25 \\
+        -J'-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        -J'-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -J-XX:+CreateCoredumpOnCrash \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -J-Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/ClassUnloading.java \\
+        -J-Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java' \\
+        -J-Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -J-Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -J-Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -J-Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -d 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -sourcepath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -classpath 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' 'D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java'
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/179)----------
+command: build ClassUnloading
+reason: Named class compiled on demand
+started: Mon Apr 29 02:04:05 UTC 2024
+finished: Mon Apr 29 02:04:05 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/286)----------
+command: main -XX:-UseCompressedOops ClassUnloading
+reason: User specified action: run main/othervm -XX:-UseCompressedOops ClassUnloading 
+started: Mon Apr 29 02:04:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 02:04:07 UTC 2024
+elapsed time (seconds): 2.55
+----------configuration:(0/0)----------
+----------System.out:(11/267)----------
+Thread[#20,MainThread,5,MainThreadGroup]
+try unload Dummy/0x00000298db003000
+..........
+unload Dummy/0x00000298db003000
+.
+
+VirtualThread[#23]/runnable@ForkJoinPool-1-worker-1
+try unload Dummy/0x00000298db004400
+..........
+unload Dummy/0x00000298db004400
+.
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(38/3634)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/ClassUnloading.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -XX:-UseCompressedOops \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d\\main.0.jta'
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/179)----------
+command: build ClassUnloading
+reason: Named class compiled on demand
+started: Mon Apr 29 02:04:07 UTC 2024
+finished: Mon Apr 29 02:04:07 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/287)----------
+command: main -XX:+UseCompressedOops ClassUnloading
+reason: User specified action: run main/othervm -XX:+UseCompressedOops ClassUnloading 
+started: Mon Apr 29 02:04:07 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 02:04:10 UTC 2024
+elapsed time (seconds): 2.549
+----------configuration:(0/0)----------
+----------System.out:(11/267)----------
+Thread[#20,MainThread,5,MainThreadGroup]
+try unload Dummy/0x00000213d8003000
+..........
+unload Dummy/0x00000213d8003000
+.
+
+VirtualThread[#23]/runnable@ForkJoinPool-1-worker-1
+try unload Dummy/0x00000213d8004400
+..........
+unload Dummy/0x00000213d8004400
+.
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(38/3634)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/ClassUnloading.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -XX:+UseCompressedOops \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d\\main.1.jta'
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/179)----------
+command: build ClassUnloading
+reason: Named class compiled on demand
+started: Mon Apr 29 02:04:10 UTC 2024
+finished: Mon Apr 29 02:04:10 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/433)----------
+command: main -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,ClassUnloading::* ClassUnloading
+reason: User specified action: run main/othervm -Xcomp -XX:-TieredCompilation -XX:CompileOnly=jdk.internal.vm.Continuation::*,ClassUnloading::* ClassUnloading 
+started: Mon Apr 29 02:04:10 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 02:04:13 UTC 2024
+elapsed time (seconds): 2.617
+----------configuration:(0/0)----------
+----------System.out:(13/421)----------
+CompileCommand: compileonly jdk/internal/vm/Continuation.* bool compileonly = true
+CompileCommand: compileonly ClassUnloading.* bool compileonly = true
+Thread[#20,MainThread,5,MainThreadGroup]
+try unload Dummy/0x00000261b6003000
+..........
+unload Dummy/0x00000261b6003000
+.
+
+VirtualThread[#23]/runnable@ForkJoinPool-1-worker-1
+try unload Dummy/0x00000261b6004400
+..........
+unload Dummy/0x00000261b6004400
+.
+----------System.err:(1/16)----------
+STATUS:Passed.
+----------rerun:(40/3731)*----------
+cd 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\scratch' && \\
+PATH='C:\\hostedtoolcache\\windows\\msys2\\msys64\\usr\\bin;D:\\a\\_temp\\setup-msys2' \\
+SystemDrive=C: \\
+SystemRoot='C:\\Windows' \\
+TEMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+TEST_IMAGE_DIR='d:\\a\\openjdk\\openjdk\\bundles\\tests' \\
+TMP='C:\\Users\\RUNNER~1\\AppData\\Local\\Temp' \\
+_NT_SYMBOL_PATH=' d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin;d:\\a\\openjdk\\openjdk\\bundles\\symbols\\jdk-23\\bin\\server' \\
+windir='C:\\Windows' \\
+CLASSPATH='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\javatest.jar;D:\\a\\openjdk\\openjdk\\jtreg\\installed\\lib\\jtreg.jar' \\
+    'd:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23\\bin\\java' \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=25 -Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -XX:+CreateCoredumpOnCrash -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=25 -J-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk -J-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp -J-XX:+CreateCoredumpOnCrash -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dcompile.jdk='d:\\a\\openjdk\\openjdk\\bundles\\jdk\\jdk-23' \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath='d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Dtest.root='D:\\a\\openjdk\\openjdk\\test\\jdk' \\
+        -Dtest.name=jdk/internal/vm/Continuation/ClassUnloading.java \\
+        -Dtest.file='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation\\ClassUnloading.java' \\
+        -Dtest.src='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.src.path='D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Dtest.classes='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d' \\
+        -Dtest.class.path.prefix='D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\classes\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d;D:\\a\\openjdk\\openjdk\\test\\jdk\\jdk\\internal\\vm\\Continuation' \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=25 \\
+        '-Dtest.boot.jdk=d:\\a\\openjdk\\openjdk\\bootjdk\\jdk' \\
+        '-Djava.io.tmpdir=d:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\tmp' \\
+        -XX:+CreateCoredumpOnCrash \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        '-Djava.library.path=d:\\a\\openjdk\\openjdk\\bundles\\tests\\jdk\\jtreg\\native' \\
+        -Xcomp \\
+        -XX:-TieredCompilation \\
+        -XX:CompileOnly=jdk.internal.vm.Continuation::*,ClassUnloading::* \\
+        com.sun.javatest.regtest.agent.MainWrapper 'D:\\a\\openjdk\\openjdk\\build\\run-test-prebuilt\\test-support\\jtreg_test_jdk_tier1\\jdk\\internal\\vm\\Continuation\\ClassUnloading.d\\main.2.jta'
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

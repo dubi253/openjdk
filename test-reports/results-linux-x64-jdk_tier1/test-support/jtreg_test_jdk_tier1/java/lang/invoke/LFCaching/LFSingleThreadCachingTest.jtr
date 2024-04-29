@@ -1,0 +1,2830 @@
+#Test Results (version 2)
+#Mon Apr 29 00:40:47 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=kshefov
+keywords=bug8046703 randomness othervm
+library=/lib/testlibrary /java/lang/invoke/common /test/lib
+modules=java.base/java.lang.ref\:open java.base/java.lang.invoke\:open java.management
+run=USER_SPECIFIED build jdk.test.lib.TimeLimitedRunner\nUSER_SPECIFIED build TestMethods\nUSER_SPECIFIED build LambdaFormTestCase\nUSER_SPECIFIED build LFCachingTestCase\nUSER_SPECIFIED build LFSingleThreadCachingTest\nUSER_SPECIFIED main/othervm -XX\:ReservedCodeCacheSize\=128m LFSingleThreadCachingTest\n
+source=LFSingleThreadCachingTest.java
+title=Test verifies that lambda forms are cached when run with single thread
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java
+elapsed=7628 0\:00\:07.628
+end=Mon Apr 29 00\:40\:47 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/java.lang.ref\:open java.base/java.lang.invoke\:open java.management
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile build compile build compile build compile build main
+start=Mon Apr 29 00\:40\:39 UTC 2024
+test=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=7628
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke/LFCaching
+
+#section:script_messages
+----------messages:(13/1093)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /lib/testlibrary; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+Library /java/lang/invoke/common; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(7/287)----------
+command: build jdk.test.lib.TimeLimitedRunner
+reason: User specified action: run build jdk.test.lib.TimeLimitedRunner 
+started: Mon Apr 29 00:40:39 UTC 2024
+Library /test/lib:
+  compile: jdk.test.lib.TimeLimitedRunner
+finished: Mon Apr 29 00:40:39 UTC 2024
+elapsed time (seconds): 0.056
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/353)----------
+command: compile /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/TimeLimitedRunner.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:39 UTC 2024
+Additional options from @modules: --add-modules java.base,java.management
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:39 UTC 2024
+elapsed time (seconds): 0.056
+----------configuration:(14/1021)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.management
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/4432)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/TimeLimitedRunner.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/227)----------
+command: build TestMethods
+reason: User specified action: run build TestMethods 
+started: Mon Apr 29 00:40:39 UTC 2024
+Test directory:
+  compile: TestMethods
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.136
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/361)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/TestMethods.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:39 UTC 2024
+Additional options from @modules: --add-modules java.base,java.management
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.136
+----------configuration:(17/1363)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.management
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/4940)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/TestMethods.java
+----------direct:(2/200)----------
+Note: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common/test/java/lang/invoke/lib/Helper.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/248)----------
+command: build LambdaFormTestCase
+reason: User specified action: run build LambdaFormTestCase 
+started: Mon Apr 29 00:40:40 UTC 2024
+Test directory:
+  compile: LambdaFormTestCase
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.031
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/367)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LambdaFormTestCase.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:40 UTC 2024
+Additional options from @modules: --add-modules java.base,java.management
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.03
+----------configuration:(17/1363)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.management
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/4947)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LambdaFormTestCase.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/244)----------
+command: build LFCachingTestCase
+reason: User specified action: run build LFCachingTestCase 
+started: Mon Apr 29 00:40:40 UTC 2024
+Test directory:
+  compile: LFCachingTestCase
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.05
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/366)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFCachingTestCase.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:40 UTC 2024
+Additional options from @modules: --add-modules java.base,java.management
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.05
+----------configuration:(17/1363)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.management
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/4946)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFCachingTestCase.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/269)----------
+command: build LFSingleThreadCachingTest
+reason: User specified action: run build LFSingleThreadCachingTest 
+started: Mon Apr 29 00:40:40 UTC 2024
+Test directory:
+  compile: LFSingleThreadCachingTest
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.067
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/375)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:40 UTC 2024
+Additional options from @modules: --add-modules java.base,java.management
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.067
+----------configuration:(17/1363)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.management
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/4954)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/185)----------
+command: build LFSingleThreadCachingTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:40 UTC 2024
+finished: Mon Apr 29 00:40:40 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/492)----------
+command: main -XX:ReservedCodeCacheSize=128m LFSingleThreadCachingTest
+reason: User specified action: run main/othervm -XX:ReservedCodeCacheSize=128m LFSingleThreadCachingTest 
+started: Mon Apr 29 00:40:40 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.management --add-opens java.base/java.lang.ref=ALL-UNNAMED --add-opens java.base/java.lang.invoke=ALL-UNNAMED
+finished: Mon Apr 29 00:40:47 UTC 2024
+elapsed time (seconds): 7.287
+----------configuration:(5/163)----------
+Boot Layer
+  add modules: java.base java.management  
+  add opens:   java.base/java.lang.invoke ALL-UNNAMED
+               java.base/java.lang.ref    ALL-UNNAMED
+
+----------System.out:(4/158)----------
+-Dseed=3796927273719239679
+-DtestLimit=2000
+Number of iterations according to -DtestLimit is 117 (1989 cases)
+Number of iterations is set to 117 (1989 cases)
+----------System.err:(2302/84427)----------
+Iteration 0:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 1:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 2:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 3:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 4:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 5:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 6:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 7:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 8:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 9:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 10:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 11:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 12:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 13:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 14:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 15:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 16:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 17:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 18:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 19:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 20:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 21:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 22:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 23:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 24:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 25:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+ with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 78:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 79:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 80:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 81:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 82:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 83:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 84:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 85:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 86:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 87:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 88:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 89:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 90:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 91:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 92:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 93:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 94:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 95:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 96:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 97:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 98:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 99:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 100:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 101:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 102:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 103:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 104:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 105:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 106:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 107:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 108:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 109:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 110:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 111:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 112:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 113:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 114:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 115:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+Iteration 116:
+Tested LF caching feature with MethodHandles.foldArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.dropArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.explicitCastArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.filterReturnValue method.
+PASSED
+Tested LF caching feature with MethodHandles.insertArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.permuteArguments method.
+PASSED
+Tested LF caching feature with MethodHandles.throwException method.
+PASSED
+Tested LF caching feature with MethodHandles.guardWithTest method.
+PASSED
+Tested LF caching feature with MethodHandles.catchException method.
+PASSED
+Tested LF caching feature with MethodHandles.invoker method.
+PASSED
+Tested LF caching feature with MethodHandles.exactInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.spreadInvoker method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementGetter method.
+PASSED
+Tested LF caching feature with MethodHandles.arrayElementSetter method.
+PASSED
+Tested LF caching feature with MethodHandles.constant method.
+PASSED
+Tested LF caching feature with MethodHandles.identity method.
+PASSED
+All 1989 test cases PASSED!
+STATUS:Passed.
+----------rerun:(41/5173)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/test/jdk/lib/testlibrary:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/LFCaching:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/lib/testlibrary:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/invoke/common:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.modules='java.base/java.lang.ref:open java.base/java.lang.invoke:open java.management' \\
+        --add-modules java.base,java.management \\
+        --add-opens java.base/java.lang.ref=ALL-UNNAMED \\
+        --add-opens java.base/java.lang.invoke=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:ReservedCodeCacheSize=128m \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke/LFCaching/LFSingleThreadCachingTest.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

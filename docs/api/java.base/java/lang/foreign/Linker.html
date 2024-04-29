@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css" title="Style">
 <script type="text/javascript" src="../../../../script-files/script.js"></script>
-<script type="text/javascript" src="../../../../script-files/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <li><a href="../../../../search.html">Search</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
-<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong></div></div>
+<div class="about-language"><div><strong>Java SE 23 &amp; JDK 23</strong> <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong></div></div>
 </div>
 </div>
 <div class="sub-nav">
@@ -151,7 +151,7 @@ loadScripts(document, 'script');</script>
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
 <pre class="snippet"><code class="language-java">Linker linker = Linker.nativeLinker();
 MethodHandle strlen = linker.downcallHandle(
-    linker.defaultLookup().find("strlen").orElseThrow(),
+    linker.defaultLookup().findOrThrow("strlen"),
     FunctionDescriptor.of(JAVA_LONG, ADDRESS)
 );
 </code></pre>
@@ -381,7 +381,7 @@ MemoryLayout noTrailingPadding = MemoryLayout.structLayout(
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
 <pre class="snippet"><code class="language-java">Linker linker = Linker.nativeLinker();
 MethodHandle qsort = linker.downcallHandle(
-    linker.defaultLookup().find("qsort").orElseThrow(),
+    linker.defaultLookup().findOrThrow("qsort"),
         FunctionDescriptor.ofVoid(ADDRESS, JAVA_LONG, JAVA_LONG, ADDRESS)
 );
 </code></pre>
@@ -490,12 +490,12 @@ MethodHandle comparHandle = MethodHandles.lookup()
 <pre class="snippet"><code class="language-java">Linker linker = Linker.nativeLinker();
 
 MethodHandle malloc = linker.downcallHandle(
-    linker.defaultLookup().find("malloc").orElseThrow(),
+    linker.defaultLookup().findOrThrow("malloc"),
     FunctionDescriptor.of(ADDRESS, JAVA_LONG)
 );
 
 MethodHandle free = linker.downcallHandle(
-    linker.defaultLookup().find("free").orElseThrow(),
+    linker.defaultLookup().findOrThrow("free"),
     FunctionDescriptor.ofVoid(ADDRESS)
 );
 </code></pre>
@@ -641,7 +641,7 @@ MethodHandle free = linker.downcallHandle(
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
 <pre class="snippet"><code class="language-java">Linker linker = Linker.nativeLinker();
 MethodHandle printf = linker.downcallHandle(
-    linker.defaultLookup().find("printf").orElseThrow(),
+    linker.defaultLookup().findOrThrow("printf"),
         FunctionDescriptor.of(JAVA_INT, ADDRESS, JAVA_INT, JAVA_INT, JAVA_INT),
         Linker.Option.firstVariadicArg(1) // first int is variadic
 );
@@ -807,7 +807,7 @@ MethodHandle printf = linker.downcallHandle(
 <section class="detail" id="downcallHandle(java.lang.foreign.MemorySegment,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker.Option...)">
 <h3>downcallHandle</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a></span>&nbsp;<span class="element-name">downcallHandle</span><wbr><span class="parameters">(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;address,
+<div class="member-signature"><span class="return-type"><a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a></span>&nbsp;<span class="element-name">downcallHandle</span><wbr><span class="parameters">(<a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a>&nbsp;address,
  <a href="FunctionDescriptor.html" title="interface in java.lang.foreign">FunctionDescriptor</a>&nbsp;function,
  <a href="Linker.Option.html" title="interface in java.lang.foreign">Linker.Option</a>...&nbsp;options)</span></div>
 <div class="restricted-block" id="restricted-downcallHandle(java.lang.foreign.MemorySegment,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker.Option...)"><span class="restricted-label"><code>downcallHandle</code> is a restricted method of the Java platform.</span>
@@ -820,7 +820,7 @@ MethodHandle printf = linker.downcallHandle(
  Calling this method is equivalent to the following code:
  
 <div class="snippet-container"><button class="copy snippet-copy" aria-label="Copy snippet" onclick="copySnippet(this)"><span data-copied="Copied!">Copy</span><img src="../../../../resource-files/copy.svg" alt="Copy snippet"></button>
-<pre class="snippet"><code class="language-java">linker.downcallHandle(function).bindTo(symbol);
+<pre class="snippet"><code class="language-java">linker.downcallHandle(function, options).bindTo(address);
 </code></pre>
 </div>
 </div>
@@ -856,7 +856,7 @@ MethodHandle printf = linker.downcallHandle(
 <section class="detail" id="downcallHandle(java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker.Option...)">
 <h3>downcallHandle</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a></span>&nbsp;<span class="element-name">downcallHandle</span><wbr><span class="parameters">(<a href="FunctionDescriptor.html" title="interface in java.lang.foreign">FunctionDescriptor</a>&nbsp;function,
+<div class="member-signature"><span class="return-type"><a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a></span>&nbsp;<span class="element-name">downcallHandle</span><wbr><span class="parameters">(<a href="FunctionDescriptor.html" title="interface in java.lang.foreign">FunctionDescriptor</a>&nbsp;function,
  <a href="Linker.Option.html" title="interface in java.lang.foreign">Linker.Option</a>...&nbsp;options)</span></div>
 <div class="restricted-block" id="restricted-downcallHandle(java.lang.foreign.FunctionDescriptor,java.lang.foreign.Linker.Option...)"><span class="restricted-label"><code>downcallHandle</code> is a restricted method of the Java platform.</span>
 <div class="restricted-comment">Programs can only use <code>downcallHandle</code> when access to restricted methods is enabled.</div>
@@ -934,7 +934,7 @@ MethodHandle printf = linker.downcallHandle(
 <section class="detail" id="upcallStub(java.lang.invoke.MethodHandle,java.lang.foreign.FunctionDescriptor,java.lang.foreign.Arena,java.lang.foreign.Linker.Option...)">
 <h3>upcallStub</h3>
 <div class="horizontal-scroll">
-<div class="member-signature"><span class="modifiers">sealed</span>&nbsp;<span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">upcallStub</span><wbr><span class="parameters">(<a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a>&nbsp;target,
+<div class="member-signature"><span class="return-type"><a href="MemorySegment.html" title="interface in java.lang.foreign">MemorySegment</a></span>&nbsp;<span class="element-name">upcallStub</span><wbr><span class="parameters">(<a href="../invoke/MethodHandle.html" title="class in java.lang.invoke">MethodHandle</a>&nbsp;target,
  <a href="FunctionDescriptor.html" title="interface in java.lang.foreign">FunctionDescriptor</a>&nbsp;function,
  <a href="Arena.html" title="interface in java.lang.foreign">Arena</a>&nbsp;arena,
  <a href="Linker.Option.html" title="interface in java.lang.foreign">Linker.Option</a>...&nbsp;options)</span></div>
@@ -1059,7 +1059,7 @@ MethodHandle printf = linker.downcallHandle(
 <!-- ========= END OF CLASS DATA ========= -->
 <footer role="contentinfo">
 <hr>
-<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f</strong> <!-- Version 23-internal-dubi253-9e131f8da811034ada7f536be84d846cbe0e777f --></small></p>
+<p class="legal-copy"><small><a href="https://bugreport.java.com/bugreport/">Report a bug or suggest an enhancement</a><br> For further API reference and developer documentation see the <a href="https://docs.oracle.com/pls/topic/lookup?ctx=javase23&amp;id=homepage" target="_blank">Java SE Documentation</a>, which contains more detailed, developer-targeted descriptions with conceptual overviews, definitions of terms, workarounds, and working code examples. <a href="https://docs.oracle.com/en/java/javase/index.html">Other versions.</a><br> Java is a trademark or registered trademark of Oracle and/or its affiliates in the US and other countries.<br> <a href="../../../../../legal/copyright.html">Copyright</a> &copy; 1993, 2024, Oracle and/or its affiliates, 500 Oracle Parkway, Redwood Shores, CA 94065 USA.<br>All rights reserved. Use is subject to <a href="https://www.oracle.com/java/javase/terms/license/java23speclicense.html">license terms</a> and the <a href="https://www.oracle.com/technetwork/java/redist-137594.html">documentation redistribution policy</a>. <br><strong>DRAFT 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c</strong> <!-- Version 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c --></small></p>
 </footer>
 </main>
 </div>

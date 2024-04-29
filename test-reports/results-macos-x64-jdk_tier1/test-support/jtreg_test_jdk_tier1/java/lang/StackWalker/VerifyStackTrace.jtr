@@ -1,0 +1,362 @@
+#Test Results (version 2)
+#Mon Apr 29 00:58:06 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs
+keywords=bug8140450 bug8197901 othervm
+run=USER_SPECIFIED main/othervm VerifyStackTrace\nUSER_SPECIFIED main/othervm/java.security.policy\=stackwalk.policy VerifyStackTrace\n
+source=VerifyStackTrace.java
+title=Verify stack trace information obtained with respect to StackWalker options, when the stack contains lambdas, method handle invoke virtual calls, and reflection.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java
+elapsed=1030 0\:00\:01.030
+end=Mon Apr 29 00\:58\:06 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main build main
+start=Mon Apr 29 00\:58\:05 UTC 2024
+test=java/lang/StackWalker/VerifyStackTrace.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=1031
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/221)----------
+command: build VerifyStackTrace
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:05 UTC 2024
+Test directory:
+  compile: VerifyStackTrace
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.08
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/288)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:58:05 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.079
+----------configuration:(10/690)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d
+
+----------rerun:(33/3214)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/StackWalker/VerifyStackTrace.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java
+----------direct:(4/252)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java:270: warning: [removal] AccessController in java.security has been deprecated and marked for removal
+        AccessController.doPrivileged(pa);
+        ^
+1 warning
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/239)----------
+command: main VerifyStackTrace
+reason: User specified action: run main/othervm VerifyStackTrace 
+started: Mon Apr 29 00:58:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.474
+----------configuration:(0/0)----------
+----------System.out:(66/4371)----------
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+3: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+4: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+5: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+6: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+7: VerifyStackTrace.test(VerifyStackTrace.java:270)
+8: VerifyStackTrace.main(VerifyStackTrace.java:221)
+Main found: true
+
+Testing: nStackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_REFLECT_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+3: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+4: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+5: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+6: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+7: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+8: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+9: VerifyStackTrace.test(VerifyStackTrace.java:270)
+10: VerifyStackTrace.main(VerifyStackTrace.java:222)
+Main found: true
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_HIDDEN_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$$Lambda/0x000000011e003450.run(Unknown Source)
+3: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+4: java.base/java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(DirectMethodHandle$Holder)
+5: java.base/java.lang.invoke.LambdaForm$MH/0x000000011e004800.invoke_MT(LambdaForm$MH)
+6: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+7: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+8: java.base/java.lang.invoke.LambdaForm$DMH/0x000000011e001800.invokeStatic(LambdaForm$DMH)
+9: java.base/java.lang.invoke.LambdaForm$MH/0x000000011e002c00.invoke(LambdaForm$MH)
+10: java.base/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+11: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+12: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+13: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+14: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+15: java.base/java.security.AccessController.executePrivileged(AccessController.java:778)
+16: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+17: VerifyStackTrace.test(VerifyStackTrace.java:270)
+18: VerifyStackTrace.main(VerifyStackTrace.java:223)
+Main found: true
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_HIDDEN_FRAMES, StackWalker.Option.SHOW_REFLECT_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$$Lambda/0x000000011e003450.run(Unknown Source)
+3: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+4: java.base/java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(DirectMethodHandle$Holder)
+5: java.base/java.lang.invoke.LambdaForm$MH/0x000000011e004800.invoke_MT(LambdaForm$MH)
+6: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+7: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+8: java.base/java.lang.invoke.LambdaForm$DMH/0x000000011e001800.invokeStatic(LambdaForm$DMH)
+9: java.base/java.lang.invoke.LambdaForm$MH/0x000000011e002c00.invoke(LambdaForm$MH)
+10: java.base/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+11: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+12: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+13: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+14: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+15: java.base/java.security.AccessController.executePrivileged(AccessController.java:778)
+16: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+17: VerifyStackTrace.test(VerifyStackTrace.java:270)
+18: VerifyStackTrace.main(VerifyStackTrace.java:224)
+Main found: true
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(34/3292)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/VerifyStackTrace.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/VerifyStackTrace.d/main.0.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/178)----------
+command: build VerifyStackTrace
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:05 UTC 2024
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/277)----------
+command: main VerifyStackTrace
+reason: User specified action: run main/othervm/java.security.policy=stackwalk.policy VerifyStackTrace 
+started: Mon Apr 29 00:58:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:06 UTC 2024
+elapsed time (seconds): 0.475
+----------configuration:(0/0)----------
+----------System.out:(66/4371)----------
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+3: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+4: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+5: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+6: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+7: VerifyStackTrace.test(VerifyStackTrace.java:270)
+8: VerifyStackTrace.main(VerifyStackTrace.java:221)
+Main found: true
+
+Testing: nStackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_REFLECT_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+3: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+4: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+5: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+6: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+7: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+8: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+9: VerifyStackTrace.test(VerifyStackTrace.java:270)
+10: VerifyStackTrace.main(VerifyStackTrace.java:222)
+Main found: true
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_HIDDEN_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$$Lambda/0x0000000123005450.run(Unknown Source)
+3: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+4: java.base/java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(DirectMethodHandle$Holder)
+5: java.base/java.lang.invoke.LambdaForm$MH/0x0000000123006000.invoke_MT(LambdaForm$MH)
+6: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+7: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+8: java.base/java.lang.invoke.LambdaForm$DMH/0x0000000123001800.invokeStatic(LambdaForm$DMH)
+9: java.base/java.lang.invoke.LambdaForm$MH/0x0000000123004800.invoke(LambdaForm$MH)
+10: java.base/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+11: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+12: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+13: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+14: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+15: java.base/java.security.AccessController.executePrivileged(AccessController.java:778)
+16: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+17: VerifyStackTrace.test(VerifyStackTrace.java:270)
+18: VerifyStackTrace.main(VerifyStackTrace.java:223)
+Main found: true
+
+Testing: StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE, StackWalker.Option.SHOW_HIDDEN_FRAMES, StackWalker.Option.SHOW_REFLECT_FRAMES)
+1: VerifyStackTrace.lambda$test$1(VerifyStackTrace.java:249)
+2: VerifyStackTrace$$Lambda/0x0000000123005450.run(Unknown Source)
+3: VerifyStackTrace$Handle.execute(VerifyStackTrace.java:175)
+4: java.base/java.lang.invoke.DirectMethodHandle$Holder.invokeVirtual(DirectMethodHandle$Holder)
+5: java.base/java.lang.invoke.LambdaForm$MH/0x0000000123006000.invoke_MT(LambdaForm$MH)
+6: VerifyStackTrace$Handle.run(VerifyStackTrace.java:188)
+7: VerifyStackTrace.invoke(VerifyStackTrace.java:228)
+8: java.base/java.lang.invoke.LambdaForm$DMH/0x0000000123001800.invokeStatic(LambdaForm$DMH)
+9: java.base/java.lang.invoke.LambdaForm$MH/0x0000000123004800.invoke(LambdaForm$MH)
+10: java.base/java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder)
+11: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+12: java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+13: java.base/java.lang.reflect.Method.invoke(Method.java:580)
+14: VerifyStackTrace$1.run(VerifyStackTrace.java:261)
+15: java.base/java.security.AccessController.executePrivileged(AccessController.java:778)
+16: java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+17: VerifyStackTrace.test(VerifyStackTrace.java:270)
+18: VerifyStackTrace.main(VerifyStackTrace.java:224)
+Main found: true
+----------System.err:(3/163)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+STATUS:Passed.
+----------rerun:(36/3493)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/VerifyStackTrace.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/VerifyStackTrace.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/StackWalker/VerifyStackTrace.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Djava.security.policy=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/stackwalk.policy_new \\
+        -Djava.security.manager=default \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/VerifyStackTrace.d/main.1.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

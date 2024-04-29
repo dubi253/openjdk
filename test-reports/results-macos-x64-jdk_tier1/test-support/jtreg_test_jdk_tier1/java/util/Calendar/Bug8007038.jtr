@@ -1,0 +1,1221 @@
+#Test Results (version 2)
+#Mon Apr 29 01:13:14 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8007038 bug8247781 bug8174269 othervm
+modules=java.base/sun.util.locale.provider jdk.localedata
+run=USER_SPECIFIED compile -XDignore.symbol.file Bug8007038.java\nUSER_SPECIFIED main/othervm -Djava.locale.providers\=CLDR Bug8007038 CLDR\n
+source=Bug8007038.java
+title=Verify ArrayIndexOutOfBoundsException is not thrown on calling localizedDateTime().print() with JapaneseChrono
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java
+elapsed=672 0\:00\:00.672
+end=Mon Apr 29 01\:13\:14 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/sun.util.locale.provider jdk.localedata
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build main
+start=Mon Apr 29 01\:13\:13 UTC 2024
+test=java/util/Calendar/Bug8007038.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=672
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Calendar
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:compile
+----------messages:(8/468)----------
+command: compile -XDignore.symbol.file /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java
+reason: User specified action: run compile -XDignore.symbol.file Bug8007038.java 
+started: Mon Apr 29 01:13:13 UTC 2024
+Additional options from @modules: --add-modules java.base,jdk.localedata --add-exports java.base/sun.util.locale.provider=ALL-UNNAMED
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:13:13 UTC 2024
+elapsed time (seconds): 0.036
+----------configuration:(12/791)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base jdk.localedata           
+  add exports: java.base/sun.util.locale.provider ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d 
+
+----------rerun:(37/3362)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Calendar/Bug8007038.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -J-Dtest.modules='java.base/sun.util.locale.provider jdk.localedata' \\
+        --add-modules java.base,jdk.localedata \\
+        --add-exports java.base/sun.util.locale.provider=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -XDignore.symbol.file /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/170)----------
+command: build Bug8007038
+reason: Named class compiled on demand
+started: Mon Apr 29 01:13:13 UTC 2024
+finished: Mon Apr 29 01:13:13 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/429)----------
+command: main -Djava.locale.providers=CLDR Bug8007038 CLDR
+reason: User specified action: run main/othervm -Djava.locale.providers=CLDR Bug8007038 CLDR 
+started: Mon Apr 29 01:13:13 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,jdk.localedata --add-exports java.base/sun.util.locale.provider=ALL-UNNAMED
+finished: Mon Apr 29 01:13:14 UTC 2024
+elapsed time (seconds): 0.635
+----------configuration:(4/125)----------
+Boot Layer
+  add modules: java.base jdk.localedata           
+  add exports: java.base/sun.util.locale.provider ALL-UNNAMED
+
+----------System.out:(1043/72805)----------
+retrieveFieldValueName(gregory, 0, 0, 2, ) returned BCE
+retrieveFieldValueName(gregory, 0, 1, 2, ) returned CE
+retrieveFieldValueName(gregory, 0, -1, 2, ) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, ) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, ) returned Jan
+retrieveFieldValueName(gregory, 2, 1, 2, ) returned Feb
+retrieveFieldValueName(gregory, 2, 2, 2, ) returned Mar
+retrieveFieldValueName(gregory, 2, 3, 2, ) returned Apr
+retrieveFieldValueName(gregory, 2, 4, 2, ) returned May
+retrieveFieldValueName(gregory, 2, 5, 2, ) returned Jun
+retrieveFieldValueName(gregory, 2, 6, 2, ) returned Jul
+retrieveFieldValueName(gregory, 2, 7, 2, ) returned Aug
+retrieveFieldValueName(gregory, 2, 8, 2, ) returned Sep
+retrieveFieldValueName(gregory, 2, 9, 2, ) returned Oct
+retrieveFieldValueName(gregory, 2, 10, 2, ) returned Nov
+retrieveFieldValueName(gregory, 2, 11, 2, ) returned Dec
+retrieveFieldValueName(gregory, 2, 12, 2, ) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, ) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, ) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, ) returned Sun
+retrieveFieldValueName(gregory, 7, 2, 2, ) returned Mon
+retrieveFieldValueName(gregory, 7, 3, 2, ) returned Tue
+retrieveFieldValueName(gregory, 7, 4, 2, ) returned Wed
+retrieveFieldValueName(gregory, 7, 5, 2, ) returned Thu
+retrieveFieldValueName(gregory, 7, 6, 2, ) returned Fri
+retrieveFieldValueName(gregory, 7, 7, 2, ) returned Sat
+retrieveFieldValueName(gregory, 7, 0, 2, ) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, ) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, ) returned AM
+retrieveFieldValueName(gregory, 9, 1, 2, ) returned PM
+retrieveFieldValueName(gregory, 9, 2, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 3, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 4, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 5, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 6, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 7, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 8, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 9, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 10, 2, ) returned 
+retrieveFieldValueName(gregory, 9, 11, 2, ) returned 
+retrieveFieldValueName(gregory, 9, -1, 2, ) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, ) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 0, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 0, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, ja_JP_#u-ca-japanese) returned 1?
+retrieveFieldValueName(gregory, 2, 1, 2, ja_JP_#u-ca-japanese) returned 2?
+retrieveFieldValueName(gregory, 2, 2, 2, ja_JP_#u-ca-japanese) returned 3?
+retrieveFieldValueName(gregory, 2, 3, 2, ja_JP_#u-ca-japanese) returned 4?
+retrieveFieldValueName(gregory, 2, 4, 2, ja_JP_#u-ca-japanese) returned 5?
+retrieveFieldValueName(gregory, 2, 5, 2, ja_JP_#u-ca-japanese) returned 6?
+retrieveFieldValueName(gregory, 2, 6, 2, ja_JP_#u-ca-japanese) returned 7?
+retrieveFieldValueName(gregory, 2, 7, 2, ja_JP_#u-ca-japanese) returned 8?
+retrieveFieldValueName(gregory, 2, 8, 2, ja_JP_#u-ca-japanese) returned 9?
+retrieveFieldValueName(gregory, 2, 9, 2, ja_JP_#u-ca-japanese) returned 10?
+retrieveFieldValueName(gregory, 2, 10, 2, ja_JP_#u-ca-japanese) returned 11?
+retrieveFieldValueName(gregory, 2, 11, 2, ja_JP_#u-ca-japanese) returned 12?
+retrieveFieldValueName(gregory, 2, 12, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 3, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 4, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 5, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 6, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 7, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 7, 0, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 9, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 9, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(gregory, 9, 3, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 9, 4, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(gregory, 9, 5, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(gregory, 9, 6, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(gregory, 9, 7, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(gregory, 9, 8, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 9, 9, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(gregory, 9, 10, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(gregory, 9, 11, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(gregory, 9, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, th_TH) returned ??????????????
+retrieveFieldValueName(gregory, 0, 1, 2, th_TH) returned ????????????
+retrieveFieldValueName(gregory, 0, -1, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 2, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(gregory, 2, 2, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 2, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 2, 4, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 2, 5, 2, th_TH) returned ????????
+retrieveFieldValueName(gregory, 2, 6, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 2, 7, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 2, 8, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 2, 9, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 2, 10, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 2, 11, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 2, 12, 2, th_TH) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(gregory, 7, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 7, 3, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 7, 4, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 7, 5, 2, th_TH) returned ???????????
+retrieveFieldValueName(gregory, 7, 6, 2, th_TH) returned ????????
+retrieveFieldValueName(gregory, 7, 7, 2, th_TH) returned ????????
+retrieveFieldValueName(gregory, 7, 0, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, th_TH) returned ??????????
+retrieveFieldValueName(gregory, 9, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(gregory, 9, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 9, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(gregory, 9, 4, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 9, 5, 2, th_TH) returned 
+retrieveFieldValueName(gregory, 9, 6, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 9, 7, 2, th_TH) returned ????
+retrieveFieldValueName(gregory, 9, 8, 2, th_TH) returned ?????????
+retrieveFieldValueName(gregory, 9, 9, 2, th_TH) returned ???
+retrieveFieldValueName(gregory, 9, 10, 2, th_TH) returned ???????
+retrieveFieldValueName(gregory, 9, 11, 2, th_TH) returned 
+retrieveFieldValueName(gregory, 9, -1, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, th_TH) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, th_TH_#u-ca-buddhist) returned ??????????????
+retrieveFieldValueName(gregory, 0, 1, 2, th_TH_#u-ca-buddhist) returned ????????????
+retrieveFieldValueName(gregory, 0, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 2, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(gregory, 2, 2, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 2, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 2, 4, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 2, 5, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(gregory, 2, 6, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 2, 7, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 2, 8, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 2, 9, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 2, 10, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 2, 11, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 2, 12, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(gregory, 7, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 7, 3, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 7, 4, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 7, 5, 2, th_TH_#u-ca-buddhist) returned ???????????
+retrieveFieldValueName(gregory, 7, 6, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(gregory, 7, 7, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(gregory, 7, 0, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(gregory, 9, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(gregory, 9, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 9, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(gregory, 9, 4, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 9, 5, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(gregory, 9, 6, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 9, 7, 2, th_TH_#u-ca-buddhist) returned ????
+retrieveFieldValueName(gregory, 9, 8, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(gregory, 9, 9, 2, th_TH_#u-ca-buddhist) returned ???
+retrieveFieldValueName(gregory, 9, 10, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(gregory, 9, 11, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(gregory, 9, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 0, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 0, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, zh_TW_#u-ca-roc) returned 1?
+retrieveFieldValueName(gregory, 2, 1, 2, zh_TW_#u-ca-roc) returned 2?
+retrieveFieldValueName(gregory, 2, 2, 2, zh_TW_#u-ca-roc) returned 3?
+retrieveFieldValueName(gregory, 2, 3, 2, zh_TW_#u-ca-roc) returned 4?
+retrieveFieldValueName(gregory, 2, 4, 2, zh_TW_#u-ca-roc) returned 5?
+retrieveFieldValueName(gregory, 2, 5, 2, zh_TW_#u-ca-roc) returned 6?
+retrieveFieldValueName(gregory, 2, 6, 2, zh_TW_#u-ca-roc) returned 7?
+retrieveFieldValueName(gregory, 2, 7, 2, zh_TW_#u-ca-roc) returned 8?
+retrieveFieldValueName(gregory, 2, 8, 2, zh_TW_#u-ca-roc) returned 9?
+retrieveFieldValueName(gregory, 2, 9, 2, zh_TW_#u-ca-roc) returned 10?
+retrieveFieldValueName(gregory, 2, 10, 2, zh_TW_#u-ca-roc) returned 11?
+retrieveFieldValueName(gregory, 2, 11, 2, zh_TW_#u-ca-roc) returned 12?
+retrieveFieldValueName(gregory, 2, 12, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 2, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 3, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 4, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 5, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 6, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 7, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(gregory, 7, 0, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 2, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 3, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(gregory, 9, 4, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 5, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 6, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 7, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 8, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 9, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(gregory, 9, 10, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(gregory, 9, 11, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(gregory, 9, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, ar_EG_#u-ca-islamic) returned ??? ???????
+retrieveFieldValueName(gregory, 0, 1, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 0, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 2, 1, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 2, 2, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(gregory, 2, 3, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 2, 4, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(gregory, 2, 5, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 2, 6, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 2, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 2, 8, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 2, 9, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 2, 10, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 2, 11, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 2, 12, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 7, 2, 2, ar_EG_#u-ca-islamic) returned ???????
+retrieveFieldValueName(gregory, 7, 3, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(gregory, 7, 4, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(gregory, 7, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 7, 6, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 7, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 7, 0, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(gregory, 9, 1, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(gregory, 9, 2, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(gregory, 9, 3, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(gregory, 9, 4, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(gregory, 9, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(gregory, 9, 6, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 9, 7, 2, ar_EG_#u-ca-islamic) returned ??? ?????
+retrieveFieldValueName(gregory, 9, 8, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 9, 9, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(gregory, 9, 10, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(gregory, 9, 11, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(gregory, 9, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(gregory, 0, 0, 2, xx_YY_#u-ca-bogus) returned BCE
+retrieveFieldValueName(gregory, 0, 1, 2, xx_YY_#u-ca-bogus) returned CE
+retrieveFieldValueName(gregory, 0, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 0, 2, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 2, 0, 2, xx_YY_#u-ca-bogus) returned Jan
+retrieveFieldValueName(gregory, 2, 1, 2, xx_YY_#u-ca-bogus) returned Feb
+retrieveFieldValueName(gregory, 2, 2, 2, xx_YY_#u-ca-bogus) returned Mar
+retrieveFieldValueName(gregory, 2, 3, 2, xx_YY_#u-ca-bogus) returned Apr
+retrieveFieldValueName(gregory, 2, 4, 2, xx_YY_#u-ca-bogus) returned May
+retrieveFieldValueName(gregory, 2, 5, 2, xx_YY_#u-ca-bogus) returned Jun
+retrieveFieldValueName(gregory, 2, 6, 2, xx_YY_#u-ca-bogus) returned Jul
+retrieveFieldValueName(gregory, 2, 7, 2, xx_YY_#u-ca-bogus) returned Aug
+retrieveFieldValueName(gregory, 2, 8, 2, xx_YY_#u-ca-bogus) returned Sep
+retrieveFieldValueName(gregory, 2, 9, 2, xx_YY_#u-ca-bogus) returned Oct
+retrieveFieldValueName(gregory, 2, 10, 2, xx_YY_#u-ca-bogus) returned Nov
+retrieveFieldValueName(gregory, 2, 11, 2, xx_YY_#u-ca-bogus) returned Dec
+retrieveFieldValueName(gregory, 2, 12, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 2, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 2, 13, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 7, 1, 2, xx_YY_#u-ca-bogus) returned Sun
+retrieveFieldValueName(gregory, 7, 2, 2, xx_YY_#u-ca-bogus) returned Mon
+retrieveFieldValueName(gregory, 7, 3, 2, xx_YY_#u-ca-bogus) returned Tue
+retrieveFieldValueName(gregory, 7, 4, 2, xx_YY_#u-ca-bogus) returned Wed
+retrieveFieldValueName(gregory, 7, 5, 2, xx_YY_#u-ca-bogus) returned Thu
+retrieveFieldValueName(gregory, 7, 6, 2, xx_YY_#u-ca-bogus) returned Fri
+retrieveFieldValueName(gregory, 7, 7, 2, xx_YY_#u-ca-bogus) returned Sat
+retrieveFieldValueName(gregory, 7, 0, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 7, 8, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 9, 0, 2, xx_YY_#u-ca-bogus) returned AM
+retrieveFieldValueName(gregory, 9, 1, 2, xx_YY_#u-ca-bogus) returned PM
+retrieveFieldValueName(gregory, 9, 2, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 3, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 4, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 5, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 6, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 7, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 8, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 9, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 10, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, 11, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(gregory, 9, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(gregory, 9, 12, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(buddhist, 0, 0, 2, ) returned BC
+retrieveFieldValueName(buddhist, 0, 1, 2, ) returned BE
+retrieveFieldValueName(buddhist, 0, -1, 2, ) returned null
+retrieveFieldValueName(buddhist, 0, 2, 2, ) returned null
+retrieveFieldValueName(buddhist, 2, 0, 2, ) returned Jan
+retrieveFieldValueName(buddhist, 2, 1, 2, ) returned Feb
+retrieveFieldValueName(buddhist, 2, 2, 2, ) returned Mar
+retrieveFieldValueName(buddhist, 2, 3, 2, ) returned Apr
+retrieveFieldValueName(buddhist, 2, 4, 2, ) returned May
+retrieveFieldValueName(buddhist, 2, 5, 2, ) returned Jun
+retrieveFieldValueName(buddhist, 2, 6, 2, ) returned Jul
+retrieveFieldValueName(buddhist, 2, 7, 2, ) returned Aug
+retrieveFieldValueName(buddhist, 2, 8, 2, ) returned Sep
+retrieveFieldValueName(buddhist, 2, 9, 2, ) returned Oct
+retrieveFieldValueName(buddhist, 2, 10, 2, ) returned Nov
+retrieveFieldValueName(buddhist, 2, 11, 2, ) returned Dec
+retrieveFieldValueName(buddhist, 2, 12, 2, ) returned 
+retrieveFieldValueName(buddhist, 2, -1, 2, ) returned null
+retrieveFieldValueName(buddhist, 2, 13, 2, ) returned null
+retrieveFieldValueName(buddhist, 7, 1, 2, ) returned Sun
+retrieveFieldValueName(buddhist, 7, 2, 2, ) returned Mon
+retrieveFieldValueName(buddhist, 7, 3, 2, ) returned Tue
+retrieveFieldValueName(buddhist, 7, 4, 2, ) returned Wed
+retrieveFieldValueName(buddhist, 7, 5, 2, ) returned Thu
+retrieveFieldValueName(buddhist, 7, 6, 2, ) returned Fri
+retrieveFieldValueName(buddhist, 7, 7, 2, ) returned Sat
+retrieveFieldValueName(buddhist, 7, 0, 2, ) returned null
+retrieveFieldValueName(buddhist, 7, 8, 2, ) returned null
+retrieveFieldValueName(buddhist, 9, 0, 2, ) returned AM
+retrieveFieldValueName(buddhist, 9, 1, 2, ) returned PM
+retrieveFieldValueName(buddhist, 9, 2, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 3, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 4, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 5, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 6, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 7, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 8, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 9, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 10, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, 11, 2, ) returned 
+retrieveFieldValueName(buddhist, 9, -1, 2, ) returned null
+retrieveFieldValueName(buddhist, 9, 12, 2, ) returned null
+retrieveFieldValueName(buddhist, 0, 0, 2, ja_JP_#u-ca-japanese) returned BC
+retrieveFieldValueName(buddhist, 0, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 0, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 0, 2, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 2, 0, 2, ja_JP_#u-ca-japanese) returned 1?
+retrieveFieldValueName(buddhist, 2, 1, 2, ja_JP_#u-ca-japanese) returned 2?
+retrieveFieldValueName(buddhist, 2, 2, 2, ja_JP_#u-ca-japanese) returned 3?
+retrieveFieldValueName(buddhist, 2, 3, 2, ja_JP_#u-ca-japanese) returned 4?
+retrieveFieldValueName(buddhist, 2, 4, 2, ja_JP_#u-ca-japanese) returned 5?
+retrieveFieldValueName(buddhist, 2, 5, 2, ja_JP_#u-ca-japanese) returned 6?
+retrieveFieldValueName(buddhist, 2, 6, 2, ja_JP_#u-ca-japanese) returned 7?
+retrieveFieldValueName(buddhist, 2, 7, 2, ja_JP_#u-ca-japanese) returned 8?
+retrieveFieldValueName(buddhist, 2, 8, 2, ja_JP_#u-ca-japanese) returned 9?
+retrieveFieldValueName(buddhist, 2, 9, 2, ja_JP_#u-ca-japanese) returned 10?
+retrieveFieldValueName(buddhist, 2, 10, 2, ja_JP_#u-ca-japanese) returned 11?
+retrieveFieldValueName(buddhist, 2, 11, 2, ja_JP_#u-ca-japanese) returned 12?
+retrieveFieldValueName(buddhist, 2, 12, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(buddhist, 2, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 2, 13, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 7, 1, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 3, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 4, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 5, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 6, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 7, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 7, 0, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 7, 8, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 9, 0, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 9, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 9, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(buddhist, 9, 3, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 9, 4, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(buddhist, 9, 5, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(buddhist, 9, 6, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(buddhist, 9, 7, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(buddhist, 9, 8, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 9, 9, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(buddhist, 9, 10, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(buddhist, 9, 11, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(buddhist, 9, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 9, 12, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(buddhist, 0, 0, 2, th_TH) returned BC
+retrieveFieldValueName(buddhist, 0, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(buddhist, 0, -1, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 0, 2, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 2, 0, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 2, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(buddhist, 2, 2, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 2, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 2, 4, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 2, 5, 2, th_TH) returned ????????
+retrieveFieldValueName(buddhist, 2, 6, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 2, 7, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 2, 8, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 2, 9, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 2, 10, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 2, 11, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 2, 12, 2, th_TH) returned 
+retrieveFieldValueName(buddhist, 2, -1, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 2, 13, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 7, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(buddhist, 7, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 7, 3, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 7, 4, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 7, 5, 2, th_TH) returned ???????????
+retrieveFieldValueName(buddhist, 7, 6, 2, th_TH) returned ????????
+retrieveFieldValueName(buddhist, 7, 7, 2, th_TH) returned ????????
+retrieveFieldValueName(buddhist, 7, 0, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 7, 8, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 9, 0, 2, th_TH) returned ??????????
+retrieveFieldValueName(buddhist, 9, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(buddhist, 9, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 9, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(buddhist, 9, 4, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 9, 5, 2, th_TH) returned 
+retrieveFieldValueName(buddhist, 9, 6, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 9, 7, 2, th_TH) returned ????
+retrieveFieldValueName(buddhist, 9, 8, 2, th_TH) returned ?????????
+retrieveFieldValueName(buddhist, 9, 9, 2, th_TH) returned ???
+retrieveFieldValueName(buddhist, 9, 10, 2, th_TH) returned ???????
+retrieveFieldValueName(buddhist, 9, 11, 2, th_TH) returned 
+retrieveFieldValueName(buddhist, 9, -1, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 9, 12, 2, th_TH) returned null
+retrieveFieldValueName(buddhist, 0, 0, 2, th_TH_#u-ca-buddhist) returned BC
+retrieveFieldValueName(buddhist, 0, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(buddhist, 0, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 0, 2, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 2, 0, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 2, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(buddhist, 2, 2, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 2, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 2, 4, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 2, 5, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(buddhist, 2, 6, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 2, 7, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 2, 8, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 2, 9, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 2, 10, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 2, 11, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 2, 12, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(buddhist, 2, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 2, 13, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 7, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(buddhist, 7, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 7, 3, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 7, 4, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 7, 5, 2, th_TH_#u-ca-buddhist) returned ???????????
+retrieveFieldValueName(buddhist, 7, 6, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(buddhist, 7, 7, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(buddhist, 7, 0, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 7, 8, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 9, 0, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(buddhist, 9, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(buddhist, 9, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 9, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(buddhist, 9, 4, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 9, 5, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(buddhist, 9, 6, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 9, 7, 2, th_TH_#u-ca-buddhist) returned ????
+retrieveFieldValueName(buddhist, 9, 8, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(buddhist, 9, 9, 2, th_TH_#u-ca-buddhist) returned ???
+retrieveFieldValueName(buddhist, 9, 10, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(buddhist, 9, 11, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(buddhist, 9, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 9, 12, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(buddhist, 0, 0, 2, zh_TW_#u-ca-roc) returned BC
+retrieveFieldValueName(buddhist, 0, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(buddhist, 0, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(buddhist, 0, 2, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(buddhist, 2, 0, 2, zh_TW_#u-ca-roc) returned 1?
+retrieveFieldValueName(buddhist, 2, 1, 2, zh_TW_#u-ca-roc) returned 2?
+retrieveFieldValueName(buddhist, 2, 2, 2, zh_TW_#u-ca-roc) returned 3?
+retrieveFieldValueName(buddhist, 2, 3, 2, zh_TW_#u-ca-roc) returned 4?
+retrieveFieldValueName(buddhist, 2, 4, 2, zh_TW_#u-ca-roc) returned 5?
+retrieveFieldValueName(buddhist, 2, 5, 2, zh_TW_#u-ca-roc) returned 6?
+retrieveFieldValueName(buddhist,
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+ueName(roc, 9, 2, 2, ) returned 
+retrieveFieldValueName(roc, 9, 3, 2, ) returned 
+retrieveFieldValueName(roc, 9, 4, 2, ) returned 
+retrieveFieldValueName(roc, 9, 5, 2, ) returned 
+retrieveFieldValueName(roc, 9, 6, 2, ) returned 
+retrieveFieldValueName(roc, 9, 7, 2, ) returned 
+retrieveFieldValueName(roc, 9, 8, 2, ) returned 
+retrieveFieldValueName(roc, 9, 9, 2, ) returned 
+retrieveFieldValueName(roc, 9, 10, 2, ) returned 
+retrieveFieldValueName(roc, 9, 11, 2, ) returned 
+retrieveFieldValueName(roc, 9, -1, 2, ) returned null
+retrieveFieldValueName(roc, 9, 12, 2, ) returned null
+retrieveFieldValueName(roc, 0, 0, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 0, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 0, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 0, 2, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 2, 0, 2, ja_JP_#u-ca-japanese) returned 1?
+retrieveFieldValueName(roc, 2, 1, 2, ja_JP_#u-ca-japanese) returned 2?
+retrieveFieldValueName(roc, 2, 2, 2, ja_JP_#u-ca-japanese) returned 3?
+retrieveFieldValueName(roc, 2, 3, 2, ja_JP_#u-ca-japanese) returned 4?
+retrieveFieldValueName(roc, 2, 4, 2, ja_JP_#u-ca-japanese) returned 5?
+retrieveFieldValueName(roc, 2, 5, 2, ja_JP_#u-ca-japanese) returned 6?
+retrieveFieldValueName(roc, 2, 6, 2, ja_JP_#u-ca-japanese) returned 7?
+retrieveFieldValueName(roc, 2, 7, 2, ja_JP_#u-ca-japanese) returned 8?
+retrieveFieldValueName(roc, 2, 8, 2, ja_JP_#u-ca-japanese) returned 9?
+retrieveFieldValueName(roc, 2, 9, 2, ja_JP_#u-ca-japanese) returned 10?
+retrieveFieldValueName(roc, 2, 10, 2, ja_JP_#u-ca-japanese) returned 11?
+retrieveFieldValueName(roc, 2, 11, 2, ja_JP_#u-ca-japanese) returned 12?
+retrieveFieldValueName(roc, 2, 12, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(roc, 2, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 2, 13, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 7, 1, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 3, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 4, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 5, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 6, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 7, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 7, 0, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 7, 8, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 9, 0, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 9, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 9, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(roc, 9, 3, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 9, 4, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(roc, 9, 5, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(roc, 9, 6, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(roc, 9, 7, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(roc, 9, 8, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 9, 9, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(roc, 9, 10, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(roc, 9, 11, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(roc, 9, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 9, 12, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(roc, 0, 0, 2, th_TH) returned ?????????????
+retrieveFieldValueName(roc, 0, 1, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 0, -1, 2, th_TH) returned null
+retrieveFieldValueName(roc, 0, 2, 2, th_TH) returned null
+retrieveFieldValueName(roc, 2, 0, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 2, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(roc, 2, 2, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 2, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 2, 4, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 2, 5, 2, th_TH) returned ????????
+retrieveFieldValueName(roc, 2, 6, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 2, 7, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 2, 8, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 2, 9, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 2, 10, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 2, 11, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 2, 12, 2, th_TH) returned 
+retrieveFieldValueName(roc, 2, -1, 2, th_TH) returned null
+retrieveFieldValueName(roc, 2, 13, 2, th_TH) returned null
+retrieveFieldValueName(roc, 7, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(roc, 7, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 7, 3, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 7, 4, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 7, 5, 2, th_TH) returned ???????????
+retrieveFieldValueName(roc, 7, 6, 2, th_TH) returned ????????
+retrieveFieldValueName(roc, 7, 7, 2, th_TH) returned ????????
+retrieveFieldValueName(roc, 7, 0, 2, th_TH) returned null
+retrieveFieldValueName(roc, 7, 8, 2, th_TH) returned null
+retrieveFieldValueName(roc, 9, 0, 2, th_TH) returned ??????????
+retrieveFieldValueName(roc, 9, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(roc, 9, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 9, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(roc, 9, 4, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 9, 5, 2, th_TH) returned 
+retrieveFieldValueName(roc, 9, 6, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 9, 7, 2, th_TH) returned ????
+retrieveFieldValueName(roc, 9, 8, 2, th_TH) returned ?????????
+retrieveFieldValueName(roc, 9, 9, 2, th_TH) returned ???
+retrieveFieldValueName(roc, 9, 10, 2, th_TH) returned ???????
+retrieveFieldValueName(roc, 9, 11, 2, th_TH) returned 
+retrieveFieldValueName(roc, 9, -1, 2, th_TH) returned null
+retrieveFieldValueName(roc, 9, 12, 2, th_TH) returned null
+retrieveFieldValueName(roc, 0, 0, 2, th_TH_#u-ca-buddhist) returned ?????????????
+retrieveFieldValueName(roc, 0, 1, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 0, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 0, 2, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 2, 0, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 2, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(roc, 2, 2, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 2, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 2, 4, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 2, 5, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(roc, 2, 6, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 2, 7, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 2, 8, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 2, 9, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 2, 10, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 2, 11, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 2, 12, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(roc, 2, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 2, 13, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 7, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(roc, 7, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 7, 3, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 7, 4, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 7, 5, 2, th_TH_#u-ca-buddhist) returned ???????????
+retrieveFieldValueName(roc, 7, 6, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(roc, 7, 7, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(roc, 7, 0, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 7, 8, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 9, 0, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(roc, 9, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(roc, 9, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 9, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(roc, 9, 4, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 9, 5, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(roc, 9, 6, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 9, 7, 2, th_TH_#u-ca-buddhist) returned ????
+retrieveFieldValueName(roc, 9, 8, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(roc, 9, 9, 2, th_TH_#u-ca-buddhist) returned ???
+retrieveFieldValueName(roc, 9, 10, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(roc, 9, 11, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(roc, 9, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 9, 12, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(roc, 0, 0, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 0, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 0, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 0, 2, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 2, 0, 2, zh_TW_#u-ca-roc) returned 1?
+retrieveFieldValueName(roc, 2, 1, 2, zh_TW_#u-ca-roc) returned 2?
+retrieveFieldValueName(roc, 2, 2, 2, zh_TW_#u-ca-roc) returned 3?
+retrieveFieldValueName(roc, 2, 3, 2, zh_TW_#u-ca-roc) returned 4?
+retrieveFieldValueName(roc, 2, 4, 2, zh_TW_#u-ca-roc) returned 5?
+retrieveFieldValueName(roc, 2, 5, 2, zh_TW_#u-ca-roc) returned 6?
+retrieveFieldValueName(roc, 2, 6, 2, zh_TW_#u-ca-roc) returned 7?
+retrieveFieldValueName(roc, 2, 7, 2, zh_TW_#u-ca-roc) returned 8?
+retrieveFieldValueName(roc, 2, 8, 2, zh_TW_#u-ca-roc) returned 9?
+retrieveFieldValueName(roc, 2, 9, 2, zh_TW_#u-ca-roc) returned 10?
+retrieveFieldValueName(roc, 2, 10, 2, zh_TW_#u-ca-roc) returned 11?
+retrieveFieldValueName(roc, 2, 11, 2, zh_TW_#u-ca-roc) returned 12?
+retrieveFieldValueName(roc, 2, 12, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(roc, 2, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 2, 13, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 7, 1, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 2, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 3, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 4, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 5, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 6, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 7, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(roc, 7, 0, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 7, 8, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 9, 0, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 2, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 3, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(roc, 9, 4, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 5, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 6, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 7, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 8, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 9, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(roc, 9, 10, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(roc, 9, 11, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(roc, 9, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 9, 12, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(roc, 0, 0, 2, ar_EG_#u-ca-islamic) returned Before R.O.C.
+retrieveFieldValueName(roc, 0, 1, 2, ar_EG_#u-ca-islamic) returned ??????? ????
+retrieveFieldValueName(roc, 0, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 0, 2, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 2, 0, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 2, 1, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 2, 2, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(roc, 2, 3, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 2, 4, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(roc, 2, 5, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 2, 6, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 2, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 2, 8, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 2, 9, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 2, 10, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 2, 11, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 2, 12, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(roc, 2, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 2, 13, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 7, 1, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 7, 2, 2, ar_EG_#u-ca-islamic) returned ???????
+retrieveFieldValueName(roc, 7, 3, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(roc, 7, 4, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(roc, 7, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 7, 6, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 7, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 7, 0, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 7, 8, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 9, 0, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(roc, 9, 1, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(roc, 9, 2, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(roc, 9, 3, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(roc, 9, 4, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(roc, 9, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(roc, 9, 6, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 9, 7, 2, ar_EG_#u-ca-islamic) returned ??? ?????
+retrieveFieldValueName(roc, 9, 8, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 9, 9, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(roc, 9, 10, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(roc, 9, 11, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(roc, 9, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 9, 12, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(roc, 0, 0, 2, xx_YY_#u-ca-bogus) returned Before R.O.C.
+retrieveFieldValueName(roc, 0, 1, 2, xx_YY_#u-ca-bogus) returned R.O.C.
+retrieveFieldValueName(roc, 0, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 0, 2, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 2, 0, 2, xx_YY_#u-ca-bogus) returned Jan
+retrieveFieldValueName(roc, 2, 1, 2, xx_YY_#u-ca-bogus) returned Feb
+retrieveFieldValueName(roc, 2, 2, 2, xx_YY_#u-ca-bogus) returned Mar
+retrieveFieldValueName(roc, 2, 3, 2, xx_YY_#u-ca-bogus) returned Apr
+retrieveFieldValueName(roc, 2, 4, 2, xx_YY_#u-ca-bogus) returned May
+retrieveFieldValueName(roc, 2, 5, 2, xx_YY_#u-ca-bogus) returned Jun
+retrieveFieldValueName(roc, 2, 6, 2, xx_YY_#u-ca-bogus) returned Jul
+retrieveFieldValueName(roc, 2, 7, 2, xx_YY_#u-ca-bogus) returned Aug
+retrieveFieldValueName(roc, 2, 8, 2, xx_YY_#u-ca-bogus) returned Sep
+retrieveFieldValueName(roc, 2, 9, 2, xx_YY_#u-ca-bogus) returned Oct
+retrieveFieldValueName(roc, 2, 10, 2, xx_YY_#u-ca-bogus) returned Nov
+retrieveFieldValueName(roc, 2, 11, 2, xx_YY_#u-ca-bogus) returned Dec
+retrieveFieldValueName(roc, 2, 12, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 2, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 2, 13, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 7, 1, 2, xx_YY_#u-ca-bogus) returned Sun
+retrieveFieldValueName(roc, 7, 2, 2, xx_YY_#u-ca-bogus) returned Mon
+retrieveFieldValueName(roc, 7, 3, 2, xx_YY_#u-ca-bogus) returned Tue
+retrieveFieldValueName(roc, 7, 4, 2, xx_YY_#u-ca-bogus) returned Wed
+retrieveFieldValueName(roc, 7, 5, 2, xx_YY_#u-ca-bogus) returned Thu
+retrieveFieldValueName(roc, 7, 6, 2, xx_YY_#u-ca-bogus) returned Fri
+retrieveFieldValueName(roc, 7, 7, 2, xx_YY_#u-ca-bogus) returned Sat
+retrieveFieldValueName(roc, 7, 0, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 7, 8, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 9, 0, 2, xx_YY_#u-ca-bogus) returned AM
+retrieveFieldValueName(roc, 9, 1, 2, xx_YY_#u-ca-bogus) returned PM
+retrieveFieldValueName(roc, 9, 2, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 3, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 4, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 5, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 6, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 7, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 8, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 9, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 10, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, 11, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(roc, 9, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(roc, 9, 12, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, ) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, ) returned AH
+retrieveFieldValueName(islamic, 0, -1, 2, ) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, ) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, ) returned Muharram
+retrieveFieldValueName(islamic, 2, 1, 2, ) returned Safar
+retrieveFieldValueName(islamic, 2, 2, 2, ) returned Rabi? I
+retrieveFieldValueName(islamic, 2, 3, 2, ) returned Rabi? II
+retrieveFieldValueName(islamic, 2, 4, 2, ) returned Jumada I
+retrieveFieldValueName(islamic, 2, 5, 2, ) returned Jumada II
+retrieveFieldValueName(islamic, 2, 6, 2, ) returned Rajab
+retrieveFieldValueName(islamic, 2, 7, 2, ) returned Sha?ban
+retrieveFieldValueName(islamic, 2, 8, 2, ) returned Ramadan
+retrieveFieldValueName(islamic, 2, 9, 2, ) returned Shawwal
+retrieveFieldValueName(islamic, 2, 10, 2, ) returned Dhu?l-Qi?dah
+retrieveFieldValueName(islamic, 2, 11, 2, ) returned Dhu?l-Hijjah
+retrieveFieldValueName(islamic, 2, 12, 2, ) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, ) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, ) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, ) returned Sun
+retrieveFieldValueName(islamic, 7, 2, 2, ) returned Mon
+retrieveFieldValueName(islamic, 7, 3, 2, ) returned Tue
+retrieveFieldValueName(islamic, 7, 4, 2, ) returned Wed
+retrieveFieldValueName(islamic, 7, 5, 2, ) returned Thu
+retrieveFieldValueName(islamic, 7, 6, 2, ) returned Fri
+retrieveFieldValueName(islamic, 7, 7, 2, ) returned Sat
+retrieveFieldValueName(islamic, 7, 0, 2, ) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, ) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, ) returned AM
+retrieveFieldValueName(islamic, 9, 1, 2, ) returned PM
+retrieveFieldValueName(islamic, 9, 2, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 3, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 4, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 5, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 6, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 7, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 8, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 9, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 10, 2, ) returned 
+retrieveFieldValueName(islamic, 9, 11, 2, ) returned 
+retrieveFieldValueName(islamic, 9, -1, 2, ) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, ) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, ja_JP_#u-ca-japanese) returned AH
+retrieveFieldValueName(islamic, 0, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, ja_JP_#u-ca-japanese) returned ?????
+retrieveFieldValueName(islamic, 2, 1, 2, ja_JP_#u-ca-japanese) returned ????
+retrieveFieldValueName(islamic, 2, 2, 2, ja_JP_#u-ca-japanese) returned ???????????
+retrieveFieldValueName(islamic, 2, 3, 2, ja_JP_#u-ca-japanese) returned ???????????
+retrieveFieldValueName(islamic, 2, 4, 2, ja_JP_#u-ca-japanese) returned ???????????
+retrieveFieldValueName(islamic, 2, 5, 2, ja_JP_#u-ca-japanese) returned ??????????
+retrieveFieldValueName(islamic, 2, 6, 2, ja_JP_#u-ca-japanese) returned ????
+retrieveFieldValueName(islamic, 2, 7, 2, ja_JP_#u-ca-japanese) returned ??????
+retrieveFieldValueName(islamic, 2, 8, 2, ja_JP_#u-ca-japanese) returned ?????
+retrieveFieldValueName(islamic, 2, 9, 2, ja_JP_#u-ca-japanese) returned ??????
+retrieveFieldValueName(islamic, 2, 10, 2, ja_JP_#u-ca-japanese) returned ??????
+retrieveFieldValueName(islamic, 2, 11, 2, ja_JP_#u-ca-japanese) returned ???????
+retrieveFieldValueName(islamic, 2, 12, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 3, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 4, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 5, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 6, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 7, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 7, 0, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(islamic, 9, 1, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(islamic, 9, 2, 2, ja_JP_#u-ca-japanese) returned ???
+retrieveFieldValueName(islamic, 9, 3, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(islamic, 9, 4, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(islamic, 9, 5, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(islamic, 9, 6, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(islamic, 9, 7, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(islamic, 9, 8, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(islamic, 9, 9, 2, ja_JP_#u-ca-japanese) returned 
+retrieveFieldValueName(islamic, 9, 10, 2, ja_JP_#u-ca-japanese) returned ?
+retrieveFieldValueName(islamic, 9, 11, 2, ja_JP_#u-ca-japanese) returned ??
+retrieveFieldValueName(islamic, 9, -1, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, ja_JP_#u-ca-japanese) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, th_TH) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, th_TH) returned ???????????????
+retrieveFieldValueName(islamic, 0, -1, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 2, 1, 2, th_TH) returned ??????
+retrieveFieldValueName(islamic, 2, 2, 2, th_TH) returned ???? I
+retrieveFieldValueName(islamic, 2, 3, 2, th_TH) returned ???? II
+retrieveFieldValueName(islamic, 2, 4, 2, th_TH) returned ?????? I
+retrieveFieldValueName(islamic, 2, 5, 2, th_TH) returned ?????? II
+retrieveFieldValueName(islamic, 2, 6, 2, th_TH) returned ?????
+retrieveFieldValueName(islamic, 2, 7, 2, th_TH) returned ???????
+retrieveFieldValueName(islamic, 2, 8, 2, th_TH) returned ???????
+retrieveFieldValueName(islamic, 2, 9, 2, th_TH) returned ??????
+retrieveFieldValueName(islamic, 2, 10, 2, th_TH) returned ???????????
+retrieveFieldValueName(islamic, 2, 11, 2, th_TH) returned ??????????
+retrieveFieldValueName(islamic, 2, 12, 2, th_TH) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(islamic, 7, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 7, 3, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 7, 4, 2, th_TH) returned ??????
+retrieveFieldValueName(islamic, 7, 5, 2, th_TH) returned ???????????
+retrieveFieldValueName(islamic, 7, 6, 2, th_TH) returned ????????
+retrieveFieldValueName(islamic, 7, 7, 2, th_TH) returned ????????
+retrieveFieldValueName(islamic, 7, 0, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, th_TH) returned ??????????
+retrieveFieldValueName(islamic, 9, 1, 2, th_TH) returned ??????????
+retrieveFieldValueName(islamic, 9, 2, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 9, 3, 2, th_TH) returned ??????
+retrieveFieldValueName(islamic, 9, 4, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 9, 5, 2, th_TH) returned 
+retrieveFieldValueName(islamic, 9, 6, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 9, 7, 2, th_TH) returned ????
+retrieveFieldValueName(islamic, 9, 8, 2, th_TH) returned ?????????
+retrieveFieldValueName(islamic, 9, 9, 2, th_TH) returned ???
+retrieveFieldValueName(islamic, 9, 10, 2, th_TH) returned ???????
+retrieveFieldValueName(islamic, 9, 11, 2, th_TH) returned 
+retrieveFieldValueName(islamic, 9, -1, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, th_TH) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, th_TH_#u-ca-buddhist) returned ???????????????
+retrieveFieldValueName(islamic, 0, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 2, 1, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(islamic, 2, 2, 2, th_TH_#u-ca-buddhist) returned ???? I
+retrieveFieldValueName(islamic, 2, 3, 2, th_TH_#u-ca-buddhist) returned ???? II
+retrieveFieldValueName(islamic, 2, 4, 2, th_TH_#u-ca-buddhist) returned ?????? I
+retrieveFieldValueName(islamic, 2, 5, 2, th_TH_#u-ca-buddhist) returned ?????? II
+retrieveFieldValueName(islamic, 2, 6, 2, th_TH_#u-ca-buddhist) returned ?????
+retrieveFieldValueName(islamic, 2, 7, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(islamic, 2, 8, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(islamic, 2, 9, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(islamic, 2, 10, 2, th_TH_#u-ca-buddhist) returned ???????????
+retrieveFieldValueName(islamic, 2, 11, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(islamic, 2, 12, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(islamic, 7, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 7, 3, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 7, 4, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(islamic, 7, 5, 2, th_TH_#u-ca-buddhist) returned ???????????
+retrieveFieldValueName(islamic, 7, 6, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(islamic, 7, 7, 2, th_TH_#u-ca-buddhist) returned ????????
+retrieveFieldValueName(islamic, 7, 0, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(islamic, 9, 1, 2, th_TH_#u-ca-buddhist) returned ??????????
+retrieveFieldValueName(islamic, 9, 2, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 9, 3, 2, th_TH_#u-ca-buddhist) returned ??????
+retrieveFieldValueName(islamic, 9, 4, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 9, 5, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(islamic, 9, 6, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 9, 7, 2, th_TH_#u-ca-buddhist) returned ????
+retrieveFieldValueName(islamic, 9, 8, 2, th_TH_#u-ca-buddhist) returned ?????????
+retrieveFieldValueName(islamic, 9, 9, 2, th_TH_#u-ca-buddhist) returned ???
+retrieveFieldValueName(islamic, 9, 10, 2, th_TH_#u-ca-buddhist) returned ???????
+retrieveFieldValueName(islamic, 9, 11, 2, th_TH_#u-ca-buddhist) returned 
+retrieveFieldValueName(islamic, 9, -1, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, th_TH_#u-ca-buddhist) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 0, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, zh_TW_#u-ca-roc) returned ?????
+retrieveFieldValueName(islamic, 2, 1, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 2, 2, 2, zh_TW_#u-ca-roc) returned ??? I
+retrieveFieldValueName(islamic, 2, 3, 2, zh_TW_#u-ca-roc) returned ??? II
+retrieveFieldValueName(islamic, 2, 4, 2, zh_TW_#u-ca-roc) returned ???? I
+retrieveFieldValueName(islamic, 2, 5, 2, zh_TW_#u-ca-roc) returned ???? II
+retrieveFieldValueName(islamic, 2, 6, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 2, 7, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 2, 8, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 2, 9, 2, zh_TW_#u-ca-roc) returned ????
+retrieveFieldValueName(islamic, 2, 10, 2, zh_TW_#u-ca-roc) returned ??????
+retrieveFieldValueName(islamic, 2, 11, 2, zh_TW_#u-ca-roc) returned ?????
+retrieveFieldValueName(islamic, 2, 12, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 2, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 3, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 4, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 5, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 6, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 7, 2, zh_TW_#u-ca-roc) returned ???
+retrieveFieldValueName(islamic, 7, 0, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 1, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 2, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 3, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(islamic, 9, 4, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 5, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 6, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 7, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 8, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 9, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(islamic, 9, 10, 2, zh_TW_#u-ca-roc) returned ??
+retrieveFieldValueName(islamic, 9, 11, 2, zh_TW_#u-ca-roc) returned 
+retrieveFieldValueName(islamic, 9, -1, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, zh_TW_#u-ca-roc) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, ar_EG_#u-ca-islamic) returned ??
+retrieveFieldValueName(islamic, 0, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(islamic, 2, 1, 2, ar_EG_#u-ca-islamic) returned ???
+retrieveFieldValueName(islamic, 2, 2, 2, ar_EG_#u-ca-islamic) returned ???? ?????
+retrieveFieldValueName(islamic, 2, 3, 2, ar_EG_#u-ca-islamic) returned ???? ?????
+retrieveFieldValueName(islamic, 2, 4, 2, ar_EG_#u-ca-islamic) returned ????? ??????
+retrieveFieldValueName(islamic, 2, 5, 2, ar_EG_#u-ca-islamic) returned ????? ??????
+retrieveFieldValueName(islamic, 2, 6, 2, ar_EG_#u-ca-islamic) returned ???
+retrieveFieldValueName(islamic, 2, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 2, 8, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 2, 9, 2, ar_EG_#u-ca-islamic) returned ????
+retrieveFieldValueName(islamic, 2, 10, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(islamic, 2, 11, 2, ar_EG_#u-ca-islamic) returned ?? ?????
+retrieveFieldValueName(islamic, 2, 12, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 7, 2, 2, ar_EG_#u-ca-islamic) returned ???????
+retrieveFieldValueName(islamic, 7, 3, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(islamic, 7, 4, 2, ar_EG_#u-ca-islamic) returned ????????
+retrieveFieldValueName(islamic, 7, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(islamic, 7, 6, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(islamic, 7, 7, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 7, 0, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(islamic, 9, 1, 2, ar_EG_#u-ca-islamic) returned ?
+retrieveFieldValueName(islamic, 9, 2, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(islamic, 9, 3, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(islamic, 9, 4, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(islamic, 9, 5, 2, ar_EG_#u-ca-islamic) returned ??????
+retrieveFieldValueName(islamic, 9, 6, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 9, 7, 2, ar_EG_#u-ca-islamic) returned ??? ?????
+retrieveFieldValueName(islamic, 9, 8, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 9, 9, 2, ar_EG_#u-ca-islamic) returned 
+retrieveFieldValueName(islamic, 9, 10, 2, ar_EG_#u-ca-islamic) returned ?? ??????
+retrieveFieldValueName(islamic, 9, 11, 2, ar_EG_#u-ca-islamic) returned ?????
+retrieveFieldValueName(islamic, 9, -1, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, ar_EG_#u-ca-islamic) returned null
+retrieveFieldValueName(islamic, 0, 0, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 0, 1, 2, xx_YY_#u-ca-bogus) returned AH
+retrieveFieldValueName(islamic, 0, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 0, 2, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 2, 0, 2, xx_YY_#u-ca-bogus) returned Muharram
+retrieveFieldValueName(islamic, 2, 1, 2, xx_YY_#u-ca-bogus) returned Safar
+retrieveFieldValueName(islamic, 2, 2, 2, xx_YY_#u-ca-bogus) returned Rabi? I
+retrieveFieldValueName(islamic, 2, 3, 2, xx_YY_#u-ca-bogus) returned Rabi? II
+retrieveFieldValueName(islamic, 2, 4, 2, xx_YY_#u-ca-bogus) returned Jumada I
+retrieveFieldValueName(islamic, 2, 5, 2, xx_YY_#u-ca-bogus) returned Jumada II
+retrieveFieldValueName(islamic, 2, 6, 2, xx_YY_#u-ca-bogus) returned Rajab
+retrieveFieldValueName(islamic, 2, 7, 2, xx_YY_#u-ca-bogus) returned Sha?ban
+retrieveFieldValueName(islamic, 2, 8, 2, xx_YY_#u-ca-bogus) returned Ramadan
+retrieveFieldValueName(islamic, 2, 9, 2, xx_YY_#u-ca-bogus) returned Shawwal
+retrieveFieldValueName(islamic, 2, 10, 2, xx_YY_#u-ca-bogus) returned Dhu?l-Qi?dah
+retrieveFieldValueName(islamic, 2, 11, 2, xx_YY_#u-ca-bogus) returned Dhu?l-Hijjah
+retrieveFieldValueName(islamic, 2, 12, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 2, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 2, 13, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 7, 1, 2, xx_YY_#u-ca-bogus) returned Sun
+retrieveFieldValueName(islamic, 7, 2, 2, xx_YY_#u-ca-bogus) returned Mon
+retrieveFieldValueName(islamic, 7, 3, 2, xx_YY_#u-ca-bogus) returned Tue
+retrieveFieldValueName(islamic, 7, 4, 2, xx_YY_#u-ca-bogus) returned Wed
+retrieveFieldValueName(islamic, 7, 5, 2, xx_YY_#u-ca-bogus) returned Thu
+retrieveFieldValueName(islamic, 7, 6, 2, xx_YY_#u-ca-bogus) returned Fri
+retrieveFieldValueName(islamic, 7, 7, 2, xx_YY_#u-ca-bogus) returned Sat
+retrieveFieldValueName(islamic, 7, 0, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 7, 8, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 9, 0, 2, xx_YY_#u-ca-bogus) returned AM
+retrieveFieldValueName(islamic, 9, 1, 2, xx_YY_#u-ca-bogus) returned PM
+retrieveFieldValueName(islamic, 9, 2, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 3, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 4, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 5, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 6, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 7, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 8, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 9, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 10, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, 11, 2, xx_YY_#u-ca-bogus) returned 
+retrieveFieldValueName(islamic, 9, -1, 2, xx_YY_#u-ca-bogus) returned null
+retrieveFieldValueName(islamic, 9, 12, 2, xx_YY_#u-ca-bogus) returned null
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3462)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Calendar/Bug8007038.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8007038.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8007038.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -Dtest.modules='java.base/sun.util.locale.provider jdk.localedata' \\
+        --add-modules java.base,jdk.localedata \\
+        --add-exports java.base/sun.util.locale.provider=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.locale.providers=CLDR \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Calendar/Bug8007038.d/main.0.jta CLDR
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

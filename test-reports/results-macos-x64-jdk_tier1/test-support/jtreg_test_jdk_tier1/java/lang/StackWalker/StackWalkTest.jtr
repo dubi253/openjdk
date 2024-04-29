@@ -1,0 +1,553 @@
+#Test Results (version 2)
+#Mon Apr 29 00:58:09 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs, bchristi
+keywords=bug8140450 randomness othervm
+library=/test/lib
+run=USER_SPECIFIED build jdk.test.lib.RandomFactory\nUSER_SPECIFIED compile StackRecorderUtil.java\nUSER_SPECIFIED main/othervm StackWalkTest\nUSER_SPECIFIED main/othervm/java.security.policy\=stackwalktest.policy StackWalkTest\nUSER_SPECIFIED main/othervm StackWalkTest -random\:50\nUSER_SPECIFIED main/othervm/java.security.policy\=stackwalktest.policy StackWalkTest -random\:50\n
+source=StackWalkTest.java
+title=Stack Walk Test (use -Dseed\=X to set PRNG seed)
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java
+elapsed=4891 0\:00\:04.891
+end=Mon Apr 29 00\:58\:09 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile main build main build main build main
+start=Mon Apr 29 00\:58\:04 UTC 2024
+test=java/lang/StackWalker/StackWalkTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=4892
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker
+
+#section:script_messages
+----------messages:(7/572)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.lib.RandomFactory
+reason: User specified action: run build jdk.test.lib.RandomFactory 
+started: Mon Apr 29 00:58:04 UTC 2024
+finished: Mon Apr 29 00:58:04 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:compile
+----------messages:(7/305)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackRecorderUtil.java
+reason: User specified action: run compile StackRecorderUtil.java 
+started: Mon Apr 29 00:58:04 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:58:04 UTC 2024
+elapsed time (seconds): 0.46
+----------configuration:(12/873)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+----------rerun:(33/3618)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackRecorderUtil.java
+----------direct:(2/183)----------
+Note: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackRecorderUtil.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/216)----------
+command: build StackWalkTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:04 UTC 2024
+Test directory:
+  compile: StackWalkTest
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.356
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/285)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:58:04 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.355
+----------configuration:(12/873)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+----------rerun:(33/3614)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/233)----------
+command: main StackWalkTest
+reason: User specified action: run main/othervm StackWalkTest 
+started: Mon Apr 29 00:58:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.837
+----------configuration:(0/0)----------
+----------System.out:(15/644)----------
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=50 finished
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(34/3695)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/StackWalkTest.d/main.0.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build StackWalkTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:05 UTC 2024
+finished: Mon Apr 29 00:58:05 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/275)----------
+command: main StackWalkTest
+reason: User specified action: run main/othervm/java.security.policy=stackwalktest.policy StackWalkTest 
+started: Mon Apr 29 00:58:05 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:06 UTC 2024
+elapsed time (seconds): 1.018
+----------configuration:(0/0)----------
+----------System.out:(15/644)----------
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([]), estimatedDepth=-1 finished
+runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=50 finished
+----------System.err:(3/163)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+STATUS:Passed.
+----------rerun:(36/3900)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Djava.security.policy=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/stackwalktest.policy_new \\
+        -Djava.security.manager=default \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/StackWalkTest.d/main.1.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/173)----------
+command: build StackWalkTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:06 UTC 2024
+finished: Mon Apr 29 00:58:06 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/255)----------
+command: main StackWalkTest -random:50
+reason: User specified action: run main/othervm StackWalkTest -random:50 
+started: Mon Apr 29 00:58:06 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:08 UTC 2024
+elapsed time (seconds): 1.301
+----------configuration:(0/0)----------
+----------System.out:(51/2894)----------
+Seed from RandomFactory = -7533282757293483959L
+100@83 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+775@92 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=123 finished
+204@5 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+105@1 runTest([]), estimatedDepth=52 finished
+11@7 runTest([]), estimatedDepth=-1 finished
+366@31 runTest([]), estimatedDepth=257 finished
+305@98 runTest([]), estimatedDepth=145 finished
+902@495 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=235 finished
+978@307 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=387 finished
+70@67 runTest([]), estimatedDepth=-1 finished
+431@283 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+786@160 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=378 finished
+872@781 runTest([]), estimatedDepth=27 finished
+659@37 runTest([]), estimatedDepth=-1 finished
+386@147 runTest([]), estimatedDepth=7 finished
+659@373 runTest([]), estimatedDepth=-1 finished
+530@431 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+976@38 runTest([]), estimatedDepth=-1 finished
+630@472 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=115 finished
+986@26 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+234@215 runTest([]), estimatedDepth=64 finished
+6@0 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+555@175 runTest([]), estimatedDepth=53 finished
+373@108 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+51@47 runTest([]), estimatedDepth=49 finished
+29@22 runTest([]), estimatedDepth=-1 finished
+340@184 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+828@242 runTest([]), estimatedDepth=-1 finished
+942@89 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+231@33 runTest([]), estimatedDepth=71 finished
+927@104 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=92 finished
+970@788 runTest([]), estimatedDepth=542 finished
+579@329 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=475 finished
+644@309 runTest([]), estimatedDepth=-1 finished
+811@157 runTest([]), estimatedDepth=527 finished
+249@129 runTest([]), estimatedDepth=95 finished
+222@134 runTest([]), estimatedDepth=206 finished
+939@173 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=287 finished
+577@58 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=370 finished
+760@418 runTest([]), estimatedDepth=637 finished
+839@96 runTest([]), estimatedDepth=54 finished
+894@710 runTest([]), estimatedDepth=343 finished
+280@88 runTest([]), estimatedDepth=2 finished
+769@322 runTest([]), estimatedDepth=370 finished
+813@679 runTest([]), estimatedDepth=315 finished
+395@384 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+658@537 runTest([]), estimatedDepth=296 finished
+156@4 runTest([]), estimatedDepth=76 finished
+499@51 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+363@269 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(34/3706)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/StackWalkTest.d/main.2.jta -random:50
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build StackWalkTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:58:08 UTC 2024
+finished: Mon Apr 29 00:58:08 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/297)----------
+command: main StackWalkTest -random:50
+reason: User specified action: run main/othervm/java.security.policy=stackwalktest.policy StackWalkTest -random:50 
+started: Mon Apr 29 00:58:08 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:58:09 UTC 2024
+elapsed time (seconds): 0.914
+----------configuration:(0/0)----------
+----------System.out:(51/3097)----------
+Seed from RandomFactory = 6486153531441859498L
+638@578 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=231 finished
+208@6 runTest([]), estimatedDepth=199 finished
+43@5 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=14 finished
+26@2 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=23 finished
+792@26 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+771@591 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=415 finished
+804@623 runTest([]), estimatedDepth=504 finished
+91@26 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=50 finished
+795@344 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=236 finished
+14@10 runTest([]), estimatedDepth=13 finished
+780@582 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=610 finished
+365@60 runTest([]), estimatedDepth=-1 finished
+501@112 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=263 finished
+623@61 runTest([]), estimatedDepth=545 finished
+251@135 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=144 finished
+4@4 runTest([]), estimatedDepth=-1 finished
+828@446 runTest([]), estimatedDepth=-1 finished
+111@80 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+623@90 runTest([]), estimatedDepth=-1 finished
+376@128 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=147 finished
+352@68 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=19 finished
+655@322 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=348 finished
+345@167 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=48 finished
+637@348 runTest([]), estimatedDepth=257 finished
+63@29 runTest([]), estimatedDepth=-1 finished
+635@464 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=587 finished
+237@46 runTest([]), estimatedDepth=73 finished
+836@309 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=172 finished
+576@348 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=319 finished
+274@271 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+905@903 runTest([]), estimatedDepth=523 finished
+140@100 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+865@694 runTest([]), estimatedDepth=666 finished
+72@37 runTest([]), estimatedDepth=33 finished
+881@80 runTest([]), estimatedDepth=493 finished
+993@979 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=60 finished
+576@539 runTest([]), estimatedDepth=-1 finished
+311@244 runTest([]), estimatedDepth=-1 finished
+661@6 runTest([]), estimatedDepth=-1 finished
+465@285 runTest([]), estimatedDepth=-1 finished
+304@269 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=278 finished
+276@260 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=107 finished
+722@643 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=44 finished
+442@405 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+128@25 runTest([]), estimatedDepth=33 finished
+168@106 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+457@320 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+444@331 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=187 finished
+211@181 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+487@274 runTest([RETAIN_CLASS_REFERENCE]), estimatedDepth=-1 finished
+----------System.err:(3/163)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+STATUS:Passed.
+----------rerun:(36/3911)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker/StackWalkTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/StackWalker/StackWalkTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/StackWalker:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Djava.security.policy=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0/stackwalktest.policy_new \\
+        -Djava.security.manager=default \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/StackWalker/StackWalkTest.d/main.3.jta -random:50
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

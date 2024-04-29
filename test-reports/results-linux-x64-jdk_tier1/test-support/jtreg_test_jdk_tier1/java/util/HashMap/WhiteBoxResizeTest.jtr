@@ -1,0 +1,806 @@
+#Test Results (version 2)
+#Mon Apr 29 00:55:40 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8186958 bug8210280 bug8281631 bug8285386 bug8284780 othervm testng
+modules=java.base/java.util\:open
+requires=vm.bits \=\= "64"
+run=USER_SPECIFIED testng/othervm -Xmx2g WhiteBoxResizeTest\n
+source=WhiteBoxResizeTest.java
+title=White box tests for HashMap-related internals around table sizing
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java
+elapsed=8370 0\:00\:08.370
+end=Mon Apr 29 00\:55\:40 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/java.util\:open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile testng
+start=Mon Apr 29 00\:55\:32 UTC 2024
+test=java/util/HashMap/WhiteBoxResizeTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=8370
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/HashMap
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/226)----------
+command: build WhiteBoxResizeTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:55:32 UTC 2024
+Test directory:
+  compile: WhiteBoxResizeTest
+finished: Mon Apr 29 00:55:32 UTC 2024
+elapsed time (seconds): 0.109
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/343)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:55:32 UTC 2024
+Additional options from @modules: --add-modules java.base
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:55:32 UTC 2024
+elapsed time (seconds): 0.109
+----------configuration:(14/959)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar
+               /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+
+----------rerun:(37/3523)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/HashMap/WhiteBoxResizeTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -J-Dtest.modules=java.base/java.util:open \\
+        --add-modules java.base \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar /home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java
+result: Passed. Compilation successful
+
+#section:testng
+----------messages:(7/363)----------
+command: testng -Xmx2g WhiteBoxResizeTest
+reason: User specified action: run testng/othervm -Xmx2g WhiteBoxResizeTest 
+started: Mon Apr 29 00:55:32 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-opens java.base/java.util=ALL-UNNAMED
+finished: Mon Apr 29 00:55:40 UTC 2024
+elapsed time (seconds): 8.259
+----------configuration:(4/95)----------
+Boot Layer
+  add modules: java.base           
+  add opens:   java.base/java.util ALL-UNNAMED
+
+----------System.out:(621/83764)----------
+test WhiteBoxResizeTest.defaultCapacity(WhiteBoxResizeTest$$Lambda/0x00007ffab3090f10@5903d5b4): success
+test WhiteBoxResizeTest.defaultCapacity(WhiteBoxResizeTest$$Lambda/0x00007ffab3091138@7ba7ebcb): success
+test WhiteBoxResizeTest.defaultCapacity(WhiteBoxResizeTest$$Lambda/0x00007ffab3091360@7b40c606): success
+test WhiteBoxResizeTest.lazyTableAllocation({}): success
+test WhiteBoxResizeTest.lazyTableAllocation({}): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@86b5195, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@5b55646): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@7a3ce9c6, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@2fff62d9): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@68cbb0ae, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@75a406a8): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@2c3d833a): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@12d02f30, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@3b4ce668): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@48e83387, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@5b523c05): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@385523f1, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@6207794f): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@6d710e0b, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@7a891a3d): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@99ccb67, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@6c789d09): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@7c231a95): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@1b947875, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@51b62f4b): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@3b36c30b, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@35943c8): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@7dcc731b, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@6b564444): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@50b5673d, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@40934661): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@de69f2f, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@76918d21): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@7eea02f5): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@739a6840, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@5360feb5): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@3a9850ac, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@1a60e7d7): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@2e6e12b9, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@4bc821b1): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@52b0e5b6, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@5d63c972): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@75b1f609, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@20f9205c): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@51fa1d42): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@42939626, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@335b3209): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@14ab8046, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@4a571653): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@4316f808, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@7960932f): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@18d204a9, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@2cddb536): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@3e7abb0a, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@36851720): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@6be65ea6): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@1e8d3109, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@6acffc73): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@4b03b66b, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@3cf1c37b): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@3635f7b5, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@520b528c): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@2658bb20, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@5b099c12): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@27fa436e, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@44986d0a): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@718c1074): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@36f01ac, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@646acbfe): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@37ce020d, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@4c570739): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@28b7fecb, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@1b34e3a9): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@724fe8c7, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@6f012aab): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@7eb865f9, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@73bca339): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@6346da82): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@485f2931, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@29ec418e): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@451b06dc, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@743cb9ef): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@1b7fe91a, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@17ad03b8): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@77db6216, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@8e160eb): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@2704b873, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@b63b557): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@f3b2306): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@1ba11047, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@204be8f1): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@d1644dd, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@1e265e10): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@610c5036, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@7279c368): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@39e0f1f0, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@79a0165a): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@b051682, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@35d40963): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@7eb7b887): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@48af8503, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@7a780ab0): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@4c9e6abc, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@782d79b1): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@3cbb0017, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@103c478f): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@6041418b, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@194251c3): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@1dcd11e0, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@776a56cb): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@141f3dd7): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@4451a255, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@560357ce): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@19f037de, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@507a7dbf): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@5e9cf25d, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@45de7a64): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@3fcb223b, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@2a90339d): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@7b850579, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@1db93ac8): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@71fdb5e2): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@763bd98b, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@37158e53): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@fbc3974, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@27635e89): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@4c4bd78a, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@1f78b53b): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@489e309d, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@7bf82c30): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@21d61ddb, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@18f5cba4): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@1f603532): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@38d78946, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@2dfd6ca7): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@737ddfe1, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@7764f571): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@525f5abb, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@1f5fae22): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@579cec3e, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@183dbd3e): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@72982b70, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@42d5c401): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@44834175): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@1b6a060d, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@e224d4d): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@3e600ce4, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@75f12f4b): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@1848d839, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@5a86181a): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@47537c7a, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@6e0cb248): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@3aa968c2, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@66456341): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@687fcd3b): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@54f37088, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@39d7b8ae): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@3c1953f9, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@73a113c2): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@659707e0, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@6823388d): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@7c1650c5, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@57eb9fe1): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@18f8869b, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@56a66d39): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@129d2ec7): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@2ba7cd1c, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@39a879df): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@6164d20b, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@74be2c16): success
+test WhiteBoxResizeTest.populatedCapacity("phmcpy", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab3098ae8@885be6b, WhiteBoxResizeTest$$Lambda/0x00007ffab3098d18@12ec2921): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab3098f50@578052da, WhiteBoxResizeTest$$Lambda/0x00007ffab3099178@4a6d9a86): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30993b8@772aa8eb, WhiteBoxResizeTest$$Lambda/0x00007ffab30995e0@eea8ef5): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab3099820@114980a2, WhiteBoxResizeTest$$Lambda/0x00007ffab3099a48@4b8e3958): success
+test WhiteBoxResizeTest.populatedCapacity("phm0pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab3099c88@19c60e6c, WhiteBoxResizeTest$$Lambda/0x00007ffab3099eb0@4cc49be8): success
+test WhiteBoxResizeTest.populatedCapacity("phm1pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309a0f0@2babf1d9, WhiteBoxResizeTest$$Lambda/0x00007ffab309a318@1ccf36ac): success
+test WhiteBoxResizeTest.populatedCapacity("phm2pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309a558@4fa0028d, WhiteBoxResizeTest$$Lambda/0x00007ffab309a780@3bf10799): success
+test WhiteBoxResizeTest.populatedCapacity("plmcpy", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309a9c0@4d69f603, WhiteBoxResizeTest$$Lambda/0x00007ffab309abf0@31285b77): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309ae28@73dc866e, WhiteBoxResizeTest$$Lambda/0x00007ffab309b050@31ec335d): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309b290@1c96cb8d, WhiteBoxResizeTest$$Lambda/0x00007ffab309b4b8@f9db93f): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309b6f8@2efa09b3, WhiteBoxResizeTest$$Lambda/0x00007ffab309b920@49a7542): success
+test WhiteBoxResizeTest.populatedCapacity("plm0pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309bb60@130b2c60, WhiteBoxResizeTest$$Lambda/0x00007ffab309bd88@61baa865): success
+test WhiteBoxResizeTest.populatedCapacity("plm1pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309e000@4894d4b9, WhiteBoxResizeTest$$Lambda/0x00007ffab309e228@4d38ec1c): success
+test WhiteBoxResizeTest.populatedCapacity("plm2pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309e468@7a166102, WhiteBoxResizeTest$$Lambda/0x00007ffab309e690@14c953e5): success
+test WhiteBoxResizeTest.populatedCapacity("pwmcpy", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309e8d0@4b59ed9d, WhiteBoxResizeTest$$Lambda/0x00007ffab309eb00@706fc932): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309ed38@751ca557, WhiteBoxResizeTest$$Lambda/0x00007ffab309ef60@5c06a65a): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309f1a0@1ec15b05, WhiteBoxResizeTest$$Lambda/0x00007ffab309f3c8@68e5a9fb): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pn", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309f608@1817b0cf, WhiteBoxResizeTest$$Lambda/0x00007ffab309f830@c1ad9bb): success
+test WhiteBoxResizeTest.populatedCapacity("pwm0pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309fa70@474cf2d4, WhiteBoxResizeTest$$Lambda/0x00007ffab309fc98@fbd3af9): success
+test WhiteBoxResizeTest.populatedCapacity("pwm1pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309d000@7084a1e2, WhiteBoxResizeTest$$Lambda/0x00007ffab309d228@118dc4d3): success
+test WhiteBoxResizeTest.populatedCapacity("pwm2pa", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab309d468@16f9732a, WhiteBoxResizeTest$$Lambda/0x00007ffab309d690@43a74ba6): success
+test WhiteBoxResizeTest.populatedCapacity("fhmcpy", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab309d8d0@65c60a4f, WhiteBoxResizeTest$$Lambda/0x00007ffab309db00@44b60be6): success
+test WhiteBoxResizeTest.populatedCapacity("fhm0pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab309dd38@26a4fc16, WhiteBoxResizeTest$$Lambda/0x00007ffab309cc00@52392a1f): success
+test WhiteBoxResizeTest.populatedCapacity("fhm1pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0000@483b3f01, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0228@497e2e5c): success
+test WhiteBoxResizeTest.populatedCapacity("fhm2pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0468@7bb6a357, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0690@6a645817): success
+test WhiteBoxResizeTest.populatedCapacity("flmcpy", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a08d0@648f0841, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0b00@2aedb39c): success
+test WhiteBoxResizeTest.populatedCapacity("flm0pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0d38@3439cf60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0f60@28e804a6): success
+test WhiteBoxResizeTest.populatedCapacity("flm1pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a11a0@2a37cfb, WhiteBoxResizeTest$$Lambda/0x00007ffab30a13c8@781bf100): success
+test WhiteBoxResizeTest.populatedCapacity("flm2pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1608@ee5c371, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1830@17b832f2): success
+test WhiteBoxResizeTest.populatedCapacity("fwmcpy", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1a70@506ec9fb, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ca0@703066cc): success
+test WhiteBoxResizeTest.populatedCapacity("fwm1pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ed8@74801845, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2100@5207363f): success
+test WhiteBoxResizeTest.populatedCapacity("fwm2pa", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2340@48fe7824, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2568@3c48134e): success
+test WhiteBoxResizeTest.populatedCapacity("fhmcpy", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab309d8d0@67b2e5e5, WhiteBoxResizeTest$$Lambda/0x00007ffab309db00@44b60be6): success
+test WhiteBoxResizeTest.populatedCapacity("fhm0pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab309dd38@26a4fc16, WhiteBoxResizeTest$$Lambda/0x00007ffab309cc00@201834d4): success
+test WhiteBoxResizeTest.populatedCapacity("fhm1pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0000@2c7d5397, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0228@44506581): success
+test WhiteBoxResizeTest.populatedCapacity("fhm2pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0468@79827227, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0690@3fa5776b): success
+test WhiteBoxResizeTest.populatedCapacity("flmcpy", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a08d0@2774d424, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0b00@2aedb39c): success
+test WhiteBoxResizeTest.populatedCapacity("flm0pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0d38@3439cf60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0f60@5987b142): success
+test WhiteBoxResizeTest.populatedCapacity("flm1pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a11a0@534d6d6b, WhiteBoxResizeTest$$Lambda/0x00007ffab30a13c8@722c0604): success
+test WhiteBoxResizeTest.populatedCapacity("flm2pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1608@e730e84, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1830@366d1c14): success
+test WhiteBoxResizeTest.populatedCapacity("fwmcpy", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1a70@1fb87061, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ca0@703066cc): success
+test WhiteBoxResizeTest.populatedCapacity("fwm1pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ed8@57fa7ab1, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2100@6aa37c4d): success
+test WhiteBoxResizeTest.populatedCapacity("fwm2pa", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2340@757f664e, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2568@7154b5a2): success
+test WhiteBoxResizeTest.populatedCapacity("fhmcpy", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab309d8d0@172708ef, WhiteBoxResizeTest$$Lambda/0x00007ffab309db00@44b60be6): success
+test WhiteBoxResizeTest.populatedCapacity("fhm0pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab309dd38@26a4fc16, WhiteBoxResizeTest$$Lambda/0x00007ffab309cc00@4dc91e68): success
+test WhiteBoxResizeTest.populatedCapacity("fhm1pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0000@45337ea6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0228@7ee6418a): success
+test WhiteBoxResizeTest.populatedCapacity("fhm2pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0468@7237112e, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0690@2c2f8780): success
+test WhiteBoxResizeTest.populatedCapacity("flmcpy", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a08d0@52b155c5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0b00@2aedb39c): success
+test WhiteBoxResizeTest.populatedCapacity("flm0pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0d38@3439cf60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0f60@480617d3): success
+test WhiteBoxResizeTest.populatedCapacity("flm1pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a11a0@3bafbc11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a13c8@fd888d8): success
+test WhiteBoxResizeTest.populatedCapacity("flm2pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1608@52c3bcaa, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1830@144addd7): success
+test WhiteBoxResizeTest.populatedCapacity("fwmcpy", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1a70@6dc63f14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ca0@703066cc): success
+test WhiteBoxResizeTest.populatedCapacity("fwm1pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ed8@60c92d1d, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2100@47bf99b3): success
+test WhiteBoxResizeTest.populatedCapacity("fwm2pa", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2340@46e873f6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2568@6fe00ff3): success
+test WhiteBoxResizeTest.populatedCapacity("fhmcpy", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab309d8d0@268078bf, WhiteBoxResizeTest$$Lambda/0x00007ffab309db00@44b60be6): success
+test WhiteBoxResizeTest.populatedCapacity("fhm0pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab309dd38@26a4fc16, WhiteBoxResizeTest$$Lambda/0x00007ffab309cc00@4c82d450): success
+test WhiteBoxResizeTest.populatedCapacity("fhm1pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0000@76d93fac, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0228@43dc1935): success
+test WhiteBoxResizeTest.populatedCapacity("fhm2pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0468@584985a, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0690@3a1fe319): success
+test WhiteBoxResizeTest.populatedCapacity("flmcpy", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a08d0@330f6a94, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0b00@2aedb39c): success
+test WhiteBoxResizeTest.populatedCapacity("flm0pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0d38@3439cf60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a0f60@572a4c98): success
+test WhiteBoxResizeTest.populatedCapacity("flm1pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a11a0@4cc558d7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a13c8@1debe4e2): success
+test WhiteBoxResizeTest.populatedCapacity("flm2pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1608@2a8c698d, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1830@4ce98feb): success
+test WhiteBoxResizeTest.populatedCapacity("fwmcpy", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1a70@1774489a, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ca0@703066cc): success
+test WhiteBoxResizeTest.populatedCapacity("fwm1pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a1ed8@5e6bc11b, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2100@6dcc7008): success
+test WhiteBoxResizeTest.populatedCapacity("fwm2pa", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2340@6ad9a709, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2568@6a3ad050): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7d59ef35): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@57667da8): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@5b085d88): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@569c6c3b): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@77fd599b): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 2, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6e8d4d2f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@18a4c3d6): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6f8ce832): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@175da13b): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@155cc7f0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@d248788): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 3, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@28739157): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@23cb1d1e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@51d70cf8): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@76b18831): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2c4001ad): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@11df94ae): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 4, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@3300b4b2): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1e4de957): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3b30d465): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@6af74eca): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@404fce8a): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@3d174e0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 5, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@4db01d81): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@11105e0b): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@25da089): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@7a569796): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@3d83284f): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@31252905): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 6, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6b905a7b): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@3cea8f5): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@b640634): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@38d9e798): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7216ff5): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@d5596e0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 7, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@51477c4f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@30dbfc46): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@28853616): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@12ce832e): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@5de3fd1): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@5d011d97): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 8, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7989e04a): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@164aa0d5): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@467820a7): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@5155a0cf): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@e989c0e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@371ac94b): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 9, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6390e8f3): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@632c4229): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3d4ed894): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@529cf159): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2b33fd64): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4b852494): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 10, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@ff7620b): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@237d4d76): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7753f9f1): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@c02d092): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2651fcca): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@10a14c84): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 11, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5f3852c4): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@23e401fe): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7a0ebfd2): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@1dc05ccf): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1e72a4df): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@5d17c0d7): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 12, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@2c77e3f1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7b4c73bc): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@8837fe0): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@78d4ef71): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@33e32037): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@6109a706): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 13, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@ab10bd1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@53e61c36): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3a32c21f): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@7b25d9e6): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@127bd5b6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@541dcfe7): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 14, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@830ebcd): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@253b9457): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3c62ddcd): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@427344a9): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@42cb62df): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@3ec7fc3c): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 15, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@25d9658e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@fceeb22): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@34b7c338): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@c77e093): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@3d83b92c): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@3efde0c3): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@11a8c8a8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@2209accf): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@5639110e): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@57f8a96c): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@53eeddde): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@3964bed3): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 17, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@59e5b6c1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@4023fe22): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@4c19bd30): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@2585f1ad): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@6ebab6b6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@581d7bf4): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 18, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@57646be9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@49a3848b): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@52add88d): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@6954b913): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@65f7bc37): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@2204ede0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 19, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@3053bba0): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@794d85b6): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@51d2bdae): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@20815262): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@144229e2): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@2b116cc9): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 20, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@30321f30): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5862d65d): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@1c3d03f5): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@617ad0c): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7c9fb589): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4503e747): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 21, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5d74b1c): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1b651afa): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@c375490): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@49e4e24c): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@777cdf86): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4f7e78be): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 22, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@533c80dc): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7e0efde8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@61e50906): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@3cb319b6): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@771a0a5a): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@5e2c5fe9): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 23, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@333aae45): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@41d0ff84): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@1a64c7ed): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@589361b4): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@48a7d165): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@5958f565): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 24, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5aea60a8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@737f2e86): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@5385e1af): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@24077876): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1bf85437): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@19f98484): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 25, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@453f3b5e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@2c0dda6): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@5eaea52a): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@482e0a8d): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@3d94a4ee): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7739dc69): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 26, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@3f5d5ac8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@173f13f9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@54c9f72b): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@77d0affc): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@5620f84e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@423a9ad7): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 27, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7257cd1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1a500b01): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@50296487): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@10e8a162): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@45975242): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4f5deb12): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 28, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@66322549): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1ef3609): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@2c196a6f): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@27e5693e): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2bf447ad): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@6ac66f42): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 29, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@67e93cc8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@6a8f3cd2): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@649bf1c0): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@132377cd): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@36f0f083): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7364d5bb): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 30, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@3f2a7db5): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1b76764c): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6c37d64): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@35079c6f): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@161bc1f): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4fccbe79): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 31, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@79fac773): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@18b49127): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7a04390a): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@7a6b46db): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@21fa90d6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@11a97594): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7709eb05): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@399192df): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6c21262): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@22d8b273): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@56edf2a3): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@70039d6c): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 33, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5cb3f054): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@58864f7d): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6d05c162): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@21554230): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7151b027): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@218bf2a4): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 34, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@c24333d): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7b01b3ec): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@65060a06): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@1df89182): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@33b9ae51): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@767f10a): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 35, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@49ad5b46): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7fc0af75): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@2ef81367): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@2c9fe734): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2f240f57): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@58a7910e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 36, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5cad9684): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@2024d8ad): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@206918a5): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@1a2bb105): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@67960eed): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@5b5980fe): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 37, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@17ba591e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@71708a54): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@12d91b42): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@4cdc3f1b): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@371a8773): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7a7a51d6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 38, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@681ea48e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@bbc253a): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@79f40547): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@316a9e09): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@13f9d2d9): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@2caed7e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 39, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@647a6ee9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7b1b010a): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@35f009e8): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@45397370): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2339041c): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@25c5b71): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 40, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6097af6d): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@cd72acc): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@703de4af): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@2a49ae1a): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7edc1095): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@6db8f9eb): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 41, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@4edc619f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5ba60f55): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@72189269): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@36c2e901): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@71ef9fcb): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@218aa43e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 42, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7da1d8d0): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@7afe625): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6c9829ba): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@6744b108): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@35e13dfe): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7f55694d): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 43, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@133bdea9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@2054b4b5): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@afaea44): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@63b5ed5): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@51699a91): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@73d1e279): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 44, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@54a1908): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@50789d04): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@48a40c67): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@437fea62): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2884cad7): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@1d8ff235): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 45, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@a6d4f0f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@30d2dbb6): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@5b64af45): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@5be93825): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@127f8474): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7f60ba36): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 46, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@5d8f66a): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@468db282): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3beb33cb): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@1ce20064): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1050d126): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@2eb2f650): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 47, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7478bff8): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@16dfdc29): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@795b9052): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@b8e17eb): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@d3208a8): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@508feaa6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 48, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@13d2fbbf): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@3b6ef491): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@77b9f02b): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@70dc7142): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2c9d22c2): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@55e9b3f3): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 49, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@69452ecd): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@53459ff9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@635808a1): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@9f97d8c): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@525e0fe0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@2d068e9): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 50, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@51a1bfa1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@2b08eb5f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@103418db): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@248263b2): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7f4d8831): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@61af7153): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 51, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@40138186): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@34fb7e33): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@5f3dd385): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@3b2dffc0): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7a5dbefa): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@3aca6da2): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 52, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@9f18ace): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@6494133c): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@1deab445): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@2e0c1b2): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1524afc1): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@1ed6711e): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 53, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@50e3321f): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@19bea5b1): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7eb88848): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@4db0d1c9): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@51ef8138): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@40d432c6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 54, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@7b5098fd): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@1df25abf): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6da4908f): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@1686687f): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@2ef8e5dc): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@652ab7f4): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 55, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@62608bc3): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@45c8ebb9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@52f59d75): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@4eae251e): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@6d8b2be0): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@525b0327): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 56, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@2d0de2ad): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5832c142): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@6b0684d5): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@221d2d10): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@346921ca): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@4dc66502): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 57, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6a12d419): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5752f9c9): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7ac70f6c): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@5f8c9d): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@96e33ae): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@28b82a81): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 58, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@1ca1ccb0): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5a8bd0d6): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@7fc642b1): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@3842515a): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1e984519): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@510f039a): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 59, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@6cb4c2f0): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@545b611a): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@69568caa): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@16ec20a4): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@13aeb139): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@7b16fbc9): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 60, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@51e7bfe7): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@5138a989): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@3d5055c6): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@527d18e2): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@1a6b7d79): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@af62044): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 61, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@39fc3824): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@6641b4e): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@4e3b7cf0): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@a2f5bab): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@7b0482cf): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@1b7945ab): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 62, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@4702e79d): success
+test WhiteBoxResizeTest.requestedCapacity("rhm1", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a2f68@208151ce): success
+test WhiteBoxResizeTest.requestedCapacity("rhm2", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3190@10a54270): success
+test WhiteBoxResizeTest.requestedCapacity("rlm1", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a33b8@6b6786bd): success
+test WhiteBoxResizeTest.requestedCapacity("rlm2", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a35e0@4a64c6a6): success
+test WhiteBoxResizeTest.requestedCapacity("rwm1", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3808@49f4416d): success
+test WhiteBoxResizeTest.requestedCapacity("rwm2", 63, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3a30@10749c77): success
+test WhiteBoxResizeTest.requestedSize("rshm", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@62638e06): success
+test WhiteBoxResizeTest.requestedSize("rslm", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@35956ab5): success
+test WhiteBoxResizeTest.requestedSize("rswm", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@2259849f): success
+test WhiteBoxResizeTest.requestedSize("rshs", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@3c653af9): success
+test WhiteBoxResizeTest.requestedSize("rsls", 12, 16, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@30f10346): success
+test WhiteBoxResizeTest.requestedSize("rshm", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@29ad2406): success
+test WhiteBoxResizeTest.requestedSize("rslm", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@728f6e07): success
+test WhiteBoxResizeTest.requestedSize("rswm", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@5dbb6f65): success
+test WhiteBoxResizeTest.requestedSize("rshs", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@7bc7810b): success
+test WhiteBoxResizeTest.requestedSize("rsls", 13, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@57737613): success
+test WhiteBoxResizeTest.requestedSize("rshm", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@6b01b864): success
+test WhiteBoxResizeTest.requestedSize("rslm", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@599d240f): success
+test WhiteBoxResizeTest.requestedSize("rswm", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@5e883171): success
+test WhiteBoxResizeTest.requestedSize("rshs", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@6bc88350): success
+test WhiteBoxResizeTest.requestedSize("rsls", 24, 32, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@2f47d64e): success
+test WhiteBoxResizeTest.requestedSize("rshm", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@7044b658): success
+test WhiteBoxResizeTest.requestedSize("rslm", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@a44f5c3): success
+test WhiteBoxResizeTest.requestedSize("rswm", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@4bad3594): success
+test WhiteBoxResizeTest.requestedSize("rshs", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@78fee6ea): success
+test WhiteBoxResizeTest.requestedSize("rsls", 25, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@310bac04): success
+test WhiteBoxResizeTest.requestedSize("rshm", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@2435d107): success
+test WhiteBoxResizeTest.requestedSize("rslm", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@1a9bfd00): success
+test WhiteBoxResizeTest.requestedSize("rswm", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@2630161b): success
+test WhiteBoxResizeTest.requestedSize("rshs", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@752e7824): success
+test WhiteBoxResizeTest.requestedSize("rsls", 48, 64, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@452267be): success
+test WhiteBoxResizeTest.requestedSize("rshm", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@3422f0c5): success
+test WhiteBoxResizeTest.requestedSize("rslm", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@208521d7): success
+test WhiteBoxResizeTest.requestedSize("rswm", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@6b2e55ee): success
+test WhiteBoxResizeTest.requestedSize("rshs", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@714a2fe4): success
+test WhiteBoxResizeTest.requestedSize("rsls", 49, 128, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@697d35ec): success
+test WhiteBoxResizeTest.requestedSize("rshm", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@700cffb2): success
+test WhiteBoxResizeTest.requestedSize("rslm", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@2c9ea8ef): success
+test WhiteBoxResizeTest.requestedSize("rswm", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@2505d938): success
+test WhiteBoxResizeTest.requestedSize("rshs", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@31d291b0): success
+test WhiteBoxResizeTest.requestedSize("rsls", 25165824, 33554432, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@1253a6a9): success
+test WhiteBoxResizeTest.requestedSize("rshm", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@4babb4b0): success
+test WhiteBoxResizeTest.requestedSize("rslm", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@7e691a28): success
+test WhiteBoxResizeTest.requestedSize("rswm", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@97f7c69): success
+test WhiteBoxResizeTest.requestedSize("rshs", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@4a669682): success
+test WhiteBoxResizeTest.requestedSize("rsls", 25165825, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@1de2b82e): success
+test WhiteBoxResizeTest.requestedSize("rshm", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@5cc24b25): success
+test WhiteBoxResizeTest.requestedSize("rslm", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@5b864c31): success
+test WhiteBoxResizeTest.requestedSize("rswm", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@47b4703c): success
+test WhiteBoxResizeTest.requestedSize("rshs", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@1044a999): success
+test WhiteBoxResizeTest.requestedSize("rsls", 50331648, 67108864, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@71bb1eff): success
+test WhiteBoxResizeTest.requestedSize("rshm", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30a3c58@69cb3fd6): success
+test WhiteBoxResizeTest.requestedSize("rslm", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac000@cbf174): success
+test WhiteBoxResizeTest.requestedSize("rswm", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac230@5ebb100e): success
+test WhiteBoxResizeTest.requestedSize("rshs", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac460@5a23481d): success
+test WhiteBoxResizeTest.requestedSize("rsls", 50331649, 134217728, WhiteBoxResizeTest$$Lambda/0x00007ffab30ac690@47872537): success
+test WhiteBoxResizeTest.tableSizeFor(0, 1): success
+test WhiteBoxResizeTest.tableSizeFor(1, 1): success
+test WhiteBoxResizeTest.tableSizeFor(2, 2): success
+test WhiteBoxResizeTest.tableSizeFor(3, 4): success
+test WhiteBoxResizeTest.tableSizeFor(4, 4): success
+test WhiteBoxResizeTest.tableSizeFor(5, 8): success
+test WhiteBoxResizeTest.tableSizeFor(15, 16): success
+test WhiteBoxResizeTest.tableSizeFor(16, 16): success
+test WhiteBoxResizeTest.tableSizeFor(17, 32): success
+test WhiteBoxResizeTest.tableSizeFor(1073741823, 1073741824): success
+test WhiteBoxResizeTest.tableSizeFor(1073741824, 1073741824): success
+test WhiteBoxResizeTest.tableSizeFor(1073741825, 1073741824): success
+test WhiteBoxResizeTest.tableSizeFor(2147483647, 1073741824): success
+test WhiteBoxResizeTest.testNegativeNumMappings(WhiteBoxResizeTest$$Lambda/0x00007ffab30ac8c0@46696aca, "HashMap::newHashMap"): success
+test WhiteBoxResizeTest.testNegativeNumMappings(WhiteBoxResizeTest$$Lambda/0x00007ffab30acae8@696989d2, "LinkedHashMap::newLinkedHashMap"): success
+test WhiteBoxResizeTest.testNegativeNumMappings(WhiteBoxResizeTest$$Lambda/0x00007ffab30acd10@5654f284, "WeakHashMap::newWeakHashMap"): success
+test WhiteBoxResizeTest.testNegativeNumMappings(WhiteBoxResizeTest$$Lambda/0x00007ffab30acf38@1155c4ce, "HashSet::newHashSet"): success
+test WhiteBoxResizeTest.testNegativeNumMappings(WhiteBoxResizeTest$$Lambda/0x00007ffab30ad160@c0ee1b1, "LinkedHashSet::newLinkedHashSet"): success
+
+===============================================
+java/util/HashMap/WhiteBoxResizeTest.java
+Total tests run: 615, Passes: 615, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(40/3746)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/HashMap/WhiteBoxResizeTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap/WhiteBoxResizeTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/HashMap/WhiteBoxResizeTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/HashMap \\
+        -Dtest.modules=java.base/java.util:open \\
+        --add-modules java.base \\
+        --add-opens java.base/java.util=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xmx2g \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/HashMap/WhiteBoxResizeTest.d/testng.0.jta java/util/HashMap/WhiteBoxResizeTest.java false WhiteBoxResizeTest
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

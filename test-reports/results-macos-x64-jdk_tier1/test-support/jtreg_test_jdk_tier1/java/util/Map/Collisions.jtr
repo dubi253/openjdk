@@ -1,0 +1,352 @@
+#Test Results (version 2)
+#Mon Apr 29 01:22:21 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug7126277 othervm testng
+run=USER_SPECIFIED testng/othervm -Dtest.map.collisions.shortrun\=true Collisions\n
+source=Collisions.java
+title=Ensure Maps behave well with lots of hashCode() collisions.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java
+elapsed=8159 0\:00\:08.159
+end=Mon Apr 29 01\:22\:21 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile testng
+start=Mon Apr 29 01\:22\:13 UTC 2024
+test=java/util/Map/Collisions.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=8160
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Map
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/210)----------
+command: build Collisions
+reason: Named class compiled on demand
+started: Mon Apr 29 01:22:13 UTC 2024
+Test directory:
+  compile: Collisions
+finished: Mon Apr 29 01:22:13 UTC 2024
+elapsed time (seconds): 0.063
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/275)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:22:13 UTC 2024
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:22:13 UTC 2024
+elapsed time (seconds): 0.063
+----------configuration:(13/923)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar
+               /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar
+
+----------rerun:(33/3280)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Map/Collisions.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar /Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java
+result: Passed. Compilation successful
+
+#section:testng
+----------messages:(6/303)----------
+command: testng -Dtest.map.collisions.shortrun=true Collisions
+reason: User specified action: run testng/othervm -Dtest.map.collisions.shortrun=true Collisions 
+started: Mon Apr 29 01:22:13 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:22:21 UTC 2024
+elapsed time (seconds): 8.095
+----------configuration:(0/0)----------
+----------System.out:(186/28823)----------
+test Collisions.testEntriesIteratorRemove("HashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@e325184, 2500): success
+test Collisions.testEntriesIteratorRemove("LinkedHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5d7af61b, 2500): success
+test Collisions.testEntriesIteratorRemove("Hashtable with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@259129fd, 2500): success
+test Collisions.testEntriesIteratorRemove("IdentityHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@618f9de7, 2500): success
+test Collisions.testEntriesIteratorRemove("TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@21aa827e, 2500): success
+test Collisions.testEntriesIteratorRemove("Descending TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7214d1a8, 2500): success
+test Collisions.testEntriesIteratorRemove("WeakHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7813e9e6, 2500): success
+test Collisions.testEntriesIteratorRemove("ConcurrentHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2e4bd23e, 2500): success
+test Collisions.testEntriesIteratorRemove("ConcurrentSkipListMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7d4e3b42, 2500): success
+test Collisions.testEntriesIteratorRemove("HashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@74eb2311, 2500): success
+test Collisions.testEntriesIteratorRemove("LinkedHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@6a2a1d38, 2500): success
+test Collisions.testEntriesIteratorRemove("Hashtable with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@62d309b8, 2500): success
+test Collisions.testEntriesIteratorRemove("IdentityHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@12343eaa, 2500): success
+test Collisions.testEntriesIteratorRemove("TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@3eb50a29, 2500): success
+test Collisions.testEntriesIteratorRemove("Descending TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2f32839, 2500): success
+test Collisions.testEntriesIteratorRemove("WeakHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@391d4e5f, 2500): success
+test Collisions.testEntriesIteratorRemove("ConcurrentHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@72f227d7, 2500): success
+test Collisions.testEntriesIteratorRemove("ConcurrentSkipListMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@159808f3, 2500): success
+test Collisions.testEntriesIteratorRemove("HashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1080b0c5, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("LinkedHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1dddc0a1, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("Hashtable with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5fdfe7c7, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("IdentityHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7816c97e, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@f660430, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("Descending TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@9281de7, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("WeakHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@632e875c, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("ConcurrentHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5e705d96, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("ConcurrentSkipListMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@270c98bf, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("HashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@602afd27, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("LinkedHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@306ac09f, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("Hashtable with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54509d98, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("IdentityHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67b55fdd, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@173c9002, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("Descending TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54804c27, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("WeakHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@49099f99, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("ConcurrentHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2ca9704f, "Extra Value"): success
+test Collisions.testEntriesIteratorRemove("ConcurrentSkipListMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67adaf22, "Extra Value"): success
+test Collisions.testIntegerIteration("HashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@e325184, 2500): success
+test Collisions.testIntegerIteration("LinkedHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5d7af61b, 2500): success
+test Collisions.testIntegerIteration("Hashtable with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@259129fd, 2500): success
+test Collisions.testIntegerIteration("IdentityHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@618f9de7, 2500): success
+test Collisions.testIntegerIteration("TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@21aa827e, 2500): success
+test Collisions.testIntegerIteration("Descending TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7214d1a8, 2500): success
+test Collisions.testIntegerIteration("WeakHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7813e9e6, 2500): success
+test Collisions.testIntegerIteration("ConcurrentHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2e4bd23e, 2500): success
+test Collisions.testIntegerIteration("ConcurrentSkipListMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7d4e3b42, 2500): success
+test Collisions.testIntegerIteration("HashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@74eb2311, 2500): success
+test Collisions.testIntegerIteration("LinkedHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@6a2a1d38, 2500): success
+test Collisions.testIntegerIteration("Hashtable with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@62d309b8, 2500): success
+test Collisions.testIntegerIteration("IdentityHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@12343eaa, 2500): success
+test Collisions.testIntegerIteration("TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@3eb50a29, 2500): success
+test Collisions.testIntegerIteration("Descending TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2f32839, 2500): success
+test Collisions.testIntegerIteration("WeakHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@391d4e5f, 2500): success
+test Collisions.testIntegerIteration("ConcurrentHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@72f227d7, 2500): success
+test Collisions.testIntegerIteration("ConcurrentSkipListMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@159808f3, 2500): success
+test Collisions.testKeysIteratorRemove("HashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@e325184, 2500): success
+test Collisions.testKeysIteratorRemove("LinkedHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5d7af61b, 2500): success
+test Collisions.testKeysIteratorRemove("Hashtable with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@259129fd, 2500): success
+test Collisions.testKeysIteratorRemove("IdentityHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@618f9de7, 2500): success
+test Collisions.testKeysIteratorRemove("TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@21aa827e, 2500): success
+test Collisions.testKeysIteratorRemove("Descending TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7214d1a8, 2500): success
+test Collisions.testKeysIteratorRemove("WeakHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7813e9e6, 2500): success
+test Collisions.testKeysIteratorRemove("ConcurrentHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2e4bd23e, 2500): success
+test Collisions.testKeysIteratorRemove("ConcurrentSkipListMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7d4e3b42, 2500): success
+test Collisions.testKeysIteratorRemove("HashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@74eb2311, 2500): success
+test Collisions.testKeysIteratorRemove("LinkedHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@6a2a1d38, 2500): success
+test Collisions.testKeysIteratorRemove("Hashtable with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@62d309b8, 2500): success
+test Collisions.testKeysIteratorRemove("IdentityHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@12343eaa, 2500): success
+test Collisions.testKeysIteratorRemove("TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@3eb50a29, 2500): success
+test Collisions.testKeysIteratorRemove("Descending TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2f32839, 2500): success
+test Collisions.testKeysIteratorRemove("WeakHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@391d4e5f, 2500): success
+test Collisions.testKeysIteratorRemove("ConcurrentHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@72f227d7, 2500): success
+test Collisions.testKeysIteratorRemove("ConcurrentSkipListMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@159808f3, 2500): success
+test Collisions.testKeysIteratorRemove("HashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1080b0c5, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("LinkedHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1dddc0a1, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("Hashtable with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5fdfe7c7, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("IdentityHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7816c97e, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@f660430, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("Descending TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@9281de7, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("WeakHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@632e875c, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("ConcurrentHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5e705d96, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("ConcurrentSkipListMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@270c98bf, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("HashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@602afd27, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("LinkedHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@306ac09f, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("Hashtable with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54509d98, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("IdentityHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67b55fdd, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@173c9002, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("Descending TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54804c27, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("WeakHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@49099f99, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("ConcurrentHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2ca9704f, "Extra Value"): success
+test Collisions.testKeysIteratorRemove("ConcurrentSkipListMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67adaf22, "Extra Value"): success
+test Collisions.testRemove("HashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@e325184, 2500): success
+test Collisions.testRemove("LinkedHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5d7af61b, 2500): success
+test Collisions.testRemove("Hashtable with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@259129fd, 2500): success
+test Collisions.testRemove("IdentityHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@618f9de7, 2500): success
+test Collisions.testRemove("TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@21aa827e, 2500): success
+test Collisions.testRemove("Descending TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7214d1a8, 2500): success
+test Collisions.testRemove("WeakHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7813e9e6, 2500): success
+test Collisions.testRemove("ConcurrentHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2e4bd23e, 2500): success
+test Collisions.testRemove("ConcurrentSkipListMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7d4e3b42, 2500): success
+test Collisions.testRemove("HashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@74eb2311, 2500): success
+test Collisions.testRemove("LinkedHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@6a2a1d38, 2500): success
+test Collisions.testRemove("Hashtable with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@62d309b8, 2500): success
+test Collisions.testRemove("IdentityHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@12343eaa, 2500): success
+test Collisions.testRemove("TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@3eb50a29, 2500): success
+test Collisions.testRemove("Descending TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2f32839, 2500): success
+test Collisions.testRemove("WeakHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@391d4e5f, 2500): success
+test Collisions.testRemove("ConcurrentHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@72f227d7, 2500): success
+test Collisions.testRemove("ConcurrentSkipListMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@159808f3, 2500): success
+test Collisions.testRemove("HashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1080b0c5, "Extra Value"): success
+test Collisions.testRemove("LinkedHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1dddc0a1, "Extra Value"): success
+test Collisions.testRemove("Hashtable with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5fdfe7c7, "Extra Value"): success
+test Collisions.testRemove("IdentityHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7816c97e, "Extra Value"): success
+test Collisions.testRemove("TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@f660430, "Extra Value"): success
+test Collisions.testRemove("Descending TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@9281de7, "Extra Value"): success
+test Collisions.testRemove("WeakHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@632e875c, "Extra Value"): success
+test Collisions.testRemove("ConcurrentHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5e705d96, "Extra Value"): success
+test Collisions.testRemove("ConcurrentSkipListMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@270c98bf, "Extra Value"): success
+test Collisions.testRemove("HashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@602afd27, "Extra Value"): success
+test Collisions.testRemove("LinkedHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@306ac09f, "Extra Value"): success
+test Collisions.testRemove("Hashtable with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54509d98, "Extra Value"): success
+test Collisions.testRemove("IdentityHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67b55fdd, "Extra Value"): success
+test Collisions.testRemove("TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@173c9002, "Extra Value"): success
+test Collisions.testRemove("Descending TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54804c27, "Extra Value"): success
+test Collisions.testRemove("WeakHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@49099f99, "Extra Value"): success
+test Collisions.testRemove("ConcurrentHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2ca9704f, "Extra Value"): success
+test Collisions.testRemove("ConcurrentSkipListMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67adaf22, "Extra Value"): success
+test Collisions.testStringIteration("HashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1080b0c5, "Extra Value"): success
+test Collisions.testStringIteration("LinkedHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1dddc0a1, "Extra Value"): success
+test Collisions.testStringIteration("Hashtable with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5fdfe7c7, "Extra Value"): success
+test Collisions.testStringIteration("IdentityHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7816c97e, "Extra Value"): success
+test Collisions.testStringIteration("TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@f660430, "Extra Value"): success
+test Collisions.testStringIteration("Descending TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@9281de7, "Extra Value"): success
+test Collisions.testStringIteration("WeakHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@632e875c, "Extra Value"): success
+test Collisions.testStringIteration("ConcurrentHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5e705d96, "Extra Value"): success
+test Collisions.testStringIteration("ConcurrentSkipListMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@270c98bf, "Extra Value"): success
+test Collisions.testStringIteration("HashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@602afd27, "Extra Value"): success
+test Collisions.testStringIteration("LinkedHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@306ac09f, "Extra Value"): success
+test Collisions.testStringIteration("Hashtable with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54509d98, "Extra Value"): success
+test Collisions.testStringIteration("IdentityHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67b55fdd, "Extra Value"): success
+test Collisions.testStringIteration("TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@173c9002, "Extra Value"): success
+test Collisions.testStringIteration("Descending TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54804c27, "Extra Value"): success
+test Collisions.testStringIteration("WeakHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@49099f99, "Extra Value"): success
+test Collisions.testStringIteration("ConcurrentHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2ca9704f, "Extra Value"): success
+test Collisions.testStringIteration("ConcurrentSkipListMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67adaf22, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("HashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@e325184, 2500): success
+test Collisions.testValuesIteratorRemove("LinkedHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5d7af61b, 2500): success
+test Collisions.testValuesIteratorRemove("Hashtable with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@259129fd, 2500): success
+test Collisions.testValuesIteratorRemove("IdentityHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@618f9de7, 2500): success
+test Collisions.testValuesIteratorRemove("TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@21aa827e, 2500): success
+test Collisions.testValuesIteratorRemove("Descending TreeMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7214d1a8, 2500): success
+test Collisions.testValuesIteratorRemove("WeakHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7813e9e6, 2500): success
+test Collisions.testValuesIteratorRemove("ConcurrentHashMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2e4bd23e, 2500): success
+test Collisions.testValuesIteratorRemove("ConcurrentSkipListMap with unique objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7d4e3b42, 2500): success
+test Collisions.testValuesIteratorRemove("HashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@74eb2311, 2500): success
+test Collisions.testValuesIteratorRemove("LinkedHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@6a2a1d38, 2500): success
+test Collisions.testValuesIteratorRemove("Hashtable with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@62d309b8, 2500): success
+test Collisions.testValuesIteratorRemove("IdentityHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@12343eaa, 2500): success
+test Collisions.testValuesIteratorRemove("TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@3eb50a29, 2500): success
+test Collisions.testValuesIteratorRemove("Descending TreeMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2f32839, 2500): success
+test Collisions.testValuesIteratorRemove("WeakHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@391d4e5f, 2500): success
+test Collisions.testValuesIteratorRemove("ConcurrentHashMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@72f227d7, 2500): success
+test Collisions.testValuesIteratorRemove("ConcurrentSkipListMap with colliding objects", MapWithCollisionsProviders$$Lambda/0x0000000129083648@159808f3, 2500): success
+test Collisions.testValuesIteratorRemove("HashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1080b0c5, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("LinkedHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@1dddc0a1, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("Hashtable with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5fdfe7c7, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("IdentityHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@7816c97e, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@f660430, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("Descending TreeMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@9281de7, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("WeakHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@632e875c, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("ConcurrentHashMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@5e705d96, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("ConcurrentSkipListMap with unique strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@270c98bf, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("HashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@602afd27, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("LinkedHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@306ac09f, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("Hashtable with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54509d98, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("IdentityHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67b55fdd, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@173c9002, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("Descending TreeMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@54804c27, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("WeakHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@49099f99, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("ConcurrentHashMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@2ca9704f, "Extra Value"): success
+test Collisions.testValuesIteratorRemove("ConcurrentSkipListMap with colliding strings", MapWithCollisionsProviders$$Lambda/0x0000000129083648@67adaf22, "Extra Value"): success
+
+===============================================
+java/util/Map/Collisions.java
+Total tests run: 180, Passes: 180, Failures: 0, Skips: 0
+===============================================
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3476)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Map/Collisions.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map/Collisions.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Map/Collisions.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/Map \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.map.collisions.shortrun=true \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Map/Collisions.d/testng.0.jta java/util/Map/Collisions.java false Collisions
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

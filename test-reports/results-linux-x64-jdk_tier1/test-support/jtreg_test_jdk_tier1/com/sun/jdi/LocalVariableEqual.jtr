@@ -1,0 +1,2329 @@
+#Test Results (version 2)
+#Mon Apr 29 00:36:17 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=Serguei Spitsyn
+keywords=bug4916263 driver
+modules=jdk.jdi
+run=USER_SPECIFIED build TestScaffold VMConnection TargetListener TargetAdapter\nUSER_SPECIFIED compile -g LocalVariableEqual.java\nUSER_SPECIFIED driver LocalVariableEqual\n
+source=LocalVariableEqual.java
+title=Test
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java
+elapsed=919 0\:00\:00.919
+end=Mon Apr 29 00\:36\:17 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.jdi
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile compile build driver
+start=Mon Apr 29 00\:36\:16 UTC 2024
+test=com/sun/jdi/LocalVariableEqual.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=920
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/com/sun/jdi
+
+#section:script_messages
+----------messages:(4/322)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/359)----------
+command: build TestScaffold VMConnection TargetListener TargetAdapter
+reason: User specified action: run build TestScaffold VMConnection TargetListener TargetAdapter 
+started: Mon Apr 29 00:36:16 UTC 2024
+Test directory:
+  compile: TestScaffold, VMConnection, TargetListener, TargetAdapter
+finished: Mon Apr 29 00:36:16 UTC 2024
+elapsed time (seconds): 0.293
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/551)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:36:16 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:36:16 UTC 2024
+elapsed time (seconds): 0.293
+----------configuration:(11/679)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d
+
+----------rerun:(37/3427)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/LocalVariableEqual.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TestScaffold.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/VMConnection.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetListener.java /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/TargetAdapter.java
+----------direct:(6/363)----------
+/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/DebuggeeWrapper.java:115: warning: [removal] ThreadDeath in java.lang has been deprecated and marked for removal
+            if (e instanceof ThreadDeath) {
+                             ^
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+1 warning
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(8/358)----------
+command: compile -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java
+reason: User specified action: run compile -g LocalVariableEqual.java 
+started: Mon Apr 29 00:36:16 UTC 2024
+Additional options from @modules: --add-modules jdk.jdi
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:36:16 UTC 2024
+elapsed time (seconds): 0.04
+----------configuration:(11/679)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.jdi
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d
+
+----------rerun:(38/3225)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=com/sun/jdi/LocalVariableEqual.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -J-Dtest.modules=jdk.jdi \\
+        --add-modules jdk.jdi \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -g /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/178)----------
+command: build LocalVariableEqual
+reason: Named class compiled on demand
+started: Mon Apr 29 00:36:16 UTC 2024
+finished: Mon Apr 29 00:36:16 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(7/230)----------
+command: driver LocalVariableEqual
+reason: User specified action: run driver LocalVariableEqual 
+started: Mon Apr 29 00:36:16 UTC 2024
+Mode: agentvm
+Agent id: 4
+finished: Mon Apr 29 00:36:17 UTC 2024
+elapsed time (seconds): 0.581
+----------configuration:(13/910)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d
+              /home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi
+
+----------rerun:(29/2701)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=com/sun/jdi/LocalVariableEqual.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi/LocalVariableEqual.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi \\
+        -Dtest.modules=jdk.jdi \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/com/sun/jdi/LocalVariableEqual.d:/home/runner/work/openjdk/openjdk/test/jdk/com/sun/jdi:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        LocalVariableEqual
+----------System.err:(2059/86113)----------
+[1ms] run args: [LocalVariableEqualTarg]
+[103ms] startToMain(LocalVariableEqualTarg)
+[104ms] compareAllVariables for method: LocalVariableEqualTarg.staticMeth
+[112ms] 
+ Success: got a list of all method variables: staticMeth
+[112ms] 
+ Two variables:
+[125ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[127ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[127ms] 
+[127ms]  Success: equality of local vars detected
+[127ms]  Success: hashCode's of equal local vars are equal
+[127ms]  Success: compareTo() is correct for equal local vars
+[128ms] 
+ Two variables:
+[128ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[128ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[128ms] 
+[128ms]  Success: difference of local vars detected
+[128ms]  Success: hashCode's of different local vars differ
+[128ms]  Success: compareTo() is correct for different local vars
+[128ms] 
+ Two variables:
+[128ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[128ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[128ms] 
+[128ms]  Success: difference of local vars detected
+[129ms]  Success: hashCode's of different local vars differ
+[129ms]  Success: compareTo() is correct for different local vars
+[129ms] 
+ Two variables:
+[129ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[129ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[129ms] 
+[129ms]  Success: difference of local vars detected
+[129ms]  Success: hashCode's of different local vars differ
+[129ms]  Success: compareTo() is correct for different local vars
+[129ms] 
+ Two variables:
+[129ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[129ms]  Var: char_1, index: 4, type: char, Signature: C
+[129ms] 
+[130ms]  Success: difference of local vars detected
+[130ms]  Success: hashCode's of different local vars differ
+[130ms]  Success: compareTo() is correct for different local vars
+[130ms] 
+ Two variables:
+[130ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[130ms]  Var: short_1, index: 5, type: short, Signature: S
+[130ms] 
+[130ms]  Success: difference of local vars detected
+[130ms]  Success: hashCode's of different local vars differ
+[130ms]  Success: compareTo() is correct for different local vars
+[130ms] 
+ Two variables:
+[130ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[131ms]  Var: short_2, index: 6, type: short, Signature: S
+[131ms] 
+[131ms]  Success: difference of local vars detected
+[131ms]  Success: hashCode's of different local vars differ
+[131ms]  Success: compareTo() is correct for different local vars
+[131ms] 
+ Two variables:
+[131ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[131ms]  Var: char_2, index: 7, type: char, Signature: C
+[131ms] 
+[132ms]  Success: difference of local vars detected
+[132ms]  Success: hashCode's of different local vars differ
+[132ms]  Success: compareTo() is correct for different local vars
+[132ms] 
+ Two variables:
+[132ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[132ms]  Var: int_1, index: 8, type: int, Signature: I
+[132ms] 
+[132ms]  Success: difference of local vars detected
+[132ms]  Success: hashCode's of different local vars differ
+[132ms]  Success: compareTo() is correct for different local vars
+[132ms] 
+ Two variables:
+[133ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[133ms]  Var: long_1, index: 9, type: long, Signature: J
+[133ms] 
+[133ms]  Success: difference of local vars detected
+[133ms]  Success: hashCode's of different local vars differ
+[133ms]  Success: compareTo() is correct for different local vars
+[133ms] 
+ Two variables:
+[133ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[133ms]  Var: float_1, index: 10, type: float, Signature: F
+[133ms] 
+[133ms]  Success: difference of local vars detected
+[134ms]  Success: hashCode's of different local vars differ
+[134ms]  Success: compareTo() is correct for different local vars
+[134ms] 
+ Two variables:
+[134ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[135ms]  Var: double_2, index: 11, type: double, Signature: D
+[135ms] 
+[135ms]  Success: difference of local vars detected
+[135ms]  Success: hashCode's of different local vars differ
+[135ms]  Success: compareTo() is correct for different local vars
+[135ms] 
+ Two variables:
+[143ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[144ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[144ms] 
+[144ms]  Success: difference of local vars detected
+[144ms]  Success: hashCode's of different local vars differ
+[144ms]  Success: compareTo() is correct for different local vars
+[144ms] 
+ Two variables:
+[144ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[145ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[145ms] 
+[145ms]  Success: difference of local vars detected
+[145ms]  Success: hashCode's of different local vars differ
+[145ms]  Success: compareTo() is correct for different local vars
+[145ms] 
+ Two variables:
+[145ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[145ms]  Var: intArg, index: 14, type: int, Signature: I
+[146ms] 
+[146ms]  Success: difference of local vars detected
+[146ms]  Success: hashCode's of different local vars differ
+[146ms]  Success: compareTo() is correct for different local vars
+[146ms] 
+ Two variables:
+[146ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[146ms]  Var: result, index: 15, type: int, Signature: I
+[146ms] 
+[146ms]  Success: difference of local vars detected
+[146ms]  Success: hashCode's of different local vars differ
+[146ms]  Success: compareTo() is correct for different local vars
+[146ms] 
+ Two variables:
+[147ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[147ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[147ms] 
+[147ms]  Success: difference of local vars detected
+[147ms]  Success: hashCode's of different local vars differ
+[147ms]  Success: compareTo() is correct for different local vars
+[148ms] 
+ Two variables:
+[148ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[148ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[148ms] 
+[148ms]  Success: equality of local vars detected
+[148ms]  Success: hashCode's of equal local vars are equal
+[149ms]  Success: compareTo() is correct for equal local vars
+[149ms] 
+ Two variables:
+[149ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[149ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[149ms] 
+[149ms]  Success: difference of local vars detected
+[149ms]  Success: hashCode's of different local vars differ
+[149ms]  Success: compareTo() is correct for different local vars
+[149ms] 
+ Two variables:
+[149ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[149ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[149ms] 
+[149ms]  Success: difference of local vars detected
+[150ms]  Success: hashCode's of different local vars differ
+[150ms]  Success: compareTo() is correct for different local vars
+[150ms] 
+ Two variables:
+[150ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[150ms]  Var: char_1, index: 4, type: char, Signature: C
+[150ms] 
+[150ms]  Success: difference of local vars detected
+[150ms]  Success: hashCode's of different local vars differ
+[150ms]  Success: compareTo() is correct for different local vars
+[150ms] 
+ Two variables:
+[150ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[150ms]  Var: short_1, index: 5, type: short, Signature: S
+[150ms] 
+[150ms]  Success: difference of local vars detected
+[151ms]  Success: hashCode's of different local vars differ
+[151ms]  Success: compareTo() is correct for different local vars
+[151ms] 
+ Two variables:
+[151ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[151ms]  Var: short_2, index: 6, type: short, Signature: S
+[151ms] 
+[151ms]  Success: difference of local vars detected
+[151ms]  Success: hashCode's of different local vars differ
+[151ms]  Success: compareTo() is correct for different local vars
+[151ms] 
+ Two variables:
+[151ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[151ms]  Var: char_2, index: 7, type: char, Signature: C
+[151ms] 
+[151ms]  Success: difference of local vars detected
+[151ms]  Success: hashCode's of different local vars differ
+[152ms]  Success: compareTo() is correct for different local vars
+[152ms] 
+ Two variables:
+[152ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[153ms]  Var: int_1, index: 8, type: int, Signature: I
+[154ms] 
+[154ms]  Success: difference of local vars detected
+[154ms]  Success: hashCode's of different local vars differ
+[154ms]  Success: compareTo() is correct for different local vars
+[154ms] 
+ Two variables:
+[154ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[154ms]  Var: long_1, index: 9, type: long, Signature: J
+[155ms] 
+[155ms]  Success: difference of local vars detected
+[155ms]  Success: hashCode's of different local vars differ
+[155ms]  Success: compareTo() is correct for different local vars
+[155ms] 
+ Two variables:
+[155ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[155ms]  Var: float_1, index: 10, type: float, Signature: F
+[155ms] 
+[155ms]  Success: difference of local vars detected
+[155ms]  Success: hashCode's of different local vars differ
+[155ms]  Success: compareTo() is correct for different local vars
+[155ms] 
+ Two variables:
+[155ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[155ms]  Var: double_2, index: 11, type: double, Signature: D
+[155ms] 
+[155ms]  Success: difference of local vars detected
+[156ms]  Success: hashCode's of different local vars differ
+[156ms]  Success: compareTo() is correct for different local vars
+[156ms] 
+ Two variables:
+[156ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[156ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[156ms] 
+[156ms]  Success: difference of local vars detected
+[157ms]  Success: hashCode's of different local vars differ
+[157ms]  Success: compareTo() is correct for different local vars
+[157ms] 
+ Two variables:
+[157ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[157ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[157ms] 
+[157ms]  Success: difference of local vars detected
+[157ms]  Success: hashCode's of different local vars differ
+[157ms]  Success: compareTo() is correct for different local vars
+[157ms] 
+ Two variables:
+[158ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[158ms]  Var: intArg, index: 14, type: int, Signature: I
+[158ms] 
+[158ms]  Success: difference of local vars detected
+[158ms]  Success: hashCode's of different local vars differ
+[158ms]  Success: compareTo() is correct for different local vars
+[158ms] 
+ Two variables:
+[158ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[158ms]  Var: result, index: 15, type: int, Signature: I
+[158ms] 
+[158ms]  Success: difference of local vars detected
+[158ms]  Success: hashCode's of different local vars differ
+[158ms]  Success: compareTo() is correct for different local vars
+[158ms] 
+ Two variables:
+[158ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[159ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[159ms] 
+[159ms]  Success: difference of local vars detected
+[159ms]  Success: hashCode's of different local vars differ
+[159ms]  Success: compareTo() is correct for different local vars
+[159ms] 
+ Two variables:
+[159ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[159ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[159ms] 
+[159ms]  Success: difference of local vars detected
+[163ms]  Success: hashCode's of different local vars differ
+[163ms]  Success: compareTo() is correct for different local vars
+[163ms] 
+ Two variables:
+[163ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[163ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[163ms] 
+[163ms]  Success: equality of local vars detected
+[163ms]  Success: hashCode's of equal local vars are equal
+[163ms]  Success: compareTo() is correct for equal local vars
+[164ms] 
+ Two variables:
+[164ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[164ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[164ms] 
+[164ms]  Success: difference of local vars detected
+[164ms]  Success: hashCode's of different local vars differ
+[165ms]  Success: compareTo() is correct for different local vars
+[165ms] 
+ Two variables:
+[166ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[166ms]  Var: char_1, index: 4, type: char, Signature: C
+[166ms] 
+[166ms]  Success: difference of local vars detected
+[166ms]  Success: hashCode's of different local vars differ
+[166ms]  Success: compareTo() is correct for different local vars
+[166ms] 
+ Two variables:
+[166ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[166ms]  Var: short_1, index: 5, type: short, Signature: S
+[166ms] 
+[166ms]  Success: difference of local vars detected
+[166ms]  Success: hashCode's of different local vars differ
+[167ms]  Success: compareTo() is correct for different local vars
+[167ms] 
+ Two variables:
+[167ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[167ms]  Var: short_2, index: 6, type: short, Signature: S
+[167ms] 
+[167ms]  Success: difference of local vars detected
+[167ms]  Success: hashCode's of different local vars differ
+[167ms]  Success: compareTo() is correct for different local vars
+[167ms] 
+ Two variables:
+[167ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[167ms]  Var: char_2, index: 7, type: char, Signature: C
+[167ms] 
+[168ms]  Success: difference of local vars detected
+[168ms]  Success: hashCode's of different local vars differ
+[168ms]  Success: compareTo() is correct for different local vars
+[168ms] 
+ Two variables:
+[168ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[168ms]  Var: int_1, index: 8, type: int, Signature: I
+[168ms] 
+[168ms]  Success: difference of local vars detected
+[168ms]  Success: hashCode's of different local vars differ
+[169ms]  Success: compareTo() is correct for different local vars
+[169ms] 
+ Two variables:
+[169ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[169ms]  Var: long_1, index: 9, type: long, Signature: J
+[169ms] 
+[169ms]  Success: difference of local vars detected
+[169ms]  Success: hashCode's of different local vars differ
+[169ms]  Success: compareTo() is correct for different local vars
+[169ms] 
+ Two variables:
+[169ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[169ms]  Var: float_1, index: 10, type: float, Signature: F
+[169ms] 
+[169ms]  Success: difference of local vars detected
+[169ms]  Success: hashCode's of different local vars differ
+[169ms]  Success: compareTo() is correct for different local vars
+[169ms] 
+ Two variables:
+[169ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[170ms]  Var: double_2, index: 11, type: double, Signature: D
+[170ms] 
+[170ms]  Success: difference of local vars detected
+[170ms]  Success: hashCode's of different local vars differ
+[170ms]  Success: compareTo() is correct for different local vars
+[170ms] 
+ Two variables:
+[170ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[170ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[170ms] 
+[170ms]  Success: difference of local vars detected
+[171ms]  Success: hashCode's of different local vars differ
+[171ms]  Success: compareTo() is correct for different local vars
+[171ms] 
+ Two variables:
+[171ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[171ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[171ms] 
+[171ms]  Success: difference of local vars detected
+[171ms]  Success: hashCode's of different local vars differ
+[171ms]  Success: compareTo() is correct for different local vars
+[171ms] 
+ Two variables:
+[171ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[172ms]  Var: intArg, index: 14, type: int, Signature: I
+[172ms] 
+[172ms]  Success: difference of local vars detected
+[172ms]  Success: hashCode's of different local vars differ
+[172ms]  Success: compareTo() is correct for different local vars
+[172ms] 
+ Two variables:
+[172ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[172ms]  Var: result, index: 15, type: int, Signature: I
+[172ms] 
+[172ms]  Success: difference of local vars detected
+[172ms]  Success: hashCode's of different local vars differ
+[172ms]  Success: compareTo() is correct for different local vars
+[172ms] 
+ Two variables:
+[172ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[172ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[173ms] 
+[173ms]  Success: difference of local vars detected
+[173ms]  Success: hashCode's of different local vars differ
+[173ms]  Success: compareTo() is correct for different local vars
+[173ms] 
+ Two variables:
+[173ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[173ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[173ms] 
+[173ms]  Success: difference of local vars detected
+[173ms]  Success: hashCode's of different local vars differ
+[173ms]  Success: compareTo() is correct for different local vars
+[173ms] 
+ Two variables:
+[173ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[173ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[173ms] 
+[173ms]  Success: difference of local vars detected
+[173ms]  Success: hashCode's of different local vars differ
+[173ms]  Success: compareTo() is correct for different local vars
+[173ms] 
+ Two variables:
+[173ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[173ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[173ms] 
+[173ms]  Success: equality of local vars detected
+[173ms]  Success: hashCode's of equal local vars are equal
+[174ms]  Success: compareTo() is correct for equal local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: char_1, index: 4, type: char, Signature: C
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: short_1, index: 5, type: short, Signature: S
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: short_2, index: 6, type: short, Signature: S
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: char_2, index: 7, type: char, Signature: C
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: int_1, index: 8, type: int, Signature: I
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: long_1, index: 9, type: long, Signature: J
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: float_1, index: 10, type: float, Signature: F
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[174ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[174ms]  Var: double_2, index: 11, type: double, Signature: D
+[174ms] 
+[174ms]  Success: difference of local vars detected
+[174ms]  Success: hashCode's of different local vars differ
+[174ms]  Success: compareTo() is correct for different local vars
+[174ms] 
+ Two variables:
+[175ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[175ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[175ms] 
+[175ms]  Success: difference of local vars detected
+[175ms]  Success: hashCode's of different local vars differ
+[175ms]  Success: compareTo() is correct for different local vars
+[175ms] 
+ Two variables:
+[175ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[175ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[175ms] 
+[176ms]  Success: difference of local vars detected
+[176ms]  Success: hashCode's of different local vars differ
+[176ms]  Success: compareTo() is correct for different local vars
+[176ms] 
+ Two variables:
+[176ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[176ms]  Var: intArg, index: 14, type: int, Signature: I
+[176ms] 
+[176ms]  Success: difference of local vars detected
+[176ms]  Success: hashCode's of different local vars differ
+[176ms]  Success: compareTo() is correct for different local vars
+[176ms] 
+ Two variables:
+[176ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[177ms]  Var: result, index: 15, type: int, Signature: I
+[177ms] 
+[177ms]  Success: difference of local vars detected
+[177ms]  Success: hashCode's of different local vars differ
+[177ms]  Success: compareTo() is correct for different local vars
+[177ms] 
+ Two variables:
+[177ms]  Var: char_1, index: 4, type: char, Signature: C
+[177ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[177ms] 
+[177ms]  Success: difference of local vars detected
+[177ms]  Success: hashCode's of different local vars differ
+[177ms]  Success: compareTo() is correct for different local vars
+[177ms] 
+ Two variables:
+[177ms]  Var: char_1, index: 4, type: char, Signature: C
+[178ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[178ms] 
+[178ms]  Success: difference of local vars detected
+[178ms]  Success: hashCode's of different local vars differ
+[178ms]  Success: compareTo() is correct for different local vars
+[178ms] 
+ Two variables:
+[178ms]  Var: char_1, index: 4, type: char, Signature: C
+[178ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[178ms] 
+[178ms]  Success: difference of local vars detected
+[178ms]  Success: hashCode's of different local vars differ
+[178ms]  Success: compareTo() is correct for different local vars
+[178ms] 
+ Two variables:
+[178ms]  Var: char_1, index: 4, type: char, Signature: C
+[178ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[178ms] 
+[178ms]  Success: difference of local vars detected
+[178ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms] 
+[179ms]  Success: equality of local vars detected
+[179ms]  Success: hashCode's of equal local vars are equal
+[179ms]  Success: compareTo() is correct for equal local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: short_1, index: 5, type: short, Signature: S
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[179ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: short_2, index: 6, type: short, Signature: S
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[179ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: char_2, index: 7, type: char, Signature: C
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[179ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: int_1, index: 8, type: int, Signature: I
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[179ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: long_1, index: 9, type: long, Signature: J
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[179ms]  Success: hashCode's of different local vars differ
+[179ms]  Success: compareTo() is correct for different local vars
+[179ms] 
+ Two variables:
+[179ms]  Var: char_1, index: 4, type: char, Signature: C
+[179ms]  Var: float_1, index: 10, type: float, Signature: F
+[179ms] 
+[179ms]  Success: difference of local vars detected
+[180ms]  Success: hashCode's of different local vars differ
+[180ms]  Success: compareTo() is correct for different local vars
+[180ms] 
+ Two variables:
+[180ms]  Var: char_1, index: 4, type: char, Signature: C
+[180ms]  Var: double_2, index: 11, type: double, Signature: D
+[180ms] 
+[180ms]  Success: difference of local vars detected
+[180ms]  Success: hashCode's of different local vars differ
+[180ms]  Success: compareTo() is correct for different local vars
+[180ms] 
+ Two variables:
+[180ms]  Var: char_1, index: 4, type: char, Signature: C
+[180ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[180ms] 
+[180ms]  Success: difference of local vars detected
+[180ms]  Success: hashCode's of different local vars differ
+[180ms]  Success: compareTo() is correct for different local vars
+[180ms] 
+ Two variables:
+[180ms]  Var: char_1, index: 4, type: char, Signature: C
+[180ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[180ms] 
+[180ms]  Success: difference of local vars detected
+[180ms]  Success: hashCode's of different local vars differ
+[181ms]  Success: compareTo() is correct for different local vars
+[181ms] 
+ Two variables:
+[181ms]  Var: char_1, index: 4, type: char, Signature: C
+[181ms]  Var: intArg, index: 14, type: int, Signature: I
+[181ms] 
+[181ms]  Success: difference of local vars detected
+[181ms]  Success: hashCode's of different local vars differ
+[181ms]  Success: compareTo() is correct for different local vars
+[181ms] 
+ Two variables:
+[181ms]  Var: char_1, index: 4, type: char, Signature: C
+[181ms]  Var: result, index: 15, type: int, Signature: I
+[181ms] 
+[181ms]  Success: difference of local vars detected
+[181ms]  Success: hashCode's of different local vars differ
+[181ms]  Success: compareTo() is correct for different local vars
+[181ms] 
+ Two variables:
+[181ms]  Var: short_1, index: 5, type: short, Signature: S
+[181ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[181ms] 
+[181ms]  Success: difference of local vars detected
+[181ms]  Success: hashCode's of different local vars differ
+[181ms]  Success: compareTo() is correct for different local vars
+[181ms] 
+ Two variables:
+[182ms]  Var: short_1, index: 5, type: short, Signature: S
+[182ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[182ms] 
+[182ms]  Success: difference of local vars detected
+[182ms]  Success: hashCode's of different local vars differ
+[182ms]  Success: compareTo() is correct for different local vars
+[182ms] 
+ Two variables:
+[182ms]  Var: short_1, index: 5, type: short, Signature: S
+[182ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[182ms] 
+[182ms]  Success: difference of local vars detected
+[182ms]  Success: hashCode's of different local vars differ
+[182ms]  Success: compareTo() is correct for different local vars
+[182ms] 
+ Two variables:
+[182ms]  Var: short_1, index: 5, type: short, Signature: S
+[182ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[182ms] 
+[182ms]  Success: difference of local vars detected
+[182ms]  Success: hashCode's of different local vars differ
+[182ms]  Success: compareTo() is correct for different local vars
+[182ms] 
+ Two variables:
+[182ms]  Var: short_1, index: 5, type: short, Signature: S
+[182ms]  Var: char_1, index: 4, type: char, Signature: C
+[182ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms] 
+[183ms]  Success: equality of local vars detected
+[183ms]  Success: hashCode's of equal local vars are equal
+[183ms]  Success: compareTo() is correct for equal local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: short_2, index: 6, type: short, Signature: S
+[183ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: char_2, index: 7, type: char, Signature: C
+[183ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: int_1, index: 8, type: int, Signature: I
+[183ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: long_1, index: 9, type: long, Signature: J
+[183ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: float_1, index: 10, type: float, Signature: F
+[183ms] 
+[183ms]  Success: difference of local vars detected
+[183ms]  Success: hashCode's of different local vars differ
+[183ms]  Success: compareTo() is correct for different local vars
+[183ms] 
+ Two variables:
+[183ms]  Var: short_1, index: 5, type: short, Signature: S
+[183ms]  Var: double_2, index: 11, type: double, Signature: D
+[183ms] 
+[184ms]  Success: difference of local vars detected
+[184ms]  Success: hashCode's of different local vars differ
+[184ms]  Success: compareTo() is correct for different local vars
+[184ms] 
+ Two variables:
+[184ms]  Var: short_1, index: 5, type: short, Signature: S
+[184ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[184ms] 
+[184ms]  Success: difference of local vars detected
+[184ms]  Success: hashCode's of different local vars differ
+[184ms]  Success: compareTo() is correct for different local vars
+[184ms] 
+ Two variables:
+[184ms]  Var: short_1, index: 5, type: short, Signature: S
+[184ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[184ms] 
+[184ms]  Success: difference of local vars detected
+[185ms]  Success: hashCode's of different local vars differ
+[185ms]  Success: compareTo() is correct for different local vars
+[185ms] 
+ Two variables:
+[185ms]  Var: short_1, index: 5, type: short, Signature: S
+[185ms]  Var: intArg, index: 14, type: int, Signature: I
+[185ms] 
+[185ms]  Success: difference of local vars detected
+[185ms]  Success: hashCode's of different local vars differ
+[185ms]  Success: compareTo() is correct for different local vars
+[185ms] 
+ Two variables:
+[185ms]  Var: short_1, index: 5, type: short, Signature: S
+[185ms]  Var: result, index: 15, type: int, Signature: I
+[185ms] 
+[185ms]  Success: difference of local vars detected
+[185ms]  Success: hashCode's of different local vars differ
+[185ms]  Success: compareTo() is correct for different local vars
+[185ms] 
+ Two variables:
+[185ms]  Var: short_2, index: 6, type: short, Signature: S
+[185ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[185ms] 
+[185ms]  Success: difference of local vars detected
+[185ms]  Success: hashCode's of different local vars differ
+[186ms]  Success: compareTo() is correct for different local vars
+[186ms] 
+ Two variables:
+[186ms]  Var: short_2, index: 6, type: short, Signature: S
+[186ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[186ms] 
+[186ms]  Success: difference of local vars detected
+[186ms]  Success: hashCode's of different local vars differ
+[186ms]  Success: compareTo() is correct for different local vars
+[186ms] 
+ Two variables:
+[186ms]  Var: short_2, index: 6, type: short, Signature: S
+[186ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[186ms] 
+[186ms]  Success: difference of local vars detected
+[186ms]  Success: hashCode's of different local vars differ
+[186ms]  Success: compareTo() is correct for different local vars
+[186ms] 
+ Two variables:
+[186ms]  Var: short_2, index: 6, type: short, Signature: S
+[186ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[186ms] 
+[186ms]  Success: difference of local vars detected
+[186ms]  Success: hashCode's of different local vars differ
+[186ms]  Success: compareTo() is correct for different local vars
+[186ms] 
+ Two variables:
+[186ms]  Var: short_2, index: 6, type: short, Signature: S
+[186ms]  Var: char_1, index: 4, type: char, Signature: C
+[186ms] 
+[187ms]  Success: difference of local vars detected
+[187ms]  Success: hashCode's of different local vars differ
+[187ms]  Success: compareTo() is correct for different local vars
+[187ms] 
+ Two variables:
+[187ms]  Var: short_2, index: 6, type: short, Signature: S
+[187ms]  Var: short_1, index: 5, type: short, Signature: S
+[187ms] 
+[187ms]  Success: difference of local vars detected
+[187ms]  Success: hashCode's of different local vars differ
+[187ms]  Success: compareTo() is correct for different local vars
+[187ms] 
+ Two variables:
+[187ms]  Var: short_2, index: 6, type: short, Signature: S
+[187ms]  Var: short_2, index: 6, type: short, Signature: S
+[187ms] 
+[187ms]  Success: equality of local vars detected
+[187ms]  Success: hashCode's of equal local vars are equal
+[188ms]  Success: compareTo() is correct for equal local vars
+[188ms] 
+ Two variables:
+[188ms]  Var: short_2, index: 6, type: short, Signature: S
+[188ms]  Var: char_2, index: 7, type: char, Signature: C
+[188ms] 
+[188ms]  Success: difference of local vars detected
+[188ms]  Success: hashCode's of different local vars differ
+[188ms]  Success: compareTo() is correct for different local vars
+[188ms] 
+ Two variables:
+[188ms]  Var: short_2, index: 6, type: short, Signature: S
+[188ms]  Var: int_1, index: 8, type: int, Signature: I
+[188ms] 
+[188ms]  Success: difference of local vars detected
+[188ms]  Success: hashCode's of different local vars differ
+[188ms]  Success: compareTo() is correct for different local vars
+[188ms] 
+ Two variables:
+[188ms]  Var: short_2, index: 6, type: short, Signature: S
+[188ms]  Var: long_1, index: 9, type: long, Signature: J
+[188ms] 
+[188ms]  Success: difference of local vars detected
+[188ms]  Success: hashCode's of different local vars differ
+[188ms]  Success: compareTo() is correct for different local vars
+[188ms] 
+ Two variables:
+[188ms]  Var: short_2, index: 6, type: short, Signature: S
+[189ms]  Var: float_1, index: 10, type: float, Signature: F
+[189ms] 
+[189ms]  Success: difference of local vars detected
+[189ms]  Success: hashCode's of different local vars differ
+[189ms]  Success: compareTo() is correct for different local vars
+[189ms] 
+ Two variables:
+[189ms]  Var: short_2, index: 6, type: short, Signature: S
+[189ms]  Var: double_2, index: 11, type: double, Signature: D
+[189ms] 
+[189ms]  Success: difference of local vars detected
+[189ms]  Success: hashCode's of different local vars differ
+[189ms]  Success: compareTo() is correct for different local vars
+[189ms] 
+ Two variables:
+[189ms]  Var: short_2, index: 6, type: short, Signature: S
+[189ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[189ms] 
+[189ms]  Success: difference of local vars detected
+[189ms]  Success: hashCode's of different local vars differ
+[189ms]  Success: compareTo() is correct for different local vars
+[189ms] 
+ Two variables:
+[189ms]  Var: short_2, index: 6, type: short, Signature: S
+[190ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[190ms] 
+[190ms]  Success: difference of local vars detected
+[190ms]  Success: hashCode's of different local vars differ
+[190ms]  Success: compareTo() is correct for different local vars
+[190ms] 
+ Two variables:
+[190ms]  Var: short_2, index: 6, type: short, Signature: S
+[190ms]  Var: intArg, index: 14, type: int, Signature: I
+[190ms] 
+[190ms]  Success: difference of local vars detected
+[190ms]  Success: hashCode's of different local vars differ
+[190ms]  Success: compareTo() is correct for different local vars
+[190ms] 
+ Two variables:
+[190ms]  Var: short_2, index: 6, type: short, Signature: S
+[190ms]  Var: result, index: 15, type: int, Signature: I
+[190ms] 
+[190ms]  Success: difference of local vars detected
+[190ms]  Success: hashCode's of different local vars differ
+[190ms]  Success: compareTo() is correct for different local vars
+[190ms] 
+ Two variables:
+[190ms]  Var: char_2, index: 7, type: char, Signature: C
+[190ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[190ms] 
+[190ms]  Success: difference of local vars detected
+[191ms]  Success: hashCode's of different local vars differ
+[191ms]  Success: compareTo() is correct for different local vars
+[191ms] 
+ Two variables:
+[191ms]  Var: char_2, index: 7, type: char, Signature: C
+[191ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[191ms] 
+[191ms]  Success: difference of local vars detected
+[191ms]  Success: hashCode's of different local vars differ
+[191ms]  Success: compareTo() is correct for different local vars
+[191ms] 
+ Two variables:
+[191ms]  Var: char_2, index: 7, type: char, Signature: C
+[191ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[191ms] 
+[192ms]  Success: difference of local vars detected
+[192ms]  Success: hashCode's of different local vars differ
+[192ms]  Success: compareTo() is correct for different local vars
+[192ms] 
+ Two variables:
+[192ms]  Var: char_2, index: 7, type: char, Signature: C
+[192ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[192ms] 
+[192ms]  Success: difference of local vars detected
+[192ms]  Success: hashCode's of different local vars differ
+[192ms]  Success: compareTo() is correct for different local vars
+[192ms] 
+ Two variables:
+[192ms]  Var: char_2, index: 7, type: char, Signature: C
+[192ms]  Var: char_1, index: 4, type: char, Signature: C
+[192ms] 
+[192ms]  Success: difference of local vars detected
+[192ms]  Success: hashCode's of different local vars differ
+[192ms]  Success: compareTo() is correct for different local vars
+[193ms] 
+ Two variables:
+[193ms]  Var: char_2, index: 7, type: char, Signature: C
+[193ms]  Var: short_1, index: 5, type: short, Signature: S
+[193ms] 
+[193ms]  Success: difference of local vars detected
+[193ms]  Success: hashCode's of different local vars differ
+[193ms]  Success: compareTo() is correct for different local vars
+[193ms] 
+ Two variables:
+[193ms]  Var: char_2, index: 7, type: char, Signature: C
+[193ms]  Var: short_2, index: 6, type: short, Signature: S
+[193ms] 
+[193ms]  Success: difference of local vars detected
+[193ms]  Success: hashCode's of different local vars differ
+[193ms]  Success: compareTo() is correct for different local vars
+[193ms] 
+ Two variables:
+[193ms]  Var: char_2, index: 7, type: char, Signature: C
+[193ms]  Var: char_2, index: 7, type: char, Signature: C
+[193ms] 
+[194ms]  Success: equality of local vars detected
+[194ms]  Success: hashCode's of equal local vars are equal
+[194ms]  Success: compareTo() is correct for equal local vars
+[194ms] 
+ Two variables:
+[194ms]  Var: char_2, index: 7, type: char, Signature: C
+[194ms]  Var: int_1, index: 8, type: int, Signature: I
+[194ms] 
+[194ms]  Success: difference of local vars detected
+[194ms]  Success: hashCode's of different local vars differ
+[194ms]  Success: compareTo() is correct for different local vars
+[194ms] 
+ Two variables:
+[194ms]  Var: char_2, index: 7, type: char, Signature: C
+[194ms]  Var: long_1, index: 9, type: long, Signature: J
+[194ms] 
+[194ms]  Success: difference of local vars detected
+[194ms]  Success: hashCode's of different local vars differ
+[194ms]  Success: compareTo() is correct for different local vars
+[194ms] 
+ Two variables:
+[194ms]  Var: char_2, index: 7, type: char, Signature: C
+[194ms]  Var: float_1, index: 10, type: float, Signature: F
+[194ms] 
+[194ms]  Success: difference of local vars detected
+[194ms]  Success: hashCode's of different local vars differ
+[194ms]  Success: compareTo() is correct for different local vars
+[194ms] 
+ Two variables:
+[194ms]  Var: char_2, index: 7, type: char, Signature: C
+[194ms]  Var: double_2, index: 11, type: double, Signature: D
+[194ms] 
+[194ms]  Success: difference of local vars detected
+[195ms]  Success: hashCode's of different local vars differ
+[195ms]  Success: compareTo() is correct for different local vars
+[195ms] 
+ Two variables:
+[195ms]  Var: char_2, index: 7, type: char, Signature: C
+[195ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[195ms] 
+[195ms]  Success: difference of local vars detected
+[195ms]  Success: hashCode's of different local vars differ
+[195ms]  Success: compareTo() is correct for different local vars
+[195ms] 
+ Two variables:
+[195ms]  Var: char_2, index: 7, type: char, Signature: C
+[196ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: char_2, index: 7, type: char, Signature: C
+[196ms]  Var: intArg, index: 14, type: int, Signature: I
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: char_2, index: 7, type: char, Signature: C
+[196ms]  Var: result, index: 15, type: int, Signature: I
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: char_1, index: 4, type: char, Signature: C
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: short_1, index: 5, type: short, Signature: S
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: short_2, index: 6, type: short, Signature: S
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[196ms]  Var: char_2, index: 7, type: char, Signature: C
+[196ms] 
+[196ms]  Success: difference of local vars detected
+[196ms]  Success: hashCode's of different local vars differ
+[196ms]  Success: compareTo() is correct for different local vars
+[196ms] 
+ Two variables:
+[196ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms] 
+[197ms]  Success: equality of local vars detected
+[197ms]  Success: hashCode's of equal local vars are equal
+[197ms]  Success: compareTo() is correct for equal local vars
+[197ms] 
+ Two variables:
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: long_1, index: 9, type: long, Signature: J
+[197ms] 
+[197ms]  Success: difference of local vars detected
+[197ms]  Success: hashCode's of different local vars differ
+[197ms]  Success: compareTo() is correct for different local vars
+[197ms] 
+ Two variables:
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: float_1, index: 10, type: float, Signature: F
+[197ms] 
+[197ms]  Success: difference of local vars detected
+[197ms]  Success: hashCode's of different local vars differ
+[197ms]  Success: compareTo() is correct for different local vars
+[197ms] 
+ Two variables:
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: double_2, index: 11, type: double, Signature: D
+[197ms] 
+[197ms]  Success: difference of local vars detected
+[197ms]  Success: hashCode's of different local vars differ
+[197ms]  Success: compareTo() is correct for different local vars
+[197ms] 
+ Two variables:
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[197ms] 
+[197ms]  Success: difference of local vars detected
+[197ms]  Success: hashCode's of different local vars differ
+[197ms]  Success: compareTo() is correct for different local vars
+[197ms] 
+ Two variables:
+[197ms]  Var: int_1, index: 8, type: int, Signature: I
+[197ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[197ms] 
+[197ms]  Success: difference of local vars detected
+[197ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: int_1, index: 8, type: int, Signature: I
+[198ms]  Var: intArg, index: 14, type: int, Signature: I
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: int_1, index: 8, type: int, Signature: I
+[198ms]  Var: result, index: 15, type: int, Signature: I
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: char_1, index: 4, type: char, Signature: C
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: short_1, index: 5, type: short, Signature: S
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: short_2, index: 6, type: short, Signature: S
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: char_2, index: 7, type: char, Signature: C
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[198ms]  Var: int_1, index: 8, type: int, Signature: I
+[198ms] 
+[198ms]  Success: difference of local vars detected
+[198ms]  Success: hashCode's of different local vars differ
+[198ms]  Success: compareTo() is correct for different local vars
+[198ms] 
+ Two variables:
+[198ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms] 
+[199ms]  Success: equality of local vars detected
+[199ms]  Success: hashCode's of equal local vars are equal
+[199ms]  Success: compareTo() is correct for equal local vars
+[199ms] 
+ Two variables:
+[199ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms]  Var: float_1, index: 10, type: float, Signature: F
+[199ms] 
+[199ms]  Success: difference of local vars detected
+[199ms]  Success: hashCode's of different local vars differ
+[199ms]  Success: compareTo() is correct for different local vars
+[199ms] 
+ Two variables:
+[199ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms]  Var: double_2, index: 11, type: double, Signature: D
+[199ms] 
+[199ms]  Success: difference of local vars detected
+[199ms]  Success: hashCode's of different local vars differ
+[199ms]  Success: compareTo() is correct for different local vars
+[199ms] 
+ Two variables:
+[199ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[199ms] 
+[199ms]  Success: difference of local vars detected
+[199ms]  Success: hashCode's of different local vars differ
+[199ms]  Success: compareTo() is correct for different local vars
+[199ms] 
+ Two variables:
+[199ms]  Var: long_1, index: 9, type: long, Signature: J
+[199ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: long_1, index: 9, type: long, Signature: J
+[200ms]  Var: intArg, index: 14, type: int, Signature: I
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: long_1, index: 9, type: long, Signature: J
+[200ms]  Var: result, index: 15, type: int, Signature: I
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: char_1, index: 4, type: char, Signature: C
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: short_1, index: 5, type: short, Signature: S
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: short_2, index: 6, type: short, Signature: S
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[200ms]  Var: char_2, index: 7, type: char, Signature: C
+[200ms] 
+[200ms]  Success: difference of local vars detected
+[200ms]  Success: hashCode's of different local vars differ
+[200ms]  Success: compareTo() is correct for different local vars
+[200ms] 
+ Two variables:
+[200ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: int_1, index: 8, type: int, Signature: I
+[201ms] 
+[201ms]  Success: difference of local vars detected
+[201ms]  Success: hashCode's of different local vars differ
+[201ms]  Success: compareTo() is correct for different local vars
+[201ms] 
+ Two variables:
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: long_1, index: 9, type: long, Signature: J
+[201ms] 
+[201ms]  Success: difference of local vars detected
+[201ms]  Success: hashCode's of different local vars differ
+[201ms]  Success: compareTo() is correct for different local vars
+[201ms] 
+ Two variables:
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms] 
+[201ms]  Success: equality of local vars detected
+[201ms]  Success: hashCode's of equal local vars are equal
+[201ms]  Success: compareTo() is correct for equal local vars
+[201ms] 
+ Two variables:
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: double_2, index: 11, type: double, Signature: D
+[201ms] 
+[201ms]  Success: difference of local vars detected
+[201ms]  Success: hashCode's of different local vars differ
+[201ms]  Success: compareTo() is correct for different local vars
+[201ms] 
+ Two variables:
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[201ms] 
+[201ms]  Success: difference of local vars detected
+[201ms]  Success: hashCode's of different local vars differ
+[201ms]  Success: compareTo() is correct for different local vars
+[201ms] 
+ Two variables:
+[201ms]  Var: float_1, index: 10, type: float, Signature: F
+[201ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[201ms] 
+[201ms]  Success: difference of local vars detected
+[201ms]  Success: hashCode's of different local vars differ
+[201ms]  Success: compareTo() is correct for different local vars
+[201ms] 
+ Two variables:
+[202ms]  Var: float_1, index: 10, type: float, Signature: F
+[202ms]  Var: intArg, index: 14, type: int, Signature: I
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: float_1, index: 10, type: float, Signature: F
+[202ms]  Var: result, index: 15, type: int, Signature: I
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: char_1, index: 4, type: char, Signature: C
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: short_1, index: 5, type: short, Signature: S
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: short_2, index: 6, type: short, Signature: S
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: char_2, index: 7, type: char, Signature: C
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: int_1, index: 8, type: int, Signature: I
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: long_1, index: 9, type: long, Signature: J
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: float_1, index: 10, type: float, Signature: F
+[202ms] 
+[202ms]  Success: difference of local vars detected
+[202ms]  Success: hashCode's of different local vars differ
+[202ms]  Success: compareTo() is correct for different local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[202ms] 
+[202ms]  Success: equality of local vars detected
+[202ms]  Success: hashCode's of equal local vars are equal
+[202ms]  Success: compareTo() is correct for equal local vars
+[202ms] 
+ Two variables:
+[202ms]  Var: double_2, index: 11, type: double, Signature: D
+[203ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[203ms] 
+[203ms]  Success: difference of local vars detected
+[203ms]  Success: hashCode's of different local vars differ
+[203ms]  Success: compareTo() is correct for different local vars
+[203ms] 
+ Two variables:
+[203ms]  Var: double_2, index: 11, type: double, Signature: D
+[203ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[203ms] 
+[203ms]  Success: difference of local vars detected
+[203ms]  Success: hashCode's of different local vars differ
+[203ms]  Success: compareTo() is correct for different local vars
+[203ms] 
+ Two variables:
+[203ms]  Var: double_2, index: 11, type: double, Signature: D
+[203ms]  Var: intArg, index: 14, type: int, Signature: I
+[203ms] 
+[203ms]  Success: difference of local vars detected
+[203ms]  Success: hashCode's of different local vars differ
+[203ms]  Success: compareTo() is correct for different local vars
+[203ms] 
+ Two variables:
+[203ms]  Var: double_2, index: 11, type: double, Signature: D
+[203ms]  Var: result, index: 15, type: int, Signature: I
+[203ms] 
+[203ms]  Success: difference of local vars detected
+[203ms]  Success: hashCode's of different local vars differ
+[203ms]  Success: compareTo() is correct for different local vars
+[203ms] 
+ Two variables:
+[204ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[204ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[204ms] 
+[204ms]  Success: difference of local vars detected
+[204ms]  Success: hashCode's of different local vars differ
+[204ms]  Success: compareTo() is correct for different local vars
+[204ms] 
+ Two variables:
+[204ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[204ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[204ms] 
+[204ms]  Success: difference of local vars detected
+[204ms]  Success: hashCode's of different local vars differ
+[204ms]  Success: compareTo() is correct for different local vars
+[204ms] 
+ Two variables:
+[204ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[204ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[204ms] 
+[204ms]  Success: difference of local vars detected
+[204ms]  Success: hashCode's of different local vars differ
+[204ms]  Success: compareTo() is correct for different local vars
+[204ms] 
+ Two variables:
+[205ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[205ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[205ms] 
+[205ms]  Success: difference of local vars detected
+[205ms]  Success: hashCode's of different local vars differ
+[205ms]  Success: compareTo() is correct for different local vars
+[205ms] 
+ Two variables:
+[205ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[205ms]  Var: char_1, index: 4, type: char, Signature: C
+[205ms] 
+[205ms]  Success: difference of local vars detected
+[205ms]  Success: hashCode's of different local vars differ
+[205ms]  Success: compareTo() is correct for different local vars
+[205ms] 
+ Two variables:
+[205ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[206ms]  Var: short_1, index: 5, type: short, Signature: S
+[206ms] 
+[206ms]  Success: difference of local vars detected
+[206ms]  Success: hashCode's of different local vars differ
+[206ms]  Success: compareTo() is correct for different local vars
+[206ms] 
+ Two variables:
+[206ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[206ms]  Var: short_2, index: 6, type: short, Signature: S
+[206ms] 
+[206ms]  Success: difference of local vars detected
+[206ms]  Success: hashCode's of different local vars differ
+[206ms]  Success: compareTo() is correct for different local vars
+[206ms] 
+ Two variables:
+[206ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[206ms]  Var: char_2, index: 7, type: char, Signature: C
+[206ms] 
+[206ms]  Success: difference of local vars detected
+[206ms]  Success: hashCode's of different local vars differ
+[206ms]  Success: compareTo() is correct for different local vars
+[206ms] 
+ Two variables:
+[207ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[207ms]  Var: int_1, index: 8, type: int, Signature: I
+[207ms] 
+[207ms]  Success: difference of local vars detected
+[207ms]  Success: hashCode's of different local vars differ
+[207ms]  Success: compareTo() is correct for different local vars
+[207ms] 
+ Two variables:
+[207ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[207ms]  Var: long_1, index: 9, type: long, Signature: J
+[207ms] 
+[207ms]  Success: difference of local vars detected
+[207ms]  Success: hashCode's of different local vars differ
+[207ms]  Success: compareTo() is correct for different local vars
+[207ms] 
+ Two variables:
+[207ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[207ms]  Var: float_1, index: 10, type: float, Signature: F
+[207ms] 
+[207ms]  Success: difference of local vars detected
+[207ms]  Success: hashCode's of different local vars differ
+[207ms]  Success: compareTo() is correct for different local vars
+[207ms] 
+ Two variables:
+[208ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[208ms]  Var: double_2, index: 11, type: double, Signature: D
+[208ms] 
+[208ms]  Success: difference of local vars detected
+[208ms]  Success: hashCode's of different local vars differ
+[208ms]  Success: compareTo() is correct for different local vars
+[208ms] 
+ Two variables:
+[208ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[208ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[208ms] 
+[208ms]  Success: equality of local vars detected
+[208ms]  Success: hashCode's of equal local vars are equal
+[208ms]  Success: compareTo() is correct for equal local vars
+[208ms] 
+ Two variables:
+[208ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[209ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[209ms] 
+[209ms]  Success: difference of local vars detected
+[209ms]  Success: hashCode's of different local vars differ
+[209ms]  Success: compareTo() is correct for different local vars
+[209ms] 
+ Two variables:
+[209ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[209ms]  Var: intArg, index: 14, type: int, Signature: I
+[209ms] 
+[209ms]  Success: difference of local vars detected
+[209ms]  Success: hashCode's of different local vars differ
+[209ms]  Success: compareTo() is correct for different local vars
+[209ms] 
+ Two variables:
+[209ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[209ms]  Var: result, index: 15, type: int, Signature: I
+[209ms] 
+[209ms]  Success: difference of local vars detected
+[209ms]  Success: hashCode's of different local vars differ
+[209ms]  Success: compareTo() is correct for different local vars
+[209ms] 
+ Two variables:
+[210ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[210ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[210ms] 
+[210ms]  Success: difference of local vars detected
+[210ms]  Success: hashCode's of different local vars differ
+[210ms]  Success: compareTo() is correct for different local vars
+[210ms] 
+ Two variables:
+[210ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[210ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[210ms] 
+[210ms]  Success: difference of local vars detected
+[210ms]  Success: hashCode's of different local vars differ
+[210ms]  Success: compareTo() is correct for different local vars
+[210ms] 
+ Two variables:
+[210ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[210ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[210ms] 
+[210ms]  Success: difference of local vars detected
+[210ms]  Success: hashCode's of different local vars differ
+[210ms]  Success: compareTo() is correct for different local vars
+[210ms] 
+ Two variables:
+[211ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[211ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[211ms] 
+[211ms]  Success: difference of local vars detected
+[211ms]  Success: hashCode's of different local vars differ
+[211ms]  Success: compareTo() is correct for different local vars
+[211ms] 
+ Two variables:
+[211ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[211ms]  Var: char_1, index: 4, type: char, Signature: C
+[211ms] 
+[211ms]  Success: difference of local vars detected
+[211ms]  Success: hashCode's of different local vars differ
+[211ms]  Success: compareTo() is correct for different local vars
+[211ms] 
+ Two variables:
+[211ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[211ms]  Var: short_1, index: 5, type: short, Signature: S
+[211ms] 
+[211ms]  Success: difference of local vars detected
+[211ms]  Success: hashCode's of different local vars differ
+[211ms]  Success: compareTo() is correct for different local vars
+[211ms] 
+ Two variables:
+[211ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[211ms]  Var: short_2, index: 6, type: short, Signature: S
+[211ms] 
+[211ms]  Success: difference of local vars detected
+[211ms]  Success: hashCode's of different local vars differ
+[211ms]  Success: compareTo() is correct for different local vars
+[211ms] 
+ Two variables:
+[212ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[212ms]  Var: char_2, index: 7, type: char, Signature: C
+[212ms] 
+[212ms]  Success: difference of local vars detected
+[212ms]  Success: hashCode's of different local vars differ
+[212ms]  Success: compareTo() is correct for different local vars
+[212ms] 
+ Two variables:
+[212ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[212ms]  Var: int_1, index: 8, type: int, Signature: I
+[212ms] 
+[212ms]  Success: difference of local vars detected
+[212ms]  Success: hashCode's of different local vars differ
+[212ms]  Success: compareTo() is correct for different local vars
+[212ms] 
+ Two variables:
+[212ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[212ms]  Var: long_1, index: 9, type: long, Signature: J
+[212ms] 
+[212ms]  Success: difference of local vars detected
+[212ms]  Success: hashCode's of different local vars differ
+[212ms]  Success: compareTo() is correct for different local vars
+[212ms] 
+ Two variables:
+[213ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[213ms]  Var: float_1, index: 10, type: float, Signature: F
+[213ms] 
+[213ms]  Success: difference of local vars detected
+[213ms]  Success: hashCode's of different local vars differ
+[213ms]  Success: compareTo() is correct for different local vars
+[213ms] 
+ Two variables:
+[213ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[213ms]  Var: double_2, index: 11, type: double, Signature: D
+[213ms] 
+[213ms]  Success: difference of local vars detected
+[213ms]  Success: hashCode's of different local vars differ
+[213ms]  Success: compareTo() is correct for different local vars
+[213ms] 
+ Two variables:
+[213ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[213ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[213ms] 
+[214ms]  Success: difference of local vars detected
+[214ms]  Success: hashCode's of different local vars differ
+[214ms]  Success: compareTo() is correct for different local vars
+[214ms] 
+ Two variables:
+[214ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[214ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[214ms] 
+[214ms]  Success: equality of local vars detected
+[214ms]  Success: hashCode's of equal local vars are equal
+[214ms]  Success: compareTo() is correct for equal local vars
+[214ms] 
+ Two variables:
+[214ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[214ms]  Var: intArg, index: 14, type: int, Signature: I
+[214ms] 
+[214ms]  Success: difference of local vars detected
+[214ms]  Success: hashCode's of different local vars differ
+[214ms]  Success: compareTo() is correct for different local vars
+[214ms] 
+ Two variables:
+[215ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[215ms]  Var: result, index: 15, type: int, Signature: I
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: char_1, index: 4, type: char, Signature: C
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: short_1, index: 5, type: short, Signature: S
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: short_2, index: 6, type: short, Signature: S
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: char_2, index: 7, type: char, Signature: C
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: int_1, index: 8, type: int, Signature: I
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: long_1, index: 9, type: long, Signature: J
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: float_1, index: 10, type: float, Signature: F
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[215ms]  Var: double_2, index: 11, type: double, Signature: D
+[215ms] 
+[215ms]  Success: difference of local vars detected
+[215ms]  Success: hashCode's of different local vars differ
+[215ms]  Success: compareTo() is correct for different local vars
+[215ms] 
+ Two variables:
+[215ms]  Var: intArg, index: 14, type: int, Signature: I
+[216ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[216ms] 
+[216ms]  Success: difference of local vars detected
+[216ms]  Success: hashCode's of different local vars differ
+[216ms]  Success: compareTo() is correct for different local vars
+[216ms] 
+ Two variables:
+[216ms]  Var: intArg, index: 14, type: int, Signature: I
+[217ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: intArg, index: 14, type: int, Signature: I
+[217ms]  Var: intArg, index: 14, type: int, Signature: I
+[217ms] 
+[217ms]  Success: equality of local vars detected
+[217ms]  Success: hashCode's of equal local vars are equal
+[217ms]  Success: compareTo() is correct for equal local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: intArg, index: 14, type: int, Signature: I
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: byte_2, index: 0, type: byte, Signature: B
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: byte_1, index: 1, type: byte, Signature: B
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: bool_1, index: 2, type: boolean, Signature: Z
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: bool_2, index: 3, type: boolean, Signature: Z
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: char_1, index: 4, type: char, Signature: C
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: short_1, index: 5, type: short, Signature: S
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: short_2, index: 6, type: short, Signature: S
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: char_2, index: 7, type: char, Signature: C
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: int_1, index: 8, type: int, Signature: I
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[217ms]  Var: result, index: 15, type: int, Signature: I
+[217ms]  Var: long_1, index: 9, type: long, Signature: J
+[217ms] 
+[217ms]  Success: difference of local vars detected
+[217ms]  Success: hashCode's of different local vars differ
+[217ms]  Success: compareTo() is correct for different local vars
+[217ms] 
+ Two variables:
+[218ms]  Var: result, index: 15, type: int, Signature: I
+[218ms]  Var: float_1, index: 10, type: float, Signature: F
+[218ms] 
+[218ms]  Success: difference of local vars detected
+[218ms]  Success: hashCode's of different local vars differ
+[218ms]  Success: compareTo() is correct for different local vars
+[218ms] 
+ Two variables:
+[218ms]  Var: result, index: 15, type: int, Signature: I
+[218ms]  Var: double_2, index: 11, type: double, Signature: D
+[218ms] 
+[218ms]  Success: difference of local vars detected
+[218ms]  Success: hashCode's of different local vars differ
+[218ms]  Success: compareTo() is correct for different local vars
+[218ms] 
+ Two variables:
+[218ms]  Var: result, index: 15, type: int, Signature: I
+[219ms]  Var: string_1, index: 12, type: java.lang.String, Signature: Ljava/lang/String;
+[219ms] 
+[219ms]  Success: difference of local vars detected
+[219ms]  Success: hashCode's of different local vars differ
+[219ms]  Success: compareTo() is correct for different local vars
+[219ms] 
+ Two variables:
+[219ms]  Var: result, index: 15, type: int, Signature: I
+[219ms]  Var: obj_2, index: 13, type: java.lang.Object, Signature: Ljava/lang/Object;
+[219ms] 
+[219ms]  Success: difference of local vars detected
+[219ms]  Success: hashCode's of different local vars differ
+[219ms]  Success: compareTo() is correct for different local vars
+[219ms] 
+ Two variables:
+[219ms]  Var: result, index: 15, type: int, Signature: I
+[220ms]  Var: intArg, index: 14, type: int, Signature: I
+[220ms] 
+[220ms]  Success: difference of local vars detected
+[220ms]  Success: hashCode's of different local vars differ
+[220ms]  Success: compareTo() is correct for different local vars
+[220ms] 
+ Two variables:
+[220ms]  Var: result, index: 15, type: int, Signature: I
+[220ms]  Var: result, index: 15, type: int, Signature: I
+[220ms] 
+[220ms]  Success: equality of local vars detected
+[220ms]  Success: hashCode's of equal local vars are equal
+[220ms]  Success: compareTo() is correct for equal local vars
+[220ms] 
+[529ms] 
+LocalVariableEqual: passed
+
+JavaTest Message: Test complete.
+
+----------System.out:(12/665)----------
+vmOpts: '-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa'
+javaOpts: '-XX:-CreateCoredumpOnCrash'
+JVM version:23-internal
+JDI version: 23.0
+JVM description: Java Debug Interface (Reference Implementation) version 23.0 
+Java Debug Wire Protocol (Reference Implementation) version 23.0
+JVM Debug Interface version 23.0
+JVM version 23-internal (OpenJDK 64-Bit Server VM, mixed mode, sharing)
+LocalVariableEqualTarg: Started
+staticMeth: Started
+staticMeth: Finished
+LocalVariableEqualTarg: Finished
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

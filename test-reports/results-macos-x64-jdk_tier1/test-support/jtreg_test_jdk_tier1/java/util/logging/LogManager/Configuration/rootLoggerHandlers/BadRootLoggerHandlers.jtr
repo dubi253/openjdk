@@ -1,0 +1,950 @@
+#Test Results (version 2)
+#Mon Apr 29 01:20:23 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+author=danielfuchs
+keywords=bug8191033 othervm
+modules=java.logging
+run=USER_SPECIFIED build custom.DotHandler custom.Handler\nUSER_SPECIFIED main/othervm -Dlogging.properties\=badlogging.properties -Dclz\=1custom.DotHandler BadRootLoggerHandlers CUSTOM\nUSER_SPECIFIED main/othervm -Dlogging.properties\=badlogging.properties -Dclz\=1custom.DotHandler BadRootLoggerHandlers DEFAULT\nUSER_SPECIFIED main/othervm -Dlogging.properties\=badglobal.properties -Dclz\=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM\nUSER_SPECIFIED main/othervm -Dlogging.properties\=badglobal.properties -Dclz\=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT\nUSER_SPECIFIED main/othervm/java.security.policy\=\=test.policy -Dlogging.properties\=badlogging.properties -Dclz\=1custom.DotHandler BadRootLoggerHandlers CUSTOM\nUSER_SPECIFIED main/othervm/java.security.policy\=\=test.policy  -Dlogging.properties\=badlogging.properties -Dclz\=1custom.DotHandler BadRootLoggerHandlers DEFAULT\nUSER_SPECIFIED main/othervm/java.security.policy\=\=test.policy  -Dlogging.properties\=badglobal.properties -Dclz\=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM\nUSER_SPECIFIED main/othervm/java.security.policy\=\=test.policy  -Dlogging.properties\=badglobal.properties -Dclz\=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT\n
+source=BadRootLoggerHandlers.java
+title=\ 
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java
+elapsed=2567 0\:00\:02.567
+end=Mon Apr 29 01\:20\:23 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile main build main build main build main build main build main build main build main
+start=Mon Apr 29 01\:20\:20 UTC 2024
+test=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=2568
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/291)----------
+command: build custom.DotHandler custom.Handler
+reason: User specified action: run build custom.DotHandler custom.Handler 
+started: Mon Apr 29 01:20:20 UTC 2024
+Test directory:
+  compile: custom.DotHandler, custom.Handler
+finished: Mon Apr 29 01:20:20 UTC 2024
+elapsed time (seconds): 0.027
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/517)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/custom/DotHandler.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/custom/Handler.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:20:20 UTC 2024
+Additional options from @modules: --add-modules java.logging
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:20:20 UTC 2024
+elapsed time (seconds): 0.026
+----------configuration:(11/843)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.logging
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d
+
+----------rerun:(35/3975)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/custom/DotHandler.java /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/custom/Handler.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/232)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:20 UTC 2024
+Test directory:
+  compile: BadRootLoggerHandlers
+finished: Mon Apr 29 01:20:20 UTC 2024
+elapsed time (seconds): 0.064
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/395)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:20:20 UTC 2024
+Additional options from @modules: --add-modules java.logging
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:20:20 UTC 2024
+elapsed time (seconds): 0.064
+----------configuration:(11/843)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.logging
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d
+
+----------rerun:(35/3853)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -J-Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/460)----------
+command: main -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers CUSTOM
+reason: User specified action: run main/othervm -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers CUSTOM 
+started: Mon Apr 29 01:20:20 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.337
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(10/234)----------
+Root level is: INFO
+Handler(1) created
+Handler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+OK: ClassNotFoundException error message not found for CUSTOM
+Handler(3) closed
+----------System.err:(5/345)----------
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: hi (CUSTOM)
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: done!
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:21 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(38/3941)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badlogging.properties \\
+        -Dclz=1custom.DotHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.0.jta CUSTOM
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:21 UTC 2024
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/462)----------
+command: main -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers DEFAULT
+reason: User specified action: run main/othervm -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers DEFAULT 
+started: Mon Apr 29 01:20:21 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.322
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(11/215)----------
+DotHandler(1) created
+Handler(1) created
+Root level is: INFO
+Handler(1) closed
+DotHandler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+Handler(3) closed
+----------System.err:(31/2283)----------
+Can't load log handler "1custom.DotHandler"
+java.lang.ClassNotFoundException: 1custom.DotHandler
+java.lang.ClassNotFoundException: 1custom.DotHandler
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.logging/java.util.logging.LogManager.createLoggerHandlers(LogManager.java:1005)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:975)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:971)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:971)
+	at java.logging/java.util.logging.LogManager.addLogger(LogManager.java:1204)
+	at java.logging/java.util.logging.LogManager$2.run(LogManager.java:398)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.ensureLogManagerInitialized(LogManager.java:383)
+	at java.logging/java.util.logging.LogManager.getLogManager(LogManager.java:431)
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:650)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at BadRootLoggerHandlers.main(BadRootLoggerHandlers.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: done!
+OK: ClassNotFoundException error message found for DEFAULT
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:21 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(38/3942)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badlogging.properties \\
+        -Dclz=1custom.DotHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.1.jta DEFAULT
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:21 UTC 2024
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/464)----------
+command: main -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM
+reason: User specified action: run main/othervm -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM 
+started: Mon Apr 29 01:20:21 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.338
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(10/234)----------
+Root level is: INFO
+Handler(1) created
+Handler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+OK: ClassNotFoundException error message not found for CUSTOM
+Handler(3) closed
+----------System.err:(5/345)----------
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: hi (CUSTOM)
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:21 UTC 2024]: BadRootLoggerHandlers main: done!
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:21 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(38/3943)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badglobal.properties \\
+        -Dclz=1custom.GlobalHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.2.jta CUSTOM
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:21 UTC 2024
+finished: Mon Apr 29 01:20:21 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/466)----------
+command: main -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT
+reason: User specified action: run main/othervm -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT 
+started: Mon Apr 29 01:20:21 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.301
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(13/264)----------
+DotHandler(1) created
+Handler(1) created
+GlobalHandler(1) created
+Root level is: INFO
+Handler(1) closed
+DotHandler(1) closed
+GlobalHandler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+Handler(3) closed
+----------System.err:(31/2292)----------
+Can't load log handler "1custom.GlobalHandler"
+java.lang.ClassNotFoundException: 1custom.GlobalHandler
+java.lang.ClassNotFoundException: 1custom.GlobalHandler
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.logging/java.util.logging.LogManager.createLoggerHandlers(LogManager.java:1005)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:975)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:971)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:971)
+	at java.logging/java.util.logging.LogManager.addLogger(LogManager.java:1204)
+	at java.logging/java.util.logging.LogManager$2.run(LogManager.java:413)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.ensureLogManagerInitialized(LogManager.java:383)
+	at java.logging/java.util.logging.LogManager.getLogManager(LogManager.java:431)
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:650)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at BadRootLoggerHandlers.main(BadRootLoggerHandlers.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: done!
+OK: ClassNotFoundException error message found for DEFAULT
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:22 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(38/3944)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badglobal.properties \\
+        -Dclz=1custom.GlobalHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.3.jta DEFAULT
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:22 UTC 2024
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/494)----------
+command: main -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers CUSTOM
+reason: User specified action: run main/othervm/java.security.policy==test.policy -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers CUSTOM 
+started: Mon Apr 29 01:20:22 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.327
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(10/234)----------
+Root level is: INFO
+Handler(1) created
+Handler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+OK: ClassNotFoundException error message not found for CUSTOM
+Handler(3) closed
+----------System.err:(7/493)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: hi (CUSTOM)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: done!
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:22 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(40/4138)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/test.policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badlogging.properties \\
+        -Dclz=1custom.DotHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.4.jta CUSTOM
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:22 UTC 2024
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/496)----------
+command: main -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers DEFAULT
+reason: User specified action: run main/othervm/java.security.policy==test.policy -Dlogging.properties=badlogging.properties -Dclz=1custom.DotHandler BadRootLoggerHandlers DEFAULT 
+started: Mon Apr 29 01:20:22 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.282
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(11/215)----------
+DotHandler(1) created
+Handler(1) created
+Root level is: INFO
+Handler(1) closed
+DotHandler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+Handler(3) closed
+----------System.err:(33/2431)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Can't load log handler "1custom.DotHandler"
+java.lang.ClassNotFoundException: 1custom.DotHandler
+java.lang.ClassNotFoundException: 1custom.DotHandler
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.logging/java.util.logging.LogManager.createLoggerHandlers(LogManager.java:1005)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:975)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:971)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:971)
+	at java.logging/java.util.logging.LogManager.addLogger(LogManager.java:1204)
+	at java.logging/java.util.logging.LogManager$2.run(LogManager.java:398)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.ensureLogManagerInitialized(LogManager.java:383)
+	at java.logging/java.util.logging.LogManager.getLogManager(LogManager.java:431)
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:650)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at BadRootLoggerHandlers.main(BadRootLoggerHandlers.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:22 UTC 2024]: BadRootLoggerHandlers main: done!
+OK: ClassNotFoundException error message found for DEFAULT
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:22 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(40/4139)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/test.policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badlogging.properties \\
+        -Dclz=1custom.DotHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.5.jta DEFAULT
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:22 UTC 2024
+finished: Mon Apr 29 01:20:22 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/498)----------
+command: main -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM
+reason: User specified action: run main/othervm/java.security.policy==test.policy -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers CUSTOM 
+started: Mon Apr 29 01:20:22 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:23 UTC 2024
+elapsed time (seconds): 0.283
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(10/234)----------
+Root level is: INFO
+Handler(1) created
+Handler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+OK: ClassNotFoundException error message not found for CUSTOM
+Handler(3) closed
+----------System.err:(7/493)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: hi (CUSTOM)
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: done!
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:23 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(40/4140)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/test.policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badglobal.properties \\
+        -Dclz=1custom.GlobalHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.6.jta CUSTOM
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/181)----------
+command: build BadRootLoggerHandlers
+reason: Named class compiled on demand
+started: Mon Apr 29 01:20:23 UTC 2024
+finished: Mon Apr 29 01:20:23 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/500)----------
+command: main -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT
+reason: User specified action: run main/othervm/java.security.policy==test.policy -Dlogging.properties=badglobal.properties -Dclz=1custom.GlobalHandler BadRootLoggerHandlers DEFAULT 
+started: Mon Apr 29 01:20:23 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.logging
+finished: Mon Apr 29 01:20:23 UTC 2024
+elapsed time (seconds): 0.285
+----------configuration:(3/40)----------
+Boot Layer
+  add modules: java.logging
+
+----------System.out:(13/264)----------
+DotHandler(1) created
+Handler(1) created
+GlobalHandler(1) created
+Root level is: INFO
+Handler(1) closed
+DotHandler(1) closed
+GlobalHandler(1) closed
+Root level is: FINE
+Handler(2) created
+Handler(2) closed
+Root level is: FINER
+Handler(3) created
+Handler(3) closed
+----------System.err:(33/2440)----------
+WARNING: A command line option has enabled the Security Manager
+WARNING: The Security Manager is deprecated and will be removed in a future release
+Can't load log handler "1custom.GlobalHandler"
+java.lang.ClassNotFoundException: 1custom.GlobalHandler
+java.lang.ClassNotFoundException: 1custom.GlobalHandler
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:528)
+	at java.logging/java.util.logging.LogManager.createLoggerHandlers(LogManager.java:1005)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:975)
+	at java.logging/java.util.logging.LogManager$4.run(LogManager.java:971)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.loadLoggerHandlers(LogManager.java:971)
+	at java.logging/java.util.logging.LogManager.addLogger(LogManager.java:1204)
+	at java.logging/java.util.logging.LogManager$2.run(LogManager.java:413)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.logging/java.util.logging.LogManager.ensureLogManagerInitialized(LogManager.java:383)
+	at java.logging/java.util.logging.LogManager.getLogManager(LogManager.java:431)
+	at java.logging/java.util.logging.Logger.demandLogger(Logger.java:650)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:720)
+	at java.logging/java.util.logging.Logger.getLogger(Logger.java:703)
+	at BadRootLoggerHandlers.main(BadRootLoggerHandlers.java:140)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: hi (DEFAULT)
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: there!
+INFO [Mon Apr 29 01:20:23 UTC 2024]: BadRootLoggerHandlers main: done!
+OK: ClassNotFoundException error message found for DEFAULT
+STATUS:Passed.
+FINE [Mon Apr 29 01:20:23 UTC 2024]: java.lang.Shutdown logRuntimeExit: Runtime.exit() called with status: 95
+----------rerun:(40/4141)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/LogManager/Configuration/rootLoggerHandlers \\
+        -Dtest.modules=java.logging \\
+        -Djava.security.policy==/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/test.policy_new \\
+        -Djava.security.manager=default \\
+        --add-modules java.logging \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dlogging.properties=badglobal.properties \\
+        -Dclz=1custom.GlobalHandler \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/LogManager/Configuration/rootLoggerHandlers/BadRootLoggerHandlers.d/main.7.jta DEFAULT
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

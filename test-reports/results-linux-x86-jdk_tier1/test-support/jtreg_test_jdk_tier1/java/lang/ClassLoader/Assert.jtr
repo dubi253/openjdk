@@ -1,0 +1,578 @@
+#Test Results (version 2)
+#Mon Apr 29 00:40:06 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+author=Mike McCloskey
+keywords=bug4290640 bug4785473 randomness othervm
+library=/test/lib
+requires=vm.flagless
+run=USER_SPECIFIED build package1.Class1 package2.Class2 package1.package3.Class3 Assert\nUSER_SPECIFIED main/othervm Assert\n
+source=Assert.java
+title=Test the assertion facility
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java
+elapsed=5955 0\:00\:05.955
+end=Mon Apr 29 00\:40\:06 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build main
+start=Mon Apr 29 00\:40\:00 UTC 2024
+test=java/lang/ClassLoader/Assert.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=5963
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader
+
+#section:script_messages
+----------messages:(7/544)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(7/386)----------
+command: build package1.Class1 package2.Class2 package1.package3.Class3 Assert
+reason: User specified action: run build package1.Class1 package2.Class2 package1.package3.Class3 Assert 
+started: Mon Apr 29 00:40:00 UTC 2024
+Test directory:
+  compile: package1.Class1, package2.Class2, package1.package3.Class3, Assert
+finished: Mon Apr 29 00:40:00 UTC 2024
+elapsed time (seconds): 0.043
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/544)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package1/Class1.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package2/Class2.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package1/package3/Class3.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:40:00 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:40:00 UTC 2024
+elapsed time (seconds): 0.043
+----------configuration:(12/858)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(35/3862)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/Assert.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package1/Class1.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package2/Class2.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/package1/package3/Class3.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/168)----------
+command: build Assert
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:00 UTC 2024
+finished: Mon Apr 29 00:40:00 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/218)----------
+command: main Assert
+reason: User specified action: run main/othervm Assert 
+started: Mon Apr 29 00:40:00 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:40:06 UTC 2024
+elapsed time (seconds): 5.91
+----------configuration:(0/0)----------
+----------System.out:(395/81219)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 1 2 0 2 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 1 2 0 2 2]
+[2024-04-29T00:40:00.378751814Z] Gathering output for process 13754
+[2024-04-29T00:40:00.408603404Z] Waiting for completion for process 13754
+[2024-04-29T00:40:00.424675860Z] Waiting for completion finished for process 13754
+Output and diagnostic info for process 13754 was saved into 'pid-13754-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 1 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 1 1 0]
+[2024-04-29T00:40:00.448310723Z] Gathering output for process 13799
+[2024-04-29T00:40:00.448887578Z] Waiting for completion for process 13799
+[2024-04-29T00:40:00.498233275Z] Waiting for completion finished for process 13799
+Output and diagnostic info for process 13799 was saved into 'pid-13799-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 0 0 2 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 0 0 2 2 0]
+[2024-04-29T00:40:00.500806963Z] Gathering output for process 13829
+[2024-04-29T00:40:00.501329236Z] Waiting for completion for process 13829
+[2024-04-29T00:40:00.551548041Z] Waiting for completion finished for process 13829
+Output and diagnostic info for process 13829 was saved into 'pid-13829-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 1 0 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 1 0 2 1]
+[2024-04-29T00:40:00.553786332Z] Gathering output for process 13859
+[2024-04-29T00:40:00.554193401Z] Waiting for completion for process 13859
+[2024-04-29T00:40:00.604223944Z] Waiting for completion finished for process 13859
+Output and diagnostic info for process 13859 was saved into 'pid-13859-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 2 0 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 2 0 1 2]
+[2024-04-29T00:40:00.606881104Z] Gathering output for process 13890
+[2024-04-29T00:40:00.607183898Z] Waiting for completion for process 13890
+[2024-04-29T00:40:00.666259610Z] Waiting for completion finished for process 13890
+Output and diagnostic info for process 13890 was saved into 'pid-13890-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 2 0 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 2 0 0 1]
+[2024-04-29T00:40:00.669016848Z] Gathering output for process 13929
+[2024-04-29T00:40:00.669496060Z] Waiting for completion for process 13929
+[2024-04-29T00:40:00.722818910Z] Waiting for completion finished for process 13929
+Output and diagnostic info for process 13929 was saved into 'pid-13929-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 0 2 0 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 0 2 0 1 1]
+[2024-04-29T00:40:00.725247845Z] Gathering output for process 13951
+[2024-04-29T00:40:00.725736045Z] Waiting for completion for process 13951
+[2024-04-29T00:40:00.785942072Z] Waiting for completion finished for process 13951
+Output and diagnostic info for process 13951 was saved into 'pid-13951-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 2 1 1 0 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 2 1 1 0 0]
+[2024-04-29T00:40:00.788130240Z] Gathering output for process 13990
+[2024-04-29T00:40:00.788609854Z] Waiting for completion for process 13990
+[2024-04-29T00:40:00.837843670Z] Waiting for completion finished for process 13990
+Output and diagnostic info for process 13990 was saved into 'pid-13990-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 2 2 2 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 2 2 2 1 1]
+[2024-04-29T00:40:00.840042278Z] Gathering output for process 14021
+[2024-04-29T00:40:00.840393713Z] Waiting for completion for process 14021
+[2024-04-29T00:40:00.897802723Z] Waiting for completion finished for process 14021
+Output and diagnostic info for process 14021 was saved into 'pid-14021-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 1 1 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 1 1 1 0]
+[2024-04-29T00:40:00.900435344Z] Gathering output for process 14049
+[2024-04-29T00:40:00.902313013Z] Waiting for completion for process 14049
+[2024-04-29T00:40:00.954396132Z] Waiting for completion finished for process 14049
+Output and diagnostic info for process 14049 was saved into 'pid-14049-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 2 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 2 2 0]
+[2024-04-29T00:40:00.956961347Z] Gathering output for process 14071
+[2024-04-29T00:40:00.957759395Z] Waiting for completion for process 14071
+[2024-04-29T00:40:01.017761203Z] Waiting for completion finished for process 14071
+Output and diagnostic info for process 14071 was saved into 'pid-14071-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 2 2 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 2 2 0 1]
+[2024-04-29T00:40:01.020112234Z] Gathering output for process 14092
+[2024-04-29T00:40:01.020437741Z] Waiting for completion for process 14092
+[2024-04-29T00:40:01.074871853Z] Waiting for completion finished for process 14092
+Output and diagnostic info for process 14092 was saved into 'pid-14092-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 1 0 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 1 0 2]
+[2024-04-29T00:40:01.077506731Z] Gathering output for process 14112
+[2024-04-29T00:40:01.078111118Z] Waiting for completion for process 14112
+[2024-04-29T00:40:01.142609829Z] Waiting for completion finished for process 14112
+Output and diagnostic info for process 14112 was saved into 'pid-14112-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 2 1 0 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 2 1 0 2 1]
+[2024-04-29T00:40:01.145252885Z] Gathering output for process 14151
+[2024-04-29T00:40:01.145828618Z] Waiting for completion for process 14151
+[2024-04-29T00:40:01.205406132Z] Waiting for completion finished for process 14151
+Output and diagnostic info for process 14151 was saved into 'pid-14151-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 2 2 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 2 2 2 0]
+[2024-04-29T00:40:01.207849089Z] Gathering output for process 14172
+[2024-04-29T00:40:01.208305008Z] Waiting for completion for process 14172
+[2024-04-29T00:40:01.264229823Z] Waiting for completion finished for process 14172
+Output and diagnostic info for process 14172 was saved into 'pid-14172-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 1 1 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 1 1 1 2]
+[2024-04-29T00:40:01.266587877Z] Gathering output for process 14194
+[2024-04-29T00:40:01.267982305Z] Waiting for completion for process 14194
+[2024-04-29T00:40:01.323611723Z] Waiting for completion finished for process 14194
+Output and diagnostic info for process 14194 was saved into 'pid-14194-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 0 2 0 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 0 2 0 1 0]
+[2024-04-29T00:40:01.326154271Z] Gathering output for process 14232
+[2024-04-29T00:40:01.326691442Z] Waiting for completion for process 14232
+[2024-04-29T00:40:01.379537385Z] Waiting for completion finished for process 14232
+Output and diagnostic info for process 14232 was saved into 'pid-14232-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 0 0 2 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 0 0 2 2 1]
+[2024-04-29T00:40:01.382035470Z] Gathering output for process 14271
+[2024-04-29T00:40:01.382362971Z] Waiting for completion for process 14271
+[2024-04-29T00:40:01.434068518Z] Waiting for completion finished for process 14271
+Output and diagnostic info for process 14271 was saved into 'pid-14271-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 1 1 2 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 1 1 2 2]
+[2024-04-29T00:40:01.436541366Z] Gathering output for process 14292
+[2024-04-29T00:40:01.441150755Z] Waiting for completion for process 14292
+[2024-04-29T00:40:01.500665549Z] Waiting for completion finished for process 14292
+Output and diagnostic info for process 14292 was saved into 'pid-14292-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 0 1 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 0 1 2 0]
+[2024-04-29T00:40:01.502812029Z] Gathering output for process 14316
+[2024-04-29T00:40:01.503241770Z] Waiting for completion for process 14316
+[2024-04-29T00:40:01.557585143Z] Waiting for completion finished for process 14316
+Output and diagnostic info for process 14316 was saved into 'pid-14316-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 0 0 1 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 0 0 1 1 0]
+[2024-04-29T00:40:01.560190208Z] Gathering output for process 14354
+[2024-04-29T00:40:01.560599551Z] Waiting for completion for process 14354
+[2024-04-29T00:40:01.618780844Z] Waiting for completion finished for process 14354
+Output and diagnostic info for process 14354 was saved into 'pid-14354-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 2 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 2 0 1]
+[2024-04-29T00:40:01.621493910Z] Gathering output for process 14377
+[2024-04-29T00:40:01.626953213Z] Waiting for completion for process 14377
+[2024-04-29T00:40:01.673363901Z] Waiting for completion finished for process 14377
+Output and diagnostic info for process 14377 was saved into 'pid-14377-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 1 1 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/tes
+
+...
+Output overflow:
+JT Harness has limited the test output to the text
+at the beginning and the end, so that you can see how the
+test began, and how it completed.
+
+If you need to see more of the output from the test,
+set the system property javatest.maxOutputSize to a higher
+value. The current value is 100000
+...
+
+274171Z] Waiting for completion finished for process 15648
+Output and diagnostic info for process 15648 was saved into 'pid-15648-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 1 0 0 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 1 0 0 2]
+[2024-04-29T00:40:04.275377861Z] Gathering output for process 15668
+[2024-04-29T00:40:04.277839238Z] Waiting for completion for process 15668
+[2024-04-29T00:40:04.345409784Z] Waiting for completion finished for process 15668
+Output and diagnostic info for process 15668 was saved into 'pid-15668-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 2 0 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 2 2 0 2 1]
+[2024-04-29T00:40:04.347523863Z] Gathering output for process 15690
+[2024-04-29T00:40:04.348178603Z] Waiting for completion for process 15690
+[2024-04-29T00:40:04.417480996Z] Waiting for completion finished for process 15690
+Output and diagnostic info for process 15690 was saved into 'pid-15690-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 1 1 0 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 1 1 0 1 1]
+[2024-04-29T00:40:04.419366920Z] Gathering output for process 15728
+[2024-04-29T00:40:04.420315558Z] Waiting for completion for process 15728
+[2024-04-29T00:40:04.474510409Z] Waiting for completion finished for process 15728
+Output and diagnostic info for process 15728 was saved into 'pid-15728-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 0 1 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 1 0 1 2 0]
+[2024-04-29T00:40:04.477612900Z] Gathering output for process 15748
+[2024-04-29T00:40:04.479080786Z] Waiting for completion for process 15748
+[2024-04-29T00:40:04.529302623Z] Waiting for completion finished for process 15748
+Output and diagnostic info for process 15748 was saved into 'pid-15748-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 2 0 0 0 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 2 0 0 0 2]
+[2024-04-29T00:40:04.531477837Z] Gathering output for process 15770
+[2024-04-29T00:40:04.537500099Z] Waiting for completion for process 15770
+[2024-04-29T00:40:04.585923806Z] Waiting for completion finished for process 15770
+Output and diagnostic info for process 15770 was saved into 'pid-15770-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 1 1 0 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 1 1 0 0 1]
+[2024-04-29T00:40:04.588333096Z] Gathering output for process 15808
+[2024-04-29T00:40:04.588722679Z] Waiting for completion for process 15808
+[2024-04-29T00:40:04.635814273Z] Waiting for completion finished for process 15808
+Output and diagnostic info for process 15808 was saved into 'pid-15808-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 2 0 0 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 2 0 0 1 1]
+[2024-04-29T00:40:04.637693925Z] Gathering output for process 15839
+[2024-04-29T00:40:04.638012289Z] Waiting for completion for process 15839
+[2024-04-29T00:40:04.690059191Z] Waiting for completion finished for process 15839
+Output and diagnostic info for process 15839 was saved into 'pid-15839-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 2 1 1 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 2 1 1 1 1]
+[2024-04-29T00:40:04.691950756Z] Gathering output for process 15868
+[2024-04-29T00:40:04.692292041Z] Waiting for completion for process 15868
+[2024-04-29T00:40:04.747267888Z] Waiting for completion finished for process 15868
+Output and diagnostic info for process 15868 was saved into 'pid-15868-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 1 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 1 2 0]
+[2024-04-29T00:40:04.749110752Z] Gathering output for process 15888
+[2024-04-29T00:40:04.749829341Z] Waiting for completion for process 15888
+[2024-04-29T00:40:04.801584075Z] Waiting for completion finished for process 15888
+Output and diagnostic info for process 15888 was saved into 'pid-15888-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 1 2 2 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 1 2 2 2 1]
+[2024-04-29T00:40:04.803369692Z] Gathering output for process 15920
+[2024-04-29T00:40:04.803688907Z] Waiting for completion for process 15920
+[2024-04-29T00:40:04.857463225Z] Waiting for completion finished for process 15920
+Output and diagnostic info for process 15920 was saved into 'pid-15920-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 1 1 0 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 1 1 0 2]
+[2024-04-29T00:40:04.859776505Z] Gathering output for process 15949
+[2024-04-29T00:40:04.860831021Z] Waiting for completion for process 15949
+[2024-04-29T00:40:04.913302200Z] Waiting for completion finished for process 15949
+Output and diagnostic info for process 15949 was saved into 'pid-15949-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 1 2 0 2 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 1 2 0 2 1]
+[2024-04-29T00:40:04.915449402Z] Gathering output for process 15970
+[2024-04-29T00:40:04.915739383Z] Waiting for completion for process 15970
+[2024-04-29T00:40:04.974809157Z] Waiting for completion finished for process 15970
+Output and diagnostic info for process 15970 was saved into 'pid-15970-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 0 1 1 0 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 0 0 1 1 0 0]
+[2024-04-29T00:40:04.976715821Z] Gathering output for process 16008
+[2024-04-29T00:40:04.977046087Z] Waiting for completion for process 16008
+[2024-04-29T00:40:05.040577757Z] Waiting for completion finished for process 16008
+Output and diagnostic info for process 16008 was saved into 'pid-16008-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 2 2 2 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 2 2 2 2]
+[2024-04-29T00:40:05.042546033Z] Gathering output for process 16029
+[2024-04-29T00:40:05.042926259Z] Waiting for completion for process 16029
+[2024-04-29T00:40:05.099341891Z] Waiting for completion finished for process 16029
+Output and diagnostic info for process 16029 was saved into 'pid-16029-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 2 1 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 2 1 0 1]
+[2024-04-29T00:40:05.101073348Z] Gathering output for process 16060
+[2024-04-29T00:40:05.101436104Z] Waiting for completion for process 16060
+[2024-04-29T00:40:05.153689998Z] Waiting for completion finished for process 16060
+Output and diagnostic info for process 16060 was saved into 'pid-16060-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 1 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 1 1 1 2]
+[2024-04-29T00:40:05.155807544Z] Gathering output for process 16090
+[2024-04-29T00:40:05.156131799Z] Waiting for completion for process 16090
+[2024-04-29T00:40:05.211523790Z] Waiting for completion finished for process 16090
+Output and diagnostic info for process 16090 was saved into 'pid-16090-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 1 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 1 1 0]
+[2024-04-29T00:40:05.213278721Z] Gathering output for process 16112
+[2024-04-29T00:40:05.213616440Z] Waiting for completion for process 16112
+[2024-04-29T00:40:05.269007752Z] Waiting for completion finished for process 16112
+Output and diagnostic info for process 16112 was saved into 'pid-16112-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 0 2 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 2 1 0 2 1 2]
+[2024-04-29T00:40:05.271308980Z] Gathering output for process 16150
+[2024-04-29T00:40:05.272666224Z] Waiting for completion for process 16150
+[2024-04-29T00:40:05.328385617Z] Waiting for completion finished for process 16150
+Output and diagnostic info for process 16150 was saved into 'pid-16150-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 2 2 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 2 2 2 2 2]
+[2024-04-29T00:40:05.330883161Z] Gathering output for process 16172
+[2024-04-29T00:40:05.332638662Z] Waiting for completion for process 16172
+[2024-04-29T00:40:05.385161217Z] Waiting for completion finished for process 16172
+Output and diagnostic info for process 16172 was saved into 'pid-16172-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 1 0 0 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 1 0 0 1 0]
+[2024-04-29T00:40:05.387270743Z] Gathering output for process 16193
+[2024-04-29T00:40:05.392559969Z] Waiting for completion for process 16193
+[2024-04-29T00:40:05.438621633Z] Waiting for completion finished for process 16193
+Output and diagnostic info for process 16193 was saved into 'pid-16193-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 0 1 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 2 0 1 1 2]
+[2024-04-29T00:40:05.440326931Z] Gathering output for process 16213
+[2024-04-29T00:40:05.440675911Z] Waiting for completion for process 16213
+[2024-04-29T00:40:05.497571986Z] Waiting for completion finished for process 16213
+Output and diagnostic info for process 16213 was saved into 'pid-16213-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 0 2 1 2 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 0 2 1 2]
+[2024-04-29T00:40:05.499695483Z] Gathering output for process 16233
+[2024-04-29T00:40:05.501208242Z] Waiting for completion for process 16233
+[2024-04-29T00:40:05.575065253Z] Waiting for completion finished for process 16233
+Output and diagnostic info for process 16233 was saved into 'pid-16233-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 1 2 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 1 2 2 0]
+[2024-04-29T00:40:05.577095797Z] Gathering output for process 16272
+[2024-04-29T00:40:05.577440280Z] Waiting for completion for process 16272
+[2024-04-29T00:40:05.631015246Z] Waiting for completion finished for process 16272
+Output and diagnostic info for process 16272 was saved into 'pid-16272-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 2 1 2 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 2 1 2 0 1]
+[2024-04-29T00:40:05.632694816Z] Gathering output for process 16293
+[2024-04-29T00:40:05.632965511Z] Waiting for completion for process 16293
+[2024-04-29T00:40:05.687541452Z] Waiting for completion finished for process 16293
+Output and diagnostic info for process 16293 was saved into 'pid-16293-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 2 2 0 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 1 2 2 0 0 1]
+[2024-04-29T00:40:05.689636030Z] Gathering output for process 16314
+[2024-04-29T00:40:05.690008805Z] Waiting for completion for process 16314
+[2024-04-29T00:40:05.746474030Z] Waiting for completion finished for process 16314
+Output and diagnostic info for process 16314 was saved into 'pid-16314-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 2 0 0 0 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 2 2 0 0 0 0]
+[2024-04-29T00:40:05.748704834Z] Gathering output for process 16352
+[2024-04-29T00:40:05.749000204Z] Waiting for completion for process 16352
+[2024-04-29T00:40:05.793184271Z] Waiting for completion finished for process 16352
+Output and diagnostic info for process 16352 was saved into 'pid-16352-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 0 0 1 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 0 0 1 2 0]
+[2024-04-29T00:40:05.794982161Z] Gathering output for process 16384
+[2024-04-29T00:40:05.795303463Z] Waiting for completion for process 16384
+[2024-04-29T00:40:05.844714176Z] Waiting for completion finished for process 16384
+Output and diagnostic info for process 16384 was saved into 'pid-16384-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 0 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 2 1 0 0 1 1]
+[2024-04-29T00:40:05.846354643Z] Gathering output for process 16412
+[2024-04-29T00:40:05.846732978Z] Waiting for completion for process 16412
+[2024-04-29T00:40:05.902816812Z] Waiting for completion finished for process 16412
+Output and diagnostic info for process 16412 was saved into 'pid-16412-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 0 0 1 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 0 0 0 0 1 0]
+[2024-04-29T00:40:05.904526665Z] Gathering output for process 16432
+[2024-04-29T00:40:05.905106195Z] Waiting for completion for process 16432
+[2024-04-29T00:40:05.957804681Z] Waiting for completion finished for process 16432
+Output and diagnostic info for process 16432 was saved into 'pid-16432-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 0 1 1 1 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 0 1 0 1 1 1 1]
+[2024-04-29T00:40:05.959634341Z] Gathering output for process 16464
+[2024-04-29T00:40:05.959921666Z] Waiting for completion for process 16464
+[2024-04-29T00:40:06.007454540Z] Waiting for completion finished for process 16464
+Output and diagnostic info for process 16464 was saved into 'pid-16464-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 2 2 0 1 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 2 0 0 2 2 0 1]
+[2024-04-29T00:40:06.009471668Z] Gathering output for process 16492
+[2024-04-29T00:40:06.013593775Z] Waiting for completion for process 16492
+[2024-04-29T00:40:06.069214743Z] Waiting for completion finished for process 16492
+Output and diagnostic info for process 16492 was saved into 'pid-16492-output.log'
+
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 0 0 2 2 0 ]
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar Assert 1 1 0 0 2 2 0]
+[2024-04-29T00:40:06.071218928Z] Gathering output for process 16513
+[2024-04-29T00:40:06.071572668Z] Waiting for completion for process 16513
+[2024-04-29T00:40:06.121253727Z] Waiting for completion finished for process 16513
+Output and diagnostic info for process 16513 was saved into 'pid-16513-output.log'
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(36/3682)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/Assert.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/Assert.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/ClassLoader/Assert.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/Assert.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -1,0 +1,960 @@
+#Test Results (version 2)
+#Mon Apr 29 00:40:04 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+enablePreview=true
+keywords=bug8168423
+library=/test/lib
+modules=java.base/jdk.internal.module
+run=USER_SPECIFIED build jdk.test.lib.util.JarUtils jdk.test.lib.util.ModuleInfoWriter\nUSER_SPECIFIED build TestClassLoader TestClient\nUSER_SPECIFIED main ClassLoaderTest -noPolicy\nUSER_SPECIFIED main ClassLoaderTest -validPolicy\nUSER_SPECIFIED main ClassLoaderTest -invalidPolicy\nUSER_SPECIFIED main ClassLoaderTest -noPolicy      -customSCL\nUSER_SPECIFIED main ClassLoaderTest -validPolicy   -customSCL\nUSER_SPECIFIED main ClassLoaderTest -invalidPolicy -customSCL\n
+source=ClassLoaderTest.java
+title=Different types of ClassLoader running with(out) SecurityManager and (in)valid security policy file.
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java
+elapsed=5829 0\:00\:05.829
+end=Mon Apr 29 00\:40\:04 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1055-577.mrg2vkl14epehdn0xjtgmxanmg.phxx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.module
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile build compile main build main build main build main build main build main
+start=Mon Apr 29 00\:39\:58 UTC 2024
+test=java/lang/ClassLoader/securityManager/ClassLoaderTest.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:amd64,version\:6.5.0-1018-azure,family\:linux,simple_arch\:x64,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=amd64
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=5838
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager
+
+#section:script_messages
+----------messages:(7/551)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+#section:build
+----------messages:(7/352)----------
+command: build jdk.test.lib.util.JarUtils jdk.test.lib.util.ModuleInfoWriter
+reason: User specified action: run build jdk.test.lib.util.JarUtils jdk.test.lib.util.ModuleInfoWriter 
+started: Mon Apr 29 00:39:58 UTC 2024
+Library /test/lib:
+  compile: jdk.test.lib.util.ModuleInfoWriter
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.08
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/396)----------
+command: compile /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/util/ModuleInfoWriter.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.08
+----------configuration:(11/655)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/lib 
+  class path:  /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+
+----------rerun:(41/3582)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.module \\
+        -J-Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        --enable-preview \\
+        --source=23 /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/util/ModuleInfoWriter.java
+----------direct:(2/175)----------
+Note: /home/runner/work/openjdk/openjdk/test/lib/jdk/test/lib/util/ModuleInfoWriter.java uses preview features of Java SE 23.
+Note: Recompile with -Xlint:preview for details.
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/273)----------
+command: build TestClassLoader TestClient
+reason: User specified action: run build TestClassLoader TestClient 
+started: Mon Apr 29 00:39:58 UTC 2024
+Test directory:
+  compile: TestClassLoader, TestClient
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.068
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/513)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/TestClassLoader.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/TestClient.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.067
+----------configuration:(14/1023)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager 
+               /home/runner/work/openjdk/openjdk/test/lib 
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+
+----------rerun:(41/4223)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.module \\
+        -J-Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        --enable-preview \\
+        --source=23 /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/TestClassLoader.java /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/TestClient.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/220)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:58 UTC 2024
+Test directory:
+  compile: ClassLoaderTest
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.085
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/416)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:39:58 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:39:58 UTC 2024
+elapsed time (seconds): 0.084
+----------configuration:(14/1023)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager 
+               /home/runner/work/openjdk/openjdk/test/lib 
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d 
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib 
+
+----------rerun:(41/4126)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.module \\
+        -J-Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        --enable-preview \\
+        --source=23 /home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/374)----------
+command: main ClassLoaderTest -noPolicy
+reason: User specified action: run main ClassLoaderTest -noPolicy 
+started: Mon Apr 29 00:39:58 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:39:59 UTC 2024
+elapsed time (seconds): 0.85
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(44/9730)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and SystemClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:39:59.020014446Z] Gathering output for process 14129
+[2024-04-29T00:39:59.029150032Z] Waiting for completion for process 14129
+[2024-04-29T00:39:59.105997793Z] Waiting for completion finished for process 14129
+Output and diagnostic info for process 14129 was saved into 'pid-14129-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Modular Client and SystemClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:39:59.121442221Z] Gathering output for process 14210
+[2024-04-29T00:39:59.121937802Z] Waiting for completion for process 14210
+[2024-04-29T00:39:59.187442767Z] Waiting for completion finished for process 14210
+Output and diagnostic info for process 14210 was saved into 'pid-14210-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and SystemClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:39:59.190193663Z] Gathering output for process 14260
+[2024-04-29T00:39:59.190512616Z] Waiting for completion for process 14260
+[2024-04-29T00:39:59.292536566Z] Waiting for completion finished for process 14260
+Output and diagnostic info for process 14260 was saved into 'pid-14260-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Unknown modular Client and SystemClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:39:59.295485454Z] Gathering output for process 14331
+[2024-04-29T00:39:59.295772548Z] Waiting for completion for process 14331
+[2024-04-29T00:39:59.345419748Z] Waiting for completion finished for process 14331
+Output and diagnostic info for process 14331 was saved into 'pid-14331-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Regular Client and SystemClassLoader inside --module-path Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m c/c.TestClient ]
+[2024-04-29T00:39:59.347925956Z] Gathering output for process 14380
+[2024-04-29T00:39:59.348342100Z] Waiting for completion for process 14380
+[2024-04-29T00:39:59.457406972Z] Waiting for completion finished for process 14380
+Output and diagnostic info for process 14380 was saved into 'pid-14380-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Modular Client and SystemClassLoader in -cp Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:39:59.460217589Z] Gathering output for process 14458
+[2024-04-29T00:39:59.460977572Z] Waiting for completion for process 14458
+[2024-04-29T00:39:59.513849932Z] Waiting for completion finished for process 14458
+Output and diagnostic info for process 14458 was saved into 'pid-14458-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4155)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.0.jta -noPolicy
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:39:59 UTC 2024
+finished: Mon Apr 29 00:39:59 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/381)----------
+command: main ClassLoaderTest -validPolicy
+reason: User specified action: run main ClassLoaderTest -validPolicy 
+started: Mon Apr 29 00:39:59 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:40:00 UTC 2024
+elapsed time (seconds): 0.969
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(44/10558)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:39:59.786934280Z] Gathering output for process 14643
+[2024-04-29T00:39:59.798098068Z] Waiting for completion for process 14643
+[2024-04-29T00:39:59.899836462Z] Waiting for completion finished for process 14643
+Output and diagnostic info for process 14643 was saved into 'pid-14643-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:39:59.914938260Z] Gathering output for process 14727
+[2024-04-29T00:39:59.915478044Z] Waiting for completion for process 14727
+[2024-04-29T00:39:59.979117249Z] Waiting for completion finished for process 14727
+Output and diagnostic info for process 14727 was saved into 'pid-14727-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:39:59.981881670Z] Gathering output for process 14777
+[2024-04-29T00:39:59.982322660Z] Waiting for completion for process 14777
+[2024-04-29T00:40:00.116603104Z] Waiting for completion finished for process 14777
+Output and diagnostic info for process 14777 was saved into 'pid-14777-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Unknown modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:40:00.119578578Z] Gathering output for process 14865
+[2024-04-29T00:40:00.120038864Z] Waiting for completion for process 14865
+[2024-04-29T00:40:00.222703592Z] Waiting for completion finished for process 14865
+Output and diagnostic info for process 14865 was saved into 'pid-14865-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Regular Client and SystemClassLoader inside --module-path With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m c/c.TestClient ]
+[2024-04-29T00:40:00.225400608Z] Gathering output for process 14937
+[2024-04-29T00:40:00.226279211Z] Waiting for completion for process 14937
+[2024-04-29T00:40:00.373698709Z] Waiting for completion finished for process 14937
+Output and diagnostic info for process 14937 was saved into 'pid-14937-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+Case:- Modular Client and SystemClassLoader in -cp With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:00.376630832Z] Gathering output for process 15028
+[2024-04-29T00:40:00.376953633Z] Waiting for completion for process 15028
+[2024-04-29T00:40:00.483325606Z] Waiting for completion finished for process 15028
+Output and diagnostic info for process 15028 was saved into 'pid-15028-output.log'
+PASS: Expected Result: jdk.internal.loader.ClassLoaders$AppClassLoader
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4158)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.1.jta -validPolicy
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:00 UTC 2024
+finished: Mon Apr 29 00:40:00 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/385)----------
+command: main ClassLoaderTest -invalidPolicy
+reason: User specified action: run main ClassLoaderTest -invalidPolicy 
+started: Mon Apr 29 00:40:00 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:40:01 UTC 2024
+elapsed time (seconds): 0.976
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(40/10548)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:00.755316465Z] Gathering output for process 15231
+[2024-04-29T00:40:00.764000935Z] Waiting for completion for process 15231
+[2024-04-29T00:40:00.875837891Z] Waiting for completion finished for process 15231
+Output and diagnostic info for process 15231 was saved into 'pid-15231-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:00.892751496Z] Gathering output for process 15322
+[2024-04-29T00:40:00.896767227Z] Waiting for completion for process 15322
+[2024-04-29T00:40:00.960714957Z] Waiting for completion finished for process 15322
+Output and diagnostic info for process 15322 was saved into 'pid-15322-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:00.963521087Z] Gathering output for process 15373
+[2024-04-29T00:40:00.963906304Z] Waiting for completion for process 15373
+[2024-04-29T00:40:01.102971104Z] Waiting for completion finished for process 15373
+Output and diagnostic info for process 15373 was saved into 'pid-15373-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Unknown modular Client and SystemClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:40:01.105541424Z] Gathering output for process 15463
+[2024-04-29T00:40:01.105965032Z] Waiting for completion for process 15463
+[2024-04-29T00:40:01.211220368Z] Waiting for completion finished for process 15463
+Output and diagnostic info for process 15463 was saved into 'pid-15463-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Regular Client and SystemClassLoader inside --module-path With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m c/c.TestClient ]
+[2024-04-29T00:40:01.214141242Z] Gathering output for process 15536
+[2024-04-29T00:40:01.214676067Z] Waiting for completion for process 15536
+[2024-04-29T00:40:01.356020100Z] Waiting for completion finished for process 15536
+Output and diagnostic info for process 15536 was saved into 'pid-15536-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Modular Client and SystemClassLoader in -cp With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:01.359330993Z] Gathering output for process 15631
+[2024-04-29T00:40:01.359731839Z] Waiting for completion for process 15631
+[2024-04-29T00:40:01.457685285Z] Waiting for completion finished for process 15631
+Output and diagnostic info for process 15631 was saved into 'pid-15631-output.log'
+PASS: Expected Failure: java.security.policy: error parsing file
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4160)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.2.jta -invalidPolicy
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:01 UTC 2024
+finished: Mon Apr 29 00:40:01 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/396)----------
+command: main ClassLoaderTest -noPolicy -customSCL
+reason: User specified action: run main ClassLoaderTest -noPolicy -customSCL 
+started: Mon Apr 29 00:40:01 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:40:02 UTC 2024
+elapsed time (seconds): 0.77
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(44/9965)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and Modular CustomClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:01.719818560Z] Gathering output for process 15833
+[2024-04-29T00:40:01.730128233Z] Waiting for completion for process 15833
+[2024-04-29T00:40:01.810614176Z] Waiting for completion finished for process 15833
+Output and diagnostic info for process 15833 was saved into 'pid-15833-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Modular Client and Unknown modular CustomClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:01.827115214Z] Gathering output for process 15910
+[2024-04-29T00:40:01.833043739Z] Waiting for completion for process 15910
+[2024-04-29T00:40:01.892719469Z] Waiting for completion finished for process 15910
+Output and diagnostic info for process 15910 was saved into 'pid-15910-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and Modular CustomClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar --add-modules=mcl c.TestClient ]
+[2024-04-29T00:40:01.895278118Z] Gathering output for process 15964
+[2024-04-29T00:40:01.895627Z] Waiting for completion for process 15964
+[2024-04-29T00:40:01.993937355Z] Waiting for completion finished for process 15964
+Output and diagnostic info for process 15964 was saved into 'pid-15964-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Unknown modular Client and Unknown modular CustomClassLoader Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:40:01.997056336Z] Gathering output for process 16035
+[2024-04-29T00:40:01.997531570Z] Waiting for completion for process 16035
+[2024-04-29T00:40:02.056222510Z] Waiting for completion finished for process 16035
+Output and diagnostic info for process 16035 was saved into 'pid-16035-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Regular Client and Unknown modular CustomClassLoader inside --module-path Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar --add-modules=cl -m c/c.TestClient ]
+[2024-04-29T00:40:02.058642079Z] Gathering output for process 16085
+[2024-04-29T00:40:02.059029901Z] Waiting for completion for process 16085
+[2024-04-29T00:40:02.167219311Z] Waiting for completion finished for process 16085
+Output and diagnostic info for process 16085 was saved into 'pid-16085-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Modular Client and Modular CustomClassLoader in -cp Without SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:02.169924815Z] Gathering output for process 16156
+[2024-04-29T00:40:02.170250469Z] Waiting for completion for process 16156
+[2024-04-29T00:40:02.228775845Z] Waiting for completion finished for process 16156
+Output and diagnostic info for process 16156 was saved into 'pid-16156-output.log'
+PASS: Expected Result: cl.TestClassLoader
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4166)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.3.jta -noPolicy -customSCL
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:02 UTC 2024
+finished: Mon Apr 29 00:40:02 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/403)----------
+command: main ClassLoaderTest -validPolicy -customSCL
+reason: User specified action: run main ClassLoaderTest -validPolicy -customSCL 
+started: Mon Apr 29 00:40:02 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:40:03 UTC 2024
+elapsed time (seconds): 1.013
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(44/10796)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and Modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:02.514338943Z] Gathering output for process 16349
+[2024-04-29T00:40:02.528417331Z] Waiting for completion for process 16349
+[2024-04-29T00:40:02.634614357Z] Waiting for completion finished for process 16349
+Output and diagnostic info for process 16349 was saved into 'pid-16349-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Modular Client and Unknown modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:02.650919901Z] Gathering output for process 16438
+[2024-04-29T00:40:02.653064840Z] Waiting for completion for process 16438
+[2024-04-29T00:40:02.715352068Z] Waiting for completion finished for process 16438
+Output and diagnostic info for process 16438 was saved into 'pid-16438-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and Modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar --add-modules=mcl c.TestClient ]
+[2024-04-29T00:40:02.717856937Z] Gathering output for process 16489
+[2024-04-29T00:40:02.718142788Z] Waiting for completion for process 16489
+[2024-04-29T00:40:02.854190508Z] Waiting for completion finished for process 16489
+Output and diagnostic info for process 16489 was saved into 'pid-16489-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Unknown modular Client and Unknown modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:40:02.857001907Z] Gathering output for process 16580
+[2024-04-29T00:40:02.857401204Z] Waiting for completion for process 16580
+[2024-04-29T00:40:02.965154611Z] Waiting for completion finished for process 16580
+Output and diagnostic info for process 16580 was saved into 'pid-16580-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Regular Client and Unknown modular CustomClassLoader inside --module-path With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar --add-modules=cl -m c/c.TestClient ]
+[2024-04-29T00:40:02.968136787Z] Gathering output for process 16659
+[2024-04-29T00:40:02.971168916Z] Waiting for completion for process 16659
+[2024-04-29T00:40:03.125890136Z] Waiting for completion finished for process 16659
+Output and diagnostic info for process 16659 was saved into 'pid-16659-output.log'
+PASS: Expected Result: cl.TestClassLoader
+Case:- Modular Client and Modular CustomClassLoader in -cp With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/valid.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:03.128780945Z] Gathering output for process 16742
+[2024-04-29T00:40:03.129215759Z] Waiting for completion for process 16742
+[2024-04-29T00:40:03.241964051Z] Waiting for completion finished for process 16742
+Output and diagnostic info for process 16742 was saved into 'pid-16742-output.log'
+PASS: Expected Result: cl.TestClassLoader
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4169)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.4.jta -validPolicy -customSCL
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/175)----------
+command: build ClassLoaderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 00:40:03 UTC 2024
+finished: Mon Apr 29 00:40:03 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/407)----------
+command: main ClassLoaderTest -invalidPolicy -customSCL
+reason: User specified action: run main ClassLoaderTest -invalidPolicy -customSCL 
+started: Mon Apr 29 00:40:03 UTC 2024
+Mode: othervm [test requires --enable-preview]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.module=ALL-UNNAMED
+finished: Mon Apr 29 00:40:04 UTC 2024
+elapsed time (seconds): 1.016
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.module ALL-UNNAMED
+
+----------System.out:(40/10931)----------
+Adding 'module-info.class' to jar 'jars/mcl.jar'
+Adding 'module-info.class' to jar 'jars/mc.jar'
+Adding 'module-info.class' to jar 'jars/amc.jar'
+Case:- Modular Client and Modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:03.550332251Z] Gathering output for process 16807
+[2024-04-29T00:40:03.558882893Z] Waiting for completion for process 16807
+[2024-04-29T00:40:03.680321475Z] Waiting for completion finished for process 16807
+Output and diagnostic info for process 16807 was saved into 'pid-16807-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Modular Client and Unknown modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/amc.jar -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar -m mc/c.TestClient ]
+[2024-04-29T00:40:03.696538693Z] Gathering output for process 16876
+[2024-04-29T00:40:03.696967751Z] Waiting for completion for process 16876
+[2024-04-29T00:40:03.764536341Z] Waiting for completion finished for process 16876
+Output and diagnostic info for process 16876 was saved into 'pid-16876-output.log'
+PASS: Expected Failure: Module cl not found, required by mcCase:- Unknown modular Client and Modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar --add-modules=mcl c.TestClient ]
+[2024-04-29T00:40:03.767065444Z] Gathering output for process 16912
+[2024-04-29T00:40:03.767334896Z] Waiting for completion for process 16912
+[2024-04-29T00:40:03.884382201Z] Waiting for completion finished for process 16912
+Output and diagnostic info for process 16912 was saved into 'pid-16912-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Unknown modular Client and Unknown modular CustomClassLoader With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar c.TestClient ]
+[2024-04-29T00:40:03.887104093Z] Gathering output for process 16933
+[2024-04-29T00:40:03.887405043Z] Waiting for completion for process 16933
+[2024-04-29T00:40:04.002322117Z] Waiting for completion finished for process 16933
+Output and diagnostic info for process 16933 was saved into 'pid-16933-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Regular Client and Unknown modular CustomClassLoader inside --module-path With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader --module-path /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/c.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/cl.jar --add-modules=cl -m c/c.TestClient ]
+[2024-04-29T00:40:04.004828779Z] Gathering output for process 16953
+[2024-04-29T00:40:04.005286630Z] Waiting for completion for process 16953
+[2024-04-29T00:40:04.133826532Z] Waiting for completion finished for process 16953
+Output and diagnostic info for process 16953 was saved into 'pid-16953-output.log'
+PASS: Expected Failure: java.security.policy: error parsing fileCase:- Modular Client and Modular CustomClassLoader in -cp With SecurityManager
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -Duser.language=en -Duser.region=US -Djava.security.manager -Djava.security.policy=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/malformed.policy -Djava.system.class.loader=cl.TestClassLoader -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mc.jar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1/jars/mcl.jar c.TestClient ]
+[2024-04-29T00:40:04.136402974Z] Gathering output for process 16990
+[2024-04-29T00:40:04.136856042Z] Waiting for completion for process 16990
+[2024-04-29T00:40:04.249169344Z] Waiting for completion finished for process 16990
+Output and diagnostic info for process 16990 was saved into 'pid-16990-output.log'
+PASS: Expected Failure: java.security.policy: error parsing file
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(41/4171)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager/ClassLoaderTest.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/ClassLoader/securityManager/ClassLoaderTest.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/ClassLoader/securityManager:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.modules=java.base/jdk.internal.module \\
+        -Dtest.enable.preview=true \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.module=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        --enable-preview \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/ClassLoader/securityManager/ClassLoaderTest.d/main.5.jta -invalidPolicy -customSCL
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

@@ -1,0 +1,850 @@
+#Test Results (version 2)
+#Mon Apr 29 01:04:01 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8314263
+library=/test/lib ../lib
+modules=java.base/jdk.internal.logger\:+open
+run=USER_SPECIFIED compile/module\=java.base share/classes/jdk/internal/event/EventHelper.java\nUSER_SPECIFIED build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher\nUSER_SPECIFIED compile SignedLoggerFinderTest.java SimpleLoggerFinder.java\nUSER_SPECIFIED main SignedLoggerFinderTest init\nUSER_SPECIFIED main SignedLoggerFinderTest init sign\n
+source=SignedLoggerFinderTest.java
+title=Signed jars triggering Logger finder recursion and StackOverflowError
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java
+elapsed=9239 0\:00\:09.239
+end=Mon Apr 29 01\:04\:01 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.logger\:+open
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile build compile build main build main
+start=Mon Apr 29 01\:03\:51 UTC 2024
+test=java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=9241
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/SignedLoggerFinderTest
+
+#section:script_messages
+----------messages:(10/859)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+Library ../lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib
+
+#section:compile
+----------messages:(8/533)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base/share/classes/jdk/internal/event/EventHelper.java
+reason: User specified action: run compile/module=java.base share/classes/jdk/internal/event/EventHelper.java 
+started: Mon Apr 29 01:03:51 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:03:51 UTC 2024
+elapsed time (seconds): 0.055
+----------configuration:(16/1526)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  add reads:   java.base                     ALL-UNNAMED
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib 
+  patch:       java.base                     /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base
+                                             /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base
+
+----------rerun:(38/5059)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.logger:+open \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/java.base/share/classes/jdk/internal/event/EventHelper.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/394)----------
+command: build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher
+reason: User specified action: run build jdk.test.lib.compiler.CompilerUtils jdk.test.lib.process.* jdk.test.lib.util.JarUtils jdk.test.lib.JDKToolLauncher 
+started: Mon Apr 29 01:03:51 UTC 2024
+finished: Mon Apr 29 01:03:51 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:compile
+----------messages:(8/607)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SimpleLoggerFinder.java
+reason: User specified action: run compile SignedLoggerFinderTest.java SimpleLoggerFinder.java 
+started: Mon Apr 29 01:03:51 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:03:52 UTC 2024
+elapsed time (seconds): 0.097
+----------configuration:(18/1631)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  add reads:   java.base                     ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest 
+               /Users/runner/work/openjdk/openjdk/test/lib 
+               /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib 
+  patch:       java.base                     /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base
+
+----------rerun:(39/5255)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -J-Dtest.modules=java.base/jdk.internal.logger:+open \\
+        -J-Dtest.patch.path= \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base \\
+        --add-reads java.base=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java /Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SimpleLoggerFinder.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(5/184)----------
+command: build SignedLoggerFinderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:03:52 UTC 2024
+finished: Mon Apr 29 01:03:52 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/443)----------
+command: main SignedLoggerFinderTest init
+reason: User specified action: run main SignedLoggerFinderTest init 
+started: Mon Apr 29 01:03:52 UTC 2024
+Mode: othervm [test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED --add-opens java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 01:03:54 UTC 2024
+elapsed time (seconds): 2.58
+----------configuration:(6/416)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  add opens:   java.base/jdk.internal.logger ALL-UNNAMED
+  patch:       java.base                     /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base
+
+----------System.out:(220/28318)----------
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties SignedLoggerFinderTest no-init]
+Logger finder service load sleep value: 64
+TEST LOGGER: ProcessBuilder.start(): pid: 41759, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:52.549595Z] Gathering output for process 41759
+[2024-04-29T01:03:52.565995Z] Waiting for completion for process 41759
+[2024-04-29T01:03:52.786911Z] Waiting for completion finished for process 41759
+Output and diagnostic info for process 41759 was saved into 'pid-41759-output.log'
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Apr 29, 2024 1:03:52 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_1, value:test
+Apr 29, 2024 1:03:52 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_2, value:test
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DwithCustomLoggerFinder=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41768, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar" "-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DwithCustomLoggerFinder=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:52.836394Z] Gathering output for process 41768
+[2024-04-29T01:03:52.836895Z] Waiting for completion for process 41768
+[2024-04-29T01:03:53.201645Z] Waiting for completion finished for process 41768
+Output and diagnostic info for process 41768 was saved into 'pid-41768-output.log'
+Logger finder service load sleep value: 42
+TEST LOGGER: [test_1, test]
+TEST LOGGER: [test_2, test]
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.useLazyLoggers(BootstrapLogger.java:952)
+	at java.base/jdk.internal.logger.LazyLoggers.getLazyLogger(LazyLoggers.java:460)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:435)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at java.base/jdk.internal.event.EventHelper.isLoggingSecurity(EventHelper.java:149)
+	at java.base/java.security.Security.setProperty(Security.java:767)
+	at SignedLoggerFinderTest.main(SignedLoggerFinderTest.java:133)
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.useLazyLoggers(BootstrapLogger.java:952)
+	at java.base/jdk.internal.logger.LazyLoggers.getLazyLogger(LazyLoggers.java:460)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:435)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at java.base/jdk.internal.event.EventHelper.isLoggingSecurity(EventHelper.java:149)
+	at java.base/java.security.Security.setProperty(Security.java:767)
+	at SignedLoggerFinderTest.main(SignedLoggerFinderTest.java:133)
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder.class")
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder$SimpleLogger.class")
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DmultiThreadLoad=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41769, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DmultiThreadLoad=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:53.207960Z] Gathering output for process 41769
+[2024-04-29T01:03:53.208679Z] Waiting for completion for process 41769
+[2024-04-29T01:03:53.608649Z] Waiting for completion finished for process 41769
+Output and diagnostic info for process 41769 was saved into 'pid-41769-output.log'
+multi thread load sleep value: 26
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+System.getLogger type: sun.util.logging.internal.LoggingProviderImpl$JULWrapper
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+System.getLogger type: sun.util.logging.internal.LoggingProviderImpl$JULWrapper
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+System.getLogger type: sun.util.logging.internal.LoggingProviderImpl$JULWrapper
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+System.getLogger type: sun.util.logging.internal.LoggingProviderImpl$JULWrapper
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Apr 29, 2024 1:03:53 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_1, value:test
+Apr 29, 2024 1:03:53 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_2, value:test
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DmultiThreadLoad=true -DwithCustomLoggerFinder=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41771, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar" "-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DmultiThreadLoad=true" "-DwithCustomLoggerFinder=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:53.614293Z] Gathering output for process 41771
+[2024-04-29T01:03:53.614891Z] Waiting for completion for process 41771
+[2024-04-29T01:03:54.595619Z] Waiting for completion finished for process 41771
+Output and diagnostic info for process 41771 was saved into 'pid-41771-output.log'
+multi thread load sleep value: 11
+Logger finder service load sleep value: 523
+System.getLoggerFinder type: loggerfinder.SimpleLoggerFinder
+System.getLogger type: loggerfinder.SimpleLoggerFinder$SimpleLogger
+TEST LOGGER: [test_1, test]
+TEST LOGGER: [test_2, test]
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.ensureBackendDetected(BootstrapLogger.java:988)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.service(LoggerFinderLoader.java:79)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.getLoggerFinder(LoggerFinderLoader.java:264)
+	at java.base/java.lang.System$LoggerFinder.lambda$accessProvider$0(System.java:1778)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:461)
+	at java.base/java.lang.System$LoggerFinder.accessProvider(System.java:1779)
+	at java.base/java.lang.System$LoggerFinder.getLoggerFinder(System.java:1765)
+	at SignedLoggerFinderTest.lambda$main$1(SignedLoggerFinderTest.java:119)
+	at SignedLoggerFinderTest.lambda$runnableWithSleep$4(SignedLoggerFinderTest.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.ensureBackendDetected(BootstrapLogger.java:988)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.service(LoggerFinderLoader.java:79)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.getLoggerFinder(LoggerFinderLoader.java:264)
+	at java.base/java.lang.System$LoggerFinder.lambda$accessProvider$0(System.java:1778)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:461)
+	at java.base/java.lang.System$LoggerFinder.accessProvider(System.java:1779)
+	at java.base/java.lang.System$LoggerFinder.getLoggerFinder(System.java:1765)
+	at SignedLoggerFinderTest.lambda$main$1(SignedLoggerFinderTest.java:119)
+	at SignedLoggerFinderTest.lambda$runnableWithSleep$4(SignedLoggerFinderTest.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder.class")
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder$SimpleLogger.class")
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+TEST LOGGER: Runtime.exit() called with status: 95
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(40/5165)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -Dtest.modules=java.base/jdk.internal.logger:+open \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        --add-opens java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/main.0.jta init
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/182)----------
+command: build SignedLoggerFinderTest
+reason: Named class compiled on demand
+started: Mon Apr 29 01:03:54 UTC 2024
+finished: Mon Apr 29 01:03:54 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/454)----------
+command: main SignedLoggerFinderTest init sign
+reason: User specified action: run main SignedLoggerFinderTest init sign 
+started: Mon Apr 29 01:03:54 UTC 2024
+Mode: othervm [test or library overrides a system module]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.logger=ALL-UNNAMED --add-opens java.base/jdk.internal.logger=ALL-UNNAMED
+finished: Mon Apr 29 01:04:01 UTC 2024
+elapsed time (seconds): 6.503
+----------configuration:(6/416)----------
+Boot Layer
+  add modules: java.base                     
+  add exports: java.base/jdk.internal.logger ALL-UNNAMED
+  add opens:   java.base/jdk.internal.logger ALL-UNNAMED
+  patch:       java.base                     /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base
+
+----------System.out:(285/34347)----------
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/keytool -J-Duser.language=en -J-Duser.country=US -genkey -keyalg rsa -alias JavaTest -keystore 8314263.keystore -keypass changeit -dname CN=sample -storepass changeit]
+Logger finder service load sleep value: 467
+TEST LOGGER: ProcessBuilder.start(): pid: 41784, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/keytool" "-J-Duser.language=en" "-J-Duser.country=US" "-genkey" "-keyalg" "rsa" "-alias" "JavaTest" "-keystore" "8314263.keystore" "-keypass" "changeit" "-dname" "CN=sample" "-storepass" "changeit"
+[2024-04-29T01:03:55.417862Z] Gathering output for process 41784
+[2024-04-29T01:03:55.459456Z] Waiting for completion for process 41784
+[2024-04-29T01:03:57.142359Z] Waiting for completion finished for process 41784
+Output and diagnostic info for process 41784 was saved into 'pid-41784-output.log'
+Generating 3,072 bit RSA key pair and self-signed certificate (SHA384withRSA) with a validity of 90 days
+	for: CN=sample
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/jarsigner -J-Duser.language=en -J-Duser.country=US -keystore 8314263.keystore -storepass changeit -keypass changeit -verbose /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar JavaTest]
+TEST LOGGER: ProcessBuilder.start(): pid: 41879, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/jarsigner" "-J-Duser.language=en" "-J-Duser.country=US" "-keystore" "8314263.keystore" "-storepass" "changeit" "-keypass" "changeit" "-verbose" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar" "JavaTest"
+[2024-04-29T01:03:57.271938Z] Gathering output for process 41879
+[2024-04-29T01:03:57.272641Z] Waiting for completion for process 41879
+[2024-04-29T01:03:58.503232Z] Waiting for completion finished for process 41879
+Output and diagnostic info for process 41879 was saved into 'pid-41879-output.log'
+   adding: META-INF/MANIFEST.MF
+   adding: META-INF/JAVATEST.SF
+   adding: META-INF/JAVATEST.RSA
+  signing: loggerfinder/SimpleLoggerFinder.class
+  signing: loggerfinder/SimpleLoggerFinder$SimpleLogger.class
+  signing: META-INF/services/java.lang.System$LoggerFinder
+
+>>> Signer
+    X.509, CN=sample
+    Signature algorithm: SHA384withRSA, 3072-bit key
+    [trusted certificate]
+
+jar signed.
+
+Warning: 
+The signer's certificate is self-signed.
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41894, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:58.521633Z] Gathering output for process 41894
+[2024-04-29T01:03:58.522169Z] Waiting for completion for process 41894
+[2024-04-29T01:03:58.966532Z] Waiting for completion finished for process 41894
+Output and diagnostic info for process 41894 was saved into 'pid-41894-output.log'
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Apr 29, 2024 1:03:58 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_1, value:test
+Apr 29, 2024 1:03:58 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_2, value:test
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DwithCustomLoggerFinder=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41899, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar" "-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DwithCustomLoggerFinder=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:58.987832Z] Gathering output for process 41899
+[2024-04-29T01:03:58.988561Z] Waiting for completion for process 41899
+[2024-04-29T01:03:59.743256Z] Waiting for completion finished for process 41899
+Output and diagnostic info for process 41899 was saved into 'pid-41899-output.log'
+Logger finder service load sleep value: 13
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [test_1, test]
+TEST LOGGER: [test_2, test]
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.useLazyLoggers(BootstrapLogger.java:952)
+	at java.base/jdk.internal.logger.LazyLoggers.getLazyLogger(LazyLoggers.java:460)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:435)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at java.base/jdk.internal.event.EventHelper.isLoggingSecurity(EventHelper.java:149)
+	at java.base/sun.security.jca.JCAUtil.tryCommitCertEvent(JCAUtil.java:104)
+	at java.base/java.security.cert.CertificateFactory.generateCertificate(CertificateFactory.java:356)
+	at java.base/sun.security.pkcs.PKCS7.parseSignedData(PKCS7.java:306)
+	at java.base/sun.security.pkcs.PKCS7.parse(PKCS7.java:160)
+	at java.base/sun.security.pkcs.PKCS7.parse(PKCS7.java:124)
+	at java.base/sun.security.pkcs.PKCS7.<init>(PKCS7.java:106)
+	at java.base/sun.security.util.SignatureFileVerifier.<init>(SignatureFileVerifier.java:111)
+	at java.base/java.util.jar.JarVerifier.processEntry(JarVerifier.java:301)
+	at java.base/java.util.jar.JarVerifier.update(JarVerifier.java:232)
+	at java.base/java.util.jar.JarFile.initializeVerifier(JarFile.java:760)
+	at java.base/java.util.jar.JarFile.getInputStream(JarFile.java:858)
+	at SignedLoggerFinderTest.main(SignedLoggerFinderTest.java:125)
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.useLazyLoggers(BootstrapLogger.java:952)
+	at java.base/jdk.internal.logger.LazyLoggers.getLazyLogger(LazyLoggers.java:460)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:435)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at java.base/jdk.internal.event.EventHelper.isLoggingSecurity(EventHelper.java:149)
+	at java.base/sun.security.jca.JCAUtil.tryCommitCertEvent(JCAUtil.java:104)
+	at java.base/java.security.cert.CertificateFactory.generateCertificate(CertificateFactory.java:356)
+	at java.base/sun.security.pkcs.PKCS7.parseSignedData(PKCS7.java:306)
+	at java.base/sun.security.pkcs.PKCS7.parse(PKCS7.java:160)
+	at java.base/sun.security.pkcs.PKCS7.parse(PKCS7.java:124)
+	at java.base/sun.security.pkcs.PKCS7.<init>(PKCS7.java:106)
+	at java.base/sun.security.util.SignatureFileVerifier.<init>(SignatureFileVerifier.java:111)
+	at java.base/java.util.jar.JarVerifier.processEntry(JarVerifier.java:301)
+	at java.base/java.util.jar.JarVerifier.update(JarVerifier.java:232)
+	at java.base/java.util.jar.JarFile.initializeVerifier(JarFile.java:760)
+	at java.base/java.util.jar.JarFile.getInputStream(JarFile.java:858)
+	at SignedLoggerFinderTest.main(SignedLoggerFinderTest.java:125)
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder.class")
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder$SimpleLogger.class")
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DmultiThreadLoad=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41912, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DmultiThreadLoad=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:03:59.754652Z] Gathering output for process 41912
+[2024-04-29T01:03:59.756609Z] Waiting for completion for process 41912
+[2024-04-29T01:04:00.318773Z] Waiting for completion finished for process 41912
+Output and diagnostic info for process 41912 was saved into 'pid-41912-output.log'
+multi thread load sleep value: 85
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+System.getLogger type: sun.util.logging.internal.LoggingProviderImpl$JULWrapper
+System.getLoggerFinder type: sun.util.logging.internal.LoggingProviderImpl
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Patch version of EventHelper loaded
+Apr 29, 2024 1:04:00 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_1, value:test
+Apr 29, 2024 1:04:00 AM jdk.internal.event.EventHelper logSecurityPropertyEvent
+INFO: SecurityPropertyModification: key:test_2, value:test
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base --add-opens=java.base/jdk.internal.logger=ALL-UNNAMED -Dsun.misc.URLClassPath.debug=true -Djdk.system.logger.level=DEBUG -Djdk.logger.finder.error=DEBUG -Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties -DmultiThreadLoad=true -DwithCustomLoggerFinder=true SignedLoggerFinderTest no-init]
+TEST LOGGER: ProcessBuilder.start(): pid: 41922, dir: null, cmd: "/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java" "-Xmx768m" "-XX:MaxRAMPercentage=12.5" "-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk" "-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp" "-ea" "-esa" "-XX:-CreateCoredumpOnCrash" "-classpath" "/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar" "-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d" "--patch-module" "java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base" "--add-opens=java.base/jdk.internal.logger=ALL-UNNAMED" "-Dsun.misc.URLClassPath.debug=true" "-Djdk.system.logger.level=DEBUG" "-Djdk.logger.finder.error=DEBUG" "-Djava.util.logging.config.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/logging.properties" "-DmultiThreadLoad=true" "-DwithCustomLoggerFinder=true" "SignedLoggerFinderTest" "no-init"
+[2024-04-29T01:04:00.327067Z] Gathering output for process 41922
+[2024-04-29T01:04:00.332568Z] Waiting for completion for process 41922
+[2024-04-29T01:04:01.097492Z] Waiting for completion finished for process 41922
+Output and diagnostic info for process 41922 was saved into 'pid-41922-output.log'
+multi thread load sleep value: 45
+Logger finder service load sleep value: 59
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+System.getLogger type: loggerfinder.SimpleLoggerFinder$SimpleLogger
+System.getLoggerFinder type: loggerfinder.SimpleLoggerFinder
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [SHA384withRSA, 00:ee:04:1a:72:e8:99:97:8b, CN=sample, CN=sample, RSA, 3072, 2933605559, Mon Apr 29 01:03:56 UTC 2024, Sun Jul 28 01:03:56 UTC 2024]
+TEST LOGGER: [test_1, test]
+TEST LOGGER: [test_2, test]
+URLClassPath.getResource("SignedLoggerFinderTest.class")
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.ensureBackendDetected(BootstrapLogger.java:988)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.service(LoggerFinderLoader.java:79)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.getLoggerFinder(LoggerFinderLoader.java:264)
+	at java.base/java.lang.System$LoggerFinder.lambda$accessProvider$0(System.java:1778)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:461)
+	at java.base/java.lang.System$LoggerFinder.accessProvider(System.java:1779)
+	at java.base/java.lang.System$LoggerFinder.getLoggerFinder(System.java:1765)
+	at java.base/jdk.internal.logger.LazyLoggers.accessLoggerFinder(LazyLoggers.java:354)
+	at java.base/jdk.internal.logger.LazyLoggers.getLoggerFromFinder(LazyLoggers.java:410)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:437)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at SignedLoggerFinderTest.lambda$main$0(SignedLoggerFinderTest.java:116)
+	at SignedLoggerFinderTest.lambda$runnableWithSleep$4(SignedLoggerFinderTest.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Opening file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/SimpleLoggerFinder2.jar
+java.lang.Exception: Stack trace
+	at java.base/java.lang.Thread.dumpStack(Thread.java:2148)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:761)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader$1.run(URLClassPath.java:757)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.ensureOpen(URLClassPath.java:756)
+	at java.base/jdk.internal.loader.URLClassPath$JarLoader.<init>(URLClassPath.java:727)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:495)
+	at java.base/jdk.internal.loader.URLClassPath$3.run(URLClassPath.java:477)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:476)
+	at java.base/jdk.internal.loader.URLClassPath.getLoader(URLClassPath.java:444)
+	at java.base/jdk.internal.loader.URLClassPath$1.next(URLClassPath.java:342)
+	at java.base/jdk.internal.loader.URLClassPath$1.hasMoreElements(URLClassPath.java:353)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasNext(BuiltinClassLoader.java:408)
+	at java.base/jdk.internal.loader.BuiltinClassLoader$1.hasMoreElements(BuiltinClassLoader.java:416)
+	at java.base/java.lang.CompoundEnumeration.next(ClassLoader.java:2740)
+	at java.base/java.lang.CompoundEnumeration.hasMoreElements(ClassLoader.java:2749)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.nextProviderClass(ServiceLoader.java:1206)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNextService(ServiceLoader.java:1224)
+	at java.base/java.util.ServiceLoader$LazyClassPathLookupIterator.hasNext(ServiceLoader.java:1269)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1305)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1387)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:908)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend$1.run(BootstrapLogger.java:902)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:319)
+	at java.base/jdk.internal.logger.BootstrapLogger$DetectBackend.<clinit>(BootstrapLogger.java:902)
+	at java.base/jdk.internal.logger.BootstrapLogger.ensureBackendDetected(BootstrapLogger.java:988)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.service(LoggerFinderLoader.java:79)
+	at java.base/jdk.internal.logger.LoggerFinderLoader.getLoggerFinder(LoggerFinderLoader.java:264)
+	at java.base/java.lang.System$LoggerFinder.lambda$accessProvider$0(System.java:1778)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:461)
+	at java.base/java.lang.System$LoggerFinder.accessProvider(System.java:1779)
+	at java.base/java.lang.System$LoggerFinder.getLoggerFinder(System.java:1765)
+	at java.base/jdk.internal.logger.LazyLoggers.accessLoggerFinder(LazyLoggers.java:354)
+	at java.base/jdk.internal.logger.LazyLoggers.getLoggerFromFinder(LazyLoggers.java:410)
+	at java.base/jdk.internal.logger.LazyLoggers.getLogger(LazyLoggers.java:437)
+	at java.base/java.lang.System.getLogger(System.java:1831)
+	at SignedLoggerFinderTest.lambda$main$0(SignedLoggerFinderTest.java:116)
+	at SignedLoggerFinderTest.lambda$runnableWithSleep$4(SignedLoggerFinderTest.java:225)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Patch version of EventHelper loaded
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder.class")
+URLClassPath.getResource("loggerfinder/SimpleLoggerFinder$SimpleLogger.class")
+URLClassPath.getResource("BootstrapLoggerUtils.class")
+
+TEST LOGGER: Runtime.exit() called with status: 95
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(40/5170)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/lang/System/LoggerFinder/SignedLoggerFinderTest:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/lib \\
+        -Dtest.modules=java.base/jdk.internal.logger:+open \\
+        -Dtest.patch.path= \\
+        --patch-module java.base=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/patches/java.base \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.logger=ALL-UNNAMED \\
+        --add-opens java.base/jdk.internal.logger=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/System/LoggerFinder/SignedLoggerFinderTest/SignedLoggerFinderTest.d/main.1.jta init sign
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

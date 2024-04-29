@@ -1,0 +1,399 @@
+#Test Results (version 2)
+#Mon Apr 29 01:11:26 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=othervm
+library=/test/lib
+run=USER_SPECIFIED main/othervm EntryCount64k\nUSER_SPECIFIED main/othervm -Djdk.util.zip.inhibitZip64\=true EntryCount64k\nUSER_SPECIFIED main/othervm -Djdk.util.zip.inhibitZip64\=false EntryCount64k\n
+source=EntryCount64k.java
+title=Test java.util.zip behavior with ~64k entries
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java
+elapsed=9626 0\:00\:09.626
+end=Mon Apr 29 01\:11\:26 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main build main build main
+start=Mon Apr 29 01\:11\:16 UTC 2024
+test=java/util/zip/EntryCount64k.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=9626
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/zip
+
+#section:script_messages
+----------messages:(7/544)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /home/runner/work/openjdk/openjdk/test/lib
+   class directory: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+#section:build
+----------messages:(7/216)----------
+command: build EntryCount64k
+reason: Named class compiled on demand
+started: Mon Apr 29 01:11:16 UTC 2024
+Test directory:
+  compile: EntryCount64k
+finished: Mon Apr 29 01:11:16 UTC 2024
+elapsed time (seconds): 0.037
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/277)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:11:16 UTC 2024
+Mode: agentvm
+Agent id: 39
+finished: Mon Apr 29 01:11:16 UTC 2024
+elapsed time (seconds): 0.037
+----------configuration:(12/841)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip
+               /home/runner/work/openjdk/openjdk/test/lib
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib
+
+----------rerun:(35/3547)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/zip/EntryCount64k.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib /home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/233)----------
+command: main EntryCount64k
+reason: User specified action: run main/othervm EntryCount64k 
+started: Mon Apr 29 01:11:16 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:11:20 UTC 2024
+elapsed time (seconds): 3.276
+----------configuration:(0/0)----------
+----------System.out:(25/5715)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:17.558719730Z] Gathering output for process 329690
+[2024-04-29T01:11:17.598017541Z] Waiting for completion for process 329690
+[2024-04-29T01:11:17.698600177Z] Waiting for completion finished for process 329690
+Output and diagnostic info for process 329690 was saved into 'pid-329690-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:18.301203256Z] Gathering output for process 329712
+[2024-04-29T01:11:18.301649958Z] Waiting for completion for process 329712
+[2024-04-29T01:11:18.430634034Z] Waiting for completion finished for process 329712
+Output and diagnostic info for process 329712 was saved into 'pid-329712-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:18.770389543Z] Gathering output for process 329733
+[2024-04-29T01:11:18.770852236Z] Waiting for completion for process 329733
+[2024-04-29T01:11:18.884142775Z] Waiting for completion finished for process 329733
+Output and diagnostic info for process 329733 was saved into 'pid-329733-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:19.261755657Z] Gathering output for process 329754
+[2024-04-29T01:11:19.270711514Z] Waiting for completion for process 329754
+[2024-04-29T01:11:19.425732016Z] Waiting for completion finished for process 329754
+Output and diagnostic info for process 329754 was saved into 'pid-329754-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:19.807441148Z] Gathering output for process 329775
+[2024-04-29T01:11:19.807904612Z] Waiting for completion for process 329775
+[2024-04-29T01:11:19.963656422Z] Waiting for completion finished for process 329775
+Output and diagnostic info for process 329775 was saved into 'pid-329775-output.log'
+----------System.err:(11/364)----------
+entryCount=65533 shouldUseZip64=false usesZip64=false zipSize=6797033
+
+entryCount=65534 shouldUseZip64=false usesZip64=false zipSize=6797137
+
+entryCount=65535 shouldUseZip64=true usesZip64=true zipSize=6797317
+
+entryCount=65536 shouldUseZip64=true usesZip64=true zipSize=6797421
+
+entryCount=65537 shouldUseZip64=true usesZip64=true zipSize=6797525
+
+STATUS:Passed.
+----------rerun:(36/3643)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/zip/EntryCount64k.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/zip/EntryCount64k.d/main.0.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/173)----------
+command: build EntryCount64k
+reason: Named class compiled on demand
+started: Mon Apr 29 01:11:20 UTC 2024
+finished: Mon Apr 29 01:11:20 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/299)----------
+command: main -Djdk.util.zip.inhibitZip64=true EntryCount64k
+reason: User specified action: run main/othervm -Djdk.util.zip.inhibitZip64=true EntryCount64k 
+started: Mon Apr 29 01:11:20 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:11:23 UTC 2024
+elapsed time (seconds): 3.181
+----------configuration:(0/0)----------
+----------System.out:(25/5715)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:20.842152204Z] Gathering output for process 329822
+[2024-04-29T01:11:20.889246434Z] Waiting for completion for process 329822
+[2024-04-29T01:11:20.954774778Z] Waiting for completion finished for process 329822
+Output and diagnostic info for process 329822 was saved into 'pid-329822-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:21.613168234Z] Gathering output for process 329844
+[2024-04-29T01:11:21.619889373Z] Waiting for completion for process 329844
+[2024-04-29T01:11:21.729585404Z] Waiting for completion finished for process 329844
+Output and diagnostic info for process 329844 was saved into 'pid-329844-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:22.130051571Z] Gathering output for process 329865
+[2024-04-29T01:11:22.130439514Z] Waiting for completion for process 329865
+[2024-04-29T01:11:22.265011115Z] Waiting for completion finished for process 329865
+Output and diagnostic info for process 329865 was saved into 'pid-329865-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:22.611979649Z] Gathering output for process 329886
+[2024-04-29T01:11:22.612550276Z] Waiting for completion for process 329886
+[2024-04-29T01:11:22.715619733Z] Waiting for completion finished for process 329886
+Output and diagnostic info for process 329886 was saved into 'pid-329886-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:23.063103839Z] Gathering output for process 329907
+[2024-04-29T01:11:23.063492152Z] Waiting for completion for process 329907
+[2024-04-29T01:11:23.168934854Z] Waiting for completion finished for process 329907
+Output and diagnostic info for process 329907 was saved into 'pid-329907-output.log'
+----------System.err:(11/370)----------
+entryCount=65533 shouldUseZip64=false usesZip64=false zipSize=6797033
+
+entryCount=65534 shouldUseZip64=false usesZip64=false zipSize=6797137
+
+entryCount=65535 shouldUseZip64=false usesZip64=false zipSize=6797241
+
+entryCount=65536 shouldUseZip64=false usesZip64=false zipSize=6797345
+
+entryCount=65537 shouldUseZip64=false usesZip64=false zipSize=6797449
+
+STATUS:Passed.
+----------rerun:(37/3687)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/zip/EntryCount64k.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djdk.util.zip.inhibitZip64=true \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/zip/EntryCount64k.d/main.1.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/173)----------
+command: build EntryCount64k
+reason: Named class compiled on demand
+started: Mon Apr 29 01:11:23 UTC 2024
+finished: Mon Apr 29 01:11:23 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/301)----------
+command: main -Djdk.util.zip.inhibitZip64=false EntryCount64k
+reason: User specified action: run main/othervm -Djdk.util.zip.inhibitZip64=false EntryCount64k 
+started: Mon Apr 29 01:11:23 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:11:26 UTC 2024
+elapsed time (seconds): 3.131
+----------configuration:(0/0)----------
+----------System.out:(25/5715)----------
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:24.019357176Z] Gathering output for process 329953
+[2024-04-29T01:11:24.077574780Z] Waiting for completion for process 329953
+[2024-04-29T01:11:24.148803486Z] Waiting for completion finished for process 329953
+Output and diagnostic info for process 329953 was saved into 'pid-329953-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:24.801950706Z] Gathering output for process 329975
+[2024-04-29T01:11:24.802285270Z] Waiting for completion for process 329975
+[2024-04-29T01:11:24.903753258Z] Waiting for completion finished for process 329975
+Output and diagnostic info for process 329975 was saved into 'pid-329975-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:25.280319745Z] Gathering output for process 329996
+[2024-04-29T01:11:25.280678384Z] Waiting for completion for process 329996
+[2024-04-29T01:11:25.411766998Z] Waiting for completion finished for process 329996
+Output and diagnostic info for process 329996 was saved into 'pid-329996-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:25.746171161Z] Gathering output for process 330017
+[2024-04-29T01:11:25.746569674Z] Waiting for completion for process 330017
+[2024-04-29T01:11:25.844301927Z] Waiting for completion finished for process 330017
+Output and diagnostic info for process 330017 was saved into 'pid-330017-output.log'
+Command line: [/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java -cp /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash -jar EntryCount64k-tmp.zip ]
+[2024-04-29T01:11:26.191077005Z] Gathering output for process 330038
+[2024-04-29T01:11:26.191462647Z] Waiting for completion for process 330038
+[2024-04-29T01:11:26.300170589Z] Waiting for completion finished for process 330038
+Output and diagnostic info for process 330038 was saved into 'pid-330038-output.log'
+----------System.err:(11/364)----------
+entryCount=65533 shouldUseZip64=false usesZip64=false zipSize=6797033
+
+entryCount=65534 shouldUseZip64=false usesZip64=false zipSize=6797137
+
+entryCount=65535 shouldUseZip64=true usesZip64=true zipSize=6797317
+
+entryCount=65536 shouldUseZip64=true usesZip64=true zipSize=6797421
+
+entryCount=65537 shouldUseZip64=true usesZip64=true zipSize=6797525
+
+STATUS:Passed.
+----------rerun:(37/3688)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib:/home/runner/work/openjdk/openjdk/test/lib:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/zip/EntryCount64k.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip/EntryCount64k.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/zip/EntryCount64k.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/zip:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djdk.util.zip.inhibitZip64=false \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/zip/EntryCount64k.d/main.2.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

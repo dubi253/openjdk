@@ -1,0 +1,288 @@
+#Test Results (version 2)
+#Mon Apr 29 01:02:30 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8197532
+library=src /test/lib
+modules=jdk.compiler jdk.jlink jdk.zipfs
+run=USER_SPECIFIED build java.json/*\nUSER_SPECIFIED main DefaultModules\n
+source=DefaultModules.java
+title=Test that all modules that export an API are in the set of modules resolved when compiling or running code on the class path
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java
+elapsed=4250 0\:00\:04.250
+end=Mon Apr 29 01\:02\:30 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=jdk.compiler jdk.jlink jdk.zipfs
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile build compile main
+start=Mon Apr 29 01\:02\:25 UTC 2024
+test=jdk/modules/etc/DefaultModules.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=4272
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/modules/etc
+
+#section:script_messages
+----------messages:(10/832)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library src; kind: user modules
+   source directory: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(7/294)----------
+command: build java.json/*
+reason: User specified action: run build java.json/* 
+started: Mon Apr 29 01:02:25 UTC 2024
+Library src:
+  compile: java.json/module-info, java.json/javax.json.Json, java.json/javax.json.JsonParser
+finished: Mon Apr 29 01:02:25 UTC 2024
+elapsed time (seconds): 0.017
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/569)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/module-info.java /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/javax/json/Json.java /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/javax/json/JsonParser.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:02:25 UTC 2024
+Additional options from @modules: --add-modules jdk.compiler,jdk.jlink,jdk.zipfs
+Mode: agentvm
+Agent id: 42
+finished: Mon Apr 29 01:02:25 UTC 2024
+elapsed time (seconds): 0.016
+----------configuration:(10/682)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.compiler jdk.jlink jdk.zipfs
+  module path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src
+  class path:  /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/3799)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/modules/etc/DefaultModules.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='jdk.compiler jdk.jlink jdk.zipfs' \\
+        -J-Dtest.module.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src \\
+        --add-modules jdk.compiler,jdk.jlink,jdk.zipfs \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src \\
+        --module-source-path /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        --module-path /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/module-info.java /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/javax/json/Json.java /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/src/java.json/javax/json/JsonParser.java
+result: Passed. Compilation successful
+
+#section:build
+----------messages:(7/218)----------
+command: build DefaultModules
+reason: Named class compiled on demand
+started: Mon Apr 29 01:02:25 UTC 2024
+Test directory:
+  compile: DefaultModules
+finished: Mon Apr 29 01:02:25 UTC 2024
+elapsed time (seconds): 0.015
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/362)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:02:25 UTC 2024
+Additional options from @modules: --add-modules jdk.compiler,jdk.jlink,jdk.zipfs
+Mode: agentvm
+Agent id: 42
+finished: Mon Apr 29 01:02:25 UTC 2024
+elapsed time (seconds): 0.015
+----------configuration:(14/1052)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: jdk.compiler jdk.jlink jdk.zipfs java.json
+  module path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(37/3978)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/modules/etc/DefaultModules.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.modules='jdk.compiler jdk.jlink jdk.zipfs' \\
+        -J-Dtest.module.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src \\
+        --add-modules jdk.compiler,jdk.jlink,jdk.zipfs,java.json \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        --module-path /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/219)----------
+command: main DefaultModules
+reason: User specified action: run main DefaultModules 
+started: Mon Apr 29 01:02:25 UTC 2024
+Mode: agentvm
+Agent id: 51
+finished: Mon Apr 29 01:02:30 UTC 2024
+elapsed time (seconds): 4.217
+----------configuration:(16/1249)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  module path: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src
+  class path:  /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d
+               /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+               /Users/runner/work/openjdk/openjdk/test/lib
+
+----------rerun:(30/3455)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/modules/etc/DefaultModules.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/DefaultModules.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.modules='jdk.compiler jdk.jlink jdk.zipfs' \\
+        -Dtest.module.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src \\
+        -classpath /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        --module-path /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/src \\
+        --add-modules java.json \\
+        DefaultModules
+----------System.out:(18/2483)----------
+Command line: [/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java -cp /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/modules/etc/DefaultModules.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar -Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa -XX:-CreateCoredumpOnCrash --add-exports java.base/jdk.internal.module=ALL-UNNAMED /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/TestRootModules.java ]
+[2024-04-29T01:02:26.134399Z] Gathering output for process 44520
+[2024-04-29T01:02:26.144381Z] Waiting for completion for process 44520
+[2024-04-29T01:02:26.739654Z] Waiting for completion finished for process 44520
+Output and diagnostic info for process 44520 was saved into 'pid-44520-output.log'
+
+Command line: [[./images1015892751943449357/myimage/bin/java, --add-exports, java.base/jdk.internal.module=ALL-UNNAMED, /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/TestRootModules.java]]
+[2024-04-29T01:02:28.936210Z] Gathering output for process 44540
+[2024-04-29T01:02:28.936639Z] Waiting for completion for process 44540
+[2024-04-29T01:02:29.611284Z] Waiting for completion finished for process 44540
+Output and diagnostic info for process 44540 was saved into 'pid-44540-output.log'
+
+Command line: [./images1015892751943449357/myimage/bin/java /Users/runner/work/openjdk/openjdk/test/jdk/jdk/modules/etc/TestJson.java]
+[2024-04-29T01:02:29.621426Z] Gathering output for process 44542
+[2024-04-29T01:02:29.621910Z] Waiting for completion for process 44542
+[2024-04-29T01:02:30.150696Z] Waiting for completion finished for process 44542
+Output and diagnostic info for process 44542 was saved into 'pid-44542-output.log'
+
+----------System.err:(6/38)----------
+
+
+
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

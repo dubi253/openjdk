@@ -1,0 +1,696 @@
+#Test Results (version 2)
+#Mon Apr 29 01:12:15 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug4627316 bug6743526 othervm
+library=/test/lib
+requires=(os.arch \=\= "x86_64") | (os.arch \=\= "amd64")
+run=USER_SPECIFIED main/othervm -XX\:MaxDirectMemorySize\=10 LimitDirectMemory true 10 1\nUSER_SPECIFIED main/othervm -XX\:MaxDirectMemorySize\=1k LimitDirectMemory true 1k 100\nUSER_SPECIFIED main/othervm -XX\:MaxDirectMemorySize\=10m LimitDirectMemory true 10m 10m\nUSER_SPECIFIED main/othervm -XX\:MaxDirectMemorySize\=65M LimitDirectMemory false 64M 65M\nUSER_SPECIFIED main/othervm LimitDirectMemory false 10 1\nUSER_SPECIFIED main/othervm -Xmx64m LimitDirectMemory false 0 DEFAULT\nUSER_SPECIFIED main/othervm -Xmx64m LimitDirectMemory true 0 DEFAULT+1\nUSER_SPECIFIED main/othervm -XX\:MaxDirectMemorySize\=0 LimitDirectMemory true 0 1\nUSER_SPECIFIED main/othervm -Dsun.nio.MaxDirectMemorySize\=1K -Xmx64m LimitDirectMemory false DEFAULT-1 DEFAULT/2\n
+source=LimitDirectMemory.java
+title=Test\: Setting the system property should not work so we should be able to allocate the default amount
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java
+elapsed=10810 0\:00\:10.810
+end=Mon Apr 29 01\:12\:15 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main build main build main build main build main build main build main build main build main
+start=Mon Apr 29 01\:12\:04 UTC 2024
+test=java/nio/Buffer/LimitDirectMemory.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=10811
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer
+
+#section:script_messages
+----------messages:(7/572)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+#section:build
+----------messages:(7/224)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:09 UTC 2024
+Test directory:
+  compile: LimitDirectMemory
+finished: Mon Apr 29 01:12:09 UTC 2024
+elapsed time (seconds): 0.033
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/284)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:12:09 UTC 2024
+Mode: agentvm
+Agent id: 40
+finished: Mon Apr 29 01:12:09 UTC 2024
+elapsed time (seconds): 0.033
+----------configuration:(12/859)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer
+               /Users/runner/work/openjdk/openjdk/test/lib
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+
+----------rerun:(33/3568)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib /Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(6/315)----------
+command: main -XX:MaxDirectMemorySize=10 LimitDirectMemory true 10 1
+reason: User specified action: run main/othervm -XX:MaxDirectMemorySize=10 LimitDirectMemory true 10 1 
+started: Mon Apr 29 01:12:09 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:10 UTC 2024
+elapsed time (seconds): 1.016
+----------configuration:(0/0)----------
+----------System.out:(10/692)----------
+java.lang.OutOfMemoryError: Cannot reserve 1 bytes of direct buffer memory (allocated: 10, limit: 10)
+	at java.base/java.nio.Bits.reserveMemory(Bits.java:178)
+	at java.base/java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:111)
+	at java.base/java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:363)
+	at LimitDirectMemory.main(LimitDirectMemory.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+OK - Error thrown as expected 
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3705)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:MaxDirectMemorySize=10 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.0.jta true 10 1
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:10 UTC 2024
+finished: Mon Apr 29 01:12:10 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/319)----------
+command: main -XX:MaxDirectMemorySize=1k LimitDirectMemory true 1k 100
+reason: User specified action: run main/othervm -XX:MaxDirectMemorySize=1k LimitDirectMemory true 1k 100 
+started: Mon Apr 29 01:12:10 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:11 UTC 2024
+elapsed time (seconds): 0.941
+----------configuration:(0/0)----------
+----------System.out:(10/698)----------
+java.lang.OutOfMemoryError: Cannot reserve 100 bytes of direct buffer memory (allocated: 1000, limit: 1024)
+	at java.base/java.nio.Bits.reserveMemory(Bits.java:178)
+	at java.base/java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:111)
+	at java.base/java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:363)
+	at LimitDirectMemory.main(LimitDirectMemory.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+OK - Error thrown as expected 
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3707)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:MaxDirectMemorySize=1k \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.1.jta true 1k 100
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:11 UTC 2024
+finished: Mon Apr 29 01:12:11 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/323)----------
+command: main -XX:MaxDirectMemorySize=10m LimitDirectMemory true 10m 10m
+reason: User specified action: run main/othervm -XX:MaxDirectMemorySize=10m LimitDirectMemory true 10m 10m 
+started: Mon Apr 29 01:12:11 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 1.107
+----------configuration:(0/0)----------
+----------System.out:(10/711)----------
+java.lang.OutOfMemoryError: Cannot reserve 10485760 bytes of direct buffer memory (allocated: 10485760, limit: 10485760)
+	at java.base/java.nio.Bits.reserveMemory(Bits.java:178)
+	at java.base/java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:111)
+	at java.base/java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:363)
+	at LimitDirectMemory.main(LimitDirectMemory.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+OK - Error thrown as expected 
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3709)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:MaxDirectMemorySize=10m \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.2.jta true 10m 10m
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:12 UTC 2024
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/325)----------
+command: main -XX:MaxDirectMemorySize=65M LimitDirectMemory false 64M 65M
+reason: User specified action: run main/othervm -XX:MaxDirectMemorySize=65M LimitDirectMemory false 64M 65M 
+started: Mon Apr 29 01:12:12 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 0.183
+----------configuration:(0/0)----------
+----------System.out:(1/22)----------
+OK - Error not thrown
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3710)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:MaxDirectMemorySize=65M \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.3.jta false 64M 65M
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:12 UTC 2024
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/263)----------
+command: main LimitDirectMemory false 10 1
+reason: User specified action: run main/othervm LimitDirectMemory false 10 1 
+started: Mon Apr 29 01:12:12 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 0.226
+----------configuration:(0/0)----------
+----------System.out:(1/22)----------
+OK - Error not thrown
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(34/3668)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.4.jta false 10 1
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:12 UTC 2024
+finished: Mon Apr 29 01:12:12 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/288)----------
+command: main -Xmx64m LimitDirectMemory false 0 DEFAULT
+reason: User specified action: run main/othervm -Xmx64m LimitDirectMemory false 0 DEFAULT 
+started: Mon Apr 29 01:12:12 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:13 UTC 2024
+elapsed time (seconds): 0.26
+----------configuration:(0/0)----------
+----------System.out:(1/22)----------
+OK - Error not thrown
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3692)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xmx64m \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.5.jta false 0 DEFAULT
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:13 UTC 2024
+finished: Mon Apr 29 01:12:13 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/291)----------
+command: main -Xmx64m LimitDirectMemory true 0 DEFAULT+1
+reason: User specified action: run main/othervm -Xmx64m LimitDirectMemory true 0 DEFAULT+1 
+started: Mon Apr 29 01:12:13 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:14 UTC 2024
+elapsed time (seconds): 0.964
+----------configuration:(0/0)----------
+----------System.out:(10/704)----------
+java.lang.OutOfMemoryError: Cannot reserve 67108865 bytes of direct buffer memory (allocated: 0, limit: 67108864)
+	at java.base/java.nio.Bits.reserveMemory(Bits.java:178)
+	at java.base/java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:111)
+	at java.base/java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:363)
+	at LimitDirectMemory.main(LimitDirectMemory.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+OK - Error thrown as expected 
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3693)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xmx64m \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.6.jta true 0 DEFAULT+1
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:14 UTC 2024
+finished: Mon Apr 29 01:12:14 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/311)----------
+command: main -XX:MaxDirectMemorySize=0 LimitDirectMemory true 0 1
+reason: User specified action: run main/othervm -XX:MaxDirectMemorySize=0 LimitDirectMemory true 0 1 
+started: Mon Apr 29 01:12:14 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:15 UTC 2024
+elapsed time (seconds): 0.877
+----------configuration:(0/0)----------
+----------System.out:(10/690)----------
+java.lang.OutOfMemoryError: Cannot reserve 1 bytes of direct buffer memory (allocated: 0, limit: 0)
+	at java.base/java.nio.Bits.reserveMemory(Bits.java:178)
+	at java.base/java.nio.DirectByteBuffer.<init>(DirectByteBuffer.java:111)
+	at java.base/java.nio.ByteBuffer.allocateDirect(ByteBuffer.java:363)
+	at LimitDirectMemory.main(LimitDirectMemory.java:86)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at com.sun.javatest.regtest.agent.MainWrapper$MainTask.run(MainWrapper.java:138)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+OK - Error thrown as expected 
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(35/3703)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:MaxDirectMemorySize=0 \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.7.jta true 0 1
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/177)----------
+command: build LimitDirectMemory
+reason: Named class compiled on demand
+started: Mon Apr 29 01:12:15 UTC 2024
+finished: Mon Apr 29 01:12:15 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/375)----------
+command: main -Dsun.nio.MaxDirectMemorySize=1K -Xmx64m LimitDirectMemory false DEFAULT-1 DEFAULT/2
+reason: User specified action: run main/othervm -Dsun.nio.MaxDirectMemorySize=1K -Xmx64m LimitDirectMemory false DEFAULT-1 DEFAULT/2 
+started: Mon Apr 29 01:12:15 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 01:12:15 UTC 2024
+elapsed time (seconds): 0.195
+----------configuration:(0/0)----------
+----------System.out:(1/22)----------
+OK - Error not thrown
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(36/3746)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer/LimitDirectMemory.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/test/lib \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/nio/Buffer/LimitDirectMemory.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/nio/Buffer:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dsun.nio.MaxDirectMemorySize=1K \\
+        -Xmx64m \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/nio/Buffer/LimitDirectMemory.d/main.8.jta false DEFAULT-1 DEFAULT/2
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

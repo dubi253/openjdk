@@ -1,0 +1,517 @@
+#Test Results (version 2)
+#Mon Apr 29 00:43:35 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8200167 bug8010319 othervm
+run=USER_SPECIFIED compile -XDdisableVirtualizedPrivateInvoke SpecialInterfaceCall.java\nUSER_SPECIFIED compile SpecialInterfaceCallI4.jasm\nUSER_SPECIFIED main/othervm -Xint SpecialInterfaceCall\nUSER_SPECIFIED main/othervm -Xbatch -XX\:+TieredCompilation -XX\:TieredStopAtLevel\=1 SpecialInterfaceCall\nUSER_SPECIFIED main/othervm -Xbatch -XX\:-TieredCompilation SpecialInterfaceCall\n
+source=SpecialInterfaceCall.java
+title=Test direct and MethodHandle access to interface methods using invokespecial semantics
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java
+elapsed=1502 0\:00\:01.502
+end=Mon Apr 29 00\:43\:35 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages compile compile build main build main build main
+start=Mon Apr 29 00\:43\:33 UTC 2024
+test=java/lang/invoke/SpecialInterfaceCall.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=1502
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke
+
+#section:script_messages
+----------messages:(4/315)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:compile
+----------messages:(7/376)----------
+command: compile -XDdisableVirtualizedPrivateInvoke /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java
+reason: User specified action: run compile -XDdisableVirtualizedPrivateInvoke SpecialInterfaceCall.java 
+started: Mon Apr 29 00:43:33 UTC 2024
+Mode: agentvm
+Agent id: 2
+finished: Mon Apr 29 00:43:33 UTC 2024
+elapsed time (seconds): 0.083
+----------configuration:(10/673)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d
+
+----------rerun:(36/3269)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/lang/invoke/SpecialInterfaceCall.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -XDdisableVirtualizedPrivateInvoke /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java
+result: Passed. Compilation successful
+
+#section:compile
+----------messages:(5/284)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCallI4.jasm
+reason: User specified action: run compile SpecialInterfaceCallI4.jasm 
+started: Mon Apr 29 00:43:33 UTC 2024
+finished: Mon Apr 29 00:43:33 UTC 2024
+elapsed time (seconds): 0.003
+----------configuration:(0/0)----------
+----------rerun:(4/526)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+    /home/runner/work/openjdk/openjdk/bootjdk/jdk/bin/java \\
+    -classpath /home/runner/work/openjdk/openjdk/jtreg/installed/lib/asmtools.jar \\
+    org.openjdk.asmtools.jasm.Main -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d /home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCallI4.jasm
+----------jasm:(0/0)----------
+result: Passed. jasm OK
+
+#section:build
+----------messages:(5/180)----------
+command: build SpecialInterfaceCall
+reason: Named class compiled on demand
+started: Mon Apr 29 00:43:33 UTC 2024
+finished: Mon Apr 29 00:43:33 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/259)----------
+command: main -Xint SpecialInterfaceCall
+reason: User specified action: run main/othervm -Xint SpecialInterfaceCall 
+started: Mon Apr 29 00:43:33 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:43:34 UTC 2024
+elapsed time (seconds): 0.788
+----------configuration:(0/0)----------
+----------System.out:(70/5935)----------
+UNRESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+RESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+WARMUP:
+COMPILED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(37/3323)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xint \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke/SpecialInterfaceCall.d/main.0.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build SpecialInterfaceCall
+reason: Named class compiled on demand
+started: Mon Apr 29 00:43:34 UTC 2024
+finished: Mon Apr 29 00:43:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/357)----------
+command: main -Xbatch -XX:+TieredCompilation -XX:TieredStopAtLevel=1 SpecialInterfaceCall
+reason: User specified action: run main/othervm -Xbatch -XX:+TieredCompilation -XX:TieredStopAtLevel=1 SpecialInterfaceCall 
+started: Mon Apr 29 00:43:34 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:43:34 UTC 2024
+elapsed time (seconds): 0.207
+----------configuration:(0/0)----------
+----------System.out:(70/5935)----------
+UNRESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+RESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+WARMUP:
+COMPILED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(39/3394)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbatch \\
+        -XX:+TieredCompilation \\
+        -XX:TieredStopAtLevel=1 \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke/SpecialInterfaceCall.d/main.1.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/180)----------
+command: build SpecialInterfaceCall
+reason: Named class compiled on demand
+started: Mon Apr 29 00:43:34 UTC 2024
+finished: Mon Apr 29 00:43:34 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(6/308)----------
+command: main -Xbatch -XX:-TieredCompilation SpecialInterfaceCall
+reason: User specified action: run main/othervm -Xbatch -XX:-TieredCompilation SpecialInterfaceCall 
+started: Mon Apr 29 00:43:34 UTC 2024
+Mode: othervm [/othervm specified]
+finished: Mon Apr 29 00:43:35 UTC 2024
+elapsed time (seconds): 0.42
+----------configuration:(0/0)----------
+----------System.out:(70/5935)----------
+UNRESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+RESOLVED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+WARMUP:
+COMPILED:
+IAE I2.invokeDirect D1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$D1 must be the current class or a subtype of interface SpecialInterfaceCall$I2
+IAE I2.invokeDirect E
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$E must be the current class or a subtype of interface SpecialInterfaceCall$I2
+ICCE I2.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I3.invokeMH D1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$D1 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH E
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$E is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I3.invokeMH C2
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C2 is not a subclass of caller class SpecialInterfaceCall$I3
+ICCE I4.invokeDirect C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I4.invokeDirectFinal C1
+Threw expected: java.lang.IllegalAccessError: Receiver class SpecialInterfaceCall$C1 must be the current class or a subtype of interface SpecialInterfaceCall$I4
+ICCE I2.invokeObjectMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+ICCE I2.invokeObjectFinalMH C1
+Threw expected: java.lang.IncompatibleClassChangeError: Receiver class SpecialInterfaceCall$C1 is not a subclass of caller class SpecialInterfaceCall$I2
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3359)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+CLASSPATH=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke/SpecialInterfaceCall.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/lang/invoke/SpecialInterfaceCall.d:/home/runner/work/openjdk/openjdk/test/jdk/java/lang/invoke \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Xbatch \\
+        -XX:-TieredCompilation \\
+        com.sun.javatest.regtest.agent.MainWrapper /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/lang/invoke/SpecialInterfaceCall.d/main.2.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

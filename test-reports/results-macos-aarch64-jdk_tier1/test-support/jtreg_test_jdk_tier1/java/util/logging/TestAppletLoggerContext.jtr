@@ -1,0 +1,2123 @@
+#Test Results (version 2)
+#Mon Apr 29 00:49:39 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8017174 bug8010727 bug8019945 othervm
+modules=java.base/jdk.internal.access java.logging
+run=USER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext LoadingApplet\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  LoadingApplet\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext LoadingMain\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  LoadingMain\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext One\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  One\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Two\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Two\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Three\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Three\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Four\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Four\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Five\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Five\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Six\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Six\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext Seven\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext  Seven\nUSER_SPECIFIED main/othervm -Dtest.security\=off TestAppletLoggerContext\nUSER_SPECIFIED main/othervm -Djava.security.manager\=allow -Dtest.security\=on TestAppletLoggerContext\n
+source=TestAppletLoggerContext.java
+title=NPE when using Logger.getAnonymousLogger or LogManager.getLogManager().getLogger
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java
+elapsed=1967 0\:00\:01.967
+end=Mon Apr 29 00\:49\:39 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.15
+javatestOS=Mac OS X 14.4.1 (aarch64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.access java.logging
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main build main build main build main build main build main build main build main build main build main build main build main build main build main build main build main build main build main build main build main
+start=Mon Apr 29 00\:49\:37 UTC 2024
+test=java/util/logging/TestAppletLoggerContext.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:aarch64,version\:14.4.1,family\:mac,simple_arch\:aarch64,simple_version\:14.4,processors\:3,maxMemory\:7516192768,maxSwap\:1073741824]
+testJDK_os.arch=aarch64
+testJDK_os.name=Mac OS X
+testJDK_os.version=14.4.1
+totalTime=1967
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging
+
+#section:script_messages
+----------messages:(4/341)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/236)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:37 UTC 2024
+Test directory:
+  compile: TestAppletLoggerContext
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.019
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/418)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:49:37 UTC 2024
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.019
+----------configuration:(12/791)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d 
+
+----------rerun:(36/3406)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -J-Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d /Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java
+----------direct:(46/4421)----------
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:74: warning: [removal] Policy in java.security has been deprecated and marked for removal
+    static class SimplePolicy extends Policy {
+                                      ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:76: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                     ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:76: warning: [removal] Policy in java.security has been deprecated and marked for removal
+        static final Policy DEFAULT_POLICY = Policy.getPolicy();
+                                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:127: warning: [removal] Policy in java.security has been deprecated and marked for removal
+                Policy p = new SimplePolicy(new LoggingPermission("control", null),
+                ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:130: warning: [removal] Policy in java.security has been deprecated and marked for removal
+                Policy.setPolicy(p);
+                ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:131: warning: [removal] SecurityManager in java.lang has been deprecated and marked for removal
+                System.setSecurityManager(new SecurityManager());
+                                              ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:131: warning: [removal] setSecurityManager(SecurityManager) in System has been deprecated and marked for removal
+                System.setSecurityManager(new SecurityManager());
+                      ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:254: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                   + (System.getSecurityManager() == null ? " without " : " with ")
+                            ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:439: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                Logger expected = (System.getSecurityManager() == null ? global : null);
+                                         ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:450: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                expected = (System.getSecurityManager() == null ? global : global2);
+                                  ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:511: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                Logger expectedRoot = (System.getSecurityManager() == null ? root : null);
+                                             ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:515: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                if (System.getSecurityManager() != null) {
+                          ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:525: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                Logger expectedGlobal = (System.getSecurityManager() == null ? global : global2);
+                                               ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:531: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                if (System.getSecurityManager() != null) {
+                          ^
+/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java:539: warning: [removal] getSecurityManager() in System has been deprecated and marked for removal
+                expectedRoot = (System.getSecurityManager() == null ? root : root2);
+                                      ^
+15 warnings
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/448)----------
+command: main -Dtest.security=off TestAppletLoggerContext LoadingApplet
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext LoadingApplet 
+started: Mon Apr 29 00:49:37 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.086
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/289)----------
+Testing LoadingApplet: 
+Test that when the LogManager class is loaded in  an applet thread first,
+ all LoggerContexts are correctly initialized
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingApplet
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3528)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.0.jta LoadingApplet
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:37 UTC 2024
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/506)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext LoadingApplet
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext LoadingApplet 
+started: Mon Apr 29 00:49:37 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.139
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/289)----------
+Testing LoadingApplet: 
+Test that when the LogManager class is loaded in  an applet thread first,
+ all LoggerContexts are correctly initialized
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingApplet
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3568)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.1.jta LoadingApplet
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:37 UTC 2024
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/444)----------
+command: main -Dtest.security=off TestAppletLoggerContext LoadingMain
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext LoadingMain 
+started: Mon Apr 29 00:49:37 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.083
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/284)----------
+Testing LoadingMain: 
+Test that when the LogManager class is loaded in  the main thread first,
+ all LoggerContexts are correctly initialized
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingMain
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3526)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.2.jta LoadingMain
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:37 UTC 2024
+finished: Mon Apr 29 00:49:37 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/502)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext LoadingMain
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext LoadingMain 
+started: Mon Apr 29 00:49:37 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.111
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/284)----------
+Testing LoadingMain: 
+Test that when the LogManager class is loaded in  the main thread first,
+ all LoggerContexts are correctly initialized
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingMain
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3566)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.3.jta LoadingMain
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/185)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.001
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/428)----------
+command: main -Dtest.security=off TestAppletLoggerContext One
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext One 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.086
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(37/1876)----------
+Testing One: 
+Test that Logger.getAnonymousLogger() and new CustomAnonymousLogger() don't throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.LogManager$RootLogger@234ba0f8
+... Switching to a new applet context ...
+PASSED: One
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3518)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.4.jta One
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/486)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext One
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext One 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.097
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(37/1876)----------
+Testing One: 
+Test that Logger.getAnonymousLogger() and new CustomAnonymousLogger() don't throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.LogManager$RootLogger@4504a7ba
+... Switching to a new applet context ...
+PASSED: One
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3558)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.5.jta One
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/428)----------
+command: main -Dtest.security=off TestAppletLoggerContext Two
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Two 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.129
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/261)----------
+Testing Two: 
+Test that Logger.getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Two
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3518)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.6.jta Two
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/486)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Two
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Two 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.091
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/261)----------
+Testing Two: 
+Test that Logger.getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Two
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3558)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.7.jta Two
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/432)----------
+command: main -Dtest.security=off TestAppletLoggerContext Three
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Three 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.077
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/285)----------
+Testing Three: 
+Test that LogManager.getLogManager().getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Three
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3520)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.8.jta Three
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/490)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Three
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Three 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.094
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(7/285)----------
+Testing Three: 
+Test that LogManager.getLogManager().getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Three
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3560)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.9.jta Three
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/430)----------
+command: main -Dtest.security=off TestAppletLoggerContext Four
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Four 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.088
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(38/1770)----------
+Testing Four: 
+Test that Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) does not return null,
+ and that new CustomAnonymousLogger(Logger.GLOBAL_LOGGER_NAME) does not throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+ LogManager: java.util.logging.LogManager@71eda57b
+ getLogger: java.util.logging.Logger@234ba0f8
+... Switching to a new applet context ...
+PASSED: Four
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3520)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.10.jta Four
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/488)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Four
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Four 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.105
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(38/1770)----------
+Testing Four: 
+Test that Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) does not return null,
+ and that new CustomAnonymousLogger(Logger.GLOBAL_LOGGER_NAME) does not throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+ LogManager: java.util.logging.LogManager@44a47865
+ getLogger: java.util.logging.Logger@4504a7ba
+... Switching to a new applet context ...
+PASSED: Four
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3560)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.11.jta Four
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/430)----------
+command: main -Dtest.security=off TestAppletLoggerContext Five
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Five 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.079
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(8/307)----------
+Testing Five: 
+Test that LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME)
+ does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Five
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3520)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.12.jta Five
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/486)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Five
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Five 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.1
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(8/307)----------
+Testing Five: 
+Test that LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME)
+ does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Five
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3560)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.13.jta Five
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:38 UTC 2024
+finished: Mon Apr 29 00:49:38 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/428)----------
+command: main -Dtest.security=off TestAppletLoggerContext Six
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Six 
+started: Mon Apr 29 00:49:38 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.085
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(18/755)----------
+Testing Six: 
+Test that manager.getLogger(Logger.GLOBAL_LOGGER_NAME) returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "global" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Six
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3519)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.14.jta Six
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:39 UTC 2024
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/486)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Six
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Six 
+started: Mon Apr 29 00:49:39 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.104
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(18/755)----------
+Testing Six: 
+Test that manager.getLogger(Logger.GLOBAL_LOGGER_NAME) returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "global" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Six
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3559)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.15.jta Six
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:39 UTC 2024
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/432)----------
+command: main -Dtest.security=off TestAppletLoggerContext Seven
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext Seven 
+started: Mon Apr 29 00:49:39 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.079
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(18/730)----------
+Testing Seven: 
+Test that manager.getLogger("") returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Seven
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3521)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.16.jta Seven
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:39 UTC 2024
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/490)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Seven
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext Seven 
+started: Mon Apr 29 00:49:39 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.105
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(18/730)----------
+Testing Seven: 
+Test that manager.getLogger("") returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Seven
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3561)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.17.jta Seven
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:39 UTC 2024
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/420)----------
+command: main -Dtest.security=off TestAppletLoggerContext
+reason: User specified action: run main/othervm -Dtest.security=off TestAppletLoggerContext 
+started: Mon Apr 29 00:49:39 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.082
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(140/6273)----------
+Testing LoadingApplet: 
+Test that when the LogManager class is loaded in  an applet thread first,
+ all LoggerContexts are correctly initialized
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingApplet
+Testing One: 
+Test that Logger.getAnonymousLogger() and new CustomAnonymousLogger() don't throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.LogManager$RootLogger@7b793edf
+... Switching to a new applet context ...
+PASSED: One
+Testing Two: 
+Test that Logger.getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Two
+Testing Three: 
+Test that LogManager.getLogManager().getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Three
+Testing Four: 
+Test that Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) does not return null,
+ and that new CustomAnonymousLogger(Logger.GLOBAL_LOGGER_NAME) does not throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+ LogManager: java.util.logging.LogManager@234ba0f8
+ getLogger: java.util.logging.Logger@57d63806
+... Switching to a new applet context ...
+PASSED: Four
+Testing Five: 
+Test that LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME)
+ does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Five
+Testing Six: 
+Test that manager.getLogger(Logger.GLOBAL_LOGGER_NAME) returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "global" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Six
+Testing Seven: 
+Test that manager.getLogger("") returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Seven
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(38/3515)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.security=off \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.18.jta
+result: Passed. Execution successful
+
+#section:build
+----------messages:(5/183)----------
+command: build TestAppletLoggerContext
+reason: Named class compiled on demand
+started: Mon Apr 29 00:49:39 UTC 2024
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:main
+----------messages:(7/478)----------
+command: main -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext
+reason: User specified action: run main/othervm -Djava.security.manager=allow -Dtest.security=on TestAppletLoggerContext 
+started: Mon Apr 29 00:49:39 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base,java.logging --add-exports java.base/jdk.internal.access=ALL-UNNAMED
+finished: Mon Apr 29 00:49:39 UTC 2024
+elapsed time (seconds): 0.123
+----------configuration:(4/115)----------
+Boot Layer
+  add modules: java.base java.logging        
+  add exports: java.base/jdk.internal.access ALL-UNNAMED
+
+----------System.out:(140/6261)----------
+Testing LoadingApplet: 
+Test that when the LogManager class is loaded in  an applet thread first,
+ all LoggerContexts are correctly initialized
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+PASSED: LoadingApplet
+Testing One: 
+Test that Logger.getAnonymousLogger() and new CustomAnonymousLogger() don't throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.LogManager$RootLogger@89e4f4b
+... Switching to a new applet context ...
+PASSED: One
+Testing Two: 
+Test that Logger.getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Two
+Testing Three: 
+Test that LogManager.getLogManager().getLogger("") does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Three
+Testing Four: 
+Test that Logger.getLogger(Logger.GLOBAL_LOGGER_NAME) does not return null,
+ and that new CustomAnonymousLogger(Logger.GLOBAL_LOGGER_NAME) does not throw NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+ LogManager: java.util.logging.LogManager@51bdc4cb
+ getLogger: java.util.logging.Logger@7168fdf3
+... Switching to a new applet context ...
+PASSED: Four
+Testing Five: 
+Test that LogManager.getLogManager().getLogger(Logger.GLOBAL_LOGGER_NAME)
+ does not return null nor throws NPE
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Five
+Testing Six: 
+Test that manager.getLogger(Logger.GLOBAL_LOGGER_NAME) returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "global" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Six
+Testing Seven: 
+Test that manager.getLogger("") returns null
+ when manager is not the default LogManager instance.
+Test adding a new logger named "" in that non default instance.
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Running with no applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+... Switching to a new applet context ...
+PASSED: Seven
+----------System.err:(5/497)----------
+WARNING: A terminally deprecated method in java.lang.System has been called
+WARNING: System::setSecurityManager has been called by TestAppletLoggerContext$Bridge (file:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d/)
+WARNING: Please consider reporting this to the maintainers of TestAppletLoggerContext$Bridge
+WARNING: System::setSecurityManager will be removed in a future release
+STATUS:Passed.
+----------rerun:(39/3555)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/0 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging/TestAppletLoggerContext.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/0/java/util/logging/TestAppletLoggerContext.d:/Users/runner/work/openjdk/openjdk/test/jdk/java/util/logging \\
+        -Dtest.modules='java.base/jdk.internal.access java.logging' \\
+        --add-modules java.base,java.logging \\
+        --add-exports java.base/jdk.internal.access=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Djava.security.manager=allow \\
+        -Dtest.security=on \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/logging/TestAppletLoggerContext.d/main.19.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

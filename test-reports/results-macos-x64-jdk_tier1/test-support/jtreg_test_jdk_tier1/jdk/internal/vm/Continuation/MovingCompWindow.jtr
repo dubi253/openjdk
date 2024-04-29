@@ -1,0 +1,537 @@
+#Test Results (version 2)
+#Mon Apr 29 01:43:21 UTC 2024
+#-----testdescription-----
+$file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java
+$root=/Users/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8292278 othervm driver
+library=/test/lib /test/hotspot/jtreg
+modules=java.base/jdk.internal.vm
+requires=vm.continuations
+run=USER_SPECIFIED build jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox\nUSER_SPECIFIED main/othervm   -XX\:+UnlockDiagnosticVMOptions   -XX\:+WhiteBoxAPI -Xbootclasspath/a\:. -Xbatch -XX\:-TieredCompilation -XX\:CompileCommand\=dontinline,*\:\:*dontinline* -XX\:CompileCommand\=dontinline,*\:\:*dontjit* -XX\:CompileCommand\=exclude,*\:\:*dontjit* -XX\:CompileCommand\=dontinline,java/lang/String*.* MovingCompWindow\n
+source=MovingCompWindow.java
+title=Basic tests where jit compilation of test methods is controlled with a compilation policy
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java
+elapsed=1148 0\:00\:01.148
+end=Mon Apr 29 01\:43\:21 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=192.168.64.24
+javatestOS=Mac OS X 13.6.6 (x86_64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+modules=java.base/jdk.internal.vm
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build build driver build compile main
+start=Mon Apr 29 01\:43\:20 UTC 2024
+test=jdk/internal/vm/Continuation/MovingCompWindow.java
+testJDK=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+testJDK_OS=[name\:Mac OS X,arch\:x86_64,version\:13.6.6,family\:mac,simple_arch\:x64,simple_version\:13.6,processors\:4,maxMemory\:15032385536,maxSwap\:0]
+testJDK_os.arch=x86_64
+testJDK_os.name=Mac OS X
+testJDK_os.version=13.6.6
+totalTime=1149
+user.name=runner
+work=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation
+
+#section:script_messages
+----------messages:(10/833)----------
+JDK under test: /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK 64-Bit Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+Library /test/lib; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/lib
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib
+Library /test/hotspot/jtreg; kind: packages
+   source directory: /Users/runner/work/openjdk/openjdk/test/hotspot/jtreg
+   class directory: /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg
+
+#section:build
+----------messages:(5/216)----------
+command: build jdk.test.whitebox.WhiteBox
+reason: User specified action: run build jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 01:43:20 UTC 2024
+finished: Mon Apr 29 01:43:20 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:build
+----------messages:(5/199)----------
+command: build jdk.test.lib.helpers.ClassFileInstaller
+reason: Named class compiled on demand
+started: Mon Apr 29 01:43:20 UTC 2024
+finished: Mon Apr 29 01:43:20 UTC 2024
+elapsed time (seconds): 0.0
+result: Passed. All files up to date
+
+#section:driver
+----------messages:(8/406)----------
+command: driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+reason: User specified action: run driver jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox 
+started: Mon Apr 29 01:43:20 UTC 2024
+Mode: agentvm
+Agent id: 75
+Additional exports to unnamed modules from @modules: java.base/jdk.internal.vm
+finished: Mon Apr 29 01:43:20 UTC 2024
+elapsed time (seconds): 0.359
+----------configuration:(17/1237)----------
+Boot Layer
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib 
+               /Users/runner/work/openjdk/openjdk/test/lib 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg 
+               /Users/runner/work/openjdk/openjdk/test/hotspot/jtreg 
+
+----------rerun:(27/3476)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        jdk.test.lib.helpers.ClassFileInstaller jdk.test.whitebox.WhiteBox
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+#section:build
+----------messages:(7/222)----------
+command: build MovingCompWindow
+reason: Named class compiled on demand
+started: Mon Apr 29 01:43:20 UTC 2024
+Test directory:
+  compile: MovingCompWindow
+finished: Mon Apr 29 01:43:20 UTC 2024
+elapsed time (seconds): 0.073
+result: Passed. Build successful
+
+#section:compile
+----------messages:(8/406)----------
+command: compile /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 01:43:20 UTC 2024
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+Mode: agentvm
+Agent id: 62
+finished: Mon Apr 29 01:43:20 UTC 2024
+elapsed time (seconds): 0.071
+----------configuration:(16/1205)----------
+Boot Layer (javac runtime environment)
+  class path: /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+  source path: /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/test/lib 
+               /Users/runner/work/openjdk/openjdk/test/hotspot/jtreg 
+  class path:  /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib 
+               /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg 
+
+----------rerun:(36/4355)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -J-Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -J-Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -J-Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg \\
+        -J-Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d \\
+        -J-Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -J-Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -J-Dtest.modules=java.base/jdk.internal.vm \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -d /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d \\
+        -sourcepath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg \\
+        -classpath /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg /Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/905)----------
+command: main -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -Xbootclasspath/a:. -Xbatch -XX:-TieredCompilation -XX:CompileCommand=dontinline,*::*dontinline* -XX:CompileCommand=dontinline,*::*dontjit* -XX:CompileCommand=exclude,*::*dontjit* -XX:CompileCommand=dontinline,java/lang/String*.* MovingCompWindow
+reason: User specified action: run main/othervm -XX:+UnlockDiagnosticVMOptions -XX:+WhiteBoxAPI -Xbootclasspath/a:. -Xbatch -XX:-TieredCompilation -XX:CompileCommand=dontinline,*::*dontinline* -XX:CompileCommand=dontinline,*::*dontjit* -XX:CompileCommand=exclude,*::*dontjit* -XX:CompileCommand=dontinline,java/lang/String*.* MovingCompWindow 
+started: Mon Apr 29 01:43:20 UTC 2024
+Mode: othervm [/othervm specified]
+Additional options from @modules: --add-modules java.base --add-exports java.base/jdk.internal.vm=ALL-UNNAMED
+finished: Mon Apr 29 01:43:21 UTC 2024
+elapsed time (seconds): 0.715
+----------configuration:(4/107)----------
+Boot Layer
+  add modules: java.base                 
+  add exports: java.base/jdk.internal.vm ALL-UNNAMED
+
+----------System.out:(258/14435)----------
+CompileCommand: dontinline *.*dontinline* bool dontinline = true
+CompileCommand: dontinline *.*dontjit* bool dontinline = true
+CompileCommand: exclude *.*dontjit* bool exclude = true
+CompileCommand: dontinline java/lang/String*.* bool dontinline = true
+$$$0 Running test cases with the following settings:
+compLevel=4
+callSystemGC=true
+
+$$$1 Running test cases with the following policy:
+warmupIterations=7
+methodPattern=COMP_ALL
+continuationMethPattern=^(enter|enter0|yield|yield0)$
+compWindowMode=COMP_WINDOW
+winLen=1
+
+>>>> Executing test case MovingCompWindow$ContinuationRunYieldRunTest (yieldCalls=3)
+Warm-up test case
+[1] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[1] Yield #0
+[1] Yield #1
+[1] Yield #2
+[2] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[2] Yield #0
+[2] Yield #1
+[2] Yield #2
+[3] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[3] Yield #0
+[3] Yield #1
+[3] Yield #2
+[4] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[4] Yield #0
+[4] Yield #1
+[4] Yield #2
+[5] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[5] Yield #0
+[5] Yield #1
+[5] Yield #2
+[6] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[6] Yield #0
+[6] Yield #1
+[6] Yield #2
+[7] Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+[7] Yield #0
+[7] Yield #1
+[7] Yield #2
+Warm-up test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: COMP_WINDOW winPos=0 winLen=1
+methods[0] inWindow=true isCompiled=false shouldBeCompiled=true method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+           Compiling methods[0]
+methods[1] inWindow=false isCompiled=false shouldBeCompiled=false method=`private void jdk.internal.vm.Continuation.enter0()`
+methods[2] inWindow=false isCompiled=false shouldBeCompiled=false method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+methods[3] inWindow=false isCompiled=false shouldBeCompiled=false method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+methods[4] inWindow=false isCompiled=false shouldBeCompiled=false method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: COMP_WINDOW winPos=1 winLen=1
+methods[0] inWindow=false isCompiled=true shouldBeCompiled=false method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+           Deoptimizing methods[0]
+methods[1] inWindow=true isCompiled=false shouldBeCompiled=true method=`private void jdk.internal.vm.Continuation.enter0()`
+           Compiling methods[1]
+methods[2] inWindow=false isCompiled=false shouldBeCompiled=false method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+methods[3] inWindow=false isCompiled=false shouldBeCompiled=false method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+methods[4] inWindow=false isCompiled=false shouldBeCompiled=false method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: COMP_WINDOW winPos=2 winLen=1
+methods[0] inWindow=false isCompiled=false shouldBeCompiled=false method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=true shouldBeCompiled=false method=`private void jdk.internal.vm.Continuation.enter0()`
+           Deoptimizing methods[1]
+methods[2] inWindow=true isCompiled=false shouldBeCompiled=true method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+           Compiling methods[2]
+methods[3] inWindow=false isCompiled=false shouldBeCompiled=false method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+methods[4] inWindow=false isCompiled=false shouldBeCompiled=false method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: COMP_WINDOW winPos=3 winLen=1
+methods[0] inWindow=false isCompiled=false shouldBeCompiled=false method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=false shouldBeCompiled=false method=`private void jdk.internal.vm.Continuation.enter0()`
+methods[2] inWindow=false isCompiled=true shouldBeCompiled=false method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+           Deoptimizing methods[2]
+methods[3] inWindow=true isCompiled=false shouldBeCompiled=true method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+           Compiling methods[3]
+methods[4] inWindow=false isCompiled=false shouldBeCompiled=false method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: COMP_WINDOW winPos=4 winLen=1
+methods[0] inWindow=false isCompiled=false shouldBeCompiled=false method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=false shouldBeCompiled=false method=`private void jdk.internal.vm.Continuation.enter0()`
+methods[2] inWindow=false isCompiled=false shouldBeCompiled=false method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+methods[3] inWindow=false isCompiled=true shouldBeCompiled=false method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+           Deoptimizing methods[3]
+methods[4] inWindow=true isCompiled=false shouldBeCompiled=true method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+           Compiling methods[4]
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: DEOPT_WINDOW winPos=0 winLen=1
+methods[0] inWindow=true isCompiled=false shouldBeCompiled=false method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=false shouldBeCompiled=true method=`private void jdk.internal.vm.Continuation.enter0()`
+           Compiling methods[1]
+methods[2] inWindow=false isCompiled=false shouldBeCompiled=true method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+           Compiling methods[2]
+methods[3] inWindow=false isCompiled=false shouldBeCompiled=true method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+           Compiling methods[3]
+methods[4] inWindow=false isCompiled=true shouldBeCompiled=true method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: DEOPT_WINDOW winPos=1 winLen=1
+methods[0] inWindow=false isCompiled=false shouldBeCompiled=true method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+           Compiling methods[0]
+methods[1] inWindow=true isCompiled=true shouldBeCompiled=false method=`private void jdk.internal.vm.Continuation.enter0()`
+           Deoptimizing methods[1]
+methods[2] inWindow=false isCompiled=true shouldBeCompiled=true method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+methods[3] inWindow=false isCompiled=true shouldBeCompiled=true method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+methods[4] inWindow=false isCompiled=true shouldBeCompiled=true method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: DEOPT_WINDOW winPos=2 winLen=1
+methods[0] inWindow=false isCompiled=true shouldBeCompiled=true method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=false shouldBeCompiled=true method=`private void jdk.internal.vm.Continuation.enter0()`
+           Compiling methods[1]
+methods[2] inWindow=true isCompiled=true shouldBeCompiled=false method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+           Deoptimizing methods[2]
+methods[3] inWindow=false isCompiled=true shouldBeCompiled=true method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+methods[4] inWindow=false isCompiled=true shouldBeCompiled=true method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: DEOPT_WINDOW winPos=3 winLen=1
+methods[0] inWindow=false isCompiled=true shouldBeCompiled=true method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=true shouldBeCompiled=true method=`private void jdk.internal.vm.Continuation.enter0()`
+methods[2] inWindow=false isCompiled=false shouldBeCompiled=true method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+           Compiling methods[2]
+methods[3] inWindow=true isCompiled=true shouldBeCompiled=false method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+           Deoptimizing methods[3]
+methods[4] inWindow=false isCompiled=true shouldBeCompiled=true method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+@@ Compiling test methods according to compilation policy
+Compilation window mode: DEOPT_WINDOW winPos=4 winLen=1
+methods[0] inWindow=false isCompiled=true shouldBeCompiled=true method=`private static void jdk.internal.vm.Continuation.enter(jdk.internal.vm.Continuation,boolean)`
+methods[1] inWindow=false isCompiled=true shouldBeCompiled=true method=`private void jdk.internal.vm.Continuation.enter0()`
+methods[2] inWindow=false isCompiled=true shouldBeCompiled=true method=`public void MovingCompWindow$ContinuationRunYieldRunTest.run()`
+methods[3] inWindow=false isCompiled=false shouldBeCompiled=true method=`public static boolean jdk.internal.vm.Continuation.yield(jdk.internal.vm.ContinuationScope)`
+           Compiling methods[3]
+methods[4] inWindow=true isCompiled=true shouldBeCompiled=false method=`private boolean jdk.internal.vm.Continuation.yield0(jdk.internal.vm.ContinuationScope,jdk.internal.vm.Continuation)`
+           Deoptimizing methods[4]
+Running test case (Reresolve Call Sites)
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE  (Reresolve Call Sites)
+Running test case
+Continuation running on thread Thread[#19,MainThread,5,MainThreadGroup]
+Yield #0
+Yield #1
+Yield #2
+Running test case DONE
+<<<< Finished test case MovingCompWindow$ContinuationRunYieldRunTest
+
+----------System.err:(1/15)----------
+STATUS:Passed.
+----------rerun:(46/4794)*----------
+cd /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/Users/runner \\
+LANG=en_US.UTF-8 \\
+LC_ALL=C \\
+LC_CTYPE=en_US.UTF-8 \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/Users/runner/work/openjdk/openjdk/bundles/tests \\
+CLASSPATH=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/Users/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+    /Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dcompile.jdk=/Users/runner/work/openjdk/openjdk/bundles/jdk/jdk-23.jdk/Contents/Home \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/Users/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -Dtest.file=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation/MovingCompWindow.java \\
+        -Dtest.src=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation \\
+        -Dtest.src.path=/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/test/lib:/Users/runner/work/openjdk/openjdk/test/hotspot/jtreg \\
+        -Dtest.classes=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d \\
+        -Dtest.class.path=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -Dtest.class.path.prefix=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/jdk/internal/vm/Continuation/MovingCompWindow.d:/Users/runner/work/openjdk/openjdk/test/jdk/jdk/internal/vm/Continuation:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/lib:/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/test/hotspot/jtreg \\
+        -Dtest.modules=java.base/jdk.internal.vm \\
+        --add-modules java.base \\
+        --add-exports java.base/jdk.internal.vm=ALL-UNNAMED \\
+        -Xmx768m \\
+        -XX:MaxRAMPercentage=12.5 \\
+        -Dtest.boot.jdk=/Users/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -Djava.io.tmpdir=/Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -ea \\
+        -esa \\
+        -XX:-CreateCoredumpOnCrash \\
+        -Djava.library.path=/Users/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -XX:+UnlockDiagnosticVMOptions \\
+        -XX:+WhiteBoxAPI \\
+        -Xbootclasspath/a:. \\
+        -Xbatch \\
+        -XX:-TieredCompilation \\
+        -XX:CompileCommand=dontinline,*::*dontinline* \\
+        -XX:CompileCommand=dontinline,*::*dontjit* \\
+        -XX:CompileCommand=exclude,*::*dontjit* \\
+        -XX:CompileCommand=dontinline,java/lang/String*.* \\
+        com.sun.javatest.regtest.agent.MainWrapper /Users/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/jdk/internal/vm/Continuation/MovingCompWindow.d/main.0.jta
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful

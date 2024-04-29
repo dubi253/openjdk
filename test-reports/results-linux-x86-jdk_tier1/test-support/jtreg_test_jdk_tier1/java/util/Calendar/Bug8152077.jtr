@@ -1,0 +1,622 @@
+#Test Results (version 2)
+#Mon Apr 29 00:53:01 UTC 2024
+#-----testdescription-----
+$file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java
+$root=/home/runner/work/openjdk/openjdk/test/jdk
+keywords=bug8152077
+run=ASSUMED_ACTION main Bug8152077\n
+source=Bug8152077.java
+title=Make sure that roll() with HOUR/HOUR_OF_DAY works around standard/daylight time transitions
+
+#-----environment-----
+
+#-----testresult-----
+description=file\:/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java
+elapsed=445 0\:00\:00.445
+end=Mon Apr 29 00\:53\:01 UTC 2024
+environment=regtest
+execStatus=Passed. Execution successful
+harnessLoaderMode=Classpath Loader
+harnessVariety=Full Bundle
+hostname=fv-az1153-853.j2xen23xrnaetdgy434mngmvif.cx.internal.cloudapp.net
+javatestOS=Linux 6.5.0-1018-azure (amd64)
+javatestVersion=6.0-ea+b24-2024-04-28-${BUILT_FROM_COMMIT}
+jtregVersion=jtreg 7.3.1 dev 0
+script=com.sun.javatest.regtest.exec.RegressionScript
+sections=script_messages build compile main
+start=Mon Apr 29 00\:53\:00 UTC 2024
+test=java/util/Calendar/Bug8152077.java
+testJDK=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+testJDK_OS=[name\:Linux,arch\:i386,version\:6.5.0-1018-azure,family\:linux,simple_arch\:i586,simple_version\:6.5,processors\:4,maxMemory\:16757346304,maxSwap\:4294963200]
+testJDK_os.arch=i386
+testJDK_os.name=Linux
+testJDK_os.version=6.5.0-1018-azure
+totalTime=445
+user.name=runner
+work=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/java/util/Calendar
+
+#section:script_messages
+----------messages:(4/315)----------
+JDK under test: /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23
+openjdk version "23-internal" 2024-09-17
+OpenJDK Runtime Environment (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c)
+OpenJDK Server VM (build 23-internal-dubi253-4c630b0b2463c476ae1e6c8cae3ae981b793158c, mixed mode, sharing)
+
+#section:build
+----------messages:(7/209)----------
+command: build Bug8152077
+reason: Named class compiled on demand
+started: Mon Apr 29 00:53:00 UTC 2024
+Test directory:
+  compile: Bug8152077
+finished: Mon Apr 29 00:53:01 UTC 2024
+elapsed time (seconds): 0.07
+result: Passed. Build successful
+
+#section:compile
+----------messages:(7/277)----------
+command: compile /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java
+reason: .class file out of date or does not exist
+started: Mon Apr 29 00:53:00 UTC 2024
+Mode: agentvm
+Agent id: 1
+finished: Mon Apr 29 00:53:01 UTC 2024
+elapsed time (seconds): 0.07
+----------configuration:(10/669)----------
+Boot Layer (javac runtime environment)
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+javac compilation environment
+  source path: /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar
+  class path:  /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar
+               /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d
+
+----------rerun:(35/3169)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/javac \\
+        -J-Xmx768m \\
+        -J-XX:MaxRAMPercentage=12.5 \\
+        -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk \\
+        -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp \\
+        -J-ea \\
+        -J-esa \\
+        -J-Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -J-Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -J-Dtest.compiler.opts= \\
+        -J-Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -J-Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -J-Dtest.timeout.factor=4.0 \\
+        -J-Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -J-Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -J-Dtest.name=java/util/Calendar/Bug8152077.java \\
+        -J-Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java \\
+        -J-Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -J-Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -J-Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d \\
+        -J-Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d \\
+        -J-Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -d /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d \\
+        -sourcepath /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -classpath /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar:/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java
+result: Passed. Compilation successful
+
+#section:main
+----------messages:(7/223)----------
+command: main Bug8152077
+reason: Assumed action based on file name: run main Bug8152077 
+started: Mon Apr 29 00:53:01 UTC 2024
+Mode: agentvm
+Agent id: 29
+finished: Mon Apr 29 00:53:01 UTC 2024
+elapsed time (seconds): 0.373
+----------configuration:(13/916)----------
+Boot Layer
+  class path: /home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/junit-platform-console-standalone-1.9.2.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/testng-7.3.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/guice-5.1.0.jar 
+              /home/runner/work/openjdk/openjdk/jtreg/installed/lib/jcommander-1.82.jar 
+  patch:      java.base /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/patches/java.base
+
+Test Layer
+  class path: /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d
+              /home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar
+
+----------rerun:(28/2681)*----------
+cd /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/scratch/1 && \\
+HOME=/home/runner \\
+LANG=C.UTF-8 \\
+LC_ALL=C \\
+PATH=/bin:/usr/bin:/usr/sbin \\
+TEST_IMAGE_DIR=/home/runner/work/openjdk/openjdk/bundles/tests \\
+XDG_CONFIG_HOME=/home/runner/.config \\
+XDG_RUNTIME_DIR=/run/user/1001 \\
+_JVM_DWARF_PATH=/home/runner/work/openjdk/openjdk/bundles/symbols/jdk-23 \\
+    /home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23/bin/java \\
+        -Dtest.vm.opts='-Xmx768m -XX:MaxRAMPercentage=12.5 -Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -ea -esa' \\
+        -Dtest.tool.vm.opts='-J-Xmx768m -J-XX:MaxRAMPercentage=12.5 -J-Dtest.boot.jdk=/home/runner/work/openjdk/openjdk/bootjdk/jdk -J-Djava.io.tmpdir=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/tmp -J-ea -J-esa' \\
+        -Dtest.compiler.opts= \\
+        -Dtest.java.opts=-XX:-CreateCoredumpOnCrash \\
+        -Dtest.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dcompile.jdk=/home/runner/work/openjdk/openjdk/bundles/jdk/jdk-23 \\
+        -Dtest.timeout.factor=4.0 \\
+        -Dtest.nativepath=/home/runner/work/openjdk/openjdk/bundles/tests/jdk/jtreg/native \\
+        -Dtest.root=/home/runner/work/openjdk/openjdk/test/jdk \\
+        -Dtest.name=java/util/Calendar/Bug8152077.java \\
+        -Dtest.file=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar/Bug8152077.java \\
+        -Dtest.src=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -Dtest.src.path=/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -Dtest.classes=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d \\
+        -Dtest.class.path=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d \\
+        -Dtest.class.path.prefix=/home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar \\
+        -classpath /home/runner/work/openjdk/openjdk/build/run-test-prebuilt/test-support/jtreg_test_jdk_tier1/classes/1/java/util/Calendar/Bug8152077.d:/home/runner/work/openjdk/openjdk/test/jdk/java/util/Calendar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/javatest.jar:/home/runner/work/openjdk/openjdk/jtreg/installed/lib/jtreg.jar \\
+        Bug8152077
+----------System.out:(448/29196)----------
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 00:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 00:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 01:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 01:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 03:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 03:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 04:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 04:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 05:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 05:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 06:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 06:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 07:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 07:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 08:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 08:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 09:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 09:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 10:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 10:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 11:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 11:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 12:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 12:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 13:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 13:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 14:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 14:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 15:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 15:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 16:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 16:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 17:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 17:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 18:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 18:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 19:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 19:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 20:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 20:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 21:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 21:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 22:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 22:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Mar 13 23:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Mar 13 23:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 00:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Mar 13 00:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Mar 13 01:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Mar 13 01:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Mar 13 03:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 03:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 04:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 04:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 05:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 05:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 06:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 06:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 07:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 07:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 08:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 08:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 09:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 09:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 10:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 10:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 11:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 11:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 12:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 12:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 13:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 13:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 14:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 14:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 15:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 15:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 16:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 16:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 17:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 17:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 18:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 18:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 19:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 19:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 20:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 20:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 21:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 21:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 22:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 22:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Mar 13 23:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Mar 13 23:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 00:00:00 PDT 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 00:00:00 PDT 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 01:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 01:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 02:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 02:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 03:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 03:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 04:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 04:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 05:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 05:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 06:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 06:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 07:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 07:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 08:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 08:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 09:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 09:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 10:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 10:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 11:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 11:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 12:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 12:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 13:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 13:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 14:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 14:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 15:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 15:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 16:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 16:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 17:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 17:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 18:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 18:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 19:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 19:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 20:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 20:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 21:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 21:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 22:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 22:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Nov 06 23:00:00 PST 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Nov 06 23:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 00:00:00 PDT 2016
+roll(HOUR, -1) starting from Sun Nov 06 00:00:00 PDT 2016
+roll(HOUR,  1) starting from Sun Nov 06 01:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 01:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 02:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 02:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 03:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 03:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 04:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 04:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 05:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 05:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 06:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 06:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 07:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 07:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 08:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 08:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 09:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 09:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 10:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 10:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 11:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 11:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 12:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 12:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 13:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 13:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 14:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 14:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 15:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 15:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 16:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 16:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 17:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 17:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 18:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 18:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 19:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 19:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 20:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 20:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 21:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 21:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 22:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 22:00:00 PST 2016
+roll(HOUR,  1) starting from Sun Nov 06 23:00:00 PST 2016
+roll(HOUR, -1) starting from Sun Nov 06 23:00:00 PST 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 00:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 00:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 01:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 01:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 02:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 02:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 03:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 03:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 04:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 04:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 05:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 05:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 06:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 06:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 07:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 07:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 08:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 08:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 09:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 09:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 10:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 10:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 11:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 11:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 12:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 12:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 13:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 13:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 14:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 14:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 15:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 15:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 16:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 16:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 17:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 17:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 18:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 18:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 19:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 19:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 20:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 20:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 21:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 21:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 22:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 22:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Feb 21 23:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Feb 21 23:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 00:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 00:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 01:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 01:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 02:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 02:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 03:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 03:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 04:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 04:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 05:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 05:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 06:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 06:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 07:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 07:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 08:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 08:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 09:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 09:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 10:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 10:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 11:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 11:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 12:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 12:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 13:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 13:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 14:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 14:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 15:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 15:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 16:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 16:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 17:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 17:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 18:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 18:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 19:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 19:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 20:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 20:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 21:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 21:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 22:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 22:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sun Feb 21 23:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sun Feb 21 23:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 00:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 00:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 01:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 01:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 02:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 02:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 03:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 03:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 04:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 04:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 05:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 05:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 06:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 06:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 07:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 07:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 08:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 08:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 09:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 09:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 10:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 10:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 11:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 11:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 12:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 12:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 13:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 13:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 14:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 14:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 15:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 15:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 16:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 16:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 17:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 17:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 18:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 18:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 19:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 19:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 20:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 20:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 21:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 21:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 22:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 22:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sat Oct 15 23:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sat Oct 15 23:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 12:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 12:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 13:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 13:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 14:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 14:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 15:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 15:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 16:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 16:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 17:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 17:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 18:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 18:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 19:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 19:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 20:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 20:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 21:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 21:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 22:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 22:00:00 GMT-03:00 2016
+roll(HOUR,  1) starting from Sat Oct 15 23:00:00 GMT-03:00 2016
+roll(HOUR, -1) starting from Sat Oct 15 23:00:00 GMT-03:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 01:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 01:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 02:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 02:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 03:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 03:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 04:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 04:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 05:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 05:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 06:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 06:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 07:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 07:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 08:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 08:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 09:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 09:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 10:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 10:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 11:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 11:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 12:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 12:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 13:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 13:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 14:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 14:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 15:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 15:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 16:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 16:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 17:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 17:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 18:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 18:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 19:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 19:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 20:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 20:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 21:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 21:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 22:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 22:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY,  1) starting from Sun Oct 16 23:00:00 GMT-02:00 2016
+roll(HOUR_OF_DAY, -1) starting from Sun Oct 16 23:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 01:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 01:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 02:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 02:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 03:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 03:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 04:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 04:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 05:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 05:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 06:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 06:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 07:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 07:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 08:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 08:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 09:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 09:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 10:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 10:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 11:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 11:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 12:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 12:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 13:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 13:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 14:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 14:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 15:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 15:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 16:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 16:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 17:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 17:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 18:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 18:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 19:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 19:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 20:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 20:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 21:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 21:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 22:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 22:00:00 GMT-02:00 2016
+roll(HOUR,  1) starting from Sun Oct 16 23:00:00 GMT-02:00 2016
+roll(HOUR, -1) starting from Sun Oct 16 23:00:00 GMT-02:00 2016
+----------System.err:(3/35)----------
+
+JavaTest Message: Test complete.
+
+result: Passed. Execution successful
+
+
+test result: Passed. Execution successful
